@@ -1,0 +1,7 @@
+{
+    "name": "codbex-jobs-data",
+    "repository": {
+        "url": "https://github.com/codbex/codbex-jobs.git",
+        "type": "git"
+    }
+}

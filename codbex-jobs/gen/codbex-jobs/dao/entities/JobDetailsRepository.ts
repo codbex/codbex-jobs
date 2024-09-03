@@ -109,7 +109,7 @@ interface JobDetailsUpdateEntityEvent extends JobDetailsEntityEvent {
 export class JobDetailsRepository {
 
     private static readonly DEFINITION = {
-        table: "JOBDETAILS",
+        table: "CODBEX_JOBDETAILS",
         properties: [
             {
                 name: "Id",
@@ -170,7 +170,7 @@ export class JobDetailsRepository {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "JOBDETAILS",
+            table: "CODBEX_JOBDETAILS",
             entity: entity,
             key: {
                 name: "Id",
@@ -187,7 +187,7 @@ export class JobDetailsRepository {
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "JOBDETAILS",
+            table: "CODBEX_JOBDETAILS",
             entity: entity,
             previousEntity: previousEntity,
             key: {
@@ -218,7 +218,7 @@ export class JobDetailsRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "JOBDETAILS",
+            table: "CODBEX_JOBDETAILS",
             entity: entity,
             key: {
                 name: "Id",
@@ -233,7 +233,7 @@ export class JobDetailsRepository {
     }
 
     public customDataCount(): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "JOBDETAILS"');
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_JOBDETAILS"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;

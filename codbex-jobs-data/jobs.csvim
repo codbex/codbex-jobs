@@ -1,0 +1,15 @@
+{
+  "files": [
+    {
+      "table": "CODBEX_JOBSTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-jobs-data/job-statuses.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": ""
+    }
+  ]
+}

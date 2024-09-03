@@ -2,7 +2,7 @@
     "schema": {
         "structures": [
             {
-                "name": "JOBDETAILS",
+                "name": "CODBEX_JOBDETAILS",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -41,7 +41,7 @@
                 ]
             },
             {
-                "name": "DEPARTMENT",
+                "name": "CODBEX_DEPARTMENT",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -60,7 +60,7 @@
                 ]
             },
             {
-                "name": "JOBSTATUS",
+                "name": "CODBEX_JOBSTATUS",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -81,28 +81,28 @@
             {
                 "name": "JobDetails_Department",
                 "type": "foreignKey",
-                "table": "JOBDETAILS",
+                "table": "CODBEX_JOBDETAILS",
                 "constraintName": "JobDetails_Department",
                 "columns": "JOBDETAILS_DEPARTMENT",
-                "referencedTable": "DEPARTMENT",
+                "referencedTable": "CODBEX_DEPARTMENT",
                 "referencedColumns": "DEPARTMENT_ID"
             },
             {
                 "name": "JobDetails_Employee",
                 "type": "foreignKey",
-                "table": "JOBDETAILS",
+                "table": "CODBEX_JOBDETAILS",
                 "constraintName": "JobDetails_Employee",
                 "columns": "JOBDETAILS_MANAGER",
-                "referencedTable": "EMPLOYEE",
+                "referencedTable": "CODBEX_EMPLOYEE",
                 "referencedColumns": "EMPLOYEE_ID"
             },
             {
                 "name": "JobDetails_JobStatus",
                 "type": "foreignKey",
-                "table": "JOBDETAILS",
+                "table": "CODBEX_JOBDETAILS",
                 "constraintName": "JobDetails_JobStatus",
                 "columns": "JOBDETAILS_JOBSTATUS",
-                "referencedTable": "JOBSTATUS",
+                "referencedTable": "CODBEX_JOBSTATUS",
                 "referencedColumns": "JOBSTATUS_ID"
             }
         ]

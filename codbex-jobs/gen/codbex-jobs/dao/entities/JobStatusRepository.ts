@@ -72,7 +72,7 @@ interface JobStatusUpdateEntityEvent extends JobStatusEntityEvent {
 export class JobStatusRepository {
 
     private static readonly DEFINITION = {
-        table: "JOBSTATUS",
+        table: "CODBEX_JOBSTATUS",
         properties: [
             {
                 name: "Id",
@@ -108,7 +108,7 @@ export class JobStatusRepository {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "JOBSTATUS",
+            table: "CODBEX_JOBSTATUS",
             entity: entity,
             key: {
                 name: "Id",
@@ -124,7 +124,7 @@ export class JobStatusRepository {
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "JOBSTATUS",
+            table: "CODBEX_JOBSTATUS",
             entity: entity,
             previousEntity: previousEntity,
             key: {
@@ -155,7 +155,7 @@ export class JobStatusRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "JOBSTATUS",
+            table: "CODBEX_JOBSTATUS",
             entity: entity,
             key: {
                 name: "Id",
@@ -170,7 +170,7 @@ export class JobStatusRepository {
     }
 
     public customDataCount(): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "JOBSTATUS"');
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_JOBSTATUS"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;

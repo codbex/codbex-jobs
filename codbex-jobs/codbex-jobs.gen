@@ -1,16 +1,16 @@
 {
+  "tablePrefix": "CODBEX_",
   "brand": "codbex",
-  "brandUrl": "codbex url",
+  "brandUrl": "codebx url",
   "title": "Jobs",
   "description": "Jobs module",
-  "fileName": "codbex-jobs",
-  "genFolderName": "codbex-jobs",
-  "dataSource": "DefaultDB",
-  "tablePrefix": "",
   "projectName": "codbex-jobs",
   "workspaceName": "workspace",
   "filePath": "codbex-jobs.model",
   "templateId": "template-application-angular/template/template.js",
+  "fileName": "codbex-jobs",
+  "genFolderName": "codbex-jobs",
+  "dataSource": "DefaultDB",
   "perspectives": {
     "entities": {
       "views": [
@@ -188,7 +188,7 @@
         }
       ],
       "caption": "Manage entity JobDetails",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"JOBDETAILS\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_JOBDETAILS\"",
       "dataName": "JOBDETAILS",
       "dataQuery": "",
       "generateReport": "false",
@@ -271,7 +271,7 @@
         }
       ],
       "caption": "Manage entity Department",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"DEPARTMENT\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_DEPARTMENT\"",
       "dataName": "DEPARTMENT",
       "dataQuery": "",
       "generateReport": "false",
@@ -523,7 +523,7 @@
         }
       ],
       "caption": "Manage entity Employee",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"EMPLOYEE\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_EMPLOYEE\"",
       "dataName": "EMPLOYEE",
       "dataQuery": "",
       "generateReport": "false",
@@ -602,7 +602,7 @@
         }
       ],
       "caption": "Manage entity JobStatus",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"JOBSTATUS\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_JOBSTATUS\"",
       "dataName": "JOBSTATUS",
       "dataQuery": "",
       "generateReport": "false",

@@ -72,7 +72,7 @@ interface DepartmentUpdateEntityEvent extends DepartmentEntityEvent {
 export class DepartmentRepository {
 
     private static readonly DEFINITION = {
-        table: "DEPARTMENT",
+        table: "CODBEX_DEPARTMENT",
         properties: [
             {
                 name: "Id",
@@ -108,7 +108,7 @@ export class DepartmentRepository {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "DEPARTMENT",
+            table: "CODBEX_DEPARTMENT",
             entity: entity,
             key: {
                 name: "Id",
@@ -124,7 +124,7 @@ export class DepartmentRepository {
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "DEPARTMENT",
+            table: "CODBEX_DEPARTMENT",
             entity: entity,
             previousEntity: previousEntity,
             key: {
@@ -155,7 +155,7 @@ export class DepartmentRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "DEPARTMENT",
+            table: "CODBEX_DEPARTMENT",
             entity: entity,
             key: {
                 name: "Id",
@@ -170,7 +170,7 @@ export class DepartmentRepository {
     }
 
     public customDataCount(): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "DEPARTMENT"');
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_DEPARTMENT"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;
