@@ -1,0 +1,111 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "JOBDETAILS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "JOBDETAILS_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "JOBDETAILS_JOBTITLE"
+                    },
+                    {
+                        "type": "DATE",
+                        "nullable": true,
+                        "name": "JOBDETAILS_HIREDATE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "JOBDETAILS_DEPARTMENT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "JOBDETAILS_MANAGER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "JOBDETAILS_JOBSTATUS"
+                    }
+                ]
+            },
+            {
+                "name": "DEPARTMENT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "DEPARTMENT_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 30,
+                        "nullable": true,
+                        "name": "DEPARTMENT_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "JOBSTATUS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "JOBSTATUS_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "JOBSTATUS_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "JobDetails_Department",
+                "type": "foreignKey",
+                "table": "JOBDETAILS",
+                "constraintName": "JobDetails_Department",
+                "columns": "JOBDETAILS_DEPARTMENT",
+                "referencedTable": "DEPARTMENT",
+                "referencedColumns": "DEPARTMENT_ID"
+            },
+            {
+                "name": "JobDetails_Employee",
+                "type": "foreignKey",
+                "table": "JOBDETAILS",
+                "constraintName": "JobDetails_Employee",
+                "columns": "JOBDETAILS_MANAGER",
+                "referencedTable": "EMPLOYEE",
+                "referencedColumns": "EMPLOYEE_ID"
+            },
+            {
+                "name": "JobDetails_JobStatus",
+                "type": "foreignKey",
+                "table": "JOBDETAILS",
+                "constraintName": "JobDetails_JobStatus",
+                "columns": "JOBDETAILS_JOBSTATUS",
+                "referencedTable": "JOBSTATUS",
+                "referencedColumns": "JOBSTATUS_ID"
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}

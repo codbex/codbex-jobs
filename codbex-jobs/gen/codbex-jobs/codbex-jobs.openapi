@@ -1,0 +1,1717 @@
+openapi: 3.0.3
+info:
+  title: Jobs - OpenAPI 3.0
+  version: 1.0.0
+  description: Jobs module
+externalDocs:
+  description: Find out more about Eclipse Dirigible
+  url: https://dirigible.io
+servers:
+  - url: /services/ts
+tags:
+  - name: entities
+  - name: entities
+  - name: entities
+paths:
+  /codbex-jobs/gen/codbex-jobs/api/entities/JobDetailsService.ts:
+    get:
+      summary: List JobDetails
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/JobDetails'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create JobDetails
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobDetails'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobDetails'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/entities/JobDetailsService.ts/{id}:
+    get:
+      summary: Get JobDetails by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/JobDetails'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update JobDetails by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobDetails'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobDetails'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete JobDetails by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/entities/JobDetailsService.ts/count:
+    get:
+      summary: Count the number of JobDetails
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of JobDetails by JobDetailsFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobDetailsFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      JobTitle: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithContains:
+                summary: Count with Contains
+                value:
+                  $filter:
+                    contains:
+                      JobTitle: "abcd"
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/entities/JobDetailsService.ts/search:
+    post:
+      summary: Search JobDetails by JobDetailsFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobDetailsFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      JobTitle: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithContains:
+                summary: Search with Contains
+                value:
+                  $filter:
+                    contains:
+                      JobTitle: "abcd"
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/JobDetails'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/entities/DepartmentService.ts:
+    get:
+      summary: List Department
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Department'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create Department
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/entities/DepartmentService.ts/{id}:
+    get:
+      summary: Get Department by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Department'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update Department by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete Department by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/entities/DepartmentService.ts/count:
+    get:
+      summary: Count the number of Department
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of Department by DepartmentFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepartmentFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithContains:
+                summary: Count with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/entities/DepartmentService.ts/search:
+    post:
+      summary: Search Department by DepartmentFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepartmentFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithContains:
+                summary: Search with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Department'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts:
+    get:
+      summary: List JobStatus
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/JobStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create JobStatus
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobStatus'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts/{id}:
+    get:
+      summary: Get JobStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/JobStatus'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update JobStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobStatus'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete JobStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts/count:
+    get:
+      summary: Count the number of JobStatus
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of JobStatus by JobStatusFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobStatusFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithContains:
+                summary: Count with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts/search:
+    post:
+      summary: Search JobStatus by JobStatusFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobStatusFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithContains:
+                summary: Search with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/JobStatus'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    JobDetails:
+      type: object
+      required:
+        - JobTitle
+        - HireDate
+        - Department
+        - Manager
+      properties:
+        Id:
+          type: integer
+          format: int32
+        JobTitle:
+          type: string
+          minLength: 0
+          maxLength: 50
+        HireDate:
+        Department:
+          type: integer
+          format: int32
+        Manager:
+          type: integer
+          format: int32
+        JobStatus:
+          type: integer
+          format: int32
+    JobDetailsFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                JobTitle:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
+                HireDate:
+                  oneOf:
+                Department:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Manager:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                JobStatus:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                JobTitle:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
+                HireDate:
+                  oneOf:
+                Department:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Manager:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                JobStatus:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+            contains:
+              type: object
+              properties:
+                Id:
+                JobTitle:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                HireDate:
+                Department:
+                Manager:
+                JobStatus:
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                JobTitle:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                HireDate:
+                Department:
+                  type: integer
+                  format: int32
+                Manager:
+                  type: integer
+                  format: int32
+                JobStatus:
+                  type: integer
+                  format: int32
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                JobTitle:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                HireDate:
+                Department:
+                  type: integer
+                  format: int32
+                Manager:
+                  type: integer
+                  format: int32
+                JobStatus:
+                  type: integer
+                  format: int32
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                JobTitle:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                HireDate:
+                Department:
+                  type: integer
+                  format: int32
+                Manager:
+                  type: integer
+                  format: int32
+                JobStatus:
+                  type: integer
+                  format: int32
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                JobTitle:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                HireDate:
+                Department:
+                  type: integer
+                  format: int32
+                Manager:
+                  type: integer
+                  format: int32
+                JobStatus:
+                  type: integer
+                  format: int32
+        $select:
+          type: array
+          example: ["Id", "JobTitle", "HireDate", "Department", "Manager", "JobStatus"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,JobTitle,HireDate,Department,Manager,JobStatus"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    Department:
+      type: object
+      required:
+        - Name
+      properties:
+        Id:
+          type: integer
+          format: int32
+        Name:
+          type: string
+          minLength: 0
+          maxLength: 30
+    DepartmentFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 30
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 30
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 30
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 30
+            contains:
+              type: object
+              properties:
+                Id:
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
+        $select:
+          type: array
+          example: ["Id", "Name"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,Name"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    JobStatus:
+      type: object
+      required:
+        - Name
+      properties:
+        Id:
+          type: integer
+          format: int32
+        Name:
+          type: string
+          minLength: 0
+          maxLength: 20
+    JobStatusFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+            contains:
+              type: object
+              properties:
+                Id:
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+        $select:
+          type: array
+          example: ["Id", "Name"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,Name"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
