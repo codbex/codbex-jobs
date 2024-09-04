@@ -1,20 +1,20 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { JobDetailsRepository, JobDetailsEntityOptions } from "../../dao/entities/JobDetailsRepository";
+import { JobAssignmentRepository, JobAssignmentEntityOptions } from "../../dao/entities/JobAssignmentRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-jobs-entities-JobDetails", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-jobs-entities-JobAssignment", ["validate"]);
 
 @Controller
-class JobDetailsService {
+class JobAssignmentService {
 
-    private readonly repository = new JobDetailsRepository();
+    private readonly repository = new JobAssignmentRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            const options: JobDetailsEntityOptions = {
+            const options: JobAssignmentEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -30,7 +30,7 @@ class JobDetailsService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobDetailsService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobAssignmentService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -73,7 +73,7 @@ class JobDetailsService {
             if (entity) {
                 return entity;
             } else {
-                HttpUtils.sendResponseNotFound("JobDetails not found");
+                HttpUtils.sendResponseNotFound("JobAssignment not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -101,7 +101,7 @@ class JobDetailsService {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("JobDetails not found");
+                HttpUtils.sendResponseNotFound("JobAssignment not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -119,6 +119,9 @@ class JobDetailsService {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.Number?.length > 20) {
+            throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
+        }
         if (entity.JobTitle === null || entity.JobTitle === undefined) {
             throw new ValidationError(`The 'JobTitle' property is required, provide a valid value`);
         }
@@ -127,9 +130,6 @@ class JobDetailsService {
         }
         if (entity.HireDate === null || entity.HireDate === undefined) {
             throw new ValidationError(`The 'HireDate' property is required, provide a valid value`);
-        }
-        if (entity.Department === null || entity.Department === undefined) {
-            throw new ValidationError(`The 'Department' property is required, provide a valid value`);
         }
         if (entity.Manager === null || entity.Manager === undefined) {
             throw new ValidationError(`The 'Manager' property is required, provide a valid value`);

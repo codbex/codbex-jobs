@@ -14,6 +14,12 @@
                     },
                     {
                         "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "JOBDETAILS_NUMBER"
+                    },
+                    {
+                        "type": "VARCHAR",
                         "length": 50,
                         "nullable": true,
                         "name": "JOBDETAILS_JOBTITLE"
@@ -22,6 +28,11 @@
                         "type": "DATE",
                         "nullable": true,
                         "name": "JOBDETAILS_HIREDATE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "JOBDETAILS_ORGANISATION"
                     },
                     {
                         "type": "INTEGER",
@@ -37,25 +48,6 @@
                         "type": "INTEGER",
                         "nullable": true,
                         "name": "JOBDETAILS_JOBSTATUS"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_DEPARTMENT",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "DEPARTMENT_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 30,
-                        "nullable": true,
-                        "name": "DEPARTMENT_NAME"
                     }
                 ]
             },
@@ -79,28 +71,37 @@
                 ]
             },
             {
-                "name": "JobDetails_Department",
+                "name": "JobAssignment_Organisation",
                 "type": "foreignKey",
                 "table": "CODBEX_JOBDETAILS",
-                "constraintName": "JobDetails_Department",
+                "constraintName": "JobAssignment_Organisation",
+                "columns": "JOBDETAILS_ORGANISATION",
+                "referencedTable": "CODBEX_ORGANISATION",
+                "referencedColumns": "ORGANISATION_ID"
+            },
+            {
+                "name": "JobAssignment_Department",
+                "type": "foreignKey",
+                "table": "CODBEX_JOBDETAILS",
+                "constraintName": "JobAssignment_Department",
                 "columns": "JOBDETAILS_DEPARTMENT",
                 "referencedTable": "CODBEX_DEPARTMENT",
                 "referencedColumns": "DEPARTMENT_ID"
             },
             {
-                "name": "JobDetails_Employee",
+                "name": "JobAssignment_Employee",
                 "type": "foreignKey",
                 "table": "CODBEX_JOBDETAILS",
-                "constraintName": "JobDetails_Employee",
+                "constraintName": "JobAssignment_Employee",
                 "columns": "JOBDETAILS_MANAGER",
                 "referencedTable": "CODBEX_EMPLOYEE",
                 "referencedColumns": "EMPLOYEE_ID"
             },
             {
-                "name": "JobDetails_JobStatus",
+                "name": "JobAssignment_JobStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_JOBDETAILS",
-                "constraintName": "JobDetails_JobStatus",
+                "constraintName": "JobAssignment_JobStatus",
                 "columns": "JOBDETAILS_JOBSTATUS",
                 "referencedTable": "CODBEX_JOBSTATUS",
                 "referencedColumns": "JOBSTATUS_ID"

@@ -4,97 +4,114 @@ import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 
-export interface JobDetailsEntity {
+export interface JobAssignmentEntity {
     readonly Id: number;
+    Number?: string;
     JobTitle?: string;
     HireDate?: Date;
+    Organisation?: number;
     Department?: number;
     Manager?: number;
     JobStatus?: number;
 }
 
-export interface JobDetailsCreateEntity {
+export interface JobAssignmentCreateEntity {
     readonly JobTitle?: string;
     readonly HireDate?: Date;
+    readonly Organisation?: number;
     readonly Department?: number;
     readonly Manager?: number;
     readonly JobStatus?: number;
 }
 
-export interface JobDetailsUpdateEntity extends JobDetailsCreateEntity {
+export interface JobAssignmentUpdateEntity extends JobAssignmentCreateEntity {
     readonly Id: number;
 }
 
-export interface JobDetailsEntityOptions {
+export interface JobAssignmentEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
+            Number?: string | string[];
             JobTitle?: string | string[];
             HireDate?: Date | Date[];
+            Organisation?: number | number[];
             Department?: number | number[];
             Manager?: number | number[];
             JobStatus?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
+            Number?: string | string[];
             JobTitle?: string | string[];
             HireDate?: Date | Date[];
+            Organisation?: number | number[];
             Department?: number | number[];
             Manager?: number | number[];
             JobStatus?: number | number[];
         };
         contains?: {
             Id?: number;
+            Number?: string;
             JobTitle?: string;
             HireDate?: Date;
+            Organisation?: number;
             Department?: number;
             Manager?: number;
             JobStatus?: number;
         };
         greaterThan?: {
             Id?: number;
+            Number?: string;
             JobTitle?: string;
             HireDate?: Date;
+            Organisation?: number;
             Department?: number;
             Manager?: number;
             JobStatus?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
+            Number?: string;
             JobTitle?: string;
             HireDate?: Date;
+            Organisation?: number;
             Department?: number;
             Manager?: number;
             JobStatus?: number;
         };
         lessThan?: {
             Id?: number;
+            Number?: string;
             JobTitle?: string;
             HireDate?: Date;
+            Organisation?: number;
             Department?: number;
             Manager?: number;
             JobStatus?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
+            Number?: string;
             JobTitle?: string;
             HireDate?: Date;
+            Organisation?: number;
             Department?: number;
             Manager?: number;
             JobStatus?: number;
         };
     },
-    $select?: (keyof JobDetailsEntity)[],
-    $sort?: string | (keyof JobDetailsEntity)[],
+    $select?: (keyof JobAssignmentEntity)[],
+    $sort?: string | (keyof JobAssignmentEntity)[],
     $order?: 'asc' | 'desc',
     $offset?: number,
     $limit?: number,
 }
 
-interface JobDetailsEntityEvent {
+interface JobAssignmentEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
-    readonly entity: Partial<JobDetailsEntity>;
+    readonly entity: Partial<JobAssignmentEntity>;
     readonly key: {
         name: string;
         column: string;
@@ -102,11 +119,11 @@ interface JobDetailsEntityEvent {
     }
 }
 
-interface JobDetailsUpdateEntityEvent extends JobDetailsEntityEvent {
-    readonly previousEntity: JobDetailsEntity;
+interface JobAssignmentUpdateEntityEvent extends JobAssignmentEntityEvent {
+    readonly previousEntity: JobAssignmentEntity;
 }
 
-export class JobDetailsRepository {
+export class JobAssignmentRepository {
 
     private static readonly DEFINITION = {
         table: "CODBEX_JOBDETAILS",
@@ -119,6 +136,11 @@ export class JobDetailsRepository {
                 autoIncrement: true,
             },
             {
+                name: "Number",
+                column: "JOBDETAILS_NUMBER",
+                type: "VARCHAR",
+            },
+            {
                 name: "JobTitle",
                 column: "JOBDETAILS_JOBTITLE",
                 type: "VARCHAR",
@@ -127,6 +149,11 @@ export class JobDetailsRepository {
                 name: "HireDate",
                 column: "JOBDETAILS_HIREDATE",
                 type: "DATE",
+            },
+            {
+                name: "Organisation",
+                column: "JOBDETAILS_ORGANISATION",
+                type: "INTEGER",
             },
             {
                 name: "Department",
@@ -149,24 +176,26 @@ export class JobDetailsRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(JobDetailsRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(JobAssignmentRepository.DEFINITION, null, dataSource);
     }
 
-    public findAll(options?: JobDetailsEntityOptions): JobDetailsEntity[] {
-        return this.dao.list(options).map((e: JobDetailsEntity) => {
+    public findAll(options?: JobAssignmentEntityOptions): JobAssignmentEntity[] {
+        return this.dao.list(options).map((e: JobAssignmentEntity) => {
             EntityUtils.setDate(e, "HireDate");
             return e;
         });
     }
 
-    public findById(id: number): JobDetailsEntity | undefined {
+    public findById(id: number): JobAssignmentEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "HireDate");
         return entity ?? undefined;
     }
 
-    public create(entity: JobDetailsCreateEntity): number {
+    public create(entity: JobAssignmentCreateEntity): number {
         EntityUtils.setLocalDate(entity, "HireDate");
+        // @ts-ignore
+        (entity as JobAssignmentEntity).Number = new NumberGeneratorService().generate(25);
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -181,7 +210,7 @@ export class JobDetailsRepository {
         return id;
     }
 
-    public update(entity: JobDetailsUpdateEntity): void {
+    public update(entity: JobAssignmentUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "HireDate");
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
@@ -198,15 +227,15 @@ export class JobDetailsRepository {
         });
     }
 
-    public upsert(entity: JobDetailsCreateEntity | JobDetailsUpdateEntity): number {
-        const id = (entity as JobDetailsUpdateEntity).Id;
+    public upsert(entity: JobAssignmentCreateEntity | JobAssignmentUpdateEntity): number {
+        const id = (entity as JobAssignmentUpdateEntity).Id;
         if (!id) {
             return this.create(entity);
         }
 
         const existingEntity = this.findById(id);
         if (existingEntity) {
-            this.update(entity as JobDetailsUpdateEntity);
+            this.update(entity as JobAssignmentUpdateEntity);
             return id;
         } else {
             return this.create(entity);
@@ -228,7 +257,7 @@ export class JobDetailsRepository {
         });
     }
 
-    public count(options?: JobDetailsEntityOptions): number {
+    public count(options?: JobAssignmentEntityOptions): number {
         return this.dao.count(options);
     }
 
@@ -244,8 +273,8 @@ export class JobDetailsRepository {
         return 0;
     }
 
-    private async triggerEvent(data: JobDetailsEntityEvent | JobDetailsUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-jobs-entities-JobDetails", ["trigger"]);
+    private async triggerEvent(data: JobAssignmentEntityEvent | JobAssignmentUpdateEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-jobs-entities-JobAssignment", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -253,6 +282,6 @@ export class JobDetailsRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-jobs-entities-JobDetails").send(JSON.stringify(data));
+        producer.topic("codbex-jobs-entities-JobAssignment").send(JSON.stringify(data));
     }
 }

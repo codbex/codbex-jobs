@@ -28,8 +28,10 @@
 			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
+						<th fd-table-header-cell>Number</th>
 						<th fd-table-header-cell>JobTitle</th>
 						<th fd-table-header-cell>HireDate</th>
+						<th fd-table-header-cell>Organisation</th>
 						<th fd-table-header-cell>Department</th>
 						<th fd-table-header-cell>Manager</th>
 						<th fd-table-header-cell>JobStatus</th>
@@ -42,13 +44,13 @@
 					</tr>
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Number}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.JobTitle}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							<fd-input type="date" ng-model="next.HireDate" ng-readonly="true"></fd-input>
 						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsDepartmentValue(next.Department)}}
-						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Organisation}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Department}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsManagerValue(next.Manager)}}
 						</td>
