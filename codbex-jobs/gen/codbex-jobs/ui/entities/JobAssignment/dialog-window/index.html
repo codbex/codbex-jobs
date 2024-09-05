@@ -91,21 +91,21 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idOrganisation" dg-required="false" dg-colon="true">Organisation</fd-form-label>
+                        	<fd-form-label for="idOrganization" dg-required="false" dg-colon="true">Organization</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Organisation'].$valid }}">
-	                            <fd-input id="idOrganisation"
-	                                name="Organisation"
-	                                state="{{ forms.details['Organisation'].$valid ? '' : 'error' }}"
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Organization'].$valid }}">
+	                            <fd-input id="idOrganization"
+	                                name="Organization"
+	                                state="{{ forms.details['Organization'].$valid ? '' : 'error' }}"
 									ng-required="false"
-	                                ng-model="entity.Organisation"
+	                                ng-model="entity.Organization"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="${property.minLength} || 0"
 	                                ng-maxlength="${property.maxLength} || -1"
 	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
-	                                placeholder="Enter Organisation">
+	                                placeholder="Enter Organization">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
 	                        </fd-form-input-message-group>

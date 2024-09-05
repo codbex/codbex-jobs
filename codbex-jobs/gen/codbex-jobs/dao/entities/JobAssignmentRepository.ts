@@ -9,7 +9,7 @@ export interface JobAssignmentEntity {
     Number?: string;
     JobTitle?: string;
     HireDate?: Date;
-    Organisation?: number;
+    Organization?: number;
     Department?: number;
     Manager?: number;
     JobStatus?: number;
@@ -18,7 +18,7 @@ export interface JobAssignmentEntity {
 export interface JobAssignmentCreateEntity {
     readonly JobTitle?: string;
     readonly HireDate?: Date;
-    readonly Organisation?: number;
+    readonly Organization?: number;
     readonly Department?: number;
     readonly Manager?: number;
     readonly JobStatus?: number;
@@ -35,7 +35,7 @@ export interface JobAssignmentEntityOptions {
             Number?: string | string[];
             JobTitle?: string | string[];
             HireDate?: Date | Date[];
-            Organisation?: number | number[];
+            Organization?: number | number[];
             Department?: number | number[];
             Manager?: number | number[];
             JobStatus?: number | number[];
@@ -45,7 +45,7 @@ export interface JobAssignmentEntityOptions {
             Number?: string | string[];
             JobTitle?: string | string[];
             HireDate?: Date | Date[];
-            Organisation?: number | number[];
+            Organization?: number | number[];
             Department?: number | number[];
             Manager?: number | number[];
             JobStatus?: number | number[];
@@ -55,7 +55,7 @@ export interface JobAssignmentEntityOptions {
             Number?: string;
             JobTitle?: string;
             HireDate?: Date;
-            Organisation?: number;
+            Organization?: number;
             Department?: number;
             Manager?: number;
             JobStatus?: number;
@@ -65,7 +65,7 @@ export interface JobAssignmentEntityOptions {
             Number?: string;
             JobTitle?: string;
             HireDate?: Date;
-            Organisation?: number;
+            Organization?: number;
             Department?: number;
             Manager?: number;
             JobStatus?: number;
@@ -75,7 +75,7 @@ export interface JobAssignmentEntityOptions {
             Number?: string;
             JobTitle?: string;
             HireDate?: Date;
-            Organisation?: number;
+            Organization?: number;
             Department?: number;
             Manager?: number;
             JobStatus?: number;
@@ -85,7 +85,7 @@ export interface JobAssignmentEntityOptions {
             Number?: string;
             JobTitle?: string;
             HireDate?: Date;
-            Organisation?: number;
+            Organization?: number;
             Department?: number;
             Manager?: number;
             JobStatus?: number;
@@ -95,7 +95,7 @@ export interface JobAssignmentEntityOptions {
             Number?: string;
             JobTitle?: string;
             HireDate?: Date;
-            Organisation?: number;
+            Organization?: number;
             Department?: number;
             Manager?: number;
             JobStatus?: number;
@@ -151,8 +151,8 @@ export class JobAssignmentRepository {
                 type: "DATE",
             },
             {
-                name: "Organisation",
-                column: "JOBDETAILS_ORGANISATION",
+                name: "Organization",
+                column: "JOBDETAILS_ORGANIZATION",
                 type: "INTEGER",
             },
             {

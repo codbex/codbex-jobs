@@ -32,7 +32,7 @@
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "JOBDETAILS_ORGANISATION"
+                        "name": "JOBDETAILS_ORGANIZATION"
                     },
                     {
                         "type": "INTEGER",
@@ -71,13 +71,13 @@
                 ]
             },
             {
-                "name": "JobAssignment_Organisation",
+                "name": "JobAssignment_Organization",
                 "type": "foreignKey",
                 "table": "CODBEX_JOBDETAILS",
-                "constraintName": "JobAssignment_Organisation",
-                "columns": "JOBDETAILS_ORGANISATION",
-                "referencedTable": "CODBEX_ORGANISATION",
-                "referencedColumns": "ORGANISATION_ID"
+                "constraintName": "JobAssignment_Organization",
+                "columns": "JOBDETAILS_ORGANIZATION",
+                "referencedTable": "CODBEX_ORGANIZATION",
+                "referencedColumns": "ORGANIZATION_ID"
             },
             {
                 "name": "JobAssignment_Department",

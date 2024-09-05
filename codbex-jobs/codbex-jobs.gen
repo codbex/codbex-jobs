@@ -16,8 +16,7 @@
       "views": [
         "JobAssignment",
         "JobStatus",
-        "Department",
-        "Organisation"
+        "Department"
       ],
       "name": "entities",
       "label": "entities",
@@ -33,6 +32,16 @@
       "label": "Employees",
       "order": "101",
       "icon": "/services/web/resources/unicons/users-alt.svg",
+      "role": ""
+    },
+    "Organizations": {
+      "views": [
+        "Organization"
+      ],
+      "name": "Organizations",
+      "label": "Organizations",
+      "order": "105",
+      "icon": "/services/web/resources/unicons/university.svg",
       "role": ""
     }
   },
@@ -132,25 +141,25 @@
           "inputRule": ""
         },
         {
-          "dataName": "JOBDETAILS_ORGANISATION",
+          "dataName": "JOBDETAILS_ORGANIZATION",
           "dataNullable": true,
           "dataType": "INTEGER",
-          "name": "Organisation",
+          "name": "Organization",
           "widgetIsMajor": true,
           "widgetLength": "20",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
-          "relationshipName": "JobAssignment_Organisation",
-          "relationshipEntityName": "Organisation",
-          "relationshipEntityPerspectiveName": "entities",
-          "relationshipEntityPerspectiveLabel": "Entities",
+          "relationshipName": "JobAssignment_Organization",
+          "relationshipEntityName": "Organization",
+          "relationshipEntityPerspectiveName": "Organizations",
+          "relationshipEntityPerspectiveLabel": "Organizations",
           "dataNotNull": false,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
           "dataUnique": false,
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
-          "widgetLabel": "Organisation",
+          "widgetLabel": "Organization",
           "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
@@ -259,9 +268,9 @@
       "dataSource": "DefaultDB",
       "referencedProjections": [
         {
-          "name": "Organisation",
-          "project": "codbex-companies",
-          "genFolderName": "codbex-companies"
+          "name": "Organization",
+          "project": "codbex-organizations",
+          "genFolderName": "codbex-organizations"
         },
         {
           "name": "Department",
@@ -693,7 +702,7 @@
       "properties": [
         {
           "dataAutoIncrement": true,
-          "dataName": "ORGANISATION_ID",
+          "dataName": "ORGANIZATION_ID",
           "dataNullable": true,
           "dataPrimaryKey": true,
           "dataType": "INTEGER",
@@ -714,7 +723,7 @@
         },
         {
           "dataLength": "50",
-          "dataName": "ORGANISATION_NAME",
+          "dataName": "ORGANIZATION_NAME",
           "dataNullable": true,
           "dataType": "VARCHAR",
           "isRequiredProperty": true,
@@ -738,7 +747,7 @@
         },
         {
           "dataLength": "10",
-          "dataName": "ORGANISATION_COSTCENTER",
+          "dataName": "ORGANIZATION_COSTCENTER",
           "dataNullable": true,
           "dataType": "VARCHAR",
           "name": "CostCenter",
@@ -759,63 +768,36 @@
           "minLength": 0,
           "maxLength": 10,
           "inputRule": ""
-        },
-        {
-          "dataName": "ORGANISATION_DEPARTMENT",
-          "dataNullable": true,
-          "dataType": "INTEGER",
-          "name": "Department",
-          "relationshipCardinality": "1_n",
-          "relationshipEntityPerspectiveLabel": "Entities",
-          "relationshipEntityPerspectiveName": "entities",
-          "relationshipName": "Organisation_Department",
-          "relationshipType": "COMPOSITION",
-          "widgetIsMajor": false,
-          "widgetLength": "20",
-          "widgetSize": "",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": false,
-          "dataAutoIncrement": false,
-          "dataPrimaryKey": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "widgetLabel": "Department",
-          "widgetDropdownUrl": "",
-          "dataTypeJava": "int",
-          "dataTypeTypescript": "number",
-          "inputRule": ""
         }
       ],
-      "caption": "Manage entity Organisation",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ORGANISATION\"",
-      "dataName": "ORGANISATION",
+      "caption": "Manage entity Organization",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ORGANIZATION\"",
+      "dataName": "ORGANIZATION",
       "dataQuery": "",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE",
       "menuIndex": "100",
-      "menuKey": "organisation",
-      "menuLabel": "Organisation",
-      "name": "Organisation",
+      "menuKey": "organization",
+      "menuLabel": "Organization",
+      "name": "Organization",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "entities",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/university.svg",
+      "perspectiveLabel": "Organizations",
+      "perspectiveName": "Organizations",
+      "perspectiveOrder": "105",
       "perspectiveRole": "",
-      "projectionReferencedEntity": "Organisation",
-      "projectionReferencedModel": "/workspace/codbex-companies/codbex-companies.model",
-      "title": "Organisation",
-      "tooltip": "Organisation",
+      "projectionReferencedEntity": "Organization",
+      "projectionReferencedModel": "/workspace/codbex-organizations/codbex-organizations.model",
+      "title": "Organization",
+      "tooltip": "Organization",
       "type": "PROJECTION",
       "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
-      "primaryKeysString": "Id",
-      "masterEntityId": "Department"
+      "primaryKeysString": "Id"
     }
   ]
 }

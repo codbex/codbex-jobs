@@ -838,7 +838,7 @@ components:
           minLength: 0
           maxLength: 50
         HireDate:
-        Organisation:
+        Organization:
           type: integer
           format: int32
         Department:
@@ -891,7 +891,7 @@ components:
                         maxLength: 50
                 HireDate:
                   oneOf:
-                Organisation:
+                Organization:
                   oneOf:
                     - type: integer
                       format: int32
@@ -958,7 +958,7 @@ components:
                         maxLength: 50
                 HireDate:
                   oneOf:
-                Organisation:
+                Organization:
                   oneOf:
                     - type: integer
                       format: int32
@@ -1003,7 +1003,7 @@ components:
                   minLength: 0
                   maxLength: 50
                 HireDate:
-                Organisation:
+                Organization:
                 Department:
                 Manager:
                 JobStatus:
@@ -1022,7 +1022,7 @@ components:
                   minLength: 0
                   maxLength: 50
                 HireDate:
-                Organisation:
+                Organization:
                   type: integer
                   format: int32
                 Department:
@@ -1049,7 +1049,7 @@ components:
                   minLength: 0
                   maxLength: 50
                 HireDate:
-                Organisation:
+                Organization:
                   type: integer
                   format: int32
                 Department:
@@ -1076,7 +1076,7 @@ components:
                   minLength: 0
                   maxLength: 50
                 HireDate:
-                Organisation:
+                Organization:
                   type: integer
                   format: int32
                 Department:
@@ -1103,7 +1103,7 @@ components:
                   minLength: 0
                   maxLength: 50
                 HireDate:
-                Organisation:
+                Organization:
                   type: integer
                   format: int32
                 Department:
@@ -1117,12 +1117,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "JobTitle", "HireDate", "Organisation", "Department", "Manager", "JobStatus"]
+          example: ["Id", "Number", "JobTitle", "HireDate", "Organization", "Department", "Manager", "JobStatus"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,JobTitle,HireDate,Organisation,Department,Manager,JobStatus"
+            example: "Id,Number,JobTitle,HireDate,Organization,Department,Manager,JobStatus"
         $order:
           type: string
           enum: ["asc", "desc"]

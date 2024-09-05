@@ -59,8 +59,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.HireDateTo) {
 				filter.$filter.lessThanOrEqual.HireDate = entity.HireDateTo;
 			}
-			if (entity.Organisation !== undefined) {
-				filter.$filter.equals.Organisation = entity.Organisation;
+			if (entity.Organization !== undefined) {
+				filter.$filter.equals.Organization = entity.Organization;
 			}
 			if (entity.Department !== undefined) {
 				filter.$filter.equals.Department = entity.Department;
