@@ -1,0 +1,9 @@
+JOBTYPE_ID,JOBTYPE_NAME
+1,Full-time
+2,Part-time
+3,Internship
+4,Temporary
+5,Contract
+7,Seasonal
+8,Scholarship
+9,External
