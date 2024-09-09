@@ -1526,11 +1526,12 @@
           "inputRule": ""
         },
         {
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(25)",
           "dataLength": "20",
           "dataName": "JOBPOSITION_NUMBER",
           "dataNullable": true,
           "dataType": "VARCHAR",
-          "isRequiredProperty": true,
+          "isCalculatedProperty": true,
           "name": "Number",
           "widgetIsMajor": true,
           "widgetLength": "20",
@@ -1540,7 +1541,7 @@
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
           "dataUnique": false,
-          "isCalculatedProperty": false,
+          "isRequiredProperty": false,
           "widgetLabel": "Number",
           "widgetDropdownUrl": "",
           "dataTypeJava": "string",
@@ -1579,10 +1580,12 @@
           "dataNullable": true,
           "dataType": "INTEGER",
           "name": "JobStatus",
+          "widgetDropDownKey": "Id",
+          "widgetDropDownValue": "Name",
           "widgetIsMajor": true,
           "widgetLength": "20",
           "widgetSize": "",
-          "widgetType": "TEXTBOX",
+          "widgetType": "DROPDOWN",
           "relationshipName": "JobPosition_JobStatus",
           "relationshipEntityName": "JobStatus",
           "relationshipEntityPerspectiveName": "entities",
@@ -1594,7 +1597,7 @@
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "JobStatus",
-          "widgetDropdownUrl": "",
+          "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1604,10 +1607,12 @@
           "dataNullable": true,
           "dataType": "INTEGER",
           "name": "JobType",
+          "widgetDropDownKey": "Id",
+          "widgetDropDownValue": "Name",
           "widgetIsMajor": true,
           "widgetLength": "20",
           "widgetSize": "",
-          "widgetType": "TEXTBOX",
+          "widgetType": "DROPDOWN",
           "relationshipName": "JobPosition_JobType",
           "relationshipEntityName": "JobType",
           "relationshipEntityPerspectiveName": "entities",
@@ -1619,7 +1624,7 @@
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "JobType",
-          "widgetDropdownUrl": "",
+          "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobTypeService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1650,7 +1655,8 @@
       "primaryKeys": [
         "Id"
       ],
-      "primaryKeysString": "Id"
+      "primaryKeysString": "Id",
+      "hasDropdowns": true
     },
     {
       "properties": [

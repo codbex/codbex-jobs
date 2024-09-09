@@ -14,6 +14,8 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
+			$scope.optionsJobStatus = params.optionsJobStatus;
+			$scope.optionsJobType = params.optionsJobType;
 		}
 
 		$scope.filter = function () {

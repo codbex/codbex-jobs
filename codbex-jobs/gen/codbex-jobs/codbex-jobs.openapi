@@ -2612,7 +2612,6 @@ components:
     JobPosition:
       type: object
       required:
-        - Number
       properties:
         Id:
           type: integer
@@ -2621,6 +2620,7 @@ components:
           type: string
           minLength: 0
           maxLength: 20
+          readOnly: true
         JobRole:
           type: integer
           format: int32

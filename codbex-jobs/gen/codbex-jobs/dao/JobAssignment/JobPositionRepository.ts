@@ -12,7 +12,6 @@ export interface JobPositionEntity {
 }
 
 export interface JobPositionCreateEntity {
-    readonly Number?: string;
     readonly JobRole?: number;
     readonly JobStatus?: number;
     readonly JobType?: number;
@@ -147,6 +146,8 @@ export class JobPositionRepository {
     }
 
     public create(entity: JobPositionCreateEntity): number {
+        // @ts-ignore
+        (entity as JobPositionEntity).Number = new NumberGeneratorService().generate(25);
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

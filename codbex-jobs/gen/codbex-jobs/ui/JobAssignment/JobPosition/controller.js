@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-jobs/gen/codbex-jobs/api/JobAssignment/JobPositionService.ts";
 	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', 'Extensions', function ($scope, messageHub, entityApi, Extensions) {
+	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', 'Extensions', function ($scope, $http, messageHub, entityApi, Extensions) {
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-jobs-custom-action').then(function (response) {
 			$scope.pageActions = response.filter(e => e.perspective === "JobAssignment" && e.view === "JobPosition" && (e.type === "page" || e.type === undefined));
@@ -125,12 +125,16 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("JobPosition-details", {
 				action: "select",
 				entity: entity,
+				optionsJobStatus: $scope.optionsJobStatus,
+				optionsJobType: $scope.optionsJobType,
 			});
 		};
 
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("JobPosition-filter", {
 				entity: $scope.filterEntity,
+				optionsJobStatus: $scope.optionsJobStatus,
+				optionsJobType: $scope.optionsJobType,
 			});
 		};
 
@@ -141,6 +145,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: {},
 				selectedMainEntityKey: "${masterEntityId}",
 				selectedMainEntityId: $scope.selectedMainEntityId,
+				optionsJobStatus: $scope.optionsJobStatus,
+				optionsJobType: $scope.optionsJobType,
 			}, null, false);
 		};
 
@@ -150,6 +156,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityKey: "${masterEntityId}",
 				selectedMainEntityId: $scope.selectedMainEntityId,
+				optionsJobStatus: $scope.optionsJobStatus,
+				optionsJobType: $scope.optionsJobType,
 			}, null, false);
 		};
 
@@ -181,5 +189,46 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
+
+		//----------------Dropdowns-----------------//
+		$scope.optionsJobStatus = [];
+		$scope.optionsJobType = [];
+
+
+		$http.get("/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts").then(function (response) {
+			$scope.optionsJobStatus = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobTypeService.ts").then(function (response) {
+			$scope.optionsJobType = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$scope.optionsJobStatusValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsJobStatus.length; i++) {
+				if ($scope.optionsJobStatus[i].value === optionKey) {
+					return $scope.optionsJobStatus[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsJobTypeValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsJobType.length; i++) {
+				if ($scope.optionsJobType[i].value === optionKey) {
+					return $scope.optionsJobType[i].text;
+				}
+			}
+			return null;
+		};
+		//----------------Dropdowns-----------------//
 
 	}]);
