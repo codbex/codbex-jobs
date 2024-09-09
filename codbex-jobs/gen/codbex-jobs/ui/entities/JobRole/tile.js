@@ -6,10 +6,10 @@
 exports.getTile = function () {
     return {
         group: "codbex-jobs",
-        name: "JobStatus",
-        caption: "Manage entity JobStatus",
-        tooltip: "JobStatus",
-        type: "SETTING",
+        name: "JobRole",
+        caption: "Manage entity JobRole",
+        tooltip: "JobRole",
+        type: "PRIMARY",
         report: "false",
         icon: "/services/web/resources/unicons/file.svg",
         location: "/services/web/codbex-jobs/gen/codbex-jobs/ui/entities/index.html",
