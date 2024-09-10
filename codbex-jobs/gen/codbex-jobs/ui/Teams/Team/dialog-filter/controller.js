@@ -14,6 +14,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
+			$scope.optionsOrganization = params.optionsOrganization;
 			$scope.optionsDepartment = params.optionsDepartment;
 		}
 
@@ -42,6 +43,9 @@ angular.module('page', ["ideUI", "ideView"])
 			}
 			if (entity.Name) {
 				filter.$filter.contains.Name = entity.Name;
+			}
+			if (entity.Organization !== undefined) {
+				filter.$filter.equals.Organization = entity.Organization;
 			}
 			if (entity.Department !== undefined) {
 				filter.$filter.equals.Department = entity.Department;

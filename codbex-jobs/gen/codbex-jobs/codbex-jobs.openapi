@@ -3396,6 +3396,7 @@ components:
     Team:
       type: object
       required:
+        - Organization
         - Department
       properties:
         Id:
@@ -3405,6 +3406,9 @@ components:
           type: string
           minLength: 0
           maxLength: 20
+        Organization:
+          type: integer
+          format: int32
         Department:
           type: integer
           format: int32
@@ -3436,6 +3440,14 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
+                Organization:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 Department:
                   oneOf:
                     - type: integer
@@ -3466,6 +3478,14 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
+                Organization:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 Department:
                   oneOf:
                     - type: integer
@@ -3482,6 +3502,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Organization:
                 Department:
             greaterThan:
               type: object
@@ -3493,6 +3514,9 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Organization:
+                  type: integer
+                  format: int32
                 Department:
                   type: integer
                   format: int32
@@ -3506,6 +3530,9 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Organization:
+                  type: integer
+                  format: int32
                 Department:
                   type: integer
                   format: int32
@@ -3519,6 +3546,9 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Organization:
+                  type: integer
+                  format: int32
                 Department:
                   type: integer
                   format: int32
@@ -3532,17 +3562,20 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Organization:
+                  type: integer
+                  format: int32
                 Department:
                   type: integer
                   format: int32
         $select:
           type: array
-          example: ["Id", "Name", "Department"]
+          example: ["Id", "Name", "Organization", "Department"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name,Department"
+            example: "Id,Name,Organization,Department"
         $order:
           type: string
           enum: ["asc", "desc"]

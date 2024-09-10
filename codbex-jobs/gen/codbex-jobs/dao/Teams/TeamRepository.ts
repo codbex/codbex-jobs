@@ -6,11 +6,13 @@ import { dao as daoApi } from "sdk/db";
 export interface TeamEntity {
     readonly Id: number;
     Name?: string;
+    Organization?: number;
     Department?: number;
 }
 
 export interface TeamCreateEntity {
     readonly Name?: string;
+    readonly Organization?: number;
     readonly Department?: number;
 }
 
@@ -23,36 +25,43 @@ export interface TeamEntityOptions {
         equals?: {
             Id?: number | number[];
             Name?: string | string[];
+            Organization?: number | number[];
             Department?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Name?: string | string[];
+            Organization?: number | number[];
             Department?: number | number[];
         };
         contains?: {
             Id?: number;
             Name?: string;
+            Organization?: number;
             Department?: number;
         };
         greaterThan?: {
             Id?: number;
             Name?: string;
+            Organization?: number;
             Department?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Name?: string;
+            Organization?: number;
             Department?: number;
         };
         lessThan?: {
             Id?: number;
             Name?: string;
+            Organization?: number;
             Department?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Name?: string;
+            Organization?: number;
             Department?: number;
         };
     },
@@ -94,6 +103,11 @@ export class TeamRepository {
                 name: "Name",
                 column: "TEAM_NAME",
                 type: "VARCHAR",
+            },
+            {
+                name: "Organization",
+                column: "TEAM_ORGANIZATION",
+                type: "INTEGER",
             },
             {
                 name: "Department",

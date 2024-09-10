@@ -171,6 +171,11 @@
                     {
                         "type": "INTEGER",
                         "nullable": true,
+                        "name": "TEAM_ORGANIZATION"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
                         "name": "TEAM_DEPARTMENT"
                     }
                 ]
@@ -264,6 +269,15 @@
                 "columns": "JOBPOSITION_TEAM",
                 "referencedTable": "CODBEX_TEAM",
                 "referencedColumns": "TEAM_ID"
+            },
+            {
+                "name": "Team_Organization",
+                "type": "foreignKey",
+                "table": "CODBEX_TEAM",
+                "constraintName": "Team_Organization",
+                "columns": "TEAM_ORGANIZATION",
+                "referencedTable": "CODBEX_ORGANIZATION",
+                "referencedColumns": "ORGANIZATION_ID"
             },
             {
                 "name": "Team_Department",

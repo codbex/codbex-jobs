@@ -122,6 +122,9 @@ class TeamService {
         if (entity.Name?.length > 20) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
         }
+        if (entity.Organization === null || entity.Organization === undefined) {
+            throw new ValidationError(`The 'Organization' property is required, provide a valid value`);
+        }
         if (entity.Department === null || entity.Department === undefined) {
             throw new ValidationError(`The 'Department' property is required, provide a valid value`);
         }

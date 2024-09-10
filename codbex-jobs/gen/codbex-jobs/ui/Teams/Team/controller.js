@@ -112,6 +112,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("entitySelected", {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
+				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
 			});
 		};
@@ -122,6 +123,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 			messageHub.postMessage("createEntity", {
 				entity: {},
+				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
 			});
 		};
@@ -130,6 +132,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.action = "update";
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
+				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
 			});
 		};
@@ -167,13 +170,24 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("Team-filter", {
 				entity: $scope.filterEntity,
+				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
 			});
 		};
 
 		//----------------Dropdowns-----------------//
+		$scope.optionsOrganization = [];
 		$scope.optionsDepartment = [];
 
+
+		$http.get("/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts").then(function (response) {
+			$scope.optionsOrganization = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
 
 		$http.get("/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts").then(function (response) {
 			$scope.optionsDepartment = response.data.map(e => {
@@ -184,6 +198,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
+		$scope.optionsOrganizationValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsOrganization.length; i++) {
+				if ($scope.optionsOrganization[i].value === optionKey) {
+					return $scope.optionsOrganization[i].text;
+				}
+			}
+			return null;
+		};
 		$scope.optionsDepartmentValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsDepartment.length; i++) {
 				if ($scope.optionsDepartment[i].value === optionKey) {
