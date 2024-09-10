@@ -1,20 +1,20 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { JobAssignmentRepository, JobAssignmentEntityOptions } from "../../dao/JobAssignment/JobAssignmentRepository";
+import { TeamRepository, TeamEntityOptions } from "../../dao/Teams/TeamRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-jobs-JobAssignment-JobAssignment", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-jobs-Teams-Team", ["validate"]);
 
 @Controller
-class JobAssignmentService {
+class TeamService {
 
-    private readonly repository = new JobAssignmentRepository();
+    private readonly repository = new TeamRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            const options: JobAssignmentEntityOptions = {
+            const options: TeamEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -30,7 +30,7 @@ class JobAssignmentService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-jobs/gen/codbex-jobs/api/JobAssignment/JobAssignmentService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/TeamService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -73,7 +73,7 @@ class JobAssignmentService {
             if (entity) {
                 return entity;
             } else {
-                HttpUtils.sendResponseNotFound("JobAssignment not found");
+                HttpUtils.sendResponseNotFound("Team not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -101,7 +101,7 @@ class JobAssignmentService {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("JobAssignment not found");
+                HttpUtils.sendResponseNotFound("Team not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -119,23 +119,11 @@ class JobAssignmentService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Number?.length > 20) {
-            throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
+        if (entity.Name?.length > 20) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
         }
-        if (entity.HireDate === null || entity.HireDate === undefined) {
-            throw new ValidationError(`The 'HireDate' property is required, provide a valid value`);
-        }
-        if (entity.Organization === null || entity.Organization === undefined) {
-            throw new ValidationError(`The 'Organization' property is required, provide a valid value`);
-        }
-        if (entity.Team === null || entity.Team === undefined) {
-            throw new ValidationError(`The 'Team' property is required, provide a valid value`);
-        }
-        if (entity.Manager === null || entity.Manager === undefined) {
-            throw new ValidationError(`The 'Manager' property is required, provide a valid value`);
-        }
-        if (entity.JobPosition === null || entity.JobPosition === undefined) {
-            throw new ValidationError(`The 'JobPosition' property is required, provide a valid value`);
+        if (entity.Department === null || entity.Department === undefined) {
+            throw new ValidationError(`The 'Department' property is required, provide a valid value`);
         }
         for (const next of validationModules) {
             next.validate(entity);

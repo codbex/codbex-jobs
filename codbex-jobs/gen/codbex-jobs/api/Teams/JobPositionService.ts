@@ -1,10 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { JobPositionRepository, JobPositionEntityOptions } from "../../dao/JobAssignment/JobPositionRepository";
+import { JobPositionRepository, JobPositionEntityOptions } from "../../dao/Teams/JobPositionRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-jobs-JobAssignment-JobPosition", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-jobs-Teams-JobPosition", ["validate"]);
 
 @Controller
 class JobPositionService {
@@ -19,13 +19,13 @@ class JobPositionService {
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
 
-            let ${masterEntityId} = parseInt(ctx.queryParameters.${masterEntityId});
-            ${masterEntityId} = isNaN(${masterEntityId}) ? ctx.queryParameters.${masterEntityId} : ${masterEntityId};
+            let Team = parseInt(ctx.queryParameters.Team);
+            Team = isNaN(Team) ? ctx.queryParameters.Team : Team;
 
-            if (${masterEntityId} !== undefined) {
+            if (Team !== undefined) {
                 options.$filter = {
                     equals: {
-                        ${masterEntityId}: ${masterEntityId}
+                        Team: Team
                     }
                 };
             }
@@ -41,7 +41,7 @@ class JobPositionService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-jobs/gen/codbex-jobs/api/JobAssignment/JobPositionService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {

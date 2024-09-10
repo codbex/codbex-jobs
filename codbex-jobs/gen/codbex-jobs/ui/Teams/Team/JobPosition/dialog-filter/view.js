@@ -6,8 +6,8 @@
 const viewData = {
     id: "JobPosition-filter",
     label: "JobPosition Filter",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobAssignment/${masterEntity}/JobPosition/dialog-filter/index.html",
-    perspectiveName: "JobAssignment",
+    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/Teams/Team/JobPosition/dialog-filter/index.html",
+    perspectiveName: "Teams",
 };
 
 if (typeof exports !== 'undefined') {

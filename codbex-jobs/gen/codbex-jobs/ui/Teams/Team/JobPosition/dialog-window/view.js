@@ -6,8 +6,8 @@
 const viewData = {
     id: "JobPosition-details",
     label: "JobPosition",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobAssignment/${masterEntity}/JobPosition/dialog-window/index.html",
-    perspectiveName: "JobAssignment",
+    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/Teams/Team/JobPosition/dialog-window/index.html",
+    perspectiveName: "Teams",
 };
 
 if (typeof exports !== 'undefined') {

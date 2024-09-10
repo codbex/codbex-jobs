@@ -4,12 +4,12 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "JobPosition",
-    label: "JobPosition",
+    id: "Team-details",
+    label: "Team",
     factory: "frame",
-    region: "bottom",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobAssignment/${masterEntity}/JobPosition/index.html",
-    perspectiveName: "JobAssignment",
+    region: "center",
+    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/Teams/Team/main-details/index.html",
+    perspectiveName: "Teams",
 };
 
 if (typeof exports !== 'undefined') {

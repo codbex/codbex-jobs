@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-jobs.JobAssignment.JobAssignment';
+		messageHubProvider.eventIdPrefix = 'codbex-jobs.Teams.Team';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-jobs/gen/codbex-jobs/api/JobAssignment/JobAssignmentService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/TeamService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', 'Extensions', function ($scope, $http, messageHub, entityApi, Extensions) {
 
@@ -15,7 +15,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-jobs-custom-action').then(function (response) {
-			$scope.pageActions = response.filter(e => e.perspective === "JobAssignment" && e.view === "JobAssignment" && (e.type === "page" || e.type === undefined));
+			$scope.pageActions = response.filter(e => e.perspective === "Teams" && e.view === "Team" && (e.type === "page" || e.type === undefined));
 		});
 
 		$scope.triggerPageAction = function (action) {
@@ -77,7 +77,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.selectedEntity = null;
 			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("JobAssignment", `Unable to count JobAssignment: '${response.message}'`);
+					messageHub.showAlertError("Team", `Unable to count Team: '${response.message}'`);
 					return;
 				}
 				if (response.data) {
@@ -93,20 +93,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 				entityApi.search(filter).then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("JobAssignment", `Unable to list/filter JobAssignment: '${response.message}'`);
+						messageHub.showAlertError("Team", `Unable to list/filter Team: '${response.message}'`);
 						return;
 					}
 					if ($scope.data == null || $scope.dataReset) {
 						$scope.data = [];
 						$scope.dataReset = false;
 					}
-
-					response.data.forEach(e => {
-						if (e.HireDate) {
-							e.HireDate = new Date(e.HireDate);
-						}
-					});
-
 					$scope.data = $scope.data.concat(response.data);
 					$scope.dataPage++;
 				});
@@ -119,12 +112,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("entitySelected", {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
-				optionsContract: $scope.optionsContract,
-				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
-				optionsTeam: $scope.optionsTeam,
-				optionsManager: $scope.optionsManager,
-				optionsJobPosition: $scope.optionsJobPosition,
 			});
 		};
 
@@ -134,12 +122,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 			messageHub.postMessage("createEntity", {
 				entity: {},
-				optionsContract: $scope.optionsContract,
-				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
-				optionsTeam: $scope.optionsTeam,
-				optionsManager: $scope.optionsManager,
-				optionsJobPosition: $scope.optionsJobPosition,
 			});
 		};
 
@@ -147,20 +130,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.action = "update";
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
-				optionsContract: $scope.optionsContract,
-				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
-				optionsTeam: $scope.optionsTeam,
-				optionsManager: $scope.optionsManager,
-				optionsJobPosition: $scope.optionsJobPosition,
 			});
 		};
 
 		$scope.deleteEntity = function () {
 			let id = $scope.selectedEntity.Id;
 			messageHub.showDialogAsync(
-				'Delete JobAssignment?',
-				`Are you sure you want to delete JobAssignment? This action cannot be undone.`,
+				'Delete Team?',
+				`Are you sure you want to delete Team? This action cannot be undone.`,
 				[{
 					id: "delete-btn-yes",
 					type: "emphasized",
@@ -175,7 +153,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data === "delete-btn-yes") {
 					entityApi.delete(id).then(function (response) {
 						if (response.status != 204) {
-							messageHub.showAlertError("JobAssignment", `Unable to delete JobAssignment: '${response.message}'`);
+							messageHub.showAlertError("Team", `Unable to delete Team: '${response.message}'`);
 							return;
 						}
 						refreshData();
@@ -187,43 +165,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		$scope.openFilter = function (entity) {
-			messageHub.showDialogWindow("JobAssignment-filter", {
+			messageHub.showDialogWindow("Team-filter", {
 				entity: $scope.filterEntity,
-				optionsContract: $scope.optionsContract,
-				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
-				optionsTeam: $scope.optionsTeam,
-				optionsManager: $scope.optionsManager,
-				optionsJobPosition: $scope.optionsJobPosition,
 			});
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsContract = [];
-		$scope.optionsOrganization = [];
 		$scope.optionsDepartment = [];
-		$scope.optionsTeam = [];
-		$scope.optionsManager = [];
-		$scope.optionsJobPosition = [];
 
-
-		$http.get("/services/ts/codbex-contracts/gen/codbex-contracts/api/Contract/ContractService.ts").then(function (response) {
-			$scope.optionsContract = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Number
-				}
-			});
-		});
-
-		$http.get("/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts").then(function (response) {
-			$scope.optionsOrganization = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
 
 		$http.get("/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts").then(function (response) {
 			$scope.optionsDepartment = response.data.map(e => {
@@ -234,77 +184,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/TeamService.ts").then(function (response) {
-			$scope.optionsTeam = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
-		$http.get("/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts").then(function (response) {
-			$scope.optionsManager = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.FirstName
-				}
-			});
-		});
-
-		$http.get("/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionService.ts").then(function (response) {
-			$scope.optionsJobPosition = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Number
-				}
-			});
-		});
-
-		$scope.optionsContractValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsContract.length; i++) {
-				if ($scope.optionsContract[i].value === optionKey) {
-					return $scope.optionsContract[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsOrganizationValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsOrganization.length; i++) {
-				if ($scope.optionsOrganization[i].value === optionKey) {
-					return $scope.optionsOrganization[i].text;
-				}
-			}
-			return null;
-		};
 		$scope.optionsDepartmentValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsDepartment.length; i++) {
 				if ($scope.optionsDepartment[i].value === optionKey) {
 					return $scope.optionsDepartment[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsTeamValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsTeam.length; i++) {
-				if ($scope.optionsTeam[i].value === optionKey) {
-					return $scope.optionsTeam[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsManagerValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsManager.length; i++) {
-				if ($scope.optionsManager[i].value === optionKey) {
-					return $scope.optionsManager[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsJobPositionValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsJobPosition.length; i++) {
-				if ($scope.optionsJobPosition[i].value === optionKey) {
-					return $scope.optionsJobPosition[i].text;
 				}
 			}
 			return null;

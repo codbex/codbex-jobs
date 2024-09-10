@@ -16,7 +16,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(25)",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(27)",
                         "dataLength": "20",
                         "dataName": "JOBDETAILS_NUMBER",
                         "dataNullable": "true",
@@ -76,7 +76,6 @@
                         "dataName": "JOBDETAILS_DEPARTMENT",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
-                        "isRequiredProperty": "true",
                         "name": "Department",
                         "widgetDropDownDependsOn": "Organization",
                         "widgetDropDownKey": "Id",
@@ -87,7 +86,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "JobAssignment_Department",
                         "relationshipEntityName": "Department",
-                        "relationshipEntityPerspectiveName": "entities",
+                        "relationshipEntityPerspectiveName": "Organizations",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
@@ -105,7 +104,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "JobAssignment_Team",
                         "relationshipEntityName": "Team",
-                        "relationshipEntityPerspectiveName": "entities",
+                        "relationshipEntityPerspectiveName": "Teams",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
@@ -131,6 +130,7 @@
                         "dataType": "INTEGER",
                         "isRequiredProperty": "true",
                         "name": "JobPosition",
+                        "widgetDropDownDependsOn": "Team",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Number",
                         "widgetIsMajor": "true",
@@ -139,7 +139,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "JobAssignment_JobPosition",
                         "relationshipEntityName": "JobPosition",
-                        "relationshipEntityPerspectiveName": "JobAssignment",
+                        "relationshipEntityPerspectiveName": "Teams",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
@@ -368,56 +368,6 @@
                 "properties": [
                     {
                         "dataAutoIncrement": "true",
-                        "dataName": "DEPARTMENT_ID",
-                        "dataNullable": "true",
-                        "dataPrimaryKey": "true",
-                        "dataType": "INTEGER",
-                        "name": "Id",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
-                    },
-                    {
-                        "dataLength": "20",
-                        "dataName": "DEPARTMENT_NAME",
-                        "dataNullable": "true",
-                        "dataType": "VARCHAR",
-                        "isRequiredProperty": "true",
-                        "name": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
-                    }
-                ],
-                "caption": "Manage entity Department",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}DEPARTMENT\"",
-                "dataName": "DEPARTMENT",
-                "dataQuery": "",
-                "generateReport": "false",
-                "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
-                "menuIndex": "100",
-                "menuKey": "department",
-                "menuLabel": "Department",
-                "name": "Department",
-                "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
-                "perspectiveRole": "",
-                "projectionReferencedEntity": "Department",
-                "projectionReferencedModel": "/workspace/codbex-companies/codbex-companies.model",
-                "title": "Department",
-                "tooltip": "Department",
-                "type": "PROJECTION"
-            },
-            {
-                "properties": [
-                    {
-                        "dataAutoIncrement": "true",
                         "dataName": "ORGANIZATION_ID",
                         "dataNullable": "true",
                         "dataPrimaryKey": "true",
@@ -606,67 +556,6 @@
                 "properties": [
                     {
                         "dataAutoIncrement": "true",
-                        "dataName": "TEAM_ID",
-                        "dataNullable": "true",
-                        "dataPrimaryKey": "true",
-                        "dataType": "INTEGER",
-                        "name": "Id",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
-                    },
-                    {
-                        "dataLength": "20",
-                        "dataName": "TEAM_NAME",
-                        "dataNullable": "true",
-                        "dataType": "VARCHAR",
-                        "isRequiredProperty": "true",
-                        "name": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
-                    },
-                    {
-                        "dataLength": "20",
-                        "dataName": "TEAM_MANAGER",
-                        "dataNullable": "true",
-                        "dataType": "VARCHAR",
-                        "name": "Manager",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
-                    }
-                ],
-                "caption": "Manage entity Team",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}TEAM\"",
-                "dataName": "TEAM",
-                "dataQuery": "",
-                "generateReport": "false",
-                "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
-                "menuIndex": "100",
-                "menuKey": "team",
-                "menuLabel": "Team",
-                "name": "Team",
-                "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
-                "perspectiveRole": "",
-                "projectionReferencedEntity": "Team",
-                "projectionReferencedModel": "/workspace/codbex-organizations/codbex-organizations.model",
-                "title": "Team",
-                "tooltip": "Team",
-                "type": "PROJECTION"
-            },
-            {
-                "properties": [
-                    {
-                        "dataAutoIncrement": "true",
                         "dataName": "JOBROLE_ID",
                         "dataNullable": "true",
                         "dataPrimaryKey": "true",
@@ -726,7 +615,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(25)",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(29)",
                         "dataLength": "20",
                         "dataName": "JOBPOSITION_NUMBER",
                         "dataNullable": "true",
@@ -783,6 +672,22 @@
                         "relationshipEntityName": "JobType",
                         "relationshipEntityPerspectiveName": "entities",
                         "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
+                        "dataName": "JOBPOSITION_TEAM",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "name": "Team",
+                        "relationshipCardinality": "1_n",
+                        "relationshipName": "JobPosition_Team",
+                        "relationshipType": "COMPOSITION",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX",
+                        "relationshipEntityName": "Team",
+                        "relationshipEntityPerspectiveName": "Teams",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity JobPosition",
@@ -797,10 +702,10 @@
                 "menuLabel": "JobPosition",
                 "name": "JobPosition",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/0-plus.svg",
-                "perspectiveLabel": "JobAssignment",
-                "perspectiveName": "JobAssignment",
-                "perspectiveOrder": "103",
+                "perspectiveIcon": "/services/web/resources/unicons/user.svg",
+                "perspectiveLabel": "Teams",
+                "perspectiveName": "Teams",
+                "perspectiveOrder": "106",
                 "perspectiveRole": "",
                 "title": "JobPosition",
                 "tooltip": "JobPosition",
@@ -853,6 +758,138 @@
                 "title": "JobType",
                 "tooltip": "JobType",
                 "type": "PRIMARY"
+            },
+            {
+                "properties": [
+                    {
+                        "dataAutoIncrement": "true",
+                        "dataName": "TEAM_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataLength": "20",
+                        "dataName": "TEAM_NAME",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataName": "TEAM_DEPARTMENT",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "isRequiredProperty": "true",
+                        "name": "Department",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "Team_Department",
+                        "relationshipEntityName": "Department",
+                        "relationshipEntityPerspectiveName": "Organizations",
+                        "relationshipEntityPerspectiveLabel": "Entities"
+                    }
+                ],
+                "caption": "Manage entity Team",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}TEAM\"",
+                "dataName": "TEAM",
+                "dataQuery": "",
+                "generateReport": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE_MASTER",
+                "menuIndex": "100",
+                "menuKey": "team",
+                "menuLabel": "Team",
+                "name": "Team",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/user.svg",
+                "perspectiveLabel": "Teams",
+                "perspectiveName": "Teams",
+                "perspectiveOrder": "106",
+                "perspectiveRole": "",
+                "title": "Team",
+                "tooltip": "Team",
+                "type": "PRIMARY"
+            },
+            {
+                "properties": [
+                    {
+                        "dataAutoIncrement": "true",
+                        "dataName": "DEPARTMENT_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataLength": "20",
+                        "dataName": "DEPARTMENT_NAME",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "isRequiredProperty": "true",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataName": "DEPARTMENT_ORGANIZATION",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "isRequiredProperty": "true",
+                        "name": "Organization",
+                        "relationshipCardinality": "1_n",
+                        "relationshipEntityPerspectiveLabel": "Entities",
+                        "relationshipEntityPerspectiveName": "Organizations",
+                        "relationshipName": "Department_Organization",
+                        "relationshipType": "COMPOSITION",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN"
+                    }
+                ],
+                "caption": "Manage entity Department",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}DEPARTMENT\"",
+                "dataName": "DEPARTMENT",
+                "dataQuery": "",
+                "generateReport": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "department",
+                "menuLabel": "Department",
+                "name": "Department",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveLabel": "Entities",
+                "perspectiveName": "Organizations",
+                "perspectiveOrder": "100",
+                "perspectiveRole": "",
+                "projectionReferencedEntity": "Department",
+                "projectionReferencedModel": "/workspace/codbex-organizations/codbex-organizations.model",
+                "title": "Department",
+                "tooltip": "Department",
+                "type": "PROJECTION"
             }
         ],
         "perspectives": [
@@ -861,6 +898,13 @@
                 "label": "JobAssignment",
                 "icon": "/services/web/resources/unicons/0-plus.svg",
                 "order": "103",
+                "role": {}
+            },
+            {
+                "name": "Teams",
+                "label": "Teams",
+                "icon": "/services/web/resources/unicons/user.svg",
+                "order": "106",
                 "role": {}
             }
         ],

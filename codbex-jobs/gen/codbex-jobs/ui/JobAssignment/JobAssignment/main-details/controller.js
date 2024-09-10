@@ -97,7 +97,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.$watch('entity.Organization', function (newValue, oldValue) {
 			if (newValue !== undefined && newValue !== null) {
-				entityApi.$http.post("/services/ts/codbex-companies/gen/codbex-companies/api/entities/DepartmentService.ts/search", {
+				entityApi.$http.post("/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts/search", {
 					$filter: {
 						equals: {
 							Organization: newValue
@@ -119,7 +119,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.$watch('entity.Department', function (newValue, oldValue) {
 			if (newValue !== undefined && newValue !== null) {
-				entityApi.$http.post("/services/ts/codbex-organizations/gen/codbex-organizations/api/entities/TeamService.ts/search", {
+				entityApi.$http.post("/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/TeamService.ts/search", {
 					$filter: {
 						equals: {
 							Department: newValue
@@ -134,6 +134,28 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					});
 					if ($scope.action !== 'select' && newValue !== oldValue) {
 						$scope.entity.Team = undefined;
+					}
+				});
+			}
+		});
+
+		$scope.$watch('entity.Team', function (newValue, oldValue) {
+			if (newValue !== undefined && newValue !== null) {
+				entityApi.$http.post("/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionService.ts/search", {
+					$filter: {
+						equals: {
+							Team: newValue
+						}
+					}
+				}).then(function (response) {
+					$scope.optionsJobPosition = response.data.map(e => {
+						return {
+							value: e.Id,
+							text: e.Number
+						}
+					});
+					if ($scope.action !== 'select' && newValue !== oldValue) {
+						$scope.entity.JobPosition = undefined;
 					}
 				});
 			}

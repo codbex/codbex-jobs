@@ -9,12 +9,14 @@ export interface JobPositionEntity {
     JobRole?: number;
     JobStatus?: number;
     JobType?: number;
+    Team?: number;
 }
 
 export interface JobPositionCreateEntity {
     readonly JobRole?: number;
     readonly JobStatus?: number;
     readonly JobType?: number;
+    readonly Team?: number;
 }
 
 export interface JobPositionUpdateEntity extends JobPositionCreateEntity {
@@ -29,6 +31,7 @@ export interface JobPositionEntityOptions {
             JobRole?: number | number[];
             JobStatus?: number | number[];
             JobType?: number | number[];
+            Team?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -36,6 +39,7 @@ export interface JobPositionEntityOptions {
             JobRole?: number | number[];
             JobStatus?: number | number[];
             JobType?: number | number[];
+            Team?: number | number[];
         };
         contains?: {
             Id?: number;
@@ -43,6 +47,7 @@ export interface JobPositionEntityOptions {
             JobRole?: number;
             JobStatus?: number;
             JobType?: number;
+            Team?: number;
         };
         greaterThan?: {
             Id?: number;
@@ -50,6 +55,7 @@ export interface JobPositionEntityOptions {
             JobRole?: number;
             JobStatus?: number;
             JobType?: number;
+            Team?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -57,6 +63,7 @@ export interface JobPositionEntityOptions {
             JobRole?: number;
             JobStatus?: number;
             JobType?: number;
+            Team?: number;
         };
         lessThan?: {
             Id?: number;
@@ -64,6 +71,7 @@ export interface JobPositionEntityOptions {
             JobRole?: number;
             JobStatus?: number;
             JobType?: number;
+            Team?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -71,6 +79,7 @@ export interface JobPositionEntityOptions {
             JobRole?: number;
             JobStatus?: number;
             JobType?: number;
+            Team?: number;
         };
     },
     $select?: (keyof JobPositionEntity)[],
@@ -126,6 +135,11 @@ export class JobPositionRepository {
                 name: "JobType",
                 column: "JOBPOSITION_JOBTYPE",
                 type: "INTEGER",
+            },
+            {
+                name: "Team",
+                column: "JOBPOSITION_TEAM",
+                type: "INTEGER",
             }
         ]
     };
@@ -147,7 +161,7 @@ export class JobPositionRepository {
 
     public create(entity: JobPositionCreateEntity): number {
         // @ts-ignore
-        (entity as JobPositionEntity).Number = new NumberGeneratorService().generate(25);
+        (entity as JobPositionEntity).Number = new NumberGeneratorService().generate(29);
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -225,7 +239,7 @@ export class JobPositionRepository {
     }
 
     private async triggerEvent(data: JobPositionEntityEvent | JobPositionUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-jobs-JobAssignment-JobPosition", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-jobs-Teams-JobPosition", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -233,6 +247,6 @@ export class JobPositionRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-jobs-JobAssignment-JobPosition").send(JSON.stringify(data));
+        producer.topic("codbex-jobs-Teams-JobPosition").send(JSON.stringify(data));
     }
 }

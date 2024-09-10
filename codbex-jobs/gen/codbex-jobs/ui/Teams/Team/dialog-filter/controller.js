@@ -1,6 +1,6 @@
 angular.module('page', ["ideUI", "ideView"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-jobs.JobAssignment.JobPosition';
+		messageHubProvider.eventIdPrefix = 'codbex-jobs.Teams.Team';
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', function ($scope, messageHub, ViewParameters) {
 
@@ -14,8 +14,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
-			$scope.optionsJobStatus = params.optionsJobStatus;
-			$scope.optionsJobType = params.optionsJobType;
+			$scope.optionsDepartment = params.optionsDepartment;
 		}
 
 		$scope.filter = function () {
@@ -41,22 +40,17 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
-			if (entity.Number) {
-				filter.$filter.contains.Number = entity.Number;
+			if (entity.Name) {
+				filter.$filter.contains.Name = entity.Name;
 			}
-			if (entity.JobRole !== undefined) {
-				filter.$filter.equals.JobRole = entity.JobRole;
-			}
-			if (entity.JobStatus !== undefined) {
-				filter.$filter.equals.JobStatus = entity.JobStatus;
-			}
-			if (entity.JobType !== undefined) {
-				filter.$filter.equals.JobType = entity.JobType;
+			if (entity.Department !== undefined) {
+				filter.$filter.equals.Department = entity.Department;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
 				filter: filter
 			});
+			messageHub.postMessage("clearDetails");
 			$scope.cancel();
 		};
 
@@ -66,7 +60,7 @@ angular.module('page', ["ideUI", "ideView"])
 		};
 
 		$scope.cancel = function () {
-			messageHub.closeDialogWindow("JobPosition-filter");
+			messageHub.closeDialogWindow("Team-filter");
 		};
 
 		$scope.clearErrorMessage = function () {

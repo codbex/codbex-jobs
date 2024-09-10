@@ -124,6 +124,11 @@
                         "type": "INTEGER",
                         "nullable": true,
                         "name": "JOBPOSITION_JOBTYPE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "JOBPOSITION_TEAM"
                     }
                 ]
             },
@@ -143,6 +148,30 @@
                         "length": 20,
                         "nullable": true,
                         "name": "JOBTYPE_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_TEAM",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "TEAM_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "TEAM_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "TEAM_DEPARTMENT"
                     }
                 ]
             },
@@ -226,6 +255,24 @@
                 "columns": "JOBPOSITION_JOBTYPE",
                 "referencedTable": "CODBEX_JOBTYPE",
                 "referencedColumns": "JOBTYPE_ID"
+            },
+            {
+                "name": "JobPosition_Team",
+                "type": "foreignKey",
+                "table": "CODBEX_JOBPOSITION",
+                "constraintName": "JobPosition_Team",
+                "columns": "JOBPOSITION_TEAM",
+                "referencedTable": "CODBEX_TEAM",
+                "referencedColumns": "TEAM_ID"
+            },
+            {
+                "name": "Team_Department",
+                "type": "foreignKey",
+                "table": "CODBEX_TEAM",
+                "constraintName": "Team_Department",
+                "columns": "TEAM_DEPARTMENT",
+                "referencedTable": "CODBEX_DEPARTMENT",
+                "referencedColumns": "DEPARTMENT_ID"
             }
         ]
     },
