@@ -1,10 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { JobRoleRepository, JobRoleEntityOptions } from "../../dao/entities/JobRoleRepository";
+import { JobRoleRepository, JobRoleEntityOptions } from "../../dao/Teams/JobRoleRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-jobs-entities-JobRole", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-jobs-Teams-JobRole", ["validate"]);
 
 @Controller
 class JobRoleService {
@@ -19,6 +19,17 @@ class JobRoleService {
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
 
+            let Team = parseInt(ctx.queryParameters.Team);
+            Team = isNaN(Team) ? ctx.queryParameters.Team : Team;
+
+            if (Team !== undefined) {
+                options.$filter = {
+                    equals: {
+                        Team: Team
+                    }
+                };
+            }
+
             return this.repository.findAll(options);
         } catch (error: any) {
             this.handleError(error);
@@ -30,7 +41,7 @@ class JobRoleService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobRoleService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobRoleService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {

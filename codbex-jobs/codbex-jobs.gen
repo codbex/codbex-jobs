@@ -54,7 +54,6 @@
     "entities": {
       "views": [
         "JobStatus",
-        "JobRole",
         "JobType"
       ],
       "name": "entities",
@@ -86,6 +85,7 @@
     },
     "Teams": {
       "views": [
+        "JobRole",
         "JobPosition",
         "Team",
         "Team-details",
@@ -1320,6 +1320,33 @@
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
+        },
+        {
+          "dataName": "JOBROLE_TEAM",
+          "dataNullable": true,
+          "dataType": "INTEGER",
+          "name": "Team",
+          "relationshipCardinality": "1_n",
+          "relationshipName": "JobRole_Team",
+          "relationshipType": "COMPOSITION",
+          "widgetIsMajor": false,
+          "widgetLength": "20",
+          "widgetSize": "",
+          "widgetType": "TEXTBOX",
+          "relationshipEntityName": "Team",
+          "relationshipEntityPerspectiveName": "Teams",
+          "relationshipEntityPerspectiveLabel": "Entities",
+          "dataNotNull": false,
+          "dataAutoIncrement": false,
+          "dataPrimaryKey": false,
+          "dataUnique": false,
+          "isRequiredProperty": false,
+          "isCalculatedProperty": false,
+          "widgetLabel": "Team",
+          "widgetDropdownUrl": "",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
+          "inputRule": ""
         }
       ],
       "caption": "Manage entity JobRole",
@@ -1328,26 +1355,28 @@
       "dataQuery": "",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE",
+      "layoutType": "MANAGE_DETAILS",
       "menuIndex": "100",
       "menuKey": "jobrole",
       "menuLabel": "JobRole",
       "name": "JobRole",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "entities",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/user.svg",
+      "perspectiveLabel": "Teams",
+      "perspectiveName": "Teams",
+      "perspectiveOrder": "106",
       "perspectiveRole": "",
       "title": "JobRole",
       "tooltip": "JobRole",
-      "type": "PRIMARY",
+      "type": "DEPENDENT",
       "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
-      "primaryKeysString": "Id"
+      "primaryKeysString": "Id",
+      "masterEntity": "Team",
+      "masterEntityId": "Team"
     },
     {
       "properties": [
@@ -1402,13 +1431,16 @@
           "dataNullable": true,
           "dataType": "INTEGER",
           "name": "JobRole",
+          "widgetDropDownDependsOn": "Team",
+          "widgetDropDownKey": "Id",
+          "widgetDropDownValue": "Name",
           "widgetIsMajor": true,
           "widgetLength": "20",
           "widgetSize": "",
-          "widgetType": "TEXTBOX",
+          "widgetType": "DROPDOWN",
           "relationshipName": "JobPosition_JobRole",
           "relationshipEntityName": "JobRole",
-          "relationshipEntityPerspectiveName": "entities",
+          "relationshipEntityPerspectiveName": "Teams",
           "relationshipEntityPerspectiveLabel": "Entities",
           "dataNotNull": false,
           "dataAutoIncrement": false,
@@ -1417,7 +1449,7 @@
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "JobRole",
-          "widgetDropdownUrl": "",
+          "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobRoleService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""

@@ -11,7 +11,7 @@ servers:
 tags:
   - name: JobAssignment
   - name: entities
-  - name: entities
+  - name: Teams
   - name: Teams
   - name: entities
   - name: Teams
@@ -816,7 +816,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobRoleService.ts:
+  /codbex-jobs/gen/codbex-jobs/api/Teams/JobRoleService.ts:
     get:
       summary: List JobRole
       parameters:
@@ -837,7 +837,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Teams
       responses:
         200:
           description: Successful Request
@@ -868,7 +868,7 @@ paths:
     post:
       summary: Create JobRole
       tags:
-        - entities
+        - Teams
       requestBody:
         content:
           application/json:
@@ -900,7 +900,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobRoleService.ts/{id}:
+  /codbex-jobs/gen/codbex-jobs/api/Teams/JobRoleService.ts/{id}:
     get:
       summary: Get JobRole by Id
       parameters:
@@ -911,7 +911,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Teams
       responses:
         200:
           description: Successful Request
@@ -949,7 +949,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Teams
       requestBody:
         content:
           application/json:
@@ -997,7 +997,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Teams
       responses:
         204:
           description: Successful Request
@@ -1019,11 +1019,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobRoleService.ts/count:
+  /codbex-jobs/gen/codbex-jobs/api/Teams/JobRoleService.ts/count:
     get:
       summary: Count the number of JobRole
       tags:
-        - entities
+        - Teams
       responses:
         200:
           description: Successful Request
@@ -1047,7 +1047,7 @@ paths:
     post:
       summary: Count the number of JobRole by JobRoleFilterOptions
       tags:
-        - entities
+        - Teams
       requestBody:
         content:
           application/json:
@@ -1129,11 +1129,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobRoleService.ts/search:
+  /codbex-jobs/gen/codbex-jobs/api/Teams/JobRoleService.ts/search:
     post:
       summary: Search JobRole by JobRoleFilterOptions
       tags:
-        - entities
+        - Teams
       requestBody:
         content:
           application/json:
@@ -2893,6 +2893,9 @@ components:
           type: string
           minLength: 0
           maxLength: 20
+        Team:
+          type: integer
+          format: int32
     JobRoleFilterOptions:
       type: object
       properties:
@@ -2921,6 +2924,14 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
+                Team:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
             notEquals:
               type: object
               properties:
@@ -2943,6 +2954,14 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
+                Team:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
             contains:
               type: object
               properties:
@@ -2951,6 +2970,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Team:
             greaterThan:
               type: object
               properties:
@@ -2961,6 +2981,9 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Team:
+                  type: integer
+                  format: int32
             greaterThanOrEqual:
               type: object
               properties:
@@ -2971,6 +2994,9 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Team:
+                  type: integer
+                  format: int32
             lessThan:
               type: object
               properties:
@@ -2981,6 +3007,9 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Team:
+                  type: integer
+                  format: int32
             lessThanOrEqual:
               type: object
               properties:
@@ -2991,14 +3020,17 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Team:
+                  type: integer
+                  format: int32
         $select:
           type: array
-          example: ["Id", "Name"]
+          example: ["Id", "Name", "Team"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name"
+            example: "Id,Name,Team"
         $order:
           type: string
           enum: ["asc", "desc"]

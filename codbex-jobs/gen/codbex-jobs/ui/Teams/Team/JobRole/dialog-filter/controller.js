@@ -1,6 +1,6 @@
 angular.module('page', ["ideUI", "ideView"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-jobs.entities.JobRole';
+		messageHubProvider.eventIdPrefix = 'codbex-jobs.Teams.JobRole';
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', function ($scope, messageHub, ViewParameters) {
 
@@ -41,6 +41,9 @@ angular.module('page', ["ideUI", "ideView"])
 			}
 			if (entity.Name) {
 				filter.$filter.contains.Name = entity.Name;
+			}
+			if (entity.Team !== undefined) {
+				filter.$filter.equals.Team = entity.Team;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,

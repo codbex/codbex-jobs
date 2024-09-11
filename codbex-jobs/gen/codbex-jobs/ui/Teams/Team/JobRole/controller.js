@@ -1,20 +1,15 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-jobs.entities.JobRole';
+		messageHubProvider.eventIdPrefix = 'codbex-jobs.Teams.JobRole';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobRoleService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobRoleService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', 'Extensions', function ($scope, messageHub, entityApi, Extensions) {
-
-		$scope.dataPage = 1;
-		$scope.dataCount = 0;
-		$scope.dataLimit = 20;
-
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-jobs-custom-action').then(function (response) {
-			$scope.pageActions = response.filter(e => e.perspective === "entities" && e.view === "JobRole" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.filter(e => e.perspective === "entities" && e.view === "JobRole" && e.type === "entity");
+			$scope.pageActions = response.filter(e => e.perspective === "Teams" && e.view === "JobRole" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.filter(e => e.perspective === "Teams" && e.view === "JobRole" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (action) {
@@ -43,11 +38,32 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		function resetPagination() {
 			$scope.dataPage = 1;
 			$scope.dataCount = 0;
-			$scope.dataLimit = 20;
+			$scope.dataLimit = 10;
 		}
 		resetPagination();
 
 		//-----------------Events-------------------//
+		messageHub.onDidReceiveMessage("codbex-jobs.Teams.Team.entitySelected", function (msg) {
+			resetPagination();
+			$scope.selectedMainEntityId = msg.data.selectedMainEntityId;
+			$scope.loadPage($scope.dataPage);
+		}, true);
+
+		messageHub.onDidReceiveMessage("codbex-jobs.Teams.Team.clearDetails", function (msg) {
+			$scope.$apply(function () {
+				resetPagination();
+				$scope.selectedMainEntityId = null;
+				$scope.data = null;
+			});
+		}, true);
+
+		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
+			$scope.$apply(function () {
+				$scope.entity = {};
+				$scope.action = 'select';
+			});
+		});
+
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
@@ -65,10 +81,21 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber, filter) {
+			let Team = $scope.selectedMainEntityId;
+			$scope.dataPage = pageNumber;
 			if (!filter && $scope.filter) {
 				filter = $scope.filter;
 			}
-			$scope.dataPage = pageNumber;
+			if (!filter) {
+				filter = {};
+			}
+			if (!filter.$filter) {
+				filter.$filter = {};
+			}
+			if (!filter.$filter.equals) {
+				filter.$filter.equals = {};
+			}
+			filter.$filter.equals.Team = Team;
 			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("JobRole", `Unable to count JobRole: '${response.message}'`);
@@ -77,17 +104,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (response.data) {
 					$scope.dataCount = response.data;
 				}
-				let offset = (pageNumber - 1) * $scope.dataLimit;
-				let limit = $scope.dataLimit;
-				let request;
-				if (filter) {
-					filter.$offset = offset;
-					filter.$limit = limit;
-					request = entityApi.search(filter);
-				} else {
-					request = entityApi.list(offset, limit);
-				}
-				request.then(function (response) {
+				filter.$offset = (pageNumber - 1) * $scope.dataLimit;
+				filter.$limit = $scope.dataLimit;
+				entityApi.search(filter).then(function (response) {
 					if (response.status != 200) {
 						messageHub.showAlertError("JobRole", `Unable to list/filter JobRole: '${response.message}'`);
 						return;
@@ -96,7 +115,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				});
 			});
 		};
-		$scope.loadPage($scope.dataPage, $scope.filter);
 
 		$scope.selectEntity = function (entity) {
 			$scope.selectedEntity = entity;
@@ -121,6 +139,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("JobRole-details", {
 				action: "create",
 				entity: {},
+				selectedMainEntityKey: "Team",
+				selectedMainEntityId: $scope.selectedMainEntityId,
 			}, null, false);
 		};
 
@@ -128,6 +148,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("JobRole-details", {
 				action: "update",
 				entity: entity,
+				selectedMainEntityKey: "Team",
+				selectedMainEntityId: $scope.selectedMainEntityId,
 			}, null, false);
 		};
 

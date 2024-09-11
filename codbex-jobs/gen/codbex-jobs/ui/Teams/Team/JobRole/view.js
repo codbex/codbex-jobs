@@ -4,14 +4,16 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "JobRole-details",
+    id: "JobRole",
     label: "JobRole",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/entities/JobRole/dialog-window/index.html",
-    perspectiveName: "entities",
+    factory: "frame",
+    region: "bottom",
+    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/Teams/Team/JobRole/index.html",
+    perspectiveName: "Teams",
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
+    exports.getView = function () {
         return viewData;
     }
 }

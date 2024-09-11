@@ -90,6 +90,11 @@
                         "length": 20,
                         "nullable": true,
                         "name": "JOBROLE_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "JOBROLE_TEAM"
                     }
                 ]
             },
@@ -233,6 +238,15 @@
                 "columns": "JOBDETAILS_JOBPOSITION",
                 "referencedTable": "CODBEX_JOBPOSITION",
                 "referencedColumns": "JOBPOSITION_ID"
+            },
+            {
+                "name": "JobRole_Team",
+                "type": "foreignKey",
+                "table": "CODBEX_JOBROLE",
+                "constraintName": "JobRole_Team",
+                "columns": "JOBROLE_TEAM",
+                "referencedTable": "CODBEX_TEAM",
+                "referencedColumns": "TEAM_ID"
             },
             {
                 "name": "JobPosition_JobRole",

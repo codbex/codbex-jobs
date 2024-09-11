@@ -6,10 +6,12 @@ import { dao as daoApi } from "sdk/db";
 export interface JobRoleEntity {
     readonly Id: number;
     Name?: string;
+    Team?: number;
 }
 
 export interface JobRoleCreateEntity {
     readonly Name?: string;
+    readonly Team?: number;
 }
 
 export interface JobRoleUpdateEntity extends JobRoleCreateEntity {
@@ -21,30 +23,37 @@ export interface JobRoleEntityOptions {
         equals?: {
             Id?: number | number[];
             Name?: string | string[];
+            Team?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Name?: string | string[];
+            Team?: number | number[];
         };
         contains?: {
             Id?: number;
             Name?: string;
+            Team?: number;
         };
         greaterThan?: {
             Id?: number;
             Name?: string;
+            Team?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Name?: string;
+            Team?: number;
         };
         lessThan?: {
             Id?: number;
             Name?: string;
+            Team?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Name?: string;
+            Team?: number;
         };
     },
     $select?: (keyof JobRoleEntity)[],
@@ -85,6 +94,11 @@ export class JobRoleRepository {
                 name: "Name",
                 column: "JOBROLE_NAME",
                 type: "VARCHAR",
+            },
+            {
+                name: "Team",
+                column: "JOBROLE_TEAM",
+                type: "INTEGER",
             }
         ]
     };
@@ -182,7 +196,7 @@ export class JobRoleRepository {
     }
 
     private async triggerEvent(data: JobRoleEntityEvent | JobRoleUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-jobs-entities-JobRole", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-jobs-Teams-JobRole", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -190,6 +204,6 @@ export class JobRoleRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-jobs-entities-JobRole").send(JSON.stringify(data));
+        producer.topic("codbex-jobs-Teams-JobRole").send(JSON.stringify(data));
     }
 }

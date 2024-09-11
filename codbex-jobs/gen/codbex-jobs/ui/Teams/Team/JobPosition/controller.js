@@ -125,6 +125,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("JobPosition-details", {
 				action: "select",
 				entity: entity,
+				optionsJobRole: $scope.optionsJobRole,
 				optionsJobStatus: $scope.optionsJobStatus,
 				optionsJobType: $scope.optionsJobType,
 			});
@@ -133,6 +134,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("JobPosition-filter", {
 				entity: $scope.filterEntity,
+				optionsJobRole: $scope.optionsJobRole,
 				optionsJobStatus: $scope.optionsJobStatus,
 				optionsJobType: $scope.optionsJobType,
 			});
@@ -145,6 +147,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: {},
 				selectedMainEntityKey: "Team",
 				selectedMainEntityId: $scope.selectedMainEntityId,
+				optionsJobRole: $scope.optionsJobRole,
 				optionsJobStatus: $scope.optionsJobStatus,
 				optionsJobType: $scope.optionsJobType,
 			}, null, false);
@@ -156,6 +159,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityKey: "Team",
 				selectedMainEntityId: $scope.selectedMainEntityId,
+				optionsJobRole: $scope.optionsJobRole,
 				optionsJobStatus: $scope.optionsJobStatus,
 				optionsJobType: $scope.optionsJobType,
 			}, null, false);
@@ -191,9 +195,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
+		$scope.optionsJobRole = [];
 		$scope.optionsJobStatus = [];
 		$scope.optionsJobType = [];
 
+
+		$http.get("/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobRoleService.ts").then(function (response) {
+			$scope.optionsJobRole = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
 
 		$http.get("/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts").then(function (response) {
 			$scope.optionsJobStatus = response.data.map(e => {
@@ -213,6 +227,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
+		$scope.optionsJobRoleValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsJobRole.length; i++) {
+				if ($scope.optionsJobRole[i].value === optionKey) {
+					return $scope.optionsJobRole[i].text;
+				}
+			}
+			return null;
+		};
 		$scope.optionsJobStatusValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsJobStatus.length; i++) {
 				if ($scope.optionsJobStatus[i].value === optionKey) {
