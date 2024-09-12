@@ -112,7 +112,6 @@
                         "dataName": "JOBDETAILS_MANAGER",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
-                        "isRequiredProperty": "true",
                         "name": "Manager",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "FirstName",
@@ -741,7 +740,7 @@
                         "isRequiredProperty": "true",
                         "name": "Name",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "100",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },

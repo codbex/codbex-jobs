@@ -2024,7 +2024,6 @@ components:
         - Organization
         - Department
         - Team
-        - Manager
         - JobPosition
       properties:
         Id:
