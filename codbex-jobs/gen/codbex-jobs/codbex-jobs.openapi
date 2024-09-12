@@ -2022,6 +2022,7 @@ components:
       required:
         - HireDate
         - Organization
+        - Department
         - Team
         - Manager
         - JobPosition
@@ -2870,6 +2871,7 @@ components:
     Team:
       type: object
       required:
+        - Name
         - Organization
         - Department
       properties:

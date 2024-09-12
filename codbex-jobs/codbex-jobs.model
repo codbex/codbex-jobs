@@ -16,7 +16,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(28)",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(29)",
                         "dataLength": "20",
                         "dataName": "JOBDETAILS_NUMBER",
                         "dataNullable": "true",
@@ -76,6 +76,7 @@
                         "dataName": "JOBDETAILS_DEPARTMENT",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
+                        "isRequiredProperty": "true",
                         "name": "Department",
                         "widgetDropDownDependsOn": "Organization",
                         "widgetDropDownKey": "Id",
@@ -568,7 +569,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(27)",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(28)",
                         "dataLength": "20",
                         "dataName": "JOBPOSITION_NUMBER",
                         "dataNullable": "true",
@@ -737,6 +738,7 @@
                         "dataName": "TEAM_NAME",
                         "dataNullable": "true",
                         "dataType": "VARCHAR",
+                        "isRequiredProperty": "true",
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
