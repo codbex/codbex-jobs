@@ -3,6 +3,8 @@ import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
+// custom imports
+import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 export interface JobAssignmentEntity {
     readonly Id: number;
@@ -209,7 +211,7 @@ export class JobAssignmentRepository {
     public create(entity: JobAssignmentCreateEntity): number {
         EntityUtils.setLocalDate(entity, "HireDate");
         // @ts-ignore
-        (entity as JobAssignmentEntity).Number = new NumberGeneratorService().generate(27);
+        (entity as JobAssignmentEntity).Number = new NumberGeneratorService().generate(5);
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

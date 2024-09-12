@@ -43,13 +43,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idJobRole" dg-required="false" dg-colon="true">JobRole</fd-form-label>
+                        	<fd-form-label for="idJobRole" dg-required="true" dg-colon="true">JobRole</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idJobRole"
 	                            name="JobRole"
 	                            state="{{ forms.details['JobRole'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.JobRole"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsJobRole"
@@ -59,13 +59,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idJobStatus" dg-required="false" dg-colon="true">JobStatus</fd-form-label>
+                        	<fd-form-label for="idJobStatus" dg-required="true" dg-colon="true">JobStatus</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idJobStatus"
 	                            name="JobStatus"
 	                            state="{{ forms.details['JobStatus'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.JobStatus"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsJobStatus"
@@ -75,13 +75,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idJobType" dg-required="false" dg-colon="true">JobType</fd-form-label>
+                        	<fd-form-label for="idJobType" dg-required="true" dg-colon="true">JobType</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idJobType"
 	                            name="JobType"
 	                            state="{{ forms.details['JobType'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.JobType"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsJobType"

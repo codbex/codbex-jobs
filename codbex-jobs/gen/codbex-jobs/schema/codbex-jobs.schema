@@ -75,30 +75,6 @@
                 ]
             },
             {
-                "name": "CODBEX_JOBROLE",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "JOBROLE_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "JOBROLE_NAME"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "JOBROLE_TEAM"
-                    }
-                ]
-            },
-            {
                 "name": "CODBEX_JOBPOSITION",
                 "type": "TABLE",
                 "columns": [
@@ -240,22 +216,13 @@
                 "referencedColumns": "JOBPOSITION_ID"
             },
             {
-                "name": "JobRole_Team",
-                "type": "foreignKey",
-                "table": "CODBEX_JOBROLE",
-                "constraintName": "JobRole_Team",
-                "columns": "JOBROLE_TEAM",
-                "referencedTable": "CODBEX_TEAM",
-                "referencedColumns": "TEAM_ID"
-            },
-            {
                 "name": "JobPosition_JobRole",
                 "type": "foreignKey",
                 "table": "CODBEX_JOBPOSITION",
                 "constraintName": "JobPosition_JobRole",
                 "columns": "JOBPOSITION_JOBROLE",
                 "referencedTable": "CODBEX_JOBROLE",
-                "referencedColumns": "JOBROLE_ID"
+                "referencedColumns": "COMPANYROLE_ID"
             },
             {
                 "name": "JobPosition_JobStatus",

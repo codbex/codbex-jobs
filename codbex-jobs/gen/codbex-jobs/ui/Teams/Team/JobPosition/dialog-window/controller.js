@@ -58,28 +58,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		};
 
-		$scope.$watch('entity.Team', function (newValue, oldValue) {
-			if (newValue !== undefined && newValue !== null) {
-				entityApi.$http.post("/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobRoleService.ts/search", {
-					$filter: {
-						equals: {
-							Team: newValue
-						}
-					}
-				}).then(function (response) {
-					$scope.optionsJobRole = response.data.map(e => {
-						return {
-							value: e.Id,
-							text: e.Name
-						}
-					});
-					if ($scope.action !== 'select' && newValue !== oldValue) {
-						$scope.entity.JobRole = undefined;
-					}
-				});
-			}
-		});
-
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';

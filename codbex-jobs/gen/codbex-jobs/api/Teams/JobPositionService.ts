@@ -3,6 +3,8 @@ import { Extensions } from "sdk/extensions"
 import { JobPositionRepository, JobPositionEntityOptions } from "../../dao/Teams/JobPositionRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+// custom imports
+import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-jobs-Teams-JobPosition", ["validate"]);
 
@@ -132,6 +134,15 @@ class JobPositionService {
     private validateEntity(entity: any): void {
         if (entity.Number?.length > 20) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.JobRole === null || entity.JobRole === undefined) {
+            throw new ValidationError(`The 'JobRole' property is required, provide a valid value`);
+        }
+        if (entity.JobStatus === null || entity.JobStatus === undefined) {
+            throw new ValidationError(`The 'JobStatus' property is required, provide a valid value`);
+        }
+        if (entity.JobType === null || entity.JobType === undefined) {
+            throw new ValidationError(`The 'JobType' property is required, provide a valid value`);
         }
         for (const next of validationModules) {
             next.validate(entity);

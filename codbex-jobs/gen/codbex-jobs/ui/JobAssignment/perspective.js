@@ -5,10 +5,10 @@
  */
 const perspectiveData = {
 	id: 'JobAssignment',
-	name: 'JobAssignment',
+	name: 'Entities',
 	link: '/services/web/codbex-jobs/gen/codbex-jobs/ui/JobAssignment/index.html',
-	order: 103,
-	icon: '/services/web/resources/unicons/0-plus.svg',
+	order: 100,
+	icon: '/services/web/resources/unicons/copy.svg',
 };
 
 if (typeof exports !== 'undefined') {
