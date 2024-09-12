@@ -149,7 +149,7 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(5)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(28)",
           "dataLength": "20",
           "dataName": "JOBDETAILS_NUMBER",
           "dataNullable": true,
@@ -411,7 +411,7 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(5)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(28)",
           "dataLength": "20",
           "dataName": "JOBDETAILS_NUMBER",
           "dataNullable": true,
@@ -1308,7 +1308,7 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(7)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(27)",
           "dataLength": "20",
           "dataName": "JOBPOSITION_NUMBER",
           "dataNullable": true,

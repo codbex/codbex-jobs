@@ -163,7 +163,7 @@ export class JobPositionRepository {
 
     public create(entity: JobPositionCreateEntity): number {
         // @ts-ignore
-        (entity as JobPositionEntity).Number = new NumberGeneratorService().generate(7);
+        (entity as JobPositionEntity).Number = new NumberGeneratorService().generate(27);
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
