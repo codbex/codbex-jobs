@@ -1,0 +1,5 @@
+{
+    "module": "codbex-jobs/gen/codbex-jobs/ui/entities/JobType/dialog-filter/view.js",
+    "extensionPoint": "codbex-jobs-dialog-window",
+    "description": "codbex-jobs - Application Dialog Window"
+}

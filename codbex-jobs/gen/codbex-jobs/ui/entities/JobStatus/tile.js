@@ -9,7 +9,7 @@ exports.getTile = function () {
         name: "JobStatus",
         caption: "Manage entity JobStatus",
         tooltip: "JobStatus",
-        type: "PRIMARY",
+        type: "SETTING",
         report: "false",
         icon: "/services/web/resources/unicons/file.svg",
         location: "/services/web/codbex-jobs/gen/codbex-jobs/ui/entities/index.html",
