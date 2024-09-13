@@ -145,7 +145,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 100,
                         "nullable": true,
                         "name": "TEAM_NAME"
                     },

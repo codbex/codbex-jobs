@@ -2880,7 +2880,7 @@ components:
         Name:
           type: string
           minLength: 0
-          maxLength: 20
+          maxLength: 100
         Organization:
           type: integer
           format: int32
@@ -2908,13 +2908,13 @@ components:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 20
+                      maxLength: 100
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 20
+                        maxLength: 100
                 Organization:
                   oneOf:
                     - type: integer
@@ -2946,13 +2946,13 @@ components:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 20
+                      maxLength: 100
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 20
+                        maxLength: 100
                 Organization:
                   oneOf:
                     - type: integer
@@ -2976,7 +2976,7 @@ components:
                 Name:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 100
                 Organization:
                 Department:
             greaterThan:
@@ -2988,7 +2988,7 @@ components:
                 Name:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 100
                 Organization:
                   type: integer
                   format: int32
@@ -3004,7 +3004,7 @@ components:
                 Name:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 100
                 Organization:
                   type: integer
                   format: int32
@@ -3020,7 +3020,7 @@ components:
                 Name:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 100
                 Organization:
                   type: integer
                   format: int32
@@ -3036,7 +3036,7 @@ components:
                 Name:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 100
                 Organization:
                   type: integer
                   format: int32

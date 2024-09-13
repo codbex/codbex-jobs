@@ -733,7 +733,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "dataLength": "20",
+                        "dataLength": "100",
                         "dataName": "TEAM_NAME",
                         "dataNullable": "true",
                         "dataType": "VARCHAR",

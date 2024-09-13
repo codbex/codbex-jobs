@@ -1577,7 +1577,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "20",
+          "dataLength": "100",
           "dataName": "TEAM_NAME",
           "dataNullable": true,
           "dataType": "VARCHAR",
@@ -1597,7 +1597,7 @@
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
-          "maxLength": 20,
+          "maxLength": 100,
           "inputRule": ""
         },
         {
@@ -1695,7 +1695,7 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "dataLength": "20",
+          "dataLength": "100",
           "dataName": "TEAM_NAME",
           "dataNullable": true,
           "dataType": "VARCHAR",
@@ -1715,7 +1715,7 @@
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
-          "maxLength": 20,
+          "maxLength": 100,
           "inputRule": ""
         },
         "properties": [
