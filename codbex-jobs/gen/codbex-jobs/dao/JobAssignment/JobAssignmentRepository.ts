@@ -9,7 +9,7 @@ import { NumberGeneratorService } from "/codbex-number-generator/service/generat
 export interface JobAssignmentEntity {
     readonly Id: number;
     Number?: string;
-    Contract?: number;
+    EmployeeContract?: number;
     HireDate?: Date;
     Organization?: number;
     Department?: number;
@@ -19,7 +19,7 @@ export interface JobAssignmentEntity {
 }
 
 export interface JobAssignmentCreateEntity {
-    readonly Contract?: number;
+    readonly EmployeeContract?: number;
     readonly HireDate?: Date;
     readonly Organization?: number;
     readonly Department?: number;
@@ -37,7 +37,7 @@ export interface JobAssignmentEntityOptions {
         equals?: {
             Id?: number | number[];
             Number?: string | string[];
-            Contract?: number | number[];
+            EmployeeContract?: number | number[];
             HireDate?: Date | Date[];
             Organization?: number | number[];
             Department?: number | number[];
@@ -48,7 +48,7 @@ export interface JobAssignmentEntityOptions {
         notEquals?: {
             Id?: number | number[];
             Number?: string | string[];
-            Contract?: number | number[];
+            EmployeeContract?: number | number[];
             HireDate?: Date | Date[];
             Organization?: number | number[];
             Department?: number | number[];
@@ -59,7 +59,7 @@ export interface JobAssignmentEntityOptions {
         contains?: {
             Id?: number;
             Number?: string;
-            Contract?: number;
+            EmployeeContract?: number;
             HireDate?: Date;
             Organization?: number;
             Department?: number;
@@ -70,7 +70,7 @@ export interface JobAssignmentEntityOptions {
         greaterThan?: {
             Id?: number;
             Number?: string;
-            Contract?: number;
+            EmployeeContract?: number;
             HireDate?: Date;
             Organization?: number;
             Department?: number;
@@ -81,7 +81,7 @@ export interface JobAssignmentEntityOptions {
         greaterThanOrEqual?: {
             Id?: number;
             Number?: string;
-            Contract?: number;
+            EmployeeContract?: number;
             HireDate?: Date;
             Organization?: number;
             Department?: number;
@@ -92,7 +92,7 @@ export interface JobAssignmentEntityOptions {
         lessThan?: {
             Id?: number;
             Number?: string;
-            Contract?: number;
+            EmployeeContract?: number;
             HireDate?: Date;
             Organization?: number;
             Department?: number;
@@ -103,7 +103,7 @@ export interface JobAssignmentEntityOptions {
         lessThanOrEqual?: {
             Id?: number;
             Number?: string;
-            Contract?: number;
+            EmployeeContract?: number;
             HireDate?: Date;
             Organization?: number;
             Department?: number;
@@ -152,8 +152,8 @@ export class JobAssignmentRepository {
                 type: "VARCHAR",
             },
             {
-                name: "Contract",
-                column: "JOBDETAILS_CONTRACT",
+                name: "EmployeeContract",
+                column: "JOBDETAILS_EMPLOYEECONTRACT",
                 type: "INTEGER",
             },
             {

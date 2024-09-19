@@ -124,6 +124,9 @@ class JobAssignmentService {
         if (entity.Number?.length > 20) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
         }
+        if (entity.EmployeeContract === null || entity.EmployeeContract === undefined) {
+            throw new ValidationError(`The 'EmployeeContract' property is required, provide a valid value`);
+        }
         if (entity.HireDate === null || entity.HireDate === undefined) {
             throw new ValidationError(`The 'HireDate' property is required, provide a valid value`);
         }

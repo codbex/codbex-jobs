@@ -43,17 +43,17 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idContract" dg-required="false" dg-colon="true">Contract</fd-form-label>
+                        	<fd-form-label for="idEmployeeContract" dg-required="true" dg-colon="true">EmployeeContract</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-combobox-input id="idContract"
-	                            name="Contract"
-	                            state="{{ forms.details['Contract'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
-	                            ng-model="entity.Contract"
+	                        <fd-combobox-input id="idEmployeeContract"
+	                            name="EmployeeContract"
+	                            state="{{ forms.details['EmployeeContract'].$valid ? '' : 'error' }}"
+	                            ng-required="true"
+	                            ng-model="entity.EmployeeContract"
 	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsContract"
-	                            dg-placeholder="Search Contract ...">
+	                            dropdown-items="optionsEmployeeContract"
+	                            dg-placeholder="Search EmployeeContract ...">
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>

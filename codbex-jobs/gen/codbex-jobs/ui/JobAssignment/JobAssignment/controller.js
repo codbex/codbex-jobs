@@ -119,7 +119,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("entitySelected", {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
-				optionsContract: $scope.optionsContract,
+				optionsEmployeeContract: $scope.optionsEmployeeContract,
 				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
 				optionsTeam: $scope.optionsTeam,
@@ -134,7 +134,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 			messageHub.postMessage("createEntity", {
 				entity: {},
-				optionsContract: $scope.optionsContract,
+				optionsEmployeeContract: $scope.optionsEmployeeContract,
 				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
 				optionsTeam: $scope.optionsTeam,
@@ -147,7 +147,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.action = "update";
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
-				optionsContract: $scope.optionsContract,
+				optionsEmployeeContract: $scope.optionsEmployeeContract,
 				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
 				optionsTeam: $scope.optionsTeam,
@@ -189,7 +189,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("JobAssignment-filter", {
 				entity: $scope.filterEntity,
-				optionsContract: $scope.optionsContract,
+				optionsEmployeeContract: $scope.optionsEmployeeContract,
 				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
 				optionsTeam: $scope.optionsTeam,
@@ -199,7 +199,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsContract = [];
+		$scope.optionsEmployeeContract = [];
 		$scope.optionsOrganization = [];
 		$scope.optionsDepartment = [];
 		$scope.optionsTeam = [];
@@ -207,8 +207,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsJobPosition = [];
 
 
-		$http.get("/services/ts/codbex-contracts/gen/codbex-contracts/api/Contract/ContractService.ts").then(function (response) {
-			$scope.optionsContract = response.data.map(e => {
+		$http.get("/services/ts/codbex-contracts/gen/codbex-contracts/api/EmployeeContracts/EmployeeContractService.ts").then(function (response) {
+			$scope.optionsEmployeeContract = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Number
@@ -261,10 +261,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$scope.optionsContractValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsContract.length; i++) {
-				if ($scope.optionsContract[i].value === optionKey) {
-					return $scope.optionsContract[i].text;
+		$scope.optionsEmployeeContractValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsEmployeeContract.length; i++) {
+				if ($scope.optionsEmployeeContract[i].value === optionKey) {
+					return $scope.optionsEmployeeContract[i].text;
 				}
 			}
 			return null;

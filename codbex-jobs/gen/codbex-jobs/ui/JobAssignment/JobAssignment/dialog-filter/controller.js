@@ -20,7 +20,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
-			$scope.optionsContract = params.optionsContract;
+			$scope.optionsEmployeeContract = params.optionsEmployeeContract;
 			$scope.optionsOrganization = params.optionsOrganization;
 			$scope.optionsDepartment = params.optionsDepartment;
 			$scope.optionsTeam = params.optionsTeam;
@@ -54,8 +54,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Number) {
 				filter.$filter.contains.Number = entity.Number;
 			}
-			if (entity.Contract !== undefined) {
-				filter.$filter.equals.Contract = entity.Contract;
+			if (entity.EmployeeContract !== undefined) {
+				filter.$filter.equals.EmployeeContract = entity.EmployeeContract;
 			}
 			if (entity.HireDateFrom) {
 				filter.$filter.greaterThanOrEqual.HireDate = entity.HireDateFrom;

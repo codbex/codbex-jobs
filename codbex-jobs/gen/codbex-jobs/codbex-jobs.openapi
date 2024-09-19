@@ -2020,6 +2020,7 @@ components:
     JobAssignment:
       type: object
       required:
+        - EmployeeContract
         - HireDate
         - Organization
         - Department
@@ -2034,7 +2035,7 @@ components:
           minLength: 0
           maxLength: 20
           readOnly: true
-        Contract:
+        EmployeeContract:
           type: integer
           format: int32
         HireDate:
@@ -2081,7 +2082,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                Contract:
+                EmployeeContract:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2153,7 +2154,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                Contract:
+                EmployeeContract:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2211,7 +2212,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Contract:
+                EmployeeContract:
                 HireDate:
                 Organization:
                 Department:
@@ -2228,7 +2229,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Contract:
+                EmployeeContract:
                   type: integer
                   format: int32
                 HireDate:
@@ -2257,7 +2258,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Contract:
+                EmployeeContract:
                   type: integer
                   format: int32
                 HireDate:
@@ -2286,7 +2287,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Contract:
+                EmployeeContract:
                   type: integer
                   format: int32
                 HireDate:
@@ -2315,7 +2316,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Contract:
+                EmployeeContract:
                   type: integer
                   format: int32
                 HireDate:
@@ -2336,12 +2337,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Contract", "HireDate", "Organization", "Department", "Team", "Manager", "JobPosition"]
+          example: ["Id", "Number", "EmployeeContract", "HireDate", "Organization", "Department", "Team", "Manager", "JobPosition"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Contract,HireDate,Organization,Department,Team,Manager,JobPosition"
+            example: "Id,Number,EmployeeContract,HireDate,Organization,Department,Team,Manager,JobPosition"
         $order:
           type: string
           enum: ["asc", "desc"]

@@ -21,7 +21,7 @@
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "JOBDETAILS_CONTRACT"
+                        "name": "JOBDETAILS_EMPLOYEECONTRACT"
                     },
                     {
                         "type": "DATE",
@@ -162,13 +162,13 @@
                 ]
             },
             {
-                "name": "JobAssignment_Contract",
+                "name": "JobAssignment_EmployeeContract",
                 "type": "foreignKey",
                 "table": "CODBEX_JOBDETAILS",
-                "constraintName": "JobAssignment_Contract",
-                "columns": "JOBDETAILS_CONTRACT",
-                "referencedTable": "CODBEX_CONTRACT",
-                "referencedColumns": "CONTRACT_ID"
+                "constraintName": "JobAssignment_EmployeeContract",
+                "columns": "JOBDETAILS_EMPLOYEECONTRACT",
+                "referencedTable": "CODBEX_EMPLOYEECONTRACT",
+                "referencedColumns": "EMPLOYEECONTRACT_ID"
             },
             {
                 "name": "JobAssignment_Organization",

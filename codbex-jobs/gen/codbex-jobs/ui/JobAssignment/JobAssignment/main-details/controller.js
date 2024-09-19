@@ -40,7 +40,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsContract = [];
+				$scope.optionsEmployeeContract = [];
 				$scope.optionsOrganization = [];
 				$scope.optionsDepartment = [];
 				$scope.optionsTeam = [];
@@ -56,7 +56,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					msg.data.entity.HireDate = new Date(msg.data.entity.HireDate);
 				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsContract = msg.data.optionsContract;
+				$scope.optionsEmployeeContract = msg.data.optionsEmployeeContract;
 				$scope.optionsOrganization = msg.data.optionsOrganization;
 				$scope.optionsDepartment = msg.data.optionsDepartment;
 				$scope.optionsTeam = msg.data.optionsTeam;
@@ -69,7 +69,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("createEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsContract = msg.data.optionsContract;
+				$scope.optionsEmployeeContract = msg.data.optionsEmployeeContract;
 				$scope.optionsOrganization = msg.data.optionsOrganization;
 				$scope.optionsDepartment = msg.data.optionsDepartment;
 				$scope.optionsTeam = msg.data.optionsTeam;
@@ -85,7 +85,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					msg.data.entity.HireDate = new Date(msg.data.entity.HireDate);
 				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsContract = msg.data.optionsContract;
+				$scope.optionsEmployeeContract = msg.data.optionsEmployeeContract;
 				$scope.optionsOrganization = msg.data.optionsOrganization;
 				$scope.optionsDepartment = msg.data.optionsDepartment;
 				$scope.optionsTeam = msg.data.optionsTeam;
