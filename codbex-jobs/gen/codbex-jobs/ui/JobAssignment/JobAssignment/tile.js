@@ -7,8 +7,8 @@ exports.getTile = function () {
     return {
         group: "codbex-jobs",
         name: "JobAssignment",
-        caption: "Manage entity JobDetails",
-        tooltip: "JobDetails",
+        caption: "Manage entity Job Assignment",
+        tooltip: "JobAssignment",
         type: "PRIMARY",
         report: "false",
         icon: "/services/web/resources/unicons/file.svg",

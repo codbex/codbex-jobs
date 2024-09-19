@@ -129,7 +129,7 @@
       "properties": [
         {
           "dataAutoIncrement": true,
-          "dataName": "JOBDETAILS_ID",
+          "dataName": "JOBASSIGNMENT_ID",
           "dataNullable": true,
           "dataPrimaryKey": true,
           "dataType": "INTEGER",
@@ -151,7 +151,7 @@
         {
           "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(29)",
           "dataLength": "20",
-          "dataName": "JOBDETAILS_NUMBER",
+          "dataName": "JOBASSIGNMENT_NUMBER",
           "dataNullable": true,
           "dataType": "VARCHAR",
           "isCalculatedProperty": true,
@@ -174,7 +174,7 @@
           "inputRule": ""
         },
         {
-          "dataName": "JOBDETAILS_EMPLOYEECONTRACT",
+          "dataName": "JOBASSIGNMENT_EMPLOYEECONTRACT",
           "dataNullable": true,
           "dataType": "INTEGER",
           "isRequiredProperty": true,
@@ -201,7 +201,7 @@
           "inputRule": ""
         },
         {
-          "dataName": "JOBDETAILS_HIREDATE",
+          "dataName": "JOBASSIGNMENT_HIREDATE",
           "dataNullable": true,
           "dataType": "DATE",
           "isRequiredProperty": true,
@@ -223,7 +223,7 @@
           "inputRule": ""
         },
         {
-          "dataName": "JOBDETAILS_ORGANIZATION",
+          "dataName": "JOBASSIGNMENT_ORGANIZATION",
           "dataNullable": true,
           "dataType": "INTEGER",
           "isRequiredProperty": true,
@@ -250,7 +250,7 @@
           "inputRule": ""
         },
         {
-          "dataName": "JOBDETAILS_DEPARTMENT",
+          "dataName": "JOBASSIGNMENT_DEPARTMENT",
           "dataNullable": true,
           "dataType": "INTEGER",
           "isRequiredProperty": true,
@@ -278,7 +278,7 @@
           "inputRule": ""
         },
         {
-          "dataName": "JOBDETAILS_TEAM",
+          "dataName": "JOBASSIGNMENT_TEAM",
           "dataNullable": true,
           "dataType": "INTEGER",
           "isRequiredProperty": true,
@@ -306,7 +306,7 @@
           "inputRule": ""
         },
         {
-          "dataName": "JOBDETAILS_MANAGER",
+          "dataName": "JOBASSIGNMENT_MANAGER",
           "dataNullable": true,
           "dataType": "INTEGER",
           "name": "Manager",
@@ -333,7 +333,7 @@
           "inputRule": ""
         },
         {
-          "dataName": "JOBDETAILS_JOBPOSITION",
+          "dataName": "JOBASSIGNMENT_JOBPOSITION",
           "dataNullable": true,
           "dataType": "INTEGER",
           "isRequiredProperty": true,
@@ -361,17 +361,17 @@
           "inputRule": ""
         }
       ],
-      "caption": "Manage entity JobDetails",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_JOBDETAILS\"",
-      "dataName": "JOBDETAILS",
+      "caption": "Manage entity Job Assignment",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_JOBASSIGNMENT\"",
+      "dataName": "JOBASSIGNMENT",
       "dataQuery": "",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "importsCode": "import { NumberGeneratorService } from \"/codbex-number-generator/service/generator\";",
       "layoutType": "MANAGE_MASTER",
       "menuIndex": "100",
-      "menuKey": "jobdetails",
-      "menuLabel": "JobDetails",
+      "menuKey": "jobassignment",
+      "menuLabel": "JobAssignment",
       "name": "JobAssignment",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
@@ -379,8 +379,8 @@
       "perspectiveName": "JobAssignment",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
-      "title": "JobDetails",
-      "tooltip": "JobDetails",
+      "title": "JobAssignment",
+      "tooltip": "JobAssignment",
       "type": "PRIMARY",
       "dataSource": "DefaultDB",
       "referencedProjections": [
@@ -413,7 +413,7 @@
         "title": {
           "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(29)",
           "dataLength": "20",
-          "dataName": "JOBDETAILS_NUMBER",
+          "dataName": "JOBASSIGNMENT_NUMBER",
           "dataNullable": true,
           "dataType": "VARCHAR",
           "isCalculatedProperty": true,
@@ -437,7 +437,7 @@
         },
         "properties": [
           {
-            "dataName": "JOBDETAILS_EMPLOYEECONTRACT",
+            "dataName": "JOBASSIGNMENT_EMPLOYEECONTRACT",
             "dataNullable": true,
             "dataType": "INTEGER",
             "isRequiredProperty": true,
@@ -464,7 +464,7 @@
             "inputRule": ""
           },
           {
-            "dataName": "JOBDETAILS_HIREDATE",
+            "dataName": "JOBASSIGNMENT_HIREDATE",
             "dataNullable": true,
             "dataType": "DATE",
             "isRequiredProperty": true,
@@ -486,7 +486,7 @@
             "inputRule": ""
           },
           {
-            "dataName": "JOBDETAILS_ORGANIZATION",
+            "dataName": "JOBASSIGNMENT_ORGANIZATION",
             "dataNullable": true,
             "dataType": "INTEGER",
             "isRequiredProperty": true,
@@ -513,7 +513,7 @@
             "inputRule": ""
           },
           {
-            "dataName": "JOBDETAILS_DEPARTMENT",
+            "dataName": "JOBASSIGNMENT_DEPARTMENT",
             "dataNullable": true,
             "dataType": "INTEGER",
             "isRequiredProperty": true,
@@ -541,7 +541,7 @@
             "inputRule": ""
           },
           {
-            "dataName": "JOBDETAILS_TEAM",
+            "dataName": "JOBASSIGNMENT_TEAM",
             "dataNullable": true,
             "dataType": "INTEGER",
             "isRequiredProperty": true,
@@ -569,7 +569,7 @@
             "inputRule": ""
           },
           {
-            "dataName": "JOBDETAILS_MANAGER",
+            "dataName": "JOBASSIGNMENT_MANAGER",
             "dataNullable": true,
             "dataType": "INTEGER",
             "name": "Manager",
@@ -596,7 +596,7 @@
             "inputRule": ""
           },
           {
-            "dataName": "JOBDETAILS_JOBPOSITION",
+            "dataName": "JOBASSIGNMENT_JOBPOSITION",
             "dataNullable": true,
             "dataType": "INTEGER",
             "isRequiredProperty": true,

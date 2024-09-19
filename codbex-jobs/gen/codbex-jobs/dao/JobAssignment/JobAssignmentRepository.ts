@@ -137,53 +137,53 @@ interface JobAssignmentUpdateEntityEvent extends JobAssignmentEntityEvent {
 export class JobAssignmentRepository {
 
     private static readonly DEFINITION = {
-        table: "CODBEX_JOBDETAILS",
+        table: "CODBEX_JOBASSIGNMENT",
         properties: [
             {
                 name: "Id",
-                column: "JOBDETAILS_ID",
+                column: "JOBASSIGNMENT_ID",
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
             },
             {
                 name: "Number",
-                column: "JOBDETAILS_NUMBER",
+                column: "JOBASSIGNMENT_NUMBER",
                 type: "VARCHAR",
             },
             {
                 name: "EmployeeContract",
-                column: "JOBDETAILS_EMPLOYEECONTRACT",
+                column: "JOBASSIGNMENT_EMPLOYEECONTRACT",
                 type: "INTEGER",
             },
             {
                 name: "HireDate",
-                column: "JOBDETAILS_HIREDATE",
+                column: "JOBASSIGNMENT_HIREDATE",
                 type: "DATE",
             },
             {
                 name: "Organization",
-                column: "JOBDETAILS_ORGANIZATION",
+                column: "JOBASSIGNMENT_ORGANIZATION",
                 type: "INTEGER",
             },
             {
                 name: "Department",
-                column: "JOBDETAILS_DEPARTMENT",
+                column: "JOBASSIGNMENT_DEPARTMENT",
                 type: "INTEGER",
             },
             {
                 name: "Team",
-                column: "JOBDETAILS_TEAM",
+                column: "JOBASSIGNMENT_TEAM",
                 type: "INTEGER",
             },
             {
                 name: "Manager",
-                column: "JOBDETAILS_MANAGER",
+                column: "JOBASSIGNMENT_MANAGER",
                 type: "INTEGER",
             },
             {
                 name: "JobPosition",
-                column: "JOBDETAILS_JOBPOSITION",
+                column: "JOBASSIGNMENT_JOBPOSITION",
                 type: "INTEGER",
             }
         ]
@@ -215,11 +215,11 @@ export class JobAssignmentRepository {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "CODBEX_JOBDETAILS",
+            table: "CODBEX_JOBASSIGNMENT",
             entity: entity,
             key: {
                 name: "Id",
-                column: "JOBDETAILS_ID",
+                column: "JOBASSIGNMENT_ID",
                 value: id
             }
         });
@@ -232,12 +232,12 @@ export class JobAssignmentRepository {
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "CODBEX_JOBDETAILS",
+            table: "CODBEX_JOBASSIGNMENT",
             entity: entity,
             previousEntity: previousEntity,
             key: {
                 name: "Id",
-                column: "JOBDETAILS_ID",
+                column: "JOBASSIGNMENT_ID",
                 value: entity.Id
             }
         });
@@ -263,11 +263,11 @@ export class JobAssignmentRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "CODBEX_JOBDETAILS",
+            table: "CODBEX_JOBASSIGNMENT",
             entity: entity,
             key: {
                 name: "Id",
-                column: "JOBDETAILS_ID",
+                column: "JOBASSIGNMENT_ID",
                 value: id
             }
         });
@@ -278,7 +278,7 @@ export class JobAssignmentRepository {
     }
 
     public customDataCount(): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_JOBDETAILS"');
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_JOBASSIGNMENT"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;

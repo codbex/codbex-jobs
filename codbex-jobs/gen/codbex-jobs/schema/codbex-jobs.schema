@@ -2,7 +2,7 @@
     "schema": {
         "structures": [
             {
-                "name": "CODBEX_JOBDETAILS",
+                "name": "CODBEX_JOBASSIGNMENT",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -10,48 +10,48 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "JOBDETAILS_ID"
+                        "name": "JOBASSIGNMENT_ID"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "JOBDETAILS_NUMBER"
+                        "name": "JOBASSIGNMENT_NUMBER"
                     },
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "JOBDETAILS_EMPLOYEECONTRACT"
+                        "name": "JOBASSIGNMENT_EMPLOYEECONTRACT"
                     },
                     {
                         "type": "DATE",
                         "nullable": true,
-                        "name": "JOBDETAILS_HIREDATE"
+                        "name": "JOBASSIGNMENT_HIREDATE"
                     },
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "JOBDETAILS_ORGANIZATION"
+                        "name": "JOBASSIGNMENT_ORGANIZATION"
                     },
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "JOBDETAILS_DEPARTMENT"
+                        "name": "JOBASSIGNMENT_DEPARTMENT"
                     },
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "JOBDETAILS_TEAM"
+                        "name": "JOBASSIGNMENT_TEAM"
                     },
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "JOBDETAILS_MANAGER"
+                        "name": "JOBASSIGNMENT_MANAGER"
                     },
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "JOBDETAILS_JOBPOSITION"
+                        "name": "JOBASSIGNMENT_JOBPOSITION"
                     }
                 ]
             },
@@ -164,54 +164,54 @@
             {
                 "name": "JobAssignment_EmployeeContract",
                 "type": "foreignKey",
-                "table": "CODBEX_JOBDETAILS",
+                "table": "CODBEX_JOBASSIGNMENT",
                 "constraintName": "JobAssignment_EmployeeContract",
-                "columns": "JOBDETAILS_EMPLOYEECONTRACT",
+                "columns": "JOBASSIGNMENT_EMPLOYEECONTRACT",
                 "referencedTable": "CODBEX_EMPLOYEECONTRACT",
                 "referencedColumns": "EMPLOYEECONTRACT_ID"
             },
             {
                 "name": "JobAssignment_Organization",
                 "type": "foreignKey",
-                "table": "CODBEX_JOBDETAILS",
+                "table": "CODBEX_JOBASSIGNMENT",
                 "constraintName": "JobAssignment_Organization",
-                "columns": "JOBDETAILS_ORGANIZATION",
+                "columns": "JOBASSIGNMENT_ORGANIZATION",
                 "referencedTable": "CODBEX_ORGANIZATION",
                 "referencedColumns": "ORGANIZATION_ID"
             },
             {
                 "name": "JobAssignment_Department",
                 "type": "foreignKey",
-                "table": "CODBEX_JOBDETAILS",
+                "table": "CODBEX_JOBASSIGNMENT",
                 "constraintName": "JobAssignment_Department",
-                "columns": "JOBDETAILS_DEPARTMENT",
+                "columns": "JOBASSIGNMENT_DEPARTMENT",
                 "referencedTable": "CODBEX_DEPARTMENT",
                 "referencedColumns": "DEPARTMENT_ID"
             },
             {
                 "name": "JobAssignment_Team",
                 "type": "foreignKey",
-                "table": "CODBEX_JOBDETAILS",
+                "table": "CODBEX_JOBASSIGNMENT",
                 "constraintName": "JobAssignment_Team",
-                "columns": "JOBDETAILS_TEAM",
+                "columns": "JOBASSIGNMENT_TEAM",
                 "referencedTable": "CODBEX_TEAM",
                 "referencedColumns": "TEAM_ID"
             },
             {
                 "name": "JobAssignment_Employee",
                 "type": "foreignKey",
-                "table": "CODBEX_JOBDETAILS",
+                "table": "CODBEX_JOBASSIGNMENT",
                 "constraintName": "JobAssignment_Employee",
-                "columns": "JOBDETAILS_MANAGER",
+                "columns": "JOBASSIGNMENT_MANAGER",
                 "referencedTable": "CODBEX_EMPLOYEE",
                 "referencedColumns": "EMPLOYEE_ID"
             },
             {
                 "name": "JobAssignment_JobPosition",
                 "type": "foreignKey",
-                "table": "CODBEX_JOBDETAILS",
+                "table": "CODBEX_JOBASSIGNMENT",
                 "constraintName": "JobAssignment_JobPosition",
-                "columns": "JOBDETAILS_JOBPOSITION",
+                "columns": "JOBASSIGNMENT_JOBPOSITION",
                 "referencedTable": "CODBEX_JOBPOSITION",
                 "referencedColumns": "JOBPOSITION_ID"
             },

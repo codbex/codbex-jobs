@@ -5,7 +5,7 @@
                 "properties": [
                     {
                         "dataAutoIncrement": "true",
-                        "dataName": "JOBDETAILS_ID",
+                        "dataName": "JOBASSIGNMENT_ID",
                         "dataNullable": "true",
                         "dataPrimaryKey": "true",
                         "dataType": "INTEGER",
@@ -18,7 +18,7 @@
                     {
                         "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(29)",
                         "dataLength": "20",
-                        "dataName": "JOBDETAILS_NUMBER",
+                        "dataName": "JOBASSIGNMENT_NUMBER",
                         "dataNullable": "true",
                         "dataType": "VARCHAR",
                         "isCalculatedProperty": "true",
@@ -29,7 +29,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "dataName": "JOBDETAILS_EMPLOYEECONTRACT",
+                        "dataName": "JOBASSIGNMENT_EMPLOYEECONTRACT",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
                         "isRequiredProperty": "true",
@@ -46,7 +46,7 @@
                         "relationshipEntityPerspectiveLabel": "EmployeeContracts"
                     },
                     {
-                        "dataName": "JOBDETAILS_HIREDATE",
+                        "dataName": "JOBASSIGNMENT_HIREDATE",
                         "dataNullable": "true",
                         "dataType": "DATE",
                         "isRequiredProperty": "true",
@@ -57,7 +57,7 @@
                         "widgetType": "DATE"
                     },
                     {
-                        "dataName": "JOBDETAILS_ORGANIZATION",
+                        "dataName": "JOBASSIGNMENT_ORGANIZATION",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
                         "isRequiredProperty": "true",
@@ -74,7 +74,7 @@
                         "relationshipEntityPerspectiveLabel": "Organizations"
                     },
                     {
-                        "dataName": "JOBDETAILS_DEPARTMENT",
+                        "dataName": "JOBASSIGNMENT_DEPARTMENT",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
                         "isRequiredProperty": "true",
@@ -92,7 +92,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
-                        "dataName": "JOBDETAILS_TEAM",
+                        "dataName": "JOBASSIGNMENT_TEAM",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
                         "isRequiredProperty": "true",
@@ -110,7 +110,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
-                        "dataName": "JOBDETAILS_MANAGER",
+                        "dataName": "JOBASSIGNMENT_MANAGER",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
                         "name": "Manager",
@@ -126,7 +126,7 @@
                         "relationshipEntityPerspectiveLabel": "Employees"
                     },
                     {
-                        "dataName": "JOBDETAILS_JOBPOSITION",
+                        "dataName": "JOBASSIGNMENT_JOBPOSITION",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
                         "isRequiredProperty": "true",
@@ -144,17 +144,17 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
-                "caption": "Manage entity JobDetails",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}JOBDETAILS\"",
-                "dataName": "JOBDETAILS",
+                "caption": "Manage entity Job Assignment",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}JOBASSIGNMENT\"",
+                "dataName": "JOBASSIGNMENT",
                 "dataQuery": "",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "importsCode": "aW1wb3J0IHsgTnVtYmVyR2VuZXJhdG9yU2VydmljZSB9IGZyb20gIi9jb2RiZXgtbnVtYmVyLWdlbmVyYXRvci9zZXJ2aWNlL2dlbmVyYXRvciI7",
                 "layoutType": "MANAGE_MASTER",
                 "menuIndex": "100",
-                "menuKey": "jobdetails",
-                "menuLabel": "JobDetails",
+                "menuKey": "jobassignment",
+                "menuLabel": "JobAssignment",
                 "name": "JobAssignment",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
@@ -162,8 +162,8 @@
                 "perspectiveName": "JobAssignment",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
-                "title": "JobDetails",
-                "tooltip": "JobDetails",
+                "title": "JobAssignment",
+                "tooltip": "JobAssignment",
                 "type": "PRIMARY"
             },
             {
