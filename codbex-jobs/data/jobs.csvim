@@ -3,7 +3,7 @@
     {
       "table": "CODBEX_JOBTYPE",
       "schema": "PUBLIC",
-      "file": "/codbex-jobs-data/job-types.csv",
+      "file": "/codbex-jobs/data/job-types.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -14,7 +14,7 @@
     {
       "table": "CODBEX_JOBSTATUS",
       "schema": "PUBLIC",
-      "file": "/codbex-jobs-data/job-statuses.csv",
+      "file": "/codbex-jobs/data/job-statuses.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
