@@ -44,7 +44,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsOrganization = [];
 				$scope.optionsDepartment = [];
 				$scope.optionsTeam = [];
-				$scope.optionsManager = [];
 				$scope.optionsJobPosition = [];
 				$scope.action = 'select';
 			});
@@ -60,7 +59,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsOrganization = msg.data.optionsOrganization;
 				$scope.optionsDepartment = msg.data.optionsDepartment;
 				$scope.optionsTeam = msg.data.optionsTeam;
-				$scope.optionsManager = msg.data.optionsManager;
 				$scope.optionsJobPosition = msg.data.optionsJobPosition;
 				$scope.action = 'select';
 			});
@@ -73,7 +71,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsOrganization = msg.data.optionsOrganization;
 				$scope.optionsDepartment = msg.data.optionsDepartment;
 				$scope.optionsTeam = msg.data.optionsTeam;
-				$scope.optionsManager = msg.data.optionsManager;
 				$scope.optionsJobPosition = msg.data.optionsJobPosition;
 				$scope.action = 'create';
 			});
@@ -89,76 +86,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsOrganization = msg.data.optionsOrganization;
 				$scope.optionsDepartment = msg.data.optionsDepartment;
 				$scope.optionsTeam = msg.data.optionsTeam;
-				$scope.optionsManager = msg.data.optionsManager;
 				$scope.optionsJobPosition = msg.data.optionsJobPosition;
 				$scope.action = 'update';
 			});
-		});
-
-		$scope.$watch('entity.Organization', function (newValue, oldValue) {
-			if (newValue !== undefined && newValue !== null) {
-				entityApi.$http.post("/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts/search", {
-					$filter: {
-						equals: {
-							Organization: newValue
-						}
-					}
-				}).then(function (response) {
-					$scope.optionsDepartment = response.data.map(e => {
-						return {
-							value: e.Id,
-							text: e.Name
-						}
-					});
-					if ($scope.action !== 'select' && newValue !== oldValue) {
-						$scope.entity.Department = undefined;
-					}
-				});
-			}
-		});
-
-		$scope.$watch('entity.Department', function (newValue, oldValue) {
-			if (newValue !== undefined && newValue !== null) {
-				entityApi.$http.post("/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/TeamService.ts/search", {
-					$filter: {
-						equals: {
-							Department: newValue
-						}
-					}
-				}).then(function (response) {
-					$scope.optionsTeam = response.data.map(e => {
-						return {
-							value: e.Id,
-							text: e.Name
-						}
-					});
-					if ($scope.action !== 'select' && newValue !== oldValue) {
-						$scope.entity.Team = undefined;
-					}
-				});
-			}
-		});
-
-		$scope.$watch('entity.Team', function (newValue, oldValue) {
-			if (newValue !== undefined && newValue !== null) {
-				entityApi.$http.post("/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionService.ts/search", {
-					$filter: {
-						equals: {
-							Team: newValue
-						}
-					}
-				}).then(function (response) {
-					$scope.optionsJobPosition = response.data.map(e => {
-						return {
-							value: e.Id,
-							text: e.Number
-						}
-					});
-					if ($scope.action !== 'select' && newValue !== oldValue) {
-						$scope.entity.JobPosition = undefined;
-					}
-				});
-			}
 		});
 		//-----------------Events-------------------//
 

@@ -11,12 +11,24 @@ angular.module('page', ["ideUI", "ideView"])
 
 		let params = ViewParameters.get();
 		if (Object.keys(params).length) {
+			if (params?.entity?.DateOpenedFrom) {
+				params.entity.DateOpenedFrom = new Date(params.entity.DateOpenedFrom);
+			}
+			if (params?.entity?.DateOpenedTo) {
+				params.entity.DateOpenedTo = new Date(params.entity.DateOpenedTo);
+			}
+			if (params?.entity?.DateClosedFrom) {
+				params.entity.DateClosedFrom = new Date(params.entity.DateClosedFrom);
+			}
+			if (params?.entity?.DateClosedTo) {
+				params.entity.DateClosedTo = new Date(params.entity.DateClosedTo);
+			}
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
-			$scope.optionsJobRole = params.optionsJobRole;
-			$scope.optionsJobStatus = params.optionsJobStatus;
-			$scope.optionsJobType = params.optionsJobType;
+			$scope.optionsRole = params.optionsRole;
+			$scope.optionsStatus = params.optionsStatus;
+			$scope.optionsType = params.optionsType;
 		}
 
 		$scope.filter = function () {
@@ -45,17 +57,29 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Number) {
 				filter.$filter.contains.Number = entity.Number;
 			}
-			if (entity.JobRole !== undefined) {
-				filter.$filter.equals.JobRole = entity.JobRole;
+			if (entity.Role !== undefined) {
+				filter.$filter.equals.Role = entity.Role;
 			}
-			if (entity.JobStatus !== undefined) {
-				filter.$filter.equals.JobStatus = entity.JobStatus;
+			if (entity.Status !== undefined) {
+				filter.$filter.equals.Status = entity.Status;
 			}
-			if (entity.JobType !== undefined) {
-				filter.$filter.equals.JobType = entity.JobType;
+			if (entity.Type !== undefined) {
+				filter.$filter.equals.Type = entity.Type;
 			}
 			if (entity.Team !== undefined) {
 				filter.$filter.equals.Team = entity.Team;
+			}
+			if (entity.DateOpenedFrom) {
+				filter.$filter.greaterThanOrEqual.DateOpened = entity.DateOpenedFrom;
+			}
+			if (entity.DateOpenedTo) {
+				filter.$filter.lessThanOrEqual.DateOpened = entity.DateOpenedTo;
+			}
+			if (entity.DateClosedFrom) {
+				filter.$filter.greaterThanOrEqual.DateClosed = entity.DateClosedFrom;
+			}
+			if (entity.DateClosedTo) {
+				filter.$filter.lessThanOrEqual.DateClosed = entity.DateClosedTo;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
