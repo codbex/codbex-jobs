@@ -409,7 +409,6 @@
                         "dataNullable": "true",
                         "dataType": "DATE",
                         "description": "",
-                        "isRequiredProperty": "true",
                         "name": "DateClosed",
                         "tooltip": "",
                         "widgetDropDownKey": "Id",

@@ -147,9 +147,6 @@ class JobPositionService {
         if (entity.DateOpened === null || entity.DateOpened === undefined) {
             throw new ValidationError(`The 'DateOpened' property is required, provide a valid value`);
         }
-        if (entity.DateClosed === null || entity.DateClosed === undefined) {
-            throw new ValidationError(`The 'DateClosed' property is required, provide a valid value`);
-        }
         for (const next of validationModules) {
             next.validate(entity);
         }
