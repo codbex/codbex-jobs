@@ -135,14 +135,17 @@ class JobPositionService {
         if (entity.Number?.length > 20) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
         }
-        if (entity.JobRole === null || entity.JobRole === undefined) {
-            throw new ValidationError(`The 'JobRole' property is required, provide a valid value`);
+        if (entity.Role === null || entity.Role === undefined) {
+            throw new ValidationError(`The 'Role' property is required, provide a valid value`);
         }
-        if (entity.JobStatus === null || entity.JobStatus === undefined) {
-            throw new ValidationError(`The 'JobStatus' property is required, provide a valid value`);
+        if (entity.Status === null || entity.Status === undefined) {
+            throw new ValidationError(`The 'Status' property is required, provide a valid value`);
         }
-        if (entity.JobType === null || entity.JobType === undefined) {
-            throw new ValidationError(`The 'JobType' property is required, provide a valid value`);
+        if (entity.Type === null || entity.Type === undefined) {
+            throw new ValidationError(`The 'Type' property is required, provide a valid value`);
+        }
+        if (entity.DateOpened === null || entity.DateOpened === undefined) {
+            throw new ValidationError(`The 'DateOpened' property is required, provide a valid value`);
         }
         for (const next of validationModules) {
             next.validate(entity);

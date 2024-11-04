@@ -2,23 +2,28 @@ import { query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
+import { EntityUtils } from "../utils/EntityUtils";
 // custom imports
 import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 export interface JobPositionEntity {
     readonly Id: number;
     Number?: string;
-    JobRole?: number;
-    JobStatus?: number;
-    JobType?: number;
+    Role?: number;
+    Status?: number;
+    Type?: number;
     Team?: number;
+    DateOpened?: Date;
+    DateClosed?: Date;
 }
 
 export interface JobPositionCreateEntity {
-    readonly JobRole?: number;
-    readonly JobStatus?: number;
-    readonly JobType?: number;
+    readonly Role?: number;
+    readonly Status?: number;
+    readonly Type?: number;
     readonly Team?: number;
+    readonly DateOpened?: Date;
+    readonly DateClosed?: Date;
 }
 
 export interface JobPositionUpdateEntity extends JobPositionCreateEntity {
@@ -30,58 +35,72 @@ export interface JobPositionEntityOptions {
         equals?: {
             Id?: number | number[];
             Number?: string | string[];
-            JobRole?: number | number[];
-            JobStatus?: number | number[];
-            JobType?: number | number[];
+            Role?: number | number[];
+            Status?: number | number[];
+            Type?: number | number[];
             Team?: number | number[];
+            DateOpened?: Date | Date[];
+            DateClosed?: Date | Date[];
         };
         notEquals?: {
             Id?: number | number[];
             Number?: string | string[];
-            JobRole?: number | number[];
-            JobStatus?: number | number[];
-            JobType?: number | number[];
+            Role?: number | number[];
+            Status?: number | number[];
+            Type?: number | number[];
             Team?: number | number[];
+            DateOpened?: Date | Date[];
+            DateClosed?: Date | Date[];
         };
         contains?: {
             Id?: number;
             Number?: string;
-            JobRole?: number;
-            JobStatus?: number;
-            JobType?: number;
+            Role?: number;
+            Status?: number;
+            Type?: number;
             Team?: number;
+            DateOpened?: Date;
+            DateClosed?: Date;
         };
         greaterThan?: {
             Id?: number;
             Number?: string;
-            JobRole?: number;
-            JobStatus?: number;
-            JobType?: number;
+            Role?: number;
+            Status?: number;
+            Type?: number;
             Team?: number;
+            DateOpened?: Date;
+            DateClosed?: Date;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Number?: string;
-            JobRole?: number;
-            JobStatus?: number;
-            JobType?: number;
+            Role?: number;
+            Status?: number;
+            Type?: number;
             Team?: number;
+            DateOpened?: Date;
+            DateClosed?: Date;
         };
         lessThan?: {
             Id?: number;
             Number?: string;
-            JobRole?: number;
-            JobStatus?: number;
-            JobType?: number;
+            Role?: number;
+            Status?: number;
+            Type?: number;
             Team?: number;
+            DateOpened?: Date;
+            DateClosed?: Date;
         };
         lessThanOrEqual?: {
             Id?: number;
             Number?: string;
-            JobRole?: number;
-            JobStatus?: number;
-            JobType?: number;
+            Role?: number;
+            Status?: number;
+            Type?: number;
             Team?: number;
+            DateOpened?: Date;
+            DateClosed?: Date;
         };
     },
     $select?: (keyof JobPositionEntity)[],
@@ -124,24 +143,34 @@ export class JobPositionRepository {
                 type: "VARCHAR",
             },
             {
-                name: "JobRole",
-                column: "JOBPOSITION_JOBROLE",
+                name: "Role",
+                column: "JOBPOSITION_ROLE",
                 type: "INTEGER",
             },
             {
-                name: "JobStatus",
-                column: "JOBPOSITION_JOBSTATUS",
+                name: "Status",
+                column: "JOBPOSITION_STATUS",
                 type: "INTEGER",
             },
             {
-                name: "JobType",
-                column: "JOBPOSITION_JOBTYPE",
+                name: "Type",
+                column: "JOBPOSITION_TYPE",
                 type: "INTEGER",
             },
             {
                 name: "Team",
                 column: "JOBPOSITION_TEAM",
                 type: "INTEGER",
+            },
+            {
+                name: "DateOpened",
+                column: "JOBPOSITION_DATEOPENED",
+                type: "DATE",
+            },
+            {
+                name: "DateClosed",
+                column: "JOBPOSITION_DATECLOSED",
+                type: "DATE",
             }
         ]
     };
@@ -153,15 +182,23 @@ export class JobPositionRepository {
     }
 
     public findAll(options?: JobPositionEntityOptions): JobPositionEntity[] {
-        return this.dao.list(options);
+        return this.dao.list(options).map((e: JobPositionEntity) => {
+            EntityUtils.setDate(e, "DateOpened");
+            EntityUtils.setDate(e, "DateClosed");
+            return e;
+        });
     }
 
     public findById(id: number): JobPositionEntity | undefined {
         const entity = this.dao.find(id);
+        EntityUtils.setDate(entity, "DateOpened");
+        EntityUtils.setDate(entity, "DateClosed");
         return entity ?? undefined;
     }
 
     public create(entity: JobPositionCreateEntity): number {
+        EntityUtils.setLocalDate(entity, "DateOpened");
+        EntityUtils.setLocalDate(entity, "DateClosed");
         // @ts-ignore
         (entity as JobPositionEntity).Number = new NumberGeneratorService().generate(28);
         const id = this.dao.insert(entity);
@@ -179,6 +216,8 @@ export class JobPositionRepository {
     }
 
     public update(entity: JobPositionUpdateEntity): void {
+        // EntityUtils.setLocalDate(entity, "DateOpened");
+        // EntityUtils.setLocalDate(entity, "DateClosed");
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

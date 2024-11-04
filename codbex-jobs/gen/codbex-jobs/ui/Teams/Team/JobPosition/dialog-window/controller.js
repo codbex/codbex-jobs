@@ -21,12 +21,19 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		let params = ViewParameters.get();
 		if (Object.keys(params).length) {
 			$scope.action = params.action;
+
+			if (params.entity.DateOpened) {
+				params.entity.DateOpened = new Date(params.entity.DateOpened);
+			}
+			if (params.entity.DateClosed) {
+				params.entity.DateClosed = new Date(params.entity.DateClosed);
+			}
 			$scope.entity = params.entity;
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
-			$scope.optionsJobRole = params.optionsJobRole;
-			$scope.optionsJobStatus = params.optionsJobStatus;
-			$scope.optionsJobType = params.optionsJobType;
+			$scope.optionsRole = params.optionsRole;
+			$scope.optionsStatus = params.optionsStatus;
+			$scope.optionsType = params.optionsType;
 		}
 
 		$scope.create = function () {

@@ -14,7 +14,6 @@ export interface JobAssignmentEntity {
     Organization?: number;
     Department?: number;
     Team?: number;
-    Manager?: number;
     JobPosition?: number;
 }
 
@@ -24,7 +23,6 @@ export interface JobAssignmentCreateEntity {
     readonly Organization?: number;
     readonly Department?: number;
     readonly Team?: number;
-    readonly Manager?: number;
     readonly JobPosition?: number;
 }
 
@@ -42,7 +40,6 @@ export interface JobAssignmentEntityOptions {
             Organization?: number | number[];
             Department?: number | number[];
             Team?: number | number[];
-            Manager?: number | number[];
             JobPosition?: number | number[];
         };
         notEquals?: {
@@ -53,7 +50,6 @@ export interface JobAssignmentEntityOptions {
             Organization?: number | number[];
             Department?: number | number[];
             Team?: number | number[];
-            Manager?: number | number[];
             JobPosition?: number | number[];
         };
         contains?: {
@@ -64,7 +60,6 @@ export interface JobAssignmentEntityOptions {
             Organization?: number;
             Department?: number;
             Team?: number;
-            Manager?: number;
             JobPosition?: number;
         };
         greaterThan?: {
@@ -75,7 +70,6 @@ export interface JobAssignmentEntityOptions {
             Organization?: number;
             Department?: number;
             Team?: number;
-            Manager?: number;
             JobPosition?: number;
         };
         greaterThanOrEqual?: {
@@ -86,7 +80,6 @@ export interface JobAssignmentEntityOptions {
             Organization?: number;
             Department?: number;
             Team?: number;
-            Manager?: number;
             JobPosition?: number;
         };
         lessThan?: {
@@ -97,7 +90,6 @@ export interface JobAssignmentEntityOptions {
             Organization?: number;
             Department?: number;
             Team?: number;
-            Manager?: number;
             JobPosition?: number;
         };
         lessThanOrEqual?: {
@@ -108,7 +100,6 @@ export interface JobAssignmentEntityOptions {
             Organization?: number;
             Department?: number;
             Team?: number;
-            Manager?: number;
             JobPosition?: number;
         };
     },
@@ -174,11 +165,6 @@ export class JobAssignmentRepository {
             {
                 name: "Team",
                 column: "JOBASSIGNMENT_TEAM",
-                type: "INTEGER",
-            },
-            {
-                name: "Manager",
-                column: "JOBASSIGNMENT_MANAGER",
                 type: "INTEGER",
             },
             {
