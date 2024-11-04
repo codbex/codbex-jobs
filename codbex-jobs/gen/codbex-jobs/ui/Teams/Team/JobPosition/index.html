@@ -33,11 +33,9 @@
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
 						<th fd-table-header-cell>Number</th>
-						<th fd-table-header-cell>Role</th>
-						<th fd-table-header-cell>Status</th>
-						<th fd-table-header-cell>Type</th>
-						<th fd-table-header-cell>DateOpened</th>
-						<th fd-table-header-cell>DateClosed</th>
+						<th fd-table-header-cell>JobRole</th>
+						<th fd-table-header-cell>JobStatus</th>
+						<th fd-table-header-cell>JobType</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -49,19 +47,13 @@
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Number}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsRoleValue(next.Role)}}
+							{{optionsJobRoleValue(next.JobRole)}}
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsStatusValue(next.Status)}}
+							{{optionsJobStatusValue(next.JobStatus)}}
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsTypeValue(next.Type)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next.DateOpened" ng-readonly="true"></fd-input>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next.DateClosed" ng-readonly="true"></fd-input>
+							{{optionsJobTypeValue(next.JobType)}}
 						</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>

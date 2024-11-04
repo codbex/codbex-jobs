@@ -48,104 +48,44 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idRole" dg-colon="true">Role</fd-form-label>
+                        	<fd-form-label for="idJobRole" dg-colon="true">JobRole</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-combobox-input id="idRole"
-	                            name="Role"
-	                            state="{{ forms.details['Role'].$valid ? '' : 'error' }}"
-	                            ng-model="entity.Role"
-	                            dropdown-items="optionsRole"
-	                            dg-placeholder="Search Role ...">
+	                        <fd-combobox-input id="idJobRole"
+	                            name="JobRole"
+	                            state="{{ forms.details['JobRole'].$valid ? '' : 'error' }}"
+	                            ng-model="entity.JobRole"
+	                            dropdown-items="optionsJobRole"
+	                            dg-placeholder="Search JobRole ...">
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idStatus" dg-colon="true">Status</fd-form-label>
+                        	<fd-form-label for="idJobStatus" dg-colon="true">JobStatus</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-combobox-input id="idStatus"
-	                            name="Status"
-	                            state="{{ forms.details['Status'].$valid ? '' : 'error' }}"
-	                            ng-model="entity.Status"
-	                            dropdown-items="optionsStatus"
-	                            dg-placeholder="Search Status ...">
+	                        <fd-combobox-input id="idJobStatus"
+	                            name="JobStatus"
+	                            state="{{ forms.details['JobStatus'].$valid ? '' : 'error' }}"
+	                            ng-model="entity.JobStatus"
+	                            dropdown-items="optionsJobStatus"
+	                            dg-placeholder="Search JobStatus ...">
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idType" dg-colon="true">Type</fd-form-label>
+                        	<fd-form-label for="idJobType" dg-colon="true">JobType</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-combobox-input id="idType"
-	                            name="Type"
-	                            state="{{ forms.details['Type'].$valid ? '' : 'error' }}"
-	                            ng-model="entity.Type"
-	                            dropdown-items="optionsType"
-	                            dg-placeholder="Search Type ...">
+	                        <fd-combobox-input id="idJobType"
+	                            name="JobType"
+	                            state="{{ forms.details['JobType'].$valid ? '' : 'error' }}"
+	                            ng-model="entity.JobType"
+	                            dropdown-items="optionsJobType"
+	                            dg-placeholder="Search JobType ...">
 	                        </fd-combobox-input>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDateOpenedFrom" dg-colon="true">From DateOpened</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--2">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['DateOpened'].$valid }}">
-	                            <fd-input id="idDateOpenedFrom"
-	                                name="DateOpened"
-	                                state="{{ forms.details['DateOpened'].$valid ? '' : 'error' }}"
-	                                ng-model="entity.DateOpenedFrom"
-	                                type="date">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
-	                    </div>
-                    	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDateOpenedTo" dg-colon="true">To DateOpened</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--2">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['DateOpened'].$valid }}">
-	                            <fd-input id="idDateOpenedTo"
-	                                name="DateOpened"
-	                                state="{{ forms.details['DateOpened'].$valid ? '' : 'error' }}"
-	                                ng-model="entity.DateOpenedTo"
-	                                type="date">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDateClosedFrom" dg-colon="true">From DateClosed</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--2">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['DateClosed'].$valid }}">
-	                            <fd-input id="idDateClosedFrom"
-	                                name="DateClosed"
-	                                state="{{ forms.details['DateClosed'].$valid ? '' : 'error' }}"
-	                                ng-model="entity.DateClosedFrom"
-	                                type="date">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
-	                    </div>
-                    	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDateClosedTo" dg-colon="true">To DateClosed</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--2">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['DateClosed'].$valid }}">
-	                            <fd-input id="idDateClosedTo"
-	                                name="DateClosed"
-	                                state="{{ forms.details['DateClosed'].$valid ? '' : 'error' }}"
-	                                ng-model="entity.DateClosedTo"
-	                                type="date">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
                 </fd-form-group>

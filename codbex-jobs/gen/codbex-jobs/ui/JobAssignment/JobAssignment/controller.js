@@ -123,6 +123,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
 				optionsTeam: $scope.optionsTeam,
+				optionsManager: $scope.optionsManager,
 				optionsJobPosition: $scope.optionsJobPosition,
 			});
 		};
@@ -137,6 +138,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
 				optionsTeam: $scope.optionsTeam,
+				optionsManager: $scope.optionsManager,
 				optionsJobPosition: $scope.optionsJobPosition,
 			});
 		};
@@ -149,6 +151,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
 				optionsTeam: $scope.optionsTeam,
+				optionsManager: $scope.optionsManager,
 				optionsJobPosition: $scope.optionsJobPosition,
 			});
 		};
@@ -190,6 +193,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
 				optionsTeam: $scope.optionsTeam,
+				optionsManager: $scope.optionsManager,
 				optionsJobPosition: $scope.optionsJobPosition,
 			});
 		};
@@ -199,6 +203,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsOrganization = [];
 		$scope.optionsDepartment = [];
 		$scope.optionsTeam = [];
+		$scope.optionsManager = [];
 		$scope.optionsJobPosition = [];
 
 
@@ -231,6 +236,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$http.get("/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/TeamService.ts").then(function (response) {
 			$scope.optionsTeam = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts").then(function (response) {
+			$scope.optionsManager = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -275,6 +289,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsTeam.length; i++) {
 				if ($scope.optionsTeam[i].value === optionKey) {
 					return $scope.optionsTeam[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsManagerValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsManager.length; i++) {
+				if ($scope.optionsManager[i].value === optionKey) {
+					return $scope.optionsManager[i].text;
 				}
 			}
 			return null;

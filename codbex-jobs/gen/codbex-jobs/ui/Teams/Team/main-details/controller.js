@@ -40,7 +40,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsManager = [];
 				$scope.optionsOrganization = [];
 				$scope.optionsDepartment = [];
 				$scope.action = 'select';
@@ -50,7 +49,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("entitySelected", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = msg.data.entity;
-				$scope.optionsManager = msg.data.optionsManager;
 				$scope.optionsOrganization = msg.data.optionsOrganization;
 				$scope.optionsDepartment = msg.data.optionsDepartment;
 				$scope.action = 'select';
@@ -60,7 +58,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("createEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsManager = msg.data.optionsManager;
 				$scope.optionsOrganization = msg.data.optionsOrganization;
 				$scope.optionsDepartment = msg.data.optionsDepartment;
 				$scope.action = 'create';
@@ -70,11 +67,32 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("updateEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = msg.data.entity;
-				$scope.optionsManager = msg.data.optionsManager;
 				$scope.optionsOrganization = msg.data.optionsOrganization;
 				$scope.optionsDepartment = msg.data.optionsDepartment;
 				$scope.action = 'update';
 			});
+		});
+
+		$scope.$watch('entity.Organization', function (newValue, oldValue) {
+			if (newValue !== undefined && newValue !== null) {
+				entityApi.$http.post("/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts/search", {
+					$filter: {
+						equals: {
+							Organization: newValue
+						}
+					}
+				}).then(function (response) {
+					$scope.optionsDepartment = response.data.map(e => {
+						return {
+							value: e.Id,
+							text: e.Name
+						}
+					});
+					if ($scope.action !== 'select' && newValue !== oldValue) {
+						$scope.entity.Department = undefined;
+					}
+				});
+			}
 		});
 		//-----------------Events-------------------//
 

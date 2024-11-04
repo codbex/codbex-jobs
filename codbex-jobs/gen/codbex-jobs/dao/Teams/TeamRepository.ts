@@ -6,14 +6,12 @@ import { dao as daoApi } from "sdk/db";
 export interface TeamEntity {
     readonly Id: number;
     Name?: string;
-    Manager?: number;
     Organization?: number;
     Department?: number;
 }
 
 export interface TeamCreateEntity {
     readonly Name?: string;
-    readonly Manager?: number;
     readonly Organization?: number;
     readonly Department?: number;
 }
@@ -27,49 +25,42 @@ export interface TeamEntityOptions {
         equals?: {
             Id?: number | number[];
             Name?: string | string[];
-            Manager?: number | number[];
             Organization?: number | number[];
             Department?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Name?: string | string[];
-            Manager?: number | number[];
             Organization?: number | number[];
             Department?: number | number[];
         };
         contains?: {
             Id?: number;
             Name?: string;
-            Manager?: number;
             Organization?: number;
             Department?: number;
         };
         greaterThan?: {
             Id?: number;
             Name?: string;
-            Manager?: number;
             Organization?: number;
             Department?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Name?: string;
-            Manager?: number;
             Organization?: number;
             Department?: number;
         };
         lessThan?: {
             Id?: number;
             Name?: string;
-            Manager?: number;
             Organization?: number;
             Department?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Name?: string;
-            Manager?: number;
             Organization?: number;
             Department?: number;
         };
@@ -112,11 +103,6 @@ export class TeamRepository {
                 name: "Name",
                 column: "TEAM_NAME",
                 type: "VARCHAR",
-            },
-            {
-                name: "Manager",
-                column: "TEAM_MANAGER",
-                type: "INTEGER",
             },
             {
                 name: "Organization",

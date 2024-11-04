@@ -2048,6 +2048,9 @@ components:
         Team:
           type: integer
           format: int32
+        Manager:
+          type: integer
+          format: int32
         JobPosition:
           type: integer
           format: int32
@@ -2106,6 +2109,14 @@ components:
                         type: integer
                         format: int32
                 Team:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Manager:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2177,6 +2188,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                Manager:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 JobPosition:
                   oneOf:
                     - type: integer
@@ -2198,6 +2217,7 @@ components:
                 Organization:
                 Department:
                 Team:
+                Manager:
                 JobPosition:
             greaterThan:
               type: object
@@ -2220,6 +2240,9 @@ components:
                   type: integer
                   format: int32
                 Team:
+                  type: integer
+                  format: int32
+                Manager:
                   type: integer
                   format: int32
                 JobPosition:
@@ -2248,6 +2271,9 @@ components:
                 Team:
                   type: integer
                   format: int32
+                Manager:
+                  type: integer
+                  format: int32
                 JobPosition:
                   type: integer
                   format: int32
@@ -2272,6 +2298,9 @@ components:
                   type: integer
                   format: int32
                 Team:
+                  type: integer
+                  format: int32
+                Manager:
                   type: integer
                   format: int32
                 JobPosition:
@@ -2300,17 +2329,20 @@ components:
                 Team:
                   type: integer
                   format: int32
+                Manager:
+                  type: integer
+                  format: int32
                 JobPosition:
                   type: integer
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "EmployeeContract", "HireDate", "Organization", "Department", "Team", "JobPosition"]
+          example: ["Id", "Number", "EmployeeContract", "HireDate", "Organization", "Department", "Team", "Manager", "JobPosition"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,EmployeeContract,HireDate,Organization,Department,Team,JobPosition"
+            example: "Id,Number,EmployeeContract,HireDate,Organization,Department,Team,Manager,JobPosition"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -2452,10 +2484,9 @@ components:
     JobPosition:
       type: object
       required:
-        - Role
-        - Status
-        - Type
-        - DateOpened
+        - JobRole
+        - JobStatus
+        - JobType
       properties:
         Id:
           type: integer
@@ -2465,20 +2496,18 @@ components:
           minLength: 0
           maxLength: 20
           readOnly: true
-        Role:
+        JobRole:
           type: integer
           format: int32
-        Status:
+        JobStatus:
           type: integer
           format: int32
-        Type:
+        JobType:
           type: integer
           format: int32
         Team:
           type: integer
           format: int32
-        DateOpened:
-        DateClosed:
     JobPositionFilterOptions:
       type: object
       properties:
@@ -2507,7 +2536,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                Role:
+                JobRole:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2515,7 +2544,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                Status:
+                JobStatus:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2523,7 +2552,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                Type:
+                JobType:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2539,10 +2568,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                DateOpened:
-                  oneOf:
-                DateClosed:
-                  oneOf:
             notEquals:
               type: object
               properties:
@@ -2565,7 +2590,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                Role:
+                JobRole:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2573,7 +2598,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                Status:
+                JobStatus:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2581,7 +2606,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                Type:
+                JobType:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2597,10 +2622,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                DateOpened:
-                  oneOf:
-                DateClosed:
-                  oneOf:
             contains:
               type: object
               properties:
@@ -2609,12 +2630,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Role:
-                Status:
-                Type:
+                JobRole:
+                JobStatus:
+                JobType:
                 Team:
-                DateOpened:
-                DateClosed:
             greaterThan:
               type: object
               properties:
@@ -2625,20 +2644,18 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Role:
+                JobRole:
                   type: integer
                   format: int32
-                Status:
+                JobStatus:
                   type: integer
                   format: int32
-                Type:
+                JobType:
                   type: integer
                   format: int32
                 Team:
                   type: integer
                   format: int32
-                DateOpened:
-                DateClosed:
             greaterThanOrEqual:
               type: object
               properties:
@@ -2649,20 +2666,18 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Role:
+                JobRole:
                   type: integer
                   format: int32
-                Status:
+                JobStatus:
                   type: integer
                   format: int32
-                Type:
+                JobType:
                   type: integer
                   format: int32
                 Team:
                   type: integer
                   format: int32
-                DateOpened:
-                DateClosed:
             lessThan:
               type: object
               properties:
@@ -2673,20 +2688,18 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Role:
+                JobRole:
                   type: integer
                   format: int32
-                Status:
+                JobStatus:
                   type: integer
                   format: int32
-                Type:
+                JobType:
                   type: integer
                   format: int32
                 Team:
                   type: integer
                   format: int32
-                DateOpened:
-                DateClosed:
             lessThanOrEqual:
               type: object
               properties:
@@ -2697,28 +2710,26 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Role:
+                JobRole:
                   type: integer
                   format: int32
-                Status:
+                JobStatus:
                   type: integer
                   format: int32
-                Type:
+                JobType:
                   type: integer
                   format: int32
                 Team:
                   type: integer
                   format: int32
-                DateOpened:
-                DateClosed:
         $select:
           type: array
-          example: ["Id", "Number", "Role", "Status", "Type", "Team", "DateOpened", "DateClosed"]
+          example: ["Id", "Number", "JobRole", "JobStatus", "JobType", "Team"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Role,Status,Type,Team,DateOpened,DateClosed"
+            example: "Id,Number,JobRole,JobStatus,JobType,Team"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -2861,7 +2872,6 @@ components:
       type: object
       required:
         - Name
-        - Manager
         - Organization
         - Department
       properties:
@@ -2872,9 +2882,6 @@ components:
           type: string
           minLength: 0
           maxLength: 100
-        Manager:
-          type: integer
-          format: int32
         Organization:
           type: integer
           format: int32
@@ -2909,14 +2916,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 100
-                Manager:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Organization:
                   oneOf:
                     - type: integer
@@ -2955,14 +2954,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 100
-                Manager:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Organization:
                   oneOf:
                     - type: integer
@@ -2987,7 +2978,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 100
-                Manager:
                 Organization:
                 Department:
             greaterThan:
@@ -3000,9 +2990,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 100
-                Manager:
-                  type: integer
-                  format: int32
                 Organization:
                   type: integer
                   format: int32
@@ -3019,9 +3006,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 100
-                Manager:
-                  type: integer
-                  format: int32
                 Organization:
                   type: integer
                   format: int32
@@ -3038,9 +3022,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 100
-                Manager:
-                  type: integer
-                  format: int32
                 Organization:
                   type: integer
                   format: int32
@@ -3057,9 +3038,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 100
-                Manager:
-                  type: integer
-                  format: int32
                 Organization:
                   type: integer
                   format: int32
@@ -3068,12 +3046,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Name", "Manager", "Organization", "Department"]
+          example: ["Id", "Name", "Organization", "Department"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name,Manager,Organization,Department"
+            example: "Id,Name,Organization,Department"
         $order:
           type: string
           enum: ["asc", "desc"]

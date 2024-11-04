@@ -24,6 +24,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.optionsOrganization = params.optionsOrganization;
 			$scope.optionsDepartment = params.optionsDepartment;
 			$scope.optionsTeam = params.optionsTeam;
+			$scope.optionsManager = params.optionsManager;
 			$scope.optionsJobPosition = params.optionsJobPosition;
 		}
 
@@ -70,6 +71,9 @@ angular.module('page', ["ideUI", "ideView"])
 			}
 			if (entity.Team !== undefined) {
 				filter.$filter.equals.Team = entity.Team;
+			}
+			if (entity.Manager !== undefined) {
+				filter.$filter.equals.Manager = entity.Manager;
 			}
 			if (entity.JobPosition !== undefined) {
 				filter.$filter.equals.JobPosition = entity.JobPosition;
