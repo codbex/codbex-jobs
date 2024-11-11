@@ -148,6 +148,20 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idDaysOpened" dg-colon="true">DaysOpened</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--4">
+	                        <fd-step-input dg-id="idDaysOpened"
+								name="DaysOpened"
+								state="{{ forms.details['DaysOpened'].$valid ? '' : 'error' }}"
+								ng-model="entity.DaysOpened"
+								placeholder="Enter DaysOpened"
+								>
+							</fd-step-input>
+	                    </div>
+                    </fd-form-item>
                 </fd-form-group>
             </fd-fieldset>
         </fd-scrollbar>
@@ -158,10 +172,10 @@
 					<fd-button dg-label="Filter" dg-type="emphasized" ng-click="filter()"></fd-button>
 				</fd-bar-element>
 				<fd-bar-element>
-					<fd-button dg-label="Reset" dg-type="transparent" ng-click="resetFilter()"></fd-button>
+					<fd-button dg-label="Reset" ng-click="resetFilter()"></fd-button>
 				</fd-bar-element>
 				<fd-bar-element>
-					<fd-button dg-label="Cancel" dg-type="transparent" ng-click="cancel()"></fd-button>
+					<fd-button dg-label="Cancel" ng-click="cancel()"></fd-button>
 				</fd-bar-element>
 			</fd-bar-right>
 		</fd-bar>

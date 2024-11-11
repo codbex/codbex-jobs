@@ -2479,6 +2479,10 @@ components:
           format: int32
         DateOpened:
         DateClosed:
+        DaysOpened:
+          type: integer
+          format: int32
+          readOnly: true
     JobPositionFilterOptions:
       type: object
       properties:
@@ -2543,6 +2547,14 @@ components:
                   oneOf:
                 DateClosed:
                   oneOf:
+                DaysOpened:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
             notEquals:
               type: object
               properties:
@@ -2601,6 +2613,14 @@ components:
                   oneOf:
                 DateClosed:
                   oneOf:
+                DaysOpened:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
             contains:
               type: object
               properties:
@@ -2615,6 +2635,7 @@ components:
                 Team:
                 DateOpened:
                 DateClosed:
+                DaysOpened:
             greaterThan:
               type: object
               properties:
@@ -2639,6 +2660,9 @@ components:
                   format: int32
                 DateOpened:
                 DateClosed:
+                DaysOpened:
+                  type: integer
+                  format: int32
             greaterThanOrEqual:
               type: object
               properties:
@@ -2663,6 +2687,9 @@ components:
                   format: int32
                 DateOpened:
                 DateClosed:
+                DaysOpened:
+                  type: integer
+                  format: int32
             lessThan:
               type: object
               properties:
@@ -2687,6 +2714,9 @@ components:
                   format: int32
                 DateOpened:
                 DateClosed:
+                DaysOpened:
+                  type: integer
+                  format: int32
             lessThanOrEqual:
               type: object
               properties:
@@ -2711,14 +2741,17 @@ components:
                   format: int32
                 DateOpened:
                 DateClosed:
+                DaysOpened:
+                  type: integer
+                  format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Role", "Status", "Type", "Team", "DateOpened", "DateClosed"]
+          example: ["Id", "Number", "Role", "Status", "Type", "Team", "DateOpened", "DateClosed", "DaysOpened"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Role,Status,Type,Team,DateOpened,DateClosed"
+            example: "Id,Number,Role,Status,Type,Team,DateOpened,DateClosed,DaysOpened"
         $order:
           type: string
           enum: ["asc", "desc"]

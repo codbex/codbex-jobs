@@ -90,6 +90,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.action = 'update';
 			});
 		});
+
+		$scope.serviceEmployeeContract = "/services/ts/codbex-contracts/gen/codbex-contracts/api/EmployeeContracts/EmployeeContractService.ts";
+		$scope.serviceOrganization = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts";
+		$scope.serviceDepartment = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts";
+		$scope.serviceTeam = "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/TeamService.ts";
+		$scope.serviceJobPosition = "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionService.ts";
+
 		//-----------------Events-------------------//
 
 		$scope.create = function () {

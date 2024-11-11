@@ -76,6 +76,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.action = 'update';
 			});
 		});
+
+		$scope.serviceManager = "/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts";
+		$scope.serviceOrganization = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts";
+		$scope.serviceDepartment = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts";
+
 		//-----------------Events-------------------//
 
 		$scope.create = function () {
