@@ -1,5 +1,5 @@
 {
-    "expression": "12 21 * * 1-5",
+    "expression": "0 0 * * 1-5 ?",
     "group": "defined",
     "handler": "codbex-jobs/scheduled-jobs/JobPositionOpenDays/job-position-open-days-handler.mjs",
     "description": "Scheduled Job for counting days for opened job positions",

@@ -8,10 +8,16 @@ const jobPositions = JobPositionDao.findAll();
 
 jobPositions.forEach((jobPosition) => {
 
-    if (jobPosition.DateClosed != null) {
+    if (jobPosition.DateClosed == null) {
 
         jobPosition.DaysOpened = jobPosition.DaysOpened + 1;
-        JobPositionOpenDaysService.updateJobPosition(jobPosition);
+
+        const newJobPosition = {
+            "id": jobPosition.Id,
+            "days": jobPosition.DaysOpened
+        }
+
+        JobPositionOpenDaysService.updateJobPosition(newJobPosition);
     }
 
 });
