@@ -81,6 +81,9 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.DateClosedTo) {
 				filter.$filter.lessThanOrEqual.DateClosed = entity.DateClosedTo;
 			}
+			if (entity.DaysOpened !== undefined) {
+				filter.$filter.equals.DaysOpened = entity.DaysOpened;
+			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
 				filter: filter

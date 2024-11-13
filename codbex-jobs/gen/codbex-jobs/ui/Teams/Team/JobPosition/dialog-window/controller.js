@@ -65,6 +65,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		};
 
+		$scope.serviceRole = "/services/ts/codbex-companies/gen/codbex-companies/api/Companies/JobRoleService.ts";
+		$scope.serviceStatus = "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts";
+		$scope.serviceType = "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobTypeService.ts";
+
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';

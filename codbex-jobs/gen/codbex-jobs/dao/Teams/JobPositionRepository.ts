@@ -15,6 +15,7 @@ export interface JobPositionEntity {
     Team?: number;
     DateOpened?: Date;
     DateClosed?: Date;
+    DaysOpened?: number;
 }
 
 export interface JobPositionCreateEntity {
@@ -41,6 +42,7 @@ export interface JobPositionEntityOptions {
             Team?: number | number[];
             DateOpened?: Date | Date[];
             DateClosed?: Date | Date[];
+            DaysOpened?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -51,6 +53,7 @@ export interface JobPositionEntityOptions {
             Team?: number | number[];
             DateOpened?: Date | Date[];
             DateClosed?: Date | Date[];
+            DaysOpened?: number | number[];
         };
         contains?: {
             Id?: number;
@@ -61,6 +64,7 @@ export interface JobPositionEntityOptions {
             Team?: number;
             DateOpened?: Date;
             DateClosed?: Date;
+            DaysOpened?: number;
         };
         greaterThan?: {
             Id?: number;
@@ -71,6 +75,7 @@ export interface JobPositionEntityOptions {
             Team?: number;
             DateOpened?: Date;
             DateClosed?: Date;
+            DaysOpened?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -81,6 +86,7 @@ export interface JobPositionEntityOptions {
             Team?: number;
             DateOpened?: Date;
             DateClosed?: Date;
+            DaysOpened?: number;
         };
         lessThan?: {
             Id?: number;
@@ -91,6 +97,7 @@ export interface JobPositionEntityOptions {
             Team?: number;
             DateOpened?: Date;
             DateClosed?: Date;
+            DaysOpened?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -101,6 +108,7 @@ export interface JobPositionEntityOptions {
             Team?: number;
             DateOpened?: Date;
             DateClosed?: Date;
+            DaysOpened?: number;
         };
     },
     $select?: (keyof JobPositionEntity)[],
@@ -171,6 +179,11 @@ export class JobPositionRepository {
                 name: "DateClosed",
                 column: "JOBPOSITION_DATECLOSED",
                 type: "DATE",
+            },
+            {
+                name: "DaysOpened",
+                column: "JOBPOSITION_DAYSOPENED",
+                type: "INTEGER",
             }
         ]
     };
@@ -201,6 +214,9 @@ export class JobPositionRepository {
         EntityUtils.setLocalDate(entity, "DateClosed");
         // @ts-ignore
         (entity as JobPositionEntity).Number = new NumberGeneratorService().generate(28);
+        if (entity.DaysOpened === undefined || entity.DaysOpened === null) {
+            (entity as JobPositionEntity).DaysOpened = 0;
+        }
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

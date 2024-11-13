@@ -416,6 +416,21 @@
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "DATE"
+                    },
+                    {
+                        "calculatedPropertyExpressionCreate": "",
+                        "dataDefaultValue": "0",
+                        "dataName": "JOBPOSITION_DAYSOPENED",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "description": "",
+                        "isCalculatedProperty": "true",
+                        "name": "DaysOpened",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
                     }
                 ],
                 "caption": "Manage entity JobPosition",

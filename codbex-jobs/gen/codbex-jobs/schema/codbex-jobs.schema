@@ -115,6 +115,12 @@
                         "type": "DATE",
                         "nullable": true,
                         "name": "JOBPOSITION_DATECLOSED"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "defaultValue": "0",
+                        "nullable": true,
+                        "name": "JOBPOSITION_DAYSOPENED"
                     }
                 ]
             },
