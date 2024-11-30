@@ -1,10 +1,8 @@
 const navigationData = {
     id: 'teams-navigation',
     label: "Teams",
-    view: "Teams",
     group: "employees",
-    orderNumber: 1000,
-    lazyLoad: true,
+    order: 1000,
     link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/Teams/index.html?embedded"
 };
 
