@@ -1,10 +1,8 @@
 const navigationData = {
     id: 'job-assignments-navigation',
     label: "Job Assignments",
-    view: "job assignments",
     group: "employees",
-    orderNumber: 1000,
-    lazyLoad: true,
+    order: 1000,
     link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobAssignment/index.html?embedded"
 };
 
