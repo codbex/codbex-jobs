@@ -1,5 +1,5 @@
 const widgetData = {
-    id: 'open-job-positions',
+    id: 'open-job-positions-widget',
     label: 'Open Job Positions',
     link: '/services/web/codbex-jobs/widgets/open-job-positions/index.html',
     redirectViewId: 'teams-navigation',

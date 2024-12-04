@@ -1,5 +1,5 @@
 const widgetData = {
-    id: 'longest-time-to-fill-job-position',
+    id: 'longest-time-to-fill-job-position-widget',
     label: 'Longest time to fill job position',
     link: '/services/web/codbex-jobs/widgets/longest-time-to-fill-job-position/index.html',
     redirectViewId: 'teams-navigation',
