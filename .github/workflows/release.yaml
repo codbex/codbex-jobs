@@ -20,7 +20,7 @@ jobs:
       release-content: |
         ## codbex-jobs - ${{ inputs.release-version }}
         
-        Payrolls Management Module
+        Jobs Management Module
         
         ## Installation
         
