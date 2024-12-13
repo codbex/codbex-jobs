@@ -197,7 +197,7 @@ export class JobAssignmentRepository {
     public create(entity: JobAssignmentCreateEntity): number {
         EntityUtils.setLocalDate(entity, "HireDate");
         // @ts-ignore
-        (entity as JobAssignmentEntity).Number = new NumberGeneratorService().generate(29);
+        (entity as JobAssignmentEntity).Number = new NumberGeneratorService().generate(27);
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

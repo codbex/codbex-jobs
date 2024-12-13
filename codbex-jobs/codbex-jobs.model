@@ -18,7 +18,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(29)",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(27)",
                         "dataLength": "20",
                         "dataName": "JOBASSIGNMENT_NUMBER",
                         "dataNullable": "true",
@@ -302,7 +302,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(28)",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(26)",
                         "dataLength": "20",
                         "dataName": "JOBPOSITION_NUMBER",
                         "dataNullable": "true",
@@ -782,7 +782,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(30)",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(28)",
                         "dataLength": "20",
                         "dataName": "EMPLOYEECONTRACT_NUMBER",
                         "dataNullable": "true",
