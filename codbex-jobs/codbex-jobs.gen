@@ -1696,7 +1696,7 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(30)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(28)",
           "dataLength": "20",
           "dataName": "EMPLOYEECONTRACT_NUMBER",
           "dataNullable": true,
