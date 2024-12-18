@@ -10,18 +10,18 @@ export interface JobAssignmentEntity {
     readonly Id: number;
     Number?: string;
     EmployeeContract?: number;
-    HireDate?: Date;
     Organization?: number;
     Department?: number;
+    HireDate?: Date;
     JobPosition?: number;
     Team?: number;
 }
 
 export interface JobAssignmentCreateEntity {
     readonly EmployeeContract?: number;
-    readonly HireDate?: Date;
     readonly Organization?: number;
     readonly Department?: number;
+    readonly HireDate?: Date;
     readonly JobPosition?: number;
     readonly Team?: number;
 }
@@ -36,9 +36,9 @@ export interface JobAssignmentEntityOptions {
             Id?: number | number[];
             Number?: string | string[];
             EmployeeContract?: number | number[];
-            HireDate?: Date | Date[];
             Organization?: number | number[];
             Department?: number | number[];
+            HireDate?: Date | Date[];
             JobPosition?: number | number[];
             Team?: number | number[];
         };
@@ -46,9 +46,9 @@ export interface JobAssignmentEntityOptions {
             Id?: number | number[];
             Number?: string | string[];
             EmployeeContract?: number | number[];
-            HireDate?: Date | Date[];
             Organization?: number | number[];
             Department?: number | number[];
+            HireDate?: Date | Date[];
             JobPosition?: number | number[];
             Team?: number | number[];
         };
@@ -56,9 +56,9 @@ export interface JobAssignmentEntityOptions {
             Id?: number;
             Number?: string;
             EmployeeContract?: number;
-            HireDate?: Date;
             Organization?: number;
             Department?: number;
+            HireDate?: Date;
             JobPosition?: number;
             Team?: number;
         };
@@ -66,9 +66,9 @@ export interface JobAssignmentEntityOptions {
             Id?: number;
             Number?: string;
             EmployeeContract?: number;
-            HireDate?: Date;
             Organization?: number;
             Department?: number;
+            HireDate?: Date;
             JobPosition?: number;
             Team?: number;
         };
@@ -76,9 +76,9 @@ export interface JobAssignmentEntityOptions {
             Id?: number;
             Number?: string;
             EmployeeContract?: number;
-            HireDate?: Date;
             Organization?: number;
             Department?: number;
+            HireDate?: Date;
             JobPosition?: number;
             Team?: number;
         };
@@ -86,9 +86,9 @@ export interface JobAssignmentEntityOptions {
             Id?: number;
             Number?: string;
             EmployeeContract?: number;
-            HireDate?: Date;
             Organization?: number;
             Department?: number;
+            HireDate?: Date;
             JobPosition?: number;
             Team?: number;
         };
@@ -96,9 +96,9 @@ export interface JobAssignmentEntityOptions {
             Id?: number;
             Number?: string;
             EmployeeContract?: number;
-            HireDate?: Date;
             Organization?: number;
             Department?: number;
+            HireDate?: Date;
             JobPosition?: number;
             Team?: number;
         };
@@ -148,11 +148,6 @@ export class JobAssignmentRepository {
                 type: "INTEGER",
             },
             {
-                name: "HireDate",
-                column: "JOBASSIGNMENT_HIREDATE",
-                type: "DATE",
-            },
-            {
                 name: "Organization",
                 column: "JOBASSIGNMENT_ORGANIZATION",
                 type: "INTEGER",
@@ -161,6 +156,11 @@ export class JobAssignmentRepository {
                 name: "Department",
                 column: "JOBASSIGNMENT_DEPARTMENT",
                 type: "INTEGER",
+            },
+            {
+                name: "HireDate",
+                column: "JOBASSIGNMENT_HIREDATE",
+                type: "DATE",
             },
             {
                 name: "JobPosition",

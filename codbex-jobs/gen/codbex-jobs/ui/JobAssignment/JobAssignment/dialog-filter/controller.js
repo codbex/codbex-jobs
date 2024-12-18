@@ -56,17 +56,17 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.EmployeeContract !== undefined) {
 				filter.$filter.equals.EmployeeContract = entity.EmployeeContract;
 			}
-			if (entity.HireDateFrom) {
-				filter.$filter.greaterThanOrEqual.HireDate = entity.HireDateFrom;
-			}
-			if (entity.HireDateTo) {
-				filter.$filter.lessThanOrEqual.HireDate = entity.HireDateTo;
-			}
 			if (entity.Organization !== undefined) {
 				filter.$filter.equals.Organization = entity.Organization;
 			}
 			if (entity.Department !== undefined) {
 				filter.$filter.equals.Department = entity.Department;
+			}
+			if (entity.HireDateFrom) {
+				filter.$filter.greaterThanOrEqual.HireDate = entity.HireDateFrom;
+			}
+			if (entity.HireDateTo) {
+				filter.$filter.lessThanOrEqual.HireDate = entity.HireDateTo;
 			}
 			if (entity.JobPosition !== undefined) {
 				filter.$filter.equals.JobPosition = entity.JobPosition;
