@@ -41,12 +41,12 @@
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "JOBASSIGNMENT_TEAM"
+                        "name": "JOBASSIGNMENT_JOBPOSITION"
                     },
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "JOBASSIGNMENT_JOBPOSITION"
+                        "name": "JOBASSIGNMENT_TEAM"
                     }
                 ]
             },
@@ -66,6 +66,31 @@
                         "length": 20,
                         "nullable": true,
                         "name": "JOBSTATUS_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_ORGANIZATION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ORGANIZATION_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "ORGANIZATION_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 10,
+                        "nullable": true,
+                        "name": "ORGANIZATION_COSTCENTER"
                     }
                 ]
             },
@@ -102,11 +127,6 @@
                         "name": "JOBPOSITION_TYPE"
                     },
                     {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "JOBPOSITION_TEAM"
-                    },
-                    {
                         "type": "DATE",
                         "nullable": true,
                         "name": "JOBPOSITION_DATEOPENED"
@@ -121,6 +141,11 @@
                         "defaultValue": "0",
                         "nullable": true,
                         "name": "JOBPOSITION_DAYSOPENED"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "JOBPOSITION_TEAM"
                     }
                 ]
             },
@@ -144,6 +169,93 @@
                 ]
             },
             {
+                "name": "CODBEX_DEPARTMENT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "DEPARTMENT_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "DEPARTMENT_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "DEPARTMENT_ORGANIZATION"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_EMPLOYEE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "EMPLOYEE_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "EMPLOYEE_FIRSTNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "EMPLOYEE_MIDDLENAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "EMPLOYEE_LASTNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 70,
+                        "nullable": true,
+                        "name": "EMPLOYEE_NAME"
+                    },
+                    {
+                        "type": "DATE",
+                        "nullable": true,
+                        "name": "EMPLOYEE_BIRTHDATE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 10,
+                        "nullable": true,
+                        "name": "EMPLOYEE_EGN"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "EMPLOYEE_GENDER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "EMPLOYEE_NATIONALITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "EMPLOYEE_MARTIALSTATUS"
+                    }
+                ]
+            },
+            {
                 "name": "CODBEX_TEAM",
                 "type": "TABLE",
                 "columns": [
@@ -156,7 +268,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 100,
+                        "length": 50,
                         "nullable": true,
                         "name": "TEAM_NAME"
                     },
@@ -205,15 +317,6 @@
                 "referencedColumns": "DEPARTMENT_ID"
             },
             {
-                "name": "JobAssignment_Team",
-                "type": "foreignKey",
-                "table": "CODBEX_JOBASSIGNMENT",
-                "constraintName": "JobAssignment_Team",
-                "columns": "JOBASSIGNMENT_TEAM",
-                "referencedTable": "CODBEX_TEAM",
-                "referencedColumns": "TEAM_ID"
-            },
-            {
                 "name": "JobAssignment_JobPosition",
                 "type": "foreignKey",
                 "table": "CODBEX_JOBASSIGNMENT",
@@ -221,6 +324,15 @@
                 "columns": "JOBASSIGNMENT_JOBPOSITION",
                 "referencedTable": "CODBEX_JOBPOSITION",
                 "referencedColumns": "JOBPOSITION_ID"
+            },
+            {
+                "name": "JobAssignment_Team",
+                "type": "foreignKey",
+                "table": "CODBEX_JOBASSIGNMENT",
+                "constraintName": "JobAssignment_Team",
+                "columns": "JOBASSIGNMENT_TEAM",
+                "referencedTable": "CODBEX_TEAM",
+                "referencedColumns": "TEAM_ID"
             },
             {
                 "name": "JobPosition_JobRole",
@@ -257,33 +369,6 @@
                 "columns": "JOBPOSITION_TEAM",
                 "referencedTable": "CODBEX_TEAM",
                 "referencedColumns": "TEAM_ID"
-            },
-            {
-                "name": "Team_Employee",
-                "type": "foreignKey",
-                "table": "CODBEX_TEAM",
-                "constraintName": "Team_Employee",
-                "columns": "TEAM_MANAGER",
-                "referencedTable": "CODBEX_EMPLOYEE",
-                "referencedColumns": "EMPLOYEE_ID"
-            },
-            {
-                "name": "Team_Organization",
-                "type": "foreignKey",
-                "table": "CODBEX_TEAM",
-                "constraintName": "Team_Organization",
-                "columns": "TEAM_ORGANIZATION",
-                "referencedTable": "CODBEX_ORGANIZATION",
-                "referencedColumns": "ORGANIZATION_ID"
-            },
-            {
-                "name": "Team_Department",
-                "type": "foreignKey",
-                "table": "CODBEX_TEAM",
-                "constraintName": "Team_Department",
-                "columns": "TEAM_DEPARTMENT",
-                "referencedTable": "CODBEX_DEPARTMENT",
-                "referencedColumns": "DEPARTMENT_ID"
             }
         ]
     },

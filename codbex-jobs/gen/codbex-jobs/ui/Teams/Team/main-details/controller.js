@@ -77,9 +77,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$scope.serviceManager = "/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts";
-		$scope.serviceOrganization = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts";
-		$scope.serviceDepartment = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts";
+		$scope.serviceManager = "/services/ts/codbex-jobs/gen/codbex-jobs/api/Employees/undefinedService.ts";
+		$scope.serviceOrganization = "/services/ts/codbex-jobs/gen/codbex-jobs/api/Organizations/undefinedService.ts";
+		$scope.serviceDepartment = "/services/ts/codbex-jobs/gen/codbex-jobs/api/Organizations/undefinedService.ts";
 
 		//-----------------Events-------------------//
 

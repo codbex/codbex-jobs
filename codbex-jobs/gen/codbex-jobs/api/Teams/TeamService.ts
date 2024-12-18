@@ -122,17 +122,11 @@ class TeamService {
         if (entity.Name === null || entity.Name === undefined) {
             throw new ValidationError(`The 'Name' property is required, provide a valid value`);
         }
-        if (entity.Name?.length > 100) {
-            throw new ValidationError(`The 'Name' exceeds the maximum length of [100] characters`);
+        if (entity.Name?.length > 50) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [50] characters`);
         }
         if (entity.Manager === null || entity.Manager === undefined) {
             throw new ValidationError(`The 'Manager' property is required, provide a valid value`);
-        }
-        if (entity.Organization === null || entity.Organization === undefined) {
-            throw new ValidationError(`The 'Organization' property is required, provide a valid value`);
-        }
-        if (entity.Department === null || entity.Department === undefined) {
-            throw new ValidationError(`The 'Department' property is required, provide a valid value`);
         }
         for (const next of validationModules) {
             next.validate(entity);

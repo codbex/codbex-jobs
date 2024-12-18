@@ -136,9 +136,6 @@ class JobAssignmentService {
         if (entity.Department === null || entity.Department === undefined) {
             throw new ValidationError(`The 'Department' property is required, provide a valid value`);
         }
-        if (entity.Team === null || entity.Team === undefined) {
-            throw new ValidationError(`The 'Team' property is required, provide a valid value`);
-        }
         if (entity.JobPosition === null || entity.JobPosition === undefined) {
             throw new ValidationError(`The 'JobPosition' property is required, provide a valid value`);
         }

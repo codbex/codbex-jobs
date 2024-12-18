@@ -5,10 +5,10 @@
  */
 const perspectiveData = {
 	id: 'Teams',
-	name: 'Entities',
+	name: 'Teams',
 	link: '/services/web/codbex-jobs/gen/codbex-jobs/ui/Teams/index.html',
-	order: 100,
-	icon: '/services/web/resources/unicons/copy.svg',
+	order: 106,
+	icon: '/services/web/resources/unicons/user.svg',
 };
 
 if (typeof exports !== 'undefined') {

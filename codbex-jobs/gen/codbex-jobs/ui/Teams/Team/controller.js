@@ -185,7 +185,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsDepartment = [];
 
 
-		$http.get("/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-jobs/gen/codbex-jobs/api/Employees/undefinedService.ts").then(function (response) {
 			$scope.optionsManager = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -194,7 +194,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-jobs/gen/codbex-jobs/api/Organizations/undefinedService.ts").then(function (response) {
 			$scope.optionsOrganization = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -203,7 +203,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-jobs/gen/codbex-jobs/api/Organizations/undefinedService.ts").then(function (response) {
 			$scope.optionsDepartment = response.data.map(e => {
 				return {
 					value: e.Id,

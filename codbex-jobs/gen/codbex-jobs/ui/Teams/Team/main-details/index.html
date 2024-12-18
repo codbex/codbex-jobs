@@ -32,7 +32,7 @@
 	                                ng-model="entity.Name"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="100.0 || -1"
+	                                ng-maxlength="50.0 || -1"
 	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Name">
@@ -61,13 +61,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idOrganization" dg-required="true" dg-colon="true">Organization</fd-form-label>
+                        	<fd-form-label for="idOrganization" dg-required="false" dg-colon="true">Organization</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idOrganization"
 	                            name="Organization"
 	                            state="{{ forms.details['Organization'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
+	                            ng-required="false"
 	                            ng-model="entity.Organization"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsOrganization"
@@ -78,13 +78,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDepartment" dg-required="true" dg-colon="true">Department</fd-form-label>
+                        	<fd-form-label for="idDepartment" dg-required="false" dg-colon="true">Department</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idDepartment"
 	                            name="Department"
 	                            state="{{ forms.details['Department'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
+	                            ng-required="false"
 	                            ng-model="entity.Department"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsDepartment"
