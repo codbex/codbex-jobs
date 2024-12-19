@@ -928,7 +928,7 @@
                 "description": "Manage entity Team",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE_MASTER",
+                "layoutType": "MANAGE",
                 "menuIndex": "100",
                 "menuKey": "team",
                 "menuLabel": "Team",
@@ -943,7 +943,7 @@
                 "projectionReferencedModel": "/workspace/codbex-organizations/codbex-organizations.model",
                 "title": "Team",
                 "tooltip": "Team",
-                "type": "PRIMARY"
+                "type": "PROJECTION"
             }
         ],
         "perspectives": [

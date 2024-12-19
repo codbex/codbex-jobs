@@ -43,13 +43,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("codbex-jobs.Teams.Team.entitySelected", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-organizations.Teams.Team.entitySelected", function (msg) {
 			resetPagination();
 			$scope.selectedMainEntityId = msg.data.selectedMainEntityId;
 			$scope.loadPage($scope.dataPage);
 		}, true);
 
-		messageHub.onDidReceiveMessage("codbex-jobs.Teams.Team.clearDetails", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-organizations.Teams.Team.clearDetails", function (msg) {
 			$scope.$apply(function () {
 				resetPagination();
 				$scope.selectedMainEntityId = null;

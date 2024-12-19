@@ -144,40 +144,6 @@
                 ]
             },
             {
-                "name": "CODBEX_TEAM",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "TEAM_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 50,
-                        "nullable": true,
-                        "name": "TEAM_NAME"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "TEAM_MANAGER"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "TEAM_ORGANIZATION"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "TEAM_DEPARTMENT"
-                    }
-                ]
-            },
-            {
                 "name": "JobAssignment_EmployeeContract",
                 "type": "foreignKey",
                 "table": "CODBEX_JOBASSIGNMENT",
