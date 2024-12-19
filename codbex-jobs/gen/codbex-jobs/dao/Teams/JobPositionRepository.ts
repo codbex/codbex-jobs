@@ -12,19 +12,19 @@ export interface JobPositionEntity {
     Role?: number;
     Status?: number;
     Type?: number;
-    Team?: number;
     DateOpened?: Date;
     DateClosed?: Date;
     DaysOpened?: number;
+    Team?: number;
 }
 
 export interface JobPositionCreateEntity {
     readonly Role?: number;
     readonly Status?: number;
     readonly Type?: number;
-    readonly Team?: number;
     readonly DateOpened?: Date;
     readonly DateClosed?: Date;
+    readonly Team?: number;
 }
 
 export interface JobPositionUpdateEntity extends JobPositionCreateEntity {
@@ -39,10 +39,10 @@ export interface JobPositionEntityOptions {
             Role?: number | number[];
             Status?: number | number[];
             Type?: number | number[];
-            Team?: number | number[];
             DateOpened?: Date | Date[];
             DateClosed?: Date | Date[];
             DaysOpened?: number | number[];
+            Team?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -50,10 +50,10 @@ export interface JobPositionEntityOptions {
             Role?: number | number[];
             Status?: number | number[];
             Type?: number | number[];
-            Team?: number | number[];
             DateOpened?: Date | Date[];
             DateClosed?: Date | Date[];
             DaysOpened?: number | number[];
+            Team?: number | number[];
         };
         contains?: {
             Id?: number;
@@ -61,10 +61,10 @@ export interface JobPositionEntityOptions {
             Role?: number;
             Status?: number;
             Type?: number;
-            Team?: number;
             DateOpened?: Date;
             DateClosed?: Date;
             DaysOpened?: number;
+            Team?: number;
         };
         greaterThan?: {
             Id?: number;
@@ -72,10 +72,10 @@ export interface JobPositionEntityOptions {
             Role?: number;
             Status?: number;
             Type?: number;
-            Team?: number;
             DateOpened?: Date;
             DateClosed?: Date;
             DaysOpened?: number;
+            Team?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -83,10 +83,10 @@ export interface JobPositionEntityOptions {
             Role?: number;
             Status?: number;
             Type?: number;
-            Team?: number;
             DateOpened?: Date;
             DateClosed?: Date;
             DaysOpened?: number;
+            Team?: number;
         };
         lessThan?: {
             Id?: number;
@@ -94,10 +94,10 @@ export interface JobPositionEntityOptions {
             Role?: number;
             Status?: number;
             Type?: number;
-            Team?: number;
             DateOpened?: Date;
             DateClosed?: Date;
             DaysOpened?: number;
+            Team?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -105,10 +105,10 @@ export interface JobPositionEntityOptions {
             Role?: number;
             Status?: number;
             Type?: number;
-            Team?: number;
             DateOpened?: Date;
             DateClosed?: Date;
             DaysOpened?: number;
+            Team?: number;
         };
     },
     $select?: (keyof JobPositionEntity)[],
@@ -166,11 +166,6 @@ export class JobPositionRepository {
                 type: "INTEGER",
             },
             {
-                name: "Team",
-                column: "JOBPOSITION_TEAM",
-                type: "INTEGER",
-            },
-            {
                 name: "DateOpened",
                 column: "JOBPOSITION_DATEOPENED",
                 type: "DATE",
@@ -183,6 +178,11 @@ export class JobPositionRepository {
             {
                 name: "DaysOpened",
                 column: "JOBPOSITION_DAYSOPENED",
+                type: "INTEGER",
+            },
+            {
+                name: "Team",
+                column: "JOBPOSITION_TEAM",
                 type: "INTEGER",
             }
         ]

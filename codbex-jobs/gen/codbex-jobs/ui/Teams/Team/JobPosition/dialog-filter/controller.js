@@ -29,6 +29,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.optionsRole = params.optionsRole;
 			$scope.optionsStatus = params.optionsStatus;
 			$scope.optionsType = params.optionsType;
+			$scope.optionsTeam = params.optionsTeam;
 		}
 
 		$scope.filter = function () {
@@ -66,9 +67,6 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Type !== undefined) {
 				filter.$filter.equals.Type = entity.Type;
 			}
-			if (entity.Team !== undefined) {
-				filter.$filter.equals.Team = entity.Team;
-			}
 			if (entity.DateOpenedFrom) {
 				filter.$filter.greaterThanOrEqual.DateOpened = entity.DateOpenedFrom;
 			}
@@ -83,6 +81,9 @@ angular.module('page', ["ideUI", "ideView"])
 			}
 			if (entity.DaysOpened !== undefined) {
 				filter.$filter.equals.DaysOpened = entity.DaysOpened;
+			}
+			if (entity.Team !== undefined) {
+				filter.$filter.equals.Team = entity.Team;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,

@@ -34,6 +34,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.optionsRole = params.optionsRole;
 			$scope.optionsStatus = params.optionsStatus;
 			$scope.optionsType = params.optionsType;
+			$scope.optionsTeam = params.optionsTeam;
 		}
 
 		$scope.create = function () {
@@ -68,6 +69,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.serviceRole = "/services/ts/codbex-companies/gen/codbex-companies/api/Companies/JobRoleService.ts";
 		$scope.serviceStatus = "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts";
 		$scope.serviceType = "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobTypeService.ts";
+		$scope.serviceTeam = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Teams/TeamService.ts";
 
 		$scope.cancel = function () {
 			$scope.entity = {};

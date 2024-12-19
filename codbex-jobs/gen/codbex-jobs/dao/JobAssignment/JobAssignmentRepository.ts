@@ -10,20 +10,20 @@ export interface JobAssignmentEntity {
     readonly Id: number;
     Number?: string;
     EmployeeContract?: number;
-    HireDate?: Date;
     Organization?: number;
     Department?: number;
-    Team?: number;
+    HireDate?: Date;
     JobPosition?: number;
+    Team?: number;
 }
 
 export interface JobAssignmentCreateEntity {
     readonly EmployeeContract?: number;
-    readonly HireDate?: Date;
     readonly Organization?: number;
     readonly Department?: number;
-    readonly Team?: number;
+    readonly HireDate?: Date;
     readonly JobPosition?: number;
+    readonly Team?: number;
 }
 
 export interface JobAssignmentUpdateEntity extends JobAssignmentCreateEntity {
@@ -36,71 +36,71 @@ export interface JobAssignmentEntityOptions {
             Id?: number | number[];
             Number?: string | string[];
             EmployeeContract?: number | number[];
-            HireDate?: Date | Date[];
             Organization?: number | number[];
             Department?: number | number[];
-            Team?: number | number[];
+            HireDate?: Date | Date[];
             JobPosition?: number | number[];
+            Team?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Number?: string | string[];
             EmployeeContract?: number | number[];
-            HireDate?: Date | Date[];
             Organization?: number | number[];
             Department?: number | number[];
-            Team?: number | number[];
+            HireDate?: Date | Date[];
             JobPosition?: number | number[];
+            Team?: number | number[];
         };
         contains?: {
             Id?: number;
             Number?: string;
             EmployeeContract?: number;
-            HireDate?: Date;
             Organization?: number;
             Department?: number;
-            Team?: number;
+            HireDate?: Date;
             JobPosition?: number;
+            Team?: number;
         };
         greaterThan?: {
             Id?: number;
             Number?: string;
             EmployeeContract?: number;
-            HireDate?: Date;
             Organization?: number;
             Department?: number;
-            Team?: number;
+            HireDate?: Date;
             JobPosition?: number;
+            Team?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Number?: string;
             EmployeeContract?: number;
-            HireDate?: Date;
             Organization?: number;
             Department?: number;
-            Team?: number;
+            HireDate?: Date;
             JobPosition?: number;
+            Team?: number;
         };
         lessThan?: {
             Id?: number;
             Number?: string;
             EmployeeContract?: number;
-            HireDate?: Date;
             Organization?: number;
             Department?: number;
-            Team?: number;
+            HireDate?: Date;
             JobPosition?: number;
+            Team?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Number?: string;
             EmployeeContract?: number;
-            HireDate?: Date;
             Organization?: number;
             Department?: number;
-            Team?: number;
+            HireDate?: Date;
             JobPosition?: number;
+            Team?: number;
         };
     },
     $select?: (keyof JobAssignmentEntity)[],
@@ -148,11 +148,6 @@ export class JobAssignmentRepository {
                 type: "INTEGER",
             },
             {
-                name: "HireDate",
-                column: "JOBASSIGNMENT_HIREDATE",
-                type: "DATE",
-            },
-            {
                 name: "Organization",
                 column: "JOBASSIGNMENT_ORGANIZATION",
                 type: "INTEGER",
@@ -163,13 +158,18 @@ export class JobAssignmentRepository {
                 type: "INTEGER",
             },
             {
-                name: "Team",
-                column: "JOBASSIGNMENT_TEAM",
-                type: "INTEGER",
+                name: "HireDate",
+                column: "JOBASSIGNMENT_HIREDATE",
+                type: "DATE",
             },
             {
                 name: "JobPosition",
                 column: "JOBASSIGNMENT_JOBPOSITION",
+                type: "INTEGER",
+            },
+            {
+                name: "Team",
+                column: "JOBASSIGNMENT_TEAM",
                 type: "INTEGER",
             }
         ]

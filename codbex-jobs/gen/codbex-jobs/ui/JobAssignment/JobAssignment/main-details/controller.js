@@ -43,8 +43,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsEmployeeContract = [];
 				$scope.optionsOrganization = [];
 				$scope.optionsDepartment = [];
-				$scope.optionsTeam = [];
 				$scope.optionsJobPosition = [];
+				$scope.optionsTeam = [];
 				$scope.action = 'select';
 			});
 		});
@@ -58,8 +58,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsEmployeeContract = msg.data.optionsEmployeeContract;
 				$scope.optionsOrganization = msg.data.optionsOrganization;
 				$scope.optionsDepartment = msg.data.optionsDepartment;
-				$scope.optionsTeam = msg.data.optionsTeam;
 				$scope.optionsJobPosition = msg.data.optionsJobPosition;
+				$scope.optionsTeam = msg.data.optionsTeam;
 				$scope.action = 'select';
 			});
 		});
@@ -70,8 +70,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsEmployeeContract = msg.data.optionsEmployeeContract;
 				$scope.optionsOrganization = msg.data.optionsOrganization;
 				$scope.optionsDepartment = msg.data.optionsDepartment;
-				$scope.optionsTeam = msg.data.optionsTeam;
 				$scope.optionsJobPosition = msg.data.optionsJobPosition;
+				$scope.optionsTeam = msg.data.optionsTeam;
 				$scope.action = 'create';
 			});
 		});
@@ -85,8 +85,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsEmployeeContract = msg.data.optionsEmployeeContract;
 				$scope.optionsOrganization = msg.data.optionsOrganization;
 				$scope.optionsDepartment = msg.data.optionsDepartment;
-				$scope.optionsTeam = msg.data.optionsTeam;
 				$scope.optionsJobPosition = msg.data.optionsJobPosition;
+				$scope.optionsTeam = msg.data.optionsTeam;
 				$scope.action = 'update';
 			});
 		});
@@ -94,8 +94,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.serviceEmployeeContract = "/services/ts/codbex-contracts/gen/codbex-contracts/api/EmployeeContracts/EmployeeContractService.ts";
 		$scope.serviceOrganization = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts";
 		$scope.serviceDepartment = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts";
-		$scope.serviceTeam = "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/TeamService.ts";
 		$scope.serviceJobPosition = "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionService.ts";
+		$scope.serviceTeam = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Teams/TeamService.ts";
 
 		//-----------------Events-------------------//
 

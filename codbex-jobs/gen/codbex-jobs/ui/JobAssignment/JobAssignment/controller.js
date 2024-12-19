@@ -122,8 +122,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsEmployeeContract: $scope.optionsEmployeeContract,
 				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
-				optionsTeam: $scope.optionsTeam,
 				optionsJobPosition: $scope.optionsJobPosition,
+				optionsTeam: $scope.optionsTeam,
 			});
 		};
 
@@ -136,8 +136,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsEmployeeContract: $scope.optionsEmployeeContract,
 				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
-				optionsTeam: $scope.optionsTeam,
 				optionsJobPosition: $scope.optionsJobPosition,
+				optionsTeam: $scope.optionsTeam,
 			});
 		};
 
@@ -148,8 +148,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsEmployeeContract: $scope.optionsEmployeeContract,
 				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
-				optionsTeam: $scope.optionsTeam,
 				optionsJobPosition: $scope.optionsJobPosition,
+				optionsTeam: $scope.optionsTeam,
 			});
 		};
 
@@ -189,8 +189,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsEmployeeContract: $scope.optionsEmployeeContract,
 				optionsOrganization: $scope.optionsOrganization,
 				optionsDepartment: $scope.optionsDepartment,
-				optionsTeam: $scope.optionsTeam,
 				optionsJobPosition: $scope.optionsJobPosition,
+				optionsTeam: $scope.optionsTeam,
 			});
 		};
 
@@ -198,8 +198,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsEmployeeContract = [];
 		$scope.optionsOrganization = [];
 		$scope.optionsDepartment = [];
-		$scope.optionsTeam = [];
 		$scope.optionsJobPosition = [];
+		$scope.optionsTeam = [];
 
 
 		$http.get("/services/ts/codbex-contracts/gen/codbex-contracts/api/EmployeeContracts/EmployeeContractService.ts").then(function (response) {
@@ -229,20 +229,20 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/TeamService.ts").then(function (response) {
-			$scope.optionsTeam = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
 		$http.get("/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionService.ts").then(function (response) {
 			$scope.optionsJobPosition = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Number
+				}
+			});
+		});
+
+		$http.get("/services/ts/codbex-organizations/gen/codbex-organizations/api/Teams/TeamService.ts").then(function (response) {
+			$scope.optionsTeam = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
 				}
 			});
 		});
@@ -271,18 +271,18 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsTeamValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsTeam.length; i++) {
-				if ($scope.optionsTeam[i].value === optionKey) {
-					return $scope.optionsTeam[i].text;
-				}
-			}
-			return null;
-		};
 		$scope.optionsJobPositionValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsJobPosition.length; i++) {
 				if ($scope.optionsJobPosition[i].value === optionKey) {
 					return $scope.optionsJobPosition[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsTeamValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsTeam.length; i++) {
+				if ($scope.optionsTeam[i].value === optionKey) {
+					return $scope.optionsTeam[i].text;
 				}
 			}
 			return null;
