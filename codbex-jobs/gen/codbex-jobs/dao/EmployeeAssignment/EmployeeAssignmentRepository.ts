@@ -8,12 +8,14 @@ export interface EmployeeAssignmentEntity {
     Employee?: number;
     Team?: number;
     JobRole?: number;
+    JobAssignment?: number;
 }
 
 export interface EmployeeAssignmentCreateEntity {
     readonly Employee?: number;
     readonly Team?: number;
     readonly JobRole?: number;
+    readonly JobAssignment?: number;
 }
 
 export interface EmployeeAssignmentUpdateEntity extends EmployeeAssignmentCreateEntity {
@@ -27,42 +29,49 @@ export interface EmployeeAssignmentEntityOptions {
             Employee?: number | number[];
             Team?: number | number[];
             JobRole?: number | number[];
+            JobAssignment?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Employee?: number | number[];
             Team?: number | number[];
             JobRole?: number | number[];
+            JobAssignment?: number | number[];
         };
         contains?: {
             Id?: number;
             Employee?: number;
             Team?: number;
             JobRole?: number;
+            JobAssignment?: number;
         };
         greaterThan?: {
             Id?: number;
             Employee?: number;
             Team?: number;
             JobRole?: number;
+            JobAssignment?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Employee?: number;
             Team?: number;
             JobRole?: number;
+            JobAssignment?: number;
         };
         lessThan?: {
             Id?: number;
             Employee?: number;
             Team?: number;
             JobRole?: number;
+            JobAssignment?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Employee?: number;
             Team?: number;
             JobRole?: number;
+            JobAssignment?: number;
         };
     },
     $select?: (keyof EmployeeAssignmentEntity)[],
@@ -112,6 +121,11 @@ export class EmployeeAssignmentRepository {
             {
                 name: "JobRole",
                 column: "EMPLOYEEASSIGNMENT_JOBROLE",
+                type: "INTEGER",
+            },
+            {
+                name: "JobAssignment",
+                column: "EMPLOYEEASSIGNMENT_JOBASSIGNMENT",
                 type: "INTEGER",
             }
         ]

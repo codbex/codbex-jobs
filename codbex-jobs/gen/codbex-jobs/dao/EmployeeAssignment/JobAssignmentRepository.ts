@@ -15,7 +15,6 @@ export interface JobAssignmentEntity {
     HireDate?: Date;
     JobPosition?: number;
     Team?: number;
-    EmployeeAssignment?: number;
 }
 
 export interface JobAssignmentCreateEntity {
@@ -25,7 +24,6 @@ export interface JobAssignmentCreateEntity {
     readonly HireDate?: Date;
     readonly JobPosition?: number;
     readonly Team?: number;
-    readonly EmployeeAssignment?: number;
 }
 
 export interface JobAssignmentUpdateEntity extends JobAssignmentCreateEntity {
@@ -43,7 +41,6 @@ export interface JobAssignmentEntityOptions {
             HireDate?: Date | Date[];
             JobPosition?: number | number[];
             Team?: number | number[];
-            EmployeeAssignment?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -54,7 +51,6 @@ export interface JobAssignmentEntityOptions {
             HireDate?: Date | Date[];
             JobPosition?: number | number[];
             Team?: number | number[];
-            EmployeeAssignment?: number | number[];
         };
         contains?: {
             Id?: number;
@@ -65,7 +61,6 @@ export interface JobAssignmentEntityOptions {
             HireDate?: Date;
             JobPosition?: number;
             Team?: number;
-            EmployeeAssignment?: number;
         };
         greaterThan?: {
             Id?: number;
@@ -76,7 +71,6 @@ export interface JobAssignmentEntityOptions {
             HireDate?: Date;
             JobPosition?: number;
             Team?: number;
-            EmployeeAssignment?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -87,7 +81,6 @@ export interface JobAssignmentEntityOptions {
             HireDate?: Date;
             JobPosition?: number;
             Team?: number;
-            EmployeeAssignment?: number;
         };
         lessThan?: {
             Id?: number;
@@ -98,7 +91,6 @@ export interface JobAssignmentEntityOptions {
             HireDate?: Date;
             JobPosition?: number;
             Team?: number;
-            EmployeeAssignment?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -109,7 +101,6 @@ export interface JobAssignmentEntityOptions {
             HireDate?: Date;
             JobPosition?: number;
             Team?: number;
-            EmployeeAssignment?: number;
         };
     },
     $select?: (keyof JobAssignmentEntity)[],
@@ -179,11 +170,6 @@ export class JobAssignmentRepository {
             {
                 name: "Team",
                 column: "JOBASSIGNMENT_TEAM",
-                type: "INTEGER",
-            },
-            {
-                name: "EmployeeAssignment",
-                column: "JOBASSIGNMENT_EMPLOYEEASSIGNMENT",
                 type: "INTEGER",
             }
         ]

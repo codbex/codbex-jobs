@@ -6,12 +6,14 @@
 const viewData = {
     id: "JobAssignment-details",
     label: "JobAssignment",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/EmployeeAssignment/EmployeeAssignment/JobAssignment/dialog-window/index.html",
+    factory: "frame",
+    region: "center",
+    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/EmployeeAssignment/JobAssignment/main-details/index.html",
     perspectiveName: "EmployeeAssignment",
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
+    exports.getView = function () {
         return viewData;
     }
 }

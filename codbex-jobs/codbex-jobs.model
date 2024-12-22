@@ -136,24 +136,6 @@
                         "relationshipEntityName": "Team",
                         "relationshipEntityPerspectiveName": "Teams",
                         "relationshipEntityPerspectiveLabel": "Teams"
-                    },
-                    {
-                        "dataName": "JOBASSIGNMENT_EMPLOYEEASSIGNMENT",
-                        "dataNullable": "true",
-                        "dataType": "INTEGER",
-                        "description": "",
-                        "name": "EmployeeAssignment",
-                        "relationshipCardinality": "1_n",
-                        "relationshipName": "JobAssignment_EmployeeAssignment",
-                        "relationshipType": "COMPOSITION",
-                        "tooltip": "",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX",
-                        "relationshipEntityName": "EmployeeAssignment",
-                        "relationshipEntityPerspectiveName": "EmployeeAssignment",
-                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity Job Assignment",
@@ -164,7 +146,7 @@
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "importsCode": "aW1wb3J0IHsgTnVtYmVyR2VuZXJhdG9yU2VydmljZSB9IGZyb20gIi9jb2RiZXgtbnVtYmVyLWdlbmVyYXRvci9zZXJ2aWNlL2dlbmVyYXRvciI7",
-                "layoutType": "MANAGE_DETAILS",
+                "layoutType": "MANAGE_MASTER",
                 "menuIndex": "100",
                 "menuKey": "jobassignment",
                 "menuLabel": "JobAssignment",
@@ -177,7 +159,7 @@
                 "perspectiveRole": "",
                 "title": "JobAssignment",
                 "tooltip": "JobAssignment",
-                "type": "DEPENDENT"
+                "type": "PRIMARY"
             },
             {
                 "properties": [
@@ -1032,6 +1014,24 @@
                         "relationshipEntityName": "JobRole",
                         "relationshipEntityPerspectiveName": "Companies",
                         "relationshipEntityPerspectiveLabel": "Companies"
+                    },
+                    {
+                        "dataName": "EMPLOYEEASSIGNMENT_JOBASSIGNMENT",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "description": "",
+                        "name": "JobAssignment",
+                        "relationshipCardinality": "1_n",
+                        "relationshipName": "EmployeeAssignment_JobAssignment",
+                        "relationshipType": "COMPOSITION",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX",
+                        "relationshipEntityName": "JobAssignment",
+                        "relationshipEntityPerspectiveName": "EmployeeAssignment",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity EmployeeAssignment",
@@ -1041,7 +1041,7 @@
                 "description": "Manage entity EmployeeAssignment",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE_MASTER",
+                "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
                 "menuKey": "employeeassignment",
                 "menuLabel": "EmployeeAssignment",
@@ -1054,7 +1054,7 @@
                 "perspectiveRole": "",
                 "title": "EmployeeAssignment",
                 "tooltip": "EmployeeAssignment",
-                "type": "PRIMARY"
+                "type": "DEPENDENT"
             },
             {
                 "properties": [

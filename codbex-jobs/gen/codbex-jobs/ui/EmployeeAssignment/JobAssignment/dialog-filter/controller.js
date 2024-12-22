@@ -74,13 +74,11 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Team !== undefined) {
 				filter.$filter.equals.Team = entity.Team;
 			}
-			if (entity.EmployeeAssignment !== undefined) {
-				filter.$filter.equals.EmployeeAssignment = entity.EmployeeAssignment;
-			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
 				filter: filter
 			});
+			messageHub.postMessage("clearDetails");
 			$scope.cancel();
 		};
 

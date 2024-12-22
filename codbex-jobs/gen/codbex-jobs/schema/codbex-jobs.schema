@@ -47,11 +47,6 @@
                         "type": "INTEGER",
                         "nullable": true,
                         "name": "JOBASSIGNMENT_TEAM"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "JOBASSIGNMENT_EMPLOYEEASSIGNMENT"
                     }
                 ]
             },
@@ -173,6 +168,11 @@
                         "type": "INTEGER",
                         "nullable": true,
                         "name": "EMPLOYEEASSIGNMENT_JOBROLE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "EMPLOYEEASSIGNMENT_JOBASSIGNMENT"
                     }
                 ]
             },
@@ -220,15 +220,6 @@
                 "columns": "JOBASSIGNMENT_TEAM",
                 "referencedTable": "CODBEX_TEAM",
                 "referencedColumns": "TEAM_ID"
-            },
-            {
-                "name": "JobAssignment_EmployeeAssignment",
-                "type": "foreignKey",
-                "table": "CODBEX_JOBASSIGNMENT",
-                "constraintName": "JobAssignment_EmployeeAssignment",
-                "columns": "JOBASSIGNMENT_EMPLOYEEASSIGNMENT",
-                "referencedTable": "CODBEX_EMPLOYEEASSIGNMENT",
-                "referencedColumns": "EMPLOYEEASSIGNMENT_ID"
             },
             {
                 "name": "JobPosition_JobRole",
@@ -292,6 +283,15 @@
                 "columns": "EMPLOYEEASSIGNMENT_JOBROLE",
                 "referencedTable": "CODBEX_JOBROLE",
                 "referencedColumns": "COMPANYROLE_ID"
+            },
+            {
+                "name": "EmployeeAssignment_JobAssignment",
+                "type": "foreignKey",
+                "table": "CODBEX_EMPLOYEEASSIGNMENT",
+                "constraintName": "EmployeeAssignment_JobAssignment",
+                "columns": "EMPLOYEEASSIGNMENT_JOBASSIGNMENT",
+                "referencedTable": "CODBEX_JOBASSIGNMENT",
+                "referencedColumns": "JOBASSIGNMENT_ID"
             }
         ]
     },

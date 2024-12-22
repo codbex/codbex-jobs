@@ -4,14 +4,16 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "EmployeeAssignment-filter",
-    label: "EmployeeAssignment Filter",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/EmployeeAssignment/EmployeeAssignment/dialog-filter/index.html",
+    id: "EmployeeAssignment",
+    label: "EmployeeAssignment",
+    factory: "frame",
+    region: "bottom",
+    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/EmployeeAssignment/JobAssignment/EmployeeAssignment/index.html",
     perspectiveName: "EmployeeAssignment",
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
+    exports.getView = function () {
         return viewData;
     }
 }

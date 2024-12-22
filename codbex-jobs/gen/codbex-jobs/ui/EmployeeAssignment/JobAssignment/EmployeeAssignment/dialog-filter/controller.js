@@ -51,11 +51,13 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.JobRole !== undefined) {
 				filter.$filter.equals.JobRole = entity.JobRole;
 			}
+			if (entity.JobAssignment !== undefined) {
+				filter.$filter.equals.JobAssignment = entity.JobAssignment;
+			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
 				filter: filter
 			});
-			messageHub.postMessage("clearDetails");
 			$scope.cancel();
 		};
 

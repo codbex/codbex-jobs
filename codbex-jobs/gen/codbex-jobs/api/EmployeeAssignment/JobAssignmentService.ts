@@ -21,17 +21,6 @@ class JobAssignmentService {
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
 
-            let EmployeeAssignment = parseInt(ctx.queryParameters.EmployeeAssignment);
-            EmployeeAssignment = isNaN(EmployeeAssignment) ? ctx.queryParameters.EmployeeAssignment : EmployeeAssignment;
-
-            if (EmployeeAssignment !== undefined) {
-                options.$filter = {
-                    equals: {
-                        EmployeeAssignment: EmployeeAssignment
-                    }
-                };
-            }
-
             return this.repository.findAll(options);
         } catch (error: any) {
             this.handleError(error);

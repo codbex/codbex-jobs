@@ -32,13 +32,9 @@
 			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
-						<th fd-table-header-cell>Number</th>
-						<th fd-table-header-cell>EmployeeContract</th>
-						<th fd-table-header-cell>Organization</th>
-						<th fd-table-header-cell>Department</th>
-						<th fd-table-header-cell>HireDate</th>
-						<th fd-table-header-cell>JobPosition</th>
+						<th fd-table-header-cell>Employee</th>
 						<th fd-table-header-cell>Team</th>
+						<th fd-table-header-cell>JobRole</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -48,24 +44,14 @@
 					</tr>
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Number}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsEmployeeContractValue(next.EmployeeContract)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsOrganizationValue(next.Organization)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsDepartmentValue(next.Department)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next.HireDate" ng-readonly="true"></fd-input>
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsJobPositionValue(next.JobPosition)}}
+							{{optionsEmployeeValue(next.Employee)}}
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsTeamValue(next.Team)}}
+						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsJobRoleValue(next.JobRole)}}
 						</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>

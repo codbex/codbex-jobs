@@ -2032,9 +2032,6 @@ components:
         Team:
           type: integer
           format: int32
-        EmployeeAssignment:
-          type: integer
-          format: int32
     JobAssignmentFilterOptions:
       type: object
       properties:
@@ -2098,14 +2095,6 @@ components:
                         type: integer
                         format: int32
                 Team:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                EmployeeAssignment:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2177,14 +2166,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                EmployeeAssignment:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
             contains:
               type: object
               properties:
@@ -2199,7 +2180,6 @@ components:
                 HireDate:
                 JobPosition:
                 Team:
-                EmployeeAssignment:
             greaterThan:
               type: object
               properties:
@@ -2224,9 +2204,6 @@ components:
                   type: integer
                   format: int32
                 Team:
-                  type: integer
-                  format: int32
-                EmployeeAssignment:
                   type: integer
                   format: int32
             greaterThanOrEqual:
@@ -2255,9 +2232,6 @@ components:
                 Team:
                   type: integer
                   format: int32
-                EmployeeAssignment:
-                  type: integer
-                  format: int32
             lessThan:
               type: object
               properties:
@@ -2282,9 +2256,6 @@ components:
                   type: integer
                   format: int32
                 Team:
-                  type: integer
-                  format: int32
-                EmployeeAssignment:
                   type: integer
                   format: int32
             lessThanOrEqual:
@@ -2313,17 +2284,14 @@ components:
                 Team:
                   type: integer
                   format: int32
-                EmployeeAssignment:
-                  type: integer
-                  format: int32
         $select:
           type: array
-          example: ["Id", "Number", "EmployeeContract", "Organization", "Department", "HireDate", "JobPosition", "Team", "EmployeeAssignment"]
+          example: ["Id", "Number", "EmployeeContract", "Organization", "Department", "HireDate", "JobPosition", "Team"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,EmployeeContract,Organization,Department,HireDate,JobPosition,Team,EmployeeAssignment"
+            example: "Id,Number,EmployeeContract,Organization,Department,HireDate,JobPosition,Team"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -2919,6 +2887,9 @@ components:
         JobRole:
           type: integer
           format: int32
+        JobAssignment:
+          type: integer
+          format: int32
     EmployeeAssignmentFilterOptions:
       type: object
       properties:
@@ -2953,6 +2924,14 @@ components:
                         type: integer
                         format: int32
                 JobRole:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                JobAssignment:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2995,6 +2974,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                JobAssignment:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
             contains:
               type: object
               properties:
@@ -3002,6 +2989,7 @@ components:
                 Employee:
                 Team:
                 JobRole:
+                JobAssignment:
             greaterThan:
               type: object
               properties:
@@ -3015,6 +3003,9 @@ components:
                   type: integer
                   format: int32
                 JobRole:
+                  type: integer
+                  format: int32
+                JobAssignment:
                   type: integer
                   format: int32
             greaterThanOrEqual:
@@ -3032,6 +3023,9 @@ components:
                 JobRole:
                   type: integer
                   format: int32
+                JobAssignment:
+                  type: integer
+                  format: int32
             lessThan:
               type: object
               properties:
@@ -3045,6 +3039,9 @@ components:
                   type: integer
                   format: int32
                 JobRole:
+                  type: integer
+                  format: int32
+                JobAssignment:
                   type: integer
                   format: int32
             lessThanOrEqual:
@@ -3062,14 +3059,17 @@ components:
                 JobRole:
                   type: integer
                   format: int32
+                JobAssignment:
+                  type: integer
+                  format: int32
         $select:
           type: array
-          example: ["Id", "Employee", "Team", "JobRole"]
+          example: ["Id", "Employee", "Team", "JobRole", "JobAssignment"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Employee,Team,JobRole"
+            example: "Id,Employee,Team,JobRole,JobAssignment"
         $order:
           type: string
           enum: ["asc", "desc"]

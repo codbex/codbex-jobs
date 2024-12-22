@@ -4,11 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "EmployeeAssignment-details",
-    label: "EmployeeAssignment",
+    id: "JobAssignment",
+    label: "JobAssignment",
     factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/EmployeeAssignment/EmployeeAssignment/main-details/index.html",
+    region: "left",
+    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/EmployeeAssignment/JobAssignment/index.html",
     perspectiveName: "EmployeeAssignment",
 };
 

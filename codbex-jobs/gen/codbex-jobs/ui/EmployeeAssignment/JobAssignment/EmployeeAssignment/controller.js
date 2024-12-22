@@ -6,16 +6,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		entityApiProvider.baseUrl = "/services/ts/codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/EmployeeAssignmentService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', 'Extensions', function ($scope, $http, messageHub, entityApi, Extensions) {
-
-		$scope.dataPage = 1;
-		$scope.dataCount = 0;
-		$scope.dataOffset = 0;
-		$scope.dataLimit = 10;
-		$scope.action = "select";
-
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-jobs-custom-action').then(function (response) {
 			$scope.pageActions = response.filter(e => e.perspective === "EmployeeAssignment" && e.view === "EmployeeAssignment" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.filter(e => e.perspective === "EmployeeAssignment" && e.view === "EmployeeAssignment" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (action) {
@@ -27,35 +21,54 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				action
 			);
 		};
+
+		$scope.triggerEntityAction = function (action) {
+			messageHub.showDialogWindow(
+				action.id,
+				{
+					id: $scope.entity.Id
+				},
+				null,
+				true,
+				action
+			);
+		};
 		//-----------------Custom Actions-------------------//
 
-		function refreshData() {
-			$scope.dataReset = true;
-			$scope.dataPage--;
-		}
-
 		function resetPagination() {
-			$scope.dataReset = true;
 			$scope.dataPage = 1;
 			$scope.dataCount = 0;
 			$scope.dataLimit = 10;
 		}
+		resetPagination();
 
 		//-----------------Events-------------------//
+		messageHub.onDidReceiveMessage("codbex-jobs.EmployeeAssignment.JobAssignment.entitySelected", function (msg) {
+			resetPagination();
+			$scope.selectedMainEntityId = msg.data.selectedMainEntityId;
+			$scope.loadPage($scope.dataPage);
+		}, true);
+
+		messageHub.onDidReceiveMessage("codbex-jobs.EmployeeAssignment.JobAssignment.clearDetails", function (msg) {
+			$scope.$apply(function () {
+				resetPagination();
+				$scope.selectedMainEntityId = null;
+				$scope.data = null;
+			});
+		}, true);
+
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
-				$scope.selectedEntity = null;
-				$scope.action = "select";
+				$scope.entity = {};
+				$scope.action = 'select';
 			});
 		});
 
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			refreshData();
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			refreshData();
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
@@ -68,13 +81,21 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber, filter) {
+			let JobAssignment = $scope.selectedMainEntityId;
+			$scope.dataPage = pageNumber;
 			if (!filter && $scope.filter) {
 				filter = $scope.filter;
 			}
 			if (!filter) {
 				filter = {};
 			}
-			$scope.selectedEntity = null;
+			if (!filter.$filter) {
+				filter.$filter = {};
+			}
+			if (!filter.$filter.equals) {
+				filter.$filter.equals = {};
+			}
+			filter.$filter.equals.JobAssignment = JobAssignment;
 			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("EmployeeAssignment", `Unable to count EmployeeAssignment: '${response.message}'`);
@@ -83,35 +104,36 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (response.data) {
 					$scope.dataCount = response.data;
 				}
-				$scope.dataPages = Math.ceil($scope.dataCount / $scope.dataLimit);
-				filter.$offset = ($scope.dataPage - 1) * $scope.dataLimit;
+				filter.$offset = (pageNumber - 1) * $scope.dataLimit;
 				filter.$limit = $scope.dataLimit;
-				if ($scope.dataReset) {
-					filter.$offset = 0;
-					filter.$limit = $scope.dataPage * $scope.dataLimit;
-				}
-
 				entityApi.search(filter).then(function (response) {
 					if (response.status != 200) {
 						messageHub.showAlertError("EmployeeAssignment", `Unable to list/filter EmployeeAssignment: '${response.message}'`);
 						return;
 					}
-					if ($scope.data == null || $scope.dataReset) {
-						$scope.data = [];
-						$scope.dataReset = false;
-					}
-					$scope.data = $scope.data.concat(response.data);
-					$scope.dataPage++;
+					$scope.data = response.data;
 				});
 			});
 		};
-		$scope.loadPage($scope.dataPage, $scope.filter);
 
 		$scope.selectEntity = function (entity) {
 			$scope.selectedEntity = entity;
-			messageHub.postMessage("entitySelected", {
+		};
+
+		$scope.openDetails = function (entity) {
+			$scope.selectedEntity = entity;
+			messageHub.showDialogWindow("EmployeeAssignment-details", {
+				action: "select",
 				entity: entity,
-				selectedMainEntityId: entity.Id,
+				optionsEmployee: $scope.optionsEmployee,
+				optionsTeam: $scope.optionsTeam,
+				optionsJobRole: $scope.optionsJobRole,
+			});
+		};
+
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("EmployeeAssignment-filter", {
+				entity: $scope.filterEntity,
 				optionsEmployee: $scope.optionsEmployee,
 				optionsTeam: $scope.optionsTeam,
 				optionsJobRole: $scope.optionsJobRole,
@@ -120,28 +142,31 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			$scope.action = "create";
-
-			messageHub.postMessage("createEntity", {
+			messageHub.showDialogWindow("EmployeeAssignment-details", {
+				action: "create",
 				entity: {},
+				selectedMainEntityKey: "JobAssignment",
+				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsEmployee: $scope.optionsEmployee,
 				optionsTeam: $scope.optionsTeam,
 				optionsJobRole: $scope.optionsJobRole,
-			});
+			}, null, false);
 		};
 
-		$scope.updateEntity = function () {
-			$scope.action = "update";
-			messageHub.postMessage("updateEntity", {
-				entity: $scope.selectedEntity,
+		$scope.updateEntity = function (entity) {
+			messageHub.showDialogWindow("EmployeeAssignment-details", {
+				action: "update",
+				entity: entity,
+				selectedMainEntityKey: "JobAssignment",
+				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsEmployee: $scope.optionsEmployee,
 				optionsTeam: $scope.optionsTeam,
 				optionsJobRole: $scope.optionsJobRole,
-			});
+			}, null, false);
 		};
 
-		$scope.deleteEntity = function () {
-			let id = $scope.selectedEntity.Id;
+		$scope.deleteEntity = function (entity) {
+			let id = entity.Id;
 			messageHub.showDialogAsync(
 				'Delete EmployeeAssignment?',
 				`Are you sure you want to delete EmployeeAssignment? This action cannot be undone.`,
@@ -162,20 +187,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							messageHub.showAlertError("EmployeeAssignment", `Unable to delete EmployeeAssignment: '${response.message}'`);
 							return;
 						}
-						refreshData();
 						$scope.loadPage($scope.dataPage, $scope.filter);
 						messageHub.postMessage("clearDetails");
 					});
 				}
-			});
-		};
-
-		$scope.openFilter = function (entity) {
-			messageHub.showDialogWindow("EmployeeAssignment-filter", {
-				entity: $scope.filterEntity,
-				optionsEmployee: $scope.optionsEmployee,
-				optionsTeam: $scope.optionsTeam,
-				optionsJobRole: $scope.optionsJobRole,
 			});
 		};
 

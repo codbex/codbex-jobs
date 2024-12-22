@@ -6,7 +6,7 @@
 const viewData = {
     id: "JobAssignment-filter",
     label: "JobAssignment Filter",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/EmployeeAssignment/EmployeeAssignment/JobAssignment/dialog-filter/index.html",
+    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/EmployeeAssignment/JobAssignment/dialog-filter/index.html",
     perspectiveName: "EmployeeAssignment",
 };
 

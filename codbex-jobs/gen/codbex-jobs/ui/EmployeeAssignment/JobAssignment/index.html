@@ -48,10 +48,14 @@
 						navigated="next.Id === selectedEntity.Id"
 						ng-click="action == 'select' ? selectEntity(next) : ''">
 						<fd-list-content
-							item-title="{{optionsEmployeeValue(next.Employee)}}">
+							item-title="{{next.Number}}">
 							<fd-list-byline dg-align="left">
-								{{optionsTeamValue(next.Team)}} |
-								{{optionsJobRoleValue(next.JobRole)}}
+								{{optionsEmployeeContractValue(next.EmployeeContract)}} |
+								{{optionsOrganizationValue(next.Organization)}} |
+								{{optionsDepartmentValue(next.Department)}} |
+								{{next.HireDate | date: "dd/MMM/yyyy"}} |
+								{{optionsJobPositionValue(next.JobPosition)}} |
+								{{optionsTeamValue(next.Team)}}
 							</fd-list-byline>
 						</fd-list-content>
 					</fd-list-link>
