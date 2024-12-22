@@ -1,5 +1,0 @@
-{
-    "module": "codbex-jobs/gen/codbex-jobs/ui/EmployeeAssignment/EmployeeAssignment/dialog-filter/view.js",
-    "extensionPoint": "codbex-jobs-dialog-window",
-    "description": "codbex-jobs - Application Dialog Window"
-}

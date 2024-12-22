@@ -47,11 +47,6 @@
                         "type": "INTEGER",
                         "nullable": true,
                         "name": "JOBASSIGNMENT_TEAM"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "JOBASSIGNMENT_EMPLOYEEASSIGNMENT"
                     }
                 ]
             },
@@ -149,34 +144,6 @@
                 ]
             },
             {
-                "name": "CODBEX_EMPLOYEEASSIGNMENT",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "EMPLOYEEASSIGNMENT_ID"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "EMPLOYEEASSIGNMENT_EMPLOYEE"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "EMPLOYEEASSIGNMENT_TEAM"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "EMPLOYEEASSIGNMENT_JOBROLE"
-                    }
-                ]
-            },
-            {
                 "name": "JobAssignment_EmployeeContract",
                 "type": "foreignKey",
                 "table": "CODBEX_JOBASSIGNMENT",
@@ -222,15 +189,6 @@
                 "referencedColumns": "TEAM_ID"
             },
             {
-                "name": "JobAssignment_EmployeeAssignment",
-                "type": "foreignKey",
-                "table": "CODBEX_JOBASSIGNMENT",
-                "constraintName": "JobAssignment_EmployeeAssignment",
-                "columns": "JOBASSIGNMENT_EMPLOYEEASSIGNMENT",
-                "referencedTable": "CODBEX_EMPLOYEEASSIGNMENT",
-                "referencedColumns": "EMPLOYEEASSIGNMENT_ID"
-            },
-            {
                 "name": "JobPosition_JobRole",
                 "type": "foreignKey",
                 "table": "CODBEX_JOBPOSITION",
@@ -265,33 +223,6 @@
                 "columns": "JOBPOSITION_TEAM",
                 "referencedTable": "CODBEX_TEAM",
                 "referencedColumns": "TEAM_ID"
-            },
-            {
-                "name": "EmployeeAssignment_Employee",
-                "type": "foreignKey",
-                "table": "CODBEX_EMPLOYEEASSIGNMENT",
-                "constraintName": "EmployeeAssignment_Employee",
-                "columns": "EMPLOYEEASSIGNMENT_EMPLOYEE",
-                "referencedTable": "CODBEX_EMPLOYEE",
-                "referencedColumns": "EMPLOYEE_ID"
-            },
-            {
-                "name": "EmployeeAssignment_Team",
-                "type": "foreignKey",
-                "table": "CODBEX_EMPLOYEEASSIGNMENT",
-                "constraintName": "EmployeeAssignment_Team",
-                "columns": "EMPLOYEEASSIGNMENT_TEAM",
-                "referencedTable": "CODBEX_TEAM",
-                "referencedColumns": "TEAM_ID"
-            },
-            {
-                "name": "EmployeeAssignment_JobRole",
-                "type": "foreignKey",
-                "table": "CODBEX_EMPLOYEEASSIGNMENT",
-                "constraintName": "EmployeeAssignment_JobRole",
-                "columns": "EMPLOYEEASSIGNMENT_JOBROLE",
-                "referencedTable": "CODBEX_JOBROLE",
-                "referencedColumns": "COMPANYROLE_ID"
             }
         ]
     },

@@ -3,7 +3,7 @@ const navigationData = {
     label: "Job Assignments",
     group: "employees",
     order: 600,
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/EmployeeAssignment/index.html?embedded"
+    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobAssignment/index.html?embedded"
 };
 
 function getNavigation() {
