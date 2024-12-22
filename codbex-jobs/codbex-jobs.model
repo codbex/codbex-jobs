@@ -153,8 +153,8 @@
                 "name": "JobAssignment",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/0-plus.svg",
-                "perspectiveLabel": "EmployeeAssignment",
-                "perspectiveName": "EmployeeAssignment",
+                "perspectiveLabel": "JobAssignment",
+                "perspectiveName": "JobAssignment",
                 "perspectiveOrder": "103",
                 "perspectiveRole": "",
                 "title": "JobAssignment",
@@ -1030,7 +1030,7 @@
                         "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "JobAssignment",
-                        "relationshipEntityPerspectiveName": "EmployeeAssignment",
+                        "relationshipEntityPerspectiveName": "JobAssignment",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
@@ -1048,8 +1048,8 @@
                 "name": "EmployeeAssignment",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/0-plus.svg",
-                "perspectiveLabel": "EmployeeAssignment",
-                "perspectiveName": "EmployeeAssignment",
+                "perspectiveLabel": "JobAssignment",
+                "perspectiveName": "JobAssignment",
                 "perspectiveOrder": "103",
                 "perspectiveRole": "",
                 "title": "EmployeeAssignment",
@@ -1257,8 +1257,8 @@
         ],
         "perspectives": [
             {
-                "name": "EmployeeAssignment",
-                "label": "EmployeeAssignment",
+                "name": "JobAssignment",
+                "label": "JobAssignment",
                 "icon": "/services/web/resources/unicons/0-plus.svg",
                 "order": "103",
                 "role": {}

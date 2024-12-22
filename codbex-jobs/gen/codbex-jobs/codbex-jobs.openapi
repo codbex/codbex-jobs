@@ -9,13 +9,13 @@ externalDocs:
 servers:
   - url: /services/ts
 tags:
-  - name: EmployeeAssignment
+  - name: JobAssignment
   - name: entities
   - name: Teams
   - name: entities
-  - name: EmployeeAssignment
+  - name: JobAssignment
 paths:
-  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/JobAssignmentService.ts:
+  /codbex-jobs/gen/codbex-jobs/api/JobAssignment/JobAssignmentService.ts:
     get:
       summary: List JobAssignment
       parameters:
@@ -36,7 +36,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       responses:
         200:
           description: Successful Request
@@ -67,7 +67,7 @@ paths:
     post:
       summary: Create JobAssignment
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       requestBody:
         content:
           application/json:
@@ -99,7 +99,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/JobAssignmentService.ts/{id}:
+  /codbex-jobs/gen/codbex-jobs/api/JobAssignment/JobAssignmentService.ts/{id}:
     get:
       summary: Get JobAssignment by Id
       parameters:
@@ -110,7 +110,7 @@ paths:
           schema:
             type: string
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       responses:
         200:
           description: Successful Request
@@ -148,7 +148,7 @@ paths:
           schema:
             type: string
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       requestBody:
         content:
           application/json:
@@ -196,7 +196,7 @@ paths:
           schema:
             type: string
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       responses:
         204:
           description: Successful Request
@@ -218,11 +218,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/JobAssignmentService.ts/count:
+  /codbex-jobs/gen/codbex-jobs/api/JobAssignment/JobAssignmentService.ts/count:
     get:
       summary: Count the number of JobAssignment
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       responses:
         200:
           description: Successful Request
@@ -246,7 +246,7 @@ paths:
     post:
       summary: Count the number of JobAssignment by JobAssignmentFilterOptions
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       requestBody:
         content:
           application/json:
@@ -328,11 +328,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/JobAssignmentService.ts/search:
+  /codbex-jobs/gen/codbex-jobs/api/JobAssignment/JobAssignmentService.ts/search:
     post:
       summary: Search JobAssignment by JobAssignmentFilterOptions
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       requestBody:
         content:
           application/json:
@@ -1615,7 +1615,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/EmployeeAssignmentService.ts:
+  /codbex-jobs/gen/codbex-jobs/api/JobAssignment/EmployeeAssignmentService.ts:
     get:
       summary: List EmployeeAssignment
       parameters:
@@ -1636,7 +1636,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       responses:
         200:
           description: Successful Request
@@ -1667,7 +1667,7 @@ paths:
     post:
       summary: Create EmployeeAssignment
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       requestBody:
         content:
           application/json:
@@ -1699,7 +1699,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/EmployeeAssignmentService.ts/{id}:
+  /codbex-jobs/gen/codbex-jobs/api/JobAssignment/EmployeeAssignmentService.ts/{id}:
     get:
       summary: Get EmployeeAssignment by Id
       parameters:
@@ -1710,7 +1710,7 @@ paths:
           schema:
             type: string
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       responses:
         200:
           description: Successful Request
@@ -1748,7 +1748,7 @@ paths:
           schema:
             type: string
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       requestBody:
         content:
           application/json:
@@ -1796,7 +1796,7 @@ paths:
           schema:
             type: string
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       responses:
         204:
           description: Successful Request
@@ -1818,11 +1818,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/EmployeeAssignmentService.ts/count:
+  /codbex-jobs/gen/codbex-jobs/api/JobAssignment/EmployeeAssignmentService.ts/count:
     get:
       summary: Count the number of EmployeeAssignment
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       responses:
         200:
           description: Successful Request
@@ -1846,7 +1846,7 @@ paths:
     post:
       summary: Count the number of EmployeeAssignment by EmployeeAssignmentFilterOptions
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       requestBody:
         content:
           application/json:
@@ -1920,11 +1920,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/EmployeeAssignmentService.ts/search:
+  /codbex-jobs/gen/codbex-jobs/api/JobAssignment/EmployeeAssignmentService.ts/search:
     post:
       summary: Search EmployeeAssignment by EmployeeAssignmentFilterOptions
       tags:
-        - EmployeeAssignment
+        - JobAssignment
       requestBody:
         content:
           application/json:

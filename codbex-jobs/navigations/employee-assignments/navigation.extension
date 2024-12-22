@@ -1,5 +1,0 @@
-{
-    "extensionPoint": "dashboard-navigations",
-    "module": "codbex-jobs/navigations/employee-assignments/service.js",
-    "description": "Employee Assignments Navigation"
-}

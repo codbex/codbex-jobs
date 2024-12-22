@@ -1,5 +1,0 @@
-{
-    "module": "codbex-jobs/gen/codbex-jobs/ui/EmployeeAssignment/JobAssignment/EmployeeAssignment/view.js",
-    "extensionPoint": "codbex-jobs-view",
-    "description": "codbex-jobs - Application View - Details"
-}

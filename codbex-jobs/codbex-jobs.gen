@@ -12,7 +12,7 @@
   "filePath": "codbex-jobs.model",
   "templateId": "template-application-angular/template/template.js",
   "perspectives": {
-    "EmployeeAssignment": {
+    "JobAssignment": {
       "views": [
         "JobAssignment",
         "EmployeeAssignment",
@@ -36,8 +36,8 @@
         "JobAssignment-details",
         "JobAssignment-details"
       ],
-      "name": "EmployeeAssignment",
-      "label": "EmployeeAssignment",
+      "name": "JobAssignment",
+      "label": "JobAssignment",
       "order": "103",
       "icon": "/services/web/resources/unicons/0-plus.svg",
       "role": ""
@@ -344,8 +344,8 @@
       "name": "JobAssignment",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/0-plus.svg",
-      "perspectiveLabel": "EmployeeAssignment",
-      "perspectiveName": "EmployeeAssignment",
+      "perspectiveLabel": "JobAssignment",
+      "perspectiveName": "JobAssignment",
       "perspectiveOrder": "103",
       "perspectiveRole": "",
       "title": "JobAssignment",
@@ -1962,7 +1962,7 @@
           "widgetSize": "",
           "widgetType": "TEXTBOX",
           "relationshipEntityName": "JobAssignment",
-          "relationshipEntityPerspectiveName": "EmployeeAssignment",
+          "relationshipEntityPerspectiveName": "JobAssignment",
           "relationshipEntityPerspectiveLabel": "Entities",
           "dataNotNull": false,
           "dataAutoIncrement": false,
@@ -1991,8 +1991,8 @@
       "name": "EmployeeAssignment",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/0-plus.svg",
-      "perspectiveLabel": "EmployeeAssignment",
-      "perspectiveName": "EmployeeAssignment",
+      "perspectiveLabel": "JobAssignment",
+      "perspectiveName": "JobAssignment",
       "perspectiveOrder": "103",
       "perspectiveRole": "",
       "title": "EmployeeAssignment",
