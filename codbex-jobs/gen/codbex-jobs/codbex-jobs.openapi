@@ -9,12 +9,13 @@ externalDocs:
 servers:
   - url: /services/ts
 tags:
-  - name: JobAssignment
+  - name: EmployeeAssignment
   - name: entities
   - name: Teams
   - name: entities
+  - name: EmployeeAssignment
 paths:
-  /codbex-jobs/gen/codbex-jobs/api/JobAssignment/JobAssignmentService.ts:
+  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/JobAssignmentService.ts:
     get:
       summary: List JobAssignment
       parameters:
@@ -35,7 +36,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - JobAssignment
+        - EmployeeAssignment
       responses:
         200:
           description: Successful Request
@@ -66,7 +67,7 @@ paths:
     post:
       summary: Create JobAssignment
       tags:
-        - JobAssignment
+        - EmployeeAssignment
       requestBody:
         content:
           application/json:
@@ -98,7 +99,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/JobAssignment/JobAssignmentService.ts/{id}:
+  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/JobAssignmentService.ts/{id}:
     get:
       summary: Get JobAssignment by Id
       parameters:
@@ -109,7 +110,7 @@ paths:
           schema:
             type: string
       tags:
-        - JobAssignment
+        - EmployeeAssignment
       responses:
         200:
           description: Successful Request
@@ -147,7 +148,7 @@ paths:
           schema:
             type: string
       tags:
-        - JobAssignment
+        - EmployeeAssignment
       requestBody:
         content:
           application/json:
@@ -195,7 +196,7 @@ paths:
           schema:
             type: string
       tags:
-        - JobAssignment
+        - EmployeeAssignment
       responses:
         204:
           description: Successful Request
@@ -217,11 +218,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/JobAssignment/JobAssignmentService.ts/count:
+  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/JobAssignmentService.ts/count:
     get:
       summary: Count the number of JobAssignment
       tags:
-        - JobAssignment
+        - EmployeeAssignment
       responses:
         200:
           description: Successful Request
@@ -245,7 +246,7 @@ paths:
     post:
       summary: Count the number of JobAssignment by JobAssignmentFilterOptions
       tags:
-        - JobAssignment
+        - EmployeeAssignment
       requestBody:
         content:
           application/json:
@@ -327,11 +328,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/JobAssignment/JobAssignmentService.ts/search:
+  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/JobAssignmentService.ts/search:
     post:
       summary: Search JobAssignment by JobAssignmentFilterOptions
       tags:
-        - JobAssignment
+        - EmployeeAssignment
       requestBody:
         content:
           application/json:
@@ -1614,6 +1615,390 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/EmployeeAssignmentService.ts:
+    get:
+      summary: List EmployeeAssignment
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - EmployeeAssignment
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/EmployeeAssignment'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create EmployeeAssignment
+      tags:
+        - EmployeeAssignment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployeeAssignment'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeAssignment'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/EmployeeAssignmentService.ts/{id}:
+    get:
+      summary: Get EmployeeAssignment by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - EmployeeAssignment
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/EmployeeAssignment'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update EmployeeAssignment by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - EmployeeAssignment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployeeAssignment'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeAssignment'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete EmployeeAssignment by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - EmployeeAssignment
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/EmployeeAssignmentService.ts/count:
+    get:
+      summary: Count the number of EmployeeAssignment
+      tags:
+        - EmployeeAssignment
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of EmployeeAssignment by EmployeeAssignmentFilterOptions
+      tags:
+        - EmployeeAssignment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployeeAssignmentFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-jobs/gen/codbex-jobs/api/EmployeeAssignment/EmployeeAssignmentService.ts/search:
+    post:
+      summary: Search EmployeeAssignment by EmployeeAssignmentFilterOptions
+      tags:
+        - EmployeeAssignment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployeeAssignmentFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/EmployeeAssignment'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 components:
   schemas:
     JobAssignment:
@@ -1645,6 +2030,9 @@ components:
           type: integer
           format: int32
         Team:
+          type: integer
+          format: int32
+        EmployeeAssignment:
           type: integer
           format: int32
     JobAssignmentFilterOptions:
@@ -1717,6 +2105,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                EmployeeAssignment:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
             notEquals:
               type: object
               properties:
@@ -1781,6 +2177,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                EmployeeAssignment:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
             contains:
               type: object
               properties:
@@ -1795,6 +2199,7 @@ components:
                 HireDate:
                 JobPosition:
                 Team:
+                EmployeeAssignment:
             greaterThan:
               type: object
               properties:
@@ -1819,6 +2224,9 @@ components:
                   type: integer
                   format: int32
                 Team:
+                  type: integer
+                  format: int32
+                EmployeeAssignment:
                   type: integer
                   format: int32
             greaterThanOrEqual:
@@ -1847,6 +2255,9 @@ components:
                 Team:
                   type: integer
                   format: int32
+                EmployeeAssignment:
+                  type: integer
+                  format: int32
             lessThan:
               type: object
               properties:
@@ -1871,6 +2282,9 @@ components:
                   type: integer
                   format: int32
                 Team:
+                  type: integer
+                  format: int32
+                EmployeeAssignment:
                   type: integer
                   format: int32
             lessThanOrEqual:
@@ -1899,14 +2313,17 @@ components:
                 Team:
                   type: integer
                   format: int32
+                EmployeeAssignment:
+                  type: integer
+                  format: int32
         $select:
           type: array
-          example: ["Id", "Number", "EmployeeContract", "Organization", "Department", "HireDate", "JobPosition", "Team"]
+          example: ["Id", "Number", "EmployeeContract", "Organization", "Department", "HireDate", "JobPosition", "Team", "EmployeeAssignment"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,EmployeeContract,Organization,Department,HireDate,JobPosition,Team"
+            example: "Id,Number,EmployeeContract,Organization,Department,HireDate,JobPosition,Team,EmployeeAssignment"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -2476,6 +2893,183 @@ components:
         $sort:
           - type: string
             example: "Id,Name"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    EmployeeAssignment:
+      type: object
+      required:
+      properties:
+        Id:
+          type: integer
+          format: int32
+        Employee:
+          type: integer
+          format: int32
+        Team:
+          type: integer
+          format: int32
+        JobRole:
+          type: integer
+          format: int32
+    EmployeeAssignmentFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Employee:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Team:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                JobRole:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Employee:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Team:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                JobRole:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+            contains:
+              type: object
+              properties:
+                Id:
+                Employee:
+                Team:
+                JobRole:
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Employee:
+                  type: integer
+                  format: int32
+                Team:
+                  type: integer
+                  format: int32
+                JobRole:
+                  type: integer
+                  format: int32
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Employee:
+                  type: integer
+                  format: int32
+                Team:
+                  type: integer
+                  format: int32
+                JobRole:
+                  type: integer
+                  format: int32
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Employee:
+                  type: integer
+                  format: int32
+                Team:
+                  type: integer
+                  format: int32
+                JobRole:
+                  type: integer
+                  format: int32
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Employee:
+                  type: integer
+                  format: int32
+                Team:
+                  type: integer
+                  format: int32
+                JobRole:
+                  type: integer
+                  format: int32
+        $select:
+          type: array
+          example: ["Id", "Employee", "Team", "JobRole"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,Employee,Team,JobRole"
         $order:
           type: string
           enum: ["asc", "desc"]
