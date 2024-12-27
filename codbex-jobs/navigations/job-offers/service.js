@@ -1,9 +1,9 @@
 const navigationData = {
-    id: 'job-assignments-navigation',
-    label: "Job Assignments",
+    id: 'job-offers-navigation',
+    label: "Job Offers",
     group: "employees",
     order: 600,
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobAssignment/index.html?embedded"
+    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobOffer/index.html?embedded"
 };
 
 function getNavigation() {
