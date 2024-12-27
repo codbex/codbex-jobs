@@ -1022,16 +1022,10 @@
                         "description": "",
                         "name": "DaysOpened",
                         "tooltip": "",
-                        "widgetDropDownKey": "Id",
-                        "widgetDropDownValue": "DaysOpened",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "DROPDOWN",
-                        "relationshipName": "JobOffer_JobPosition",
-                        "relationshipEntityName": "JobPosition",
-                        "relationshipEntityPerspectiveName": "Teams",
-                        "relationshipEntityPerspectiveLabel": "Entities"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "dataName": "JOBOFFER_STATUS",

@@ -40,7 +40,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsDaysOpened = [];
 				$scope.optionsStatus = [];
 				$scope.action = 'select';
 			});
@@ -55,7 +54,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					msg.data.entity.DateClosed = new Date(msg.data.entity.DateClosed);
 				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsDaysOpened = msg.data.optionsDaysOpened;
 				$scope.optionsStatus = msg.data.optionsStatus;
 				$scope.action = 'select';
 			});
@@ -64,7 +62,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("createEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsDaysOpened = msg.data.optionsDaysOpened;
 				$scope.optionsStatus = msg.data.optionsStatus;
 				$scope.action = 'create';
 			});
@@ -79,13 +76,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					msg.data.entity.DateClosed = new Date(msg.data.entity.DateClosed);
 				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsDaysOpened = msg.data.optionsDaysOpened;
 				$scope.optionsStatus = msg.data.optionsStatus;
 				$scope.action = 'update';
 			});
 		});
 
-		$scope.serviceDaysOpened = "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionService.ts";
 		$scope.serviceStatus = "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobOfferStatusService.ts";
 
 		//-----------------Events-------------------//

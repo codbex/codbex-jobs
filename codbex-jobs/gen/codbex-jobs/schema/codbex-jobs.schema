@@ -340,15 +340,6 @@
                 "referencedColumns": "TEAM_ID"
             },
             {
-                "name": "JobOffer_JobPosition",
-                "type": "foreignKey",
-                "table": "CODBEX_JOBOFFER",
-                "constraintName": "JobOffer_JobPosition",
-                "columns": "JOBOFFER_DAYSOPENED",
-                "referencedTable": "CODBEX_JOBPOSITION",
-                "referencedColumns": "JOBPOSITION_ID"
-            },
-            {
                 "name": "JobOffer_JobOfferStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_JOBOFFER",
