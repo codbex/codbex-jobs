@@ -155,6 +155,16 @@
                         "name": "JOBOFFER_ID"
                     },
                     {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "JOBOFFER_JOBPOSITION"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "JOBOFFER_DAYSOPENED"
+                    },
+                    {
                         "type": "DATE",
                         "nullable": true,
                         "name": "JOBOFFER_DATEOPENED"
@@ -163,11 +173,6 @@
                         "type": "DATE",
                         "nullable": true,
                         "name": "JOBOFFER_DATECLOSED"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "JOBOFFER_DAYSOPENED"
                     },
                     {
                         "type": "INTEGER",
@@ -338,6 +343,15 @@
                 "columns": "JOBPOSITION_TEAM",
                 "referencedTable": "CODBEX_TEAM",
                 "referencedColumns": "TEAM_ID"
+            },
+            {
+                "name": "JobOffer_JobPosition",
+                "type": "foreignKey",
+                "table": "CODBEX_JOBOFFER",
+                "constraintName": "JobOffer_JobPosition",
+                "columns": "JOBOFFER_JOBPOSITION",
+                "referencedTable": "CODBEX_JOBPOSITION",
+                "referencedColumns": "JOBPOSITION_ID"
             },
             {
                 "name": "JobOffer_JobOfferStatus",

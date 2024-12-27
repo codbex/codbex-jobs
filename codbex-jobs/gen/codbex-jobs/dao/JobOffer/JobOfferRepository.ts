@@ -6,16 +6,18 @@ import { EntityUtils } from "../utils/EntityUtils";
 
 export interface JobOfferEntity {
     readonly Id: number;
+    JobPosition?: number;
+    DaysOpened?: number;
     DateOpened?: Date;
     DateClosed?: Date;
-    DaysOpened?: number;
     Status?: number;
 }
 
 export interface JobOfferCreateEntity {
+    readonly JobPosition?: number;
+    readonly DaysOpened?: number;
     readonly DateOpened?: Date;
     readonly DateClosed?: Date;
-    readonly DaysOpened?: number;
     readonly Status?: number;
 }
 
@@ -27,51 +29,58 @@ export interface JobOfferEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
+            JobPosition?: number | number[];
+            DaysOpened?: number | number[];
             DateOpened?: Date | Date[];
             DateClosed?: Date | Date[];
-            DaysOpened?: number | number[];
             Status?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
+            JobPosition?: number | number[];
+            DaysOpened?: number | number[];
             DateOpened?: Date | Date[];
             DateClosed?: Date | Date[];
-            DaysOpened?: number | number[];
             Status?: number | number[];
         };
         contains?: {
             Id?: number;
+            JobPosition?: number;
+            DaysOpened?: number;
             DateOpened?: Date;
             DateClosed?: Date;
-            DaysOpened?: number;
             Status?: number;
         };
         greaterThan?: {
             Id?: number;
+            JobPosition?: number;
+            DaysOpened?: number;
             DateOpened?: Date;
             DateClosed?: Date;
-            DaysOpened?: number;
             Status?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
+            JobPosition?: number;
+            DaysOpened?: number;
             DateOpened?: Date;
             DateClosed?: Date;
-            DaysOpened?: number;
             Status?: number;
         };
         lessThan?: {
             Id?: number;
+            JobPosition?: number;
+            DaysOpened?: number;
             DateOpened?: Date;
             DateClosed?: Date;
-            DaysOpened?: number;
             Status?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
+            JobPosition?: number;
+            DaysOpened?: number;
             DateOpened?: Date;
             DateClosed?: Date;
-            DaysOpened?: number;
             Status?: number;
         };
     },
@@ -110,6 +119,16 @@ export class JobOfferRepository {
                 autoIncrement: true,
             },
             {
+                name: "JobPosition",
+                column: "JOBOFFER_JOBPOSITION",
+                type: "INTEGER",
+            },
+            {
+                name: "DaysOpened",
+                column: "JOBOFFER_DAYSOPENED",
+                type: "INTEGER",
+            },
+            {
                 name: "DateOpened",
                 column: "JOBOFFER_DATEOPENED",
                 type: "DATE",
@@ -118,11 +137,6 @@ export class JobOfferRepository {
                 name: "DateClosed",
                 column: "JOBOFFER_DATECLOSED",
                 type: "DATE",
-            },
-            {
-                name: "DaysOpened",
-                column: "JOBOFFER_DAYSOPENED",
-                type: "INTEGER",
             },
             {
                 name: "Status",

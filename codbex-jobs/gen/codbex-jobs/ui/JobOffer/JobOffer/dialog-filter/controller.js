@@ -26,6 +26,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
+			$scope.optionsJobPosition = params.optionsJobPosition;
 			$scope.optionsStatus = params.optionsStatus;
 		}
 
@@ -52,6 +53,12 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
+			if (entity.JobPosition !== undefined) {
+				filter.$filter.equals.JobPosition = entity.JobPosition;
+			}
+			if (entity.DaysOpened !== undefined) {
+				filter.$filter.equals.DaysOpened = entity.DaysOpened;
+			}
 			if (entity.DateOpenedFrom) {
 				filter.$filter.greaterThanOrEqual.DateOpened = entity.DateOpenedFrom;
 			}
@@ -63,9 +70,6 @@ angular.module('page', ["ideUI", "ideView"])
 			}
 			if (entity.DateClosedTo) {
 				filter.$filter.lessThanOrEqual.DateClosed = entity.DateClosedTo;
-			}
-			if (entity.DaysOpened !== undefined) {
-				filter.$filter.equals.DaysOpened = entity.DaysOpened;
 			}
 			if (entity.Status !== undefined) {
 				filter.$filter.equals.Status = entity.Status;

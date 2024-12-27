@@ -992,6 +992,40 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "dataName": "JOBOFFER_JOBPOSITION",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "description": "",
+                        "name": "JobPosition",
+                        "tooltip": "",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Number",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "JobOffer_JobPosition",
+                        "relationshipEntityName": "JobPosition",
+                        "relationshipEntityPerspectiveName": "Teams",
+                        "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
+                        "dataName": "JOBOFFER_DAYSOPENED",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "description": "",
+                        "name": "DaysOpened",
+                        "tooltip": "",
+                        "widgetDependsOnEntity": "",
+                        "widgetDependsOnFilterBy": "",
+                        "widgetDependsOnProperty": "",
+                        "widgetDependsOnValueFrom": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
                         "dataName": "JOBOFFER_DATEOPENED",
                         "dataNullable": "true",
                         "dataType": "DATE",
@@ -1014,18 +1048,6 @@
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "DATE"
-                    },
-                    {
-                        "dataName": "JOBOFFER_DAYSOPENED",
-                        "dataNullable": "true",
-                        "dataType": "INTEGER",
-                        "description": "",
-                        "name": "DaysOpened",
-                        "tooltip": "",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "NUMBER"
                     },
                     {
                         "dataName": "JOBOFFER_STATUS",

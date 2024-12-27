@@ -4073,11 +4073,14 @@ components:
         Id:
           type: integer
           format: int32
-        DateOpened:
-        DateClosed:
+        JobPosition:
+          type: integer
+          format: int32
         DaysOpened:
           type: integer
           format: int32
+        DateOpened:
+        DateClosed:
         Status:
           type: integer
           format: int32
@@ -4098,10 +4101,14 @@ components:
                       items:
                         type: integer
                         format: int32
-                DateOpened:
+                JobPosition:
                   oneOf:
-                DateClosed:
-                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 DaysOpened:
                   oneOf:
                     - type: integer
@@ -4110,6 +4117,10 @@ components:
                       items:
                         type: integer
                         format: int32
+                DateOpened:
+                  oneOf:
+                DateClosed:
+                  oneOf:
                 Status:
                   oneOf:
                     - type: integer
@@ -4129,10 +4140,14 @@ components:
                       items:
                         type: integer
                         format: int32
-                DateOpened:
+                JobPosition:
                   oneOf:
-                DateClosed:
-                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 DaysOpened:
                   oneOf:
                     - type: integer
@@ -4141,6 +4156,10 @@ components:
                       items:
                         type: integer
                         format: int32
+                DateOpened:
+                  oneOf:
+                DateClosed:
+                  oneOf:
                 Status:
                   oneOf:
                     - type: integer
@@ -4153,9 +4172,10 @@ components:
               type: object
               properties:
                 Id:
+                JobPosition:
+                DaysOpened:
                 DateOpened:
                 DateClosed:
-                DaysOpened:
                 Status:
             greaterThan:
               type: object
@@ -4163,11 +4183,14 @@ components:
                 Id:
                   type: integer
                   format: int32
-                DateOpened:
-                DateClosed:
+                JobPosition:
+                  type: integer
+                  format: int32
                 DaysOpened:
                   type: integer
                   format: int32
+                DateOpened:
+                DateClosed:
                 Status:
                   type: integer
                   format: int32
@@ -4177,11 +4200,14 @@ components:
                 Id:
                   type: integer
                   format: int32
-                DateOpened:
-                DateClosed:
+                JobPosition:
+                  type: integer
+                  format: int32
                 DaysOpened:
                   type: integer
                   format: int32
+                DateOpened:
+                DateClosed:
                 Status:
                   type: integer
                   format: int32
@@ -4191,11 +4217,14 @@ components:
                 Id:
                   type: integer
                   format: int32
-                DateOpened:
-                DateClosed:
+                JobPosition:
+                  type: integer
+                  format: int32
                 DaysOpened:
                   type: integer
                   format: int32
+                DateOpened:
+                DateClosed:
                 Status:
                   type: integer
                   format: int32
@@ -4205,22 +4234,25 @@ components:
                 Id:
                   type: integer
                   format: int32
-                DateOpened:
-                DateClosed:
+                JobPosition:
+                  type: integer
+                  format: int32
                 DaysOpened:
                   type: integer
                   format: int32
+                DateOpened:
+                DateClosed:
                 Status:
                   type: integer
                   format: int32
         $select:
           type: array
-          example: ["Id", "DateOpened", "DateClosed", "DaysOpened", "Status"]
+          example: ["Id", "JobPosition", "DaysOpened", "DateOpened", "DateClosed", "Status"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,DateOpened,DateClosed,DaysOpened,Status"
+            example: "Id,JobPosition,DaysOpened,DateOpened,DateClosed,Status"
         $order:
           type: string
           enum: ["asc", "desc"]
