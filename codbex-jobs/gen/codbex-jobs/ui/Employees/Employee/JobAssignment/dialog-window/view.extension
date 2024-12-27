@@ -1,0 +1,5 @@
+{
+    "module": "codbex-jobs/gen/codbex-jobs/ui/Employees/Employee/JobAssignment/dialog-window/view.js",
+    "extensionPoint": "codbex-employees-dialog-window",
+    "description": "codbex-jobs - Application Dialog Window"
+}
