@@ -1065,10 +1065,10 @@
                 "menuLabel": "JobOffer",
                 "name": "JobOffer",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/0-plus.svg",
+                "perspectiveIcon": "/services/web/resources/unicons/file-upload.svg",
                 "perspectiveLabel": "JobOffer",
                 "perspectiveName": "JobOffer",
-                "perspectiveOrder": "103",
+                "perspectiveOrder": "119",
                 "perspectiveRole": "",
                 "title": "JobOffer",
                 "tooltip": "JobOffer",
@@ -1205,10 +1205,10 @@
                 "menuLabel": "JobApplication",
                 "name": "JobApplication",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/0-plus.svg",
+                "perspectiveIcon": "/services/web/resources/unicons/file-upload.svg",
                 "perspectiveLabel": "JobOffer",
                 "perspectiveName": "JobOffer",
-                "perspectiveOrder": "103",
+                "perspectiveOrder": "119",
                 "perspectiveRole": "",
                 "title": "JobApplication",
                 "tooltip": "JobApplication",
@@ -1322,13 +1322,6 @@
         ],
         "perspectives": [
             {
-                "name": "JobOffer",
-                "label": "JobOffer",
-                "icon": "/services/web/resources/unicons/0-plus.svg",
-                "order": "103",
-                "role": {}
-            },
-            {
                 "name": "Teams",
                 "label": "Teams",
                 "icon": "/services/web/resources/unicons/user.svg",
@@ -1340,6 +1333,13 @@
                 "label": "Employees",
                 "icon": "/services/web/resources/unicons/user.svg",
                 "order": "100",
+                "role": {}
+            },
+            {
+                "name": "JobOffer",
+                "label": "JobOffer",
+                "icon": "/services/web/resources/unicons/file-upload.svg",
+                "order": "119",
                 "role": {}
             }
         ],

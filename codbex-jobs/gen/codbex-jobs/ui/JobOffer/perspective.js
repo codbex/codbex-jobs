@@ -7,8 +7,8 @@ const perspectiveData = {
 	id: 'JobOffer',
 	name: 'JobOffer',
 	link: '/services/web/codbex-jobs/gen/codbex-jobs/ui/JobOffer/index.html',
-	order: 103,
-	icon: '/services/web/resources/unicons/0-plus.svg',
+	order: 119,
+	icon: '/services/web/resources/unicons/file-upload.svg',
 };
 
 if (typeof exports !== 'undefined') {
