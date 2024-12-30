@@ -135,6 +135,18 @@ class JobAssignmentService {
         if (entity.Number?.length > 20) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
         }
+        if (entity.StartDate === null || entity.StartDate === undefined) {
+            throw new ValidationError(`The 'StartDate' property is required, provide a valid value`);
+        }
+        if (entity.Employee === null || entity.Employee === undefined) {
+            throw new ValidationError(`The 'Employee' property is required, provide a valid value`);
+        }
+        if (entity.Organization === null || entity.Organization === undefined) {
+            throw new ValidationError(`The 'Organization' property is required, provide a valid value`);
+        }
+        if (entity.Department === null || entity.Department === undefined) {
+            throw new ValidationError(`The 'Department' property is required, provide a valid value`);
+        }
         if (entity.JobPosition === null || entity.JobPosition === undefined) {
             throw new ValidationError(`The 'JobPosition' property is required, provide a valid value`);
         }

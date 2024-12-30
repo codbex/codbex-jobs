@@ -3223,6 +3223,10 @@ components:
     JobAssignment:
       type: object
       required:
+        - StartDate
+        - Employee
+        - Organization
+        - Department
         - JobPosition
       properties:
         Id:
@@ -4069,6 +4073,9 @@ components:
     JobOffer:
       type: object
       required:
+        - DaysOpened
+        - DateOpened
+        - Status
       properties:
         Id:
           type: integer
@@ -4266,6 +4273,12 @@ components:
     JobApplication:
       type: object
       required:
+        - Offer
+        - Status
+        - Names
+        - Email
+        - PhoneNumber
+        - CV
       properties:
         Id:
           type: integer

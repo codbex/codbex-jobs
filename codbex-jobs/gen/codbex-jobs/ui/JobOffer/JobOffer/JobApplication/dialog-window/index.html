@@ -21,13 +21,13 @@
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idStatus" dg-required="false" dg-colon="true">Status</fd-form-label>
+                        	<fd-form-label for="idStatus" dg-required="true" dg-colon="true">Status</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idStatus"
 	                            name="Status"
 	                            state="{{ forms.details['Status'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.Status"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsStatus"
@@ -38,14 +38,14 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idNames" dg-required="false" dg-colon="true">Names</fd-form-label>
+                        	<fd-form-label for="idNames" dg-required="true" dg-colon="true">Names</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Names'].$valid }}">
 	                            <fd-input id="idNames"
 	                                name="Names"
 	                                state="{{ forms.details['Names'].$valid ? '' : 'error' }}"
-									ng-required="false"
+									ng-required="true"
 	                                ng-model="entity.Names"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -61,7 +61,7 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idEmail" dg-required="false" dg-colon="true">Email</fd-form-label>
+                        	<fd-form-label for="idEmail" dg-required="true" dg-colon="true">Email</fd-form-label>
                         </div>
 						<div ng-show="action === 'select'" style="margin: 4px 0px; padding: 0px 10px" class="fd-col  fd-col-md--8 ">
 							<a href="mailto:{{entity.Email}}" class="fd-link">{{entity.Email}}</a>
@@ -71,7 +71,7 @@
 	                            <fd-input id="idEmail"
 	                                name="Email"
 	                                state="{{ forms.details['Email'].$valid ? '' : 'error' }}"
-									ng-required="false"
+									ng-required="true"
 	                                ng-model="entity.Email"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -87,7 +87,7 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idPhoneNumber" dg-required="false" dg-colon="true">PhoneNumber</fd-form-label>
+                        	<fd-form-label for="idPhoneNumber" dg-required="true" dg-colon="true">PhoneNumber</fd-form-label>
                         </div>
 						<div ng-show="action === 'select'" style="margin: 4px 0px; padding: 0px 10px" class="fd-col  fd-col-md--4 ">
 							<a href="tel:{{entity.PhoneNumber}}" class="fd-link">{{entity.PhoneNumber}}</a>
@@ -97,7 +97,7 @@
 	                            <fd-input id="idPhoneNumber"
 	                                name="PhoneNumber"
 	                                state="{{ forms.details['PhoneNumber'].$valid ? '' : 'error' }}"
-									ng-required="false"
+									ng-required="true"
 	                                ng-model="entity.PhoneNumber"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
@@ -113,7 +113,7 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idCV" dg-required="false" dg-colon="true">CV</fd-form-label>
+                        	<fd-form-label for="idCV" dg-required="true" dg-colon="true">CV</fd-form-label>
                         </div>
 						<div ng-show="action === 'select'" style="margin: 4px 0px; padding: 0px 10px" class="fd-col  fd-col-md--8 ">
 							<a href="{{entity.CV}}" target="_blank" class="fd-link">{{entity.CV}}</a>
@@ -123,7 +123,7 @@
 	                            <fd-input id="idCV"
 	                                name="CV"
 	                                state="{{ forms.details['CV'].$valid ? '' : 'error' }}"
-									ng-required="false"
+									ng-required="true"
 	                                ng-model="entity.CV"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"

@@ -130,14 +130,32 @@ class JobApplicationService {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.Offer === null || entity.Offer === undefined) {
+            throw new ValidationError(`The 'Offer' property is required, provide a valid value`);
+        }
+        if (entity.Status === null || entity.Status === undefined) {
+            throw new ValidationError(`The 'Status' property is required, provide a valid value`);
+        }
+        if (entity.Names === null || entity.Names === undefined) {
+            throw new ValidationError(`The 'Names' property is required, provide a valid value`);
+        }
         if (entity.Names?.length > 50) {
             throw new ValidationError(`The 'Names' exceeds the maximum length of [50] characters`);
+        }
+        if (entity.Email === null || entity.Email === undefined) {
+            throw new ValidationError(`The 'Email' property is required, provide a valid value`);
         }
         if (entity.Email?.length > 50) {
             throw new ValidationError(`The 'Email' exceeds the maximum length of [50] characters`);
         }
+        if (entity.PhoneNumber === null || entity.PhoneNumber === undefined) {
+            throw new ValidationError(`The 'PhoneNumber' property is required, provide a valid value`);
+        }
         if (entity.PhoneNumber?.length > 20) {
             throw new ValidationError(`The 'PhoneNumber' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.CV === null || entity.CV === undefined) {
+            throw new ValidationError(`The 'CV' property is required, provide a valid value`);
         }
         if (entity.CV?.length > 500) {
             throw new ValidationError(`The 'CV' exceeds the maximum length of [500] characters`);
