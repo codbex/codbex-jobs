@@ -1,0 +1,5 @@
+{
+    "module": "codbex-jobs/gen/codbex-jobs/ui/JobOffer/JobOffer/JobApplication/view.js",
+    "extensionPoint": "codbex-jobs-view",
+    "description": "codbex-jobs - Application View - Details"
+}

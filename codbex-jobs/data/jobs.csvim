@@ -21,6 +21,28 @@
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
       "version": ""
+    },
+    {
+      "table": "CODBEX_JOBOFFERSTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-jobs/data/job-offer-statuses.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": ""
+    },
+    {
+      "table": "CODBEX_JOBAPPLICATIONSTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-jobs/data/job-application-statuses.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": ""
     }
   ]
 }

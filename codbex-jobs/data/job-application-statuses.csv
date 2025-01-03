@@ -1,0 +1,6 @@
+JOBAPPLICATIONSTATUS_ID,JOBAPPLICATIONSTATUS_NAME
+1,Applied
+2,Interviewing
+3,Under review
+4,Hired
+5,Rejected
