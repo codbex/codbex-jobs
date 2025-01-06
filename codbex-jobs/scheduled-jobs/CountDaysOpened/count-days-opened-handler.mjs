@@ -1,7 +1,7 @@
 import { CountOpenDaysService } from './CountOpenDaysService';
 
 import { JobPositionRepository } from "codbex-jobs/gen/codbex-jobs/dao/Teams/JobPositionRepository";
-import { JobOfferRepository } from "codbex-jobs/gen/codbex-jobs/dao/Joboffer/JobOfferRepository";
+import { JobOfferRepository } from "codbex-jobs/gen/codbex-jobs/dao/JobOffer/JobOfferRepository";
 
 const JobPositionDao = new JobPositionRepository();
 const JobOfferDao = new JobOfferRepository();

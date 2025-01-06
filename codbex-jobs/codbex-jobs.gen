@@ -2009,6 +2009,7 @@
           "inputRule": ""
         },
         {
+          "dataDefaultValue": "0",
           "dataName": "JOBOFFER_DAYSOPENED",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -2172,6 +2173,7 @@
         },
         "properties": [
           {
+            "dataDefaultValue": "0",
             "dataName": "JOBOFFER_DAYSOPENED",
             "dataNullable": true,
             "dataType": "INTEGER",

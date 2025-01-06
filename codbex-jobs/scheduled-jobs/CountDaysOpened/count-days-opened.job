@@ -1,0 +1,16 @@
+{
+    "expression": "0/10 * * * * ?",
+    "group": "defined",
+    "handler": "codbex-jobs/scheduled-jobs/CountDaysOpened/count-days-opened-handler.mjs",
+    "description": "Scheduled Job for counting days for opened job positions and job offers",
+    "parameters": [
+        {
+            "name": "Employee",
+            "type": "number"
+        },
+        {
+            "name": "Title",
+            "type": "string"
+        }
+    ]
+}

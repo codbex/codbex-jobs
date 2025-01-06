@@ -1014,6 +1014,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "dataDefaultValue": "0",
                         "dataName": "JOBOFFER_DAYSOPENED",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
