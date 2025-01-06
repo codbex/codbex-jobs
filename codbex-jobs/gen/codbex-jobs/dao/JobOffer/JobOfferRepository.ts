@@ -15,7 +15,6 @@ export interface JobOfferEntity {
 
 export interface JobOfferCreateEntity {
     readonly JobPosition?: number;
-    readonly DaysOpened?: number;
     readonly DateOpened?: Date;
     readonly DateClosed?: Date;
     readonly Status?: number;

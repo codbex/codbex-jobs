@@ -1018,7 +1018,7 @@
                         "dataNullable": "true",
                         "dataType": "INTEGER",
                         "description": "",
-                        "isRequiredProperty": "true",
+                        "isCalculatedProperty": "true",
                         "name": "DaysOpened",
                         "tooltip": "",
                         "widgetDependsOnEntity": "",

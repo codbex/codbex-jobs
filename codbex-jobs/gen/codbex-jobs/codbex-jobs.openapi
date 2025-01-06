@@ -4073,7 +4073,6 @@ components:
     JobOffer:
       type: object
       required:
-        - DaysOpened
         - DateOpened
         - Status
       properties:
@@ -4086,6 +4085,7 @@ components:
         DaysOpened:
           type: integer
           format: int32
+          readOnly: true
         DateOpened:
         DateClosed:
         Status:
