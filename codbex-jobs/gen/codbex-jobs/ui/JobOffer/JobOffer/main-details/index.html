@@ -38,15 +38,15 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDaysOpened" dg-required="true" dg-colon="true">DaysOpened</fd-form-label>
+                        	<fd-form-label for="idDaysOpened" dg-required="false" dg-colon="true">DaysOpened</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 							<fd-step-input dg-id="idDaysOpened"
 								name="DaysOpened"
 								state="{{ forms.details['DaysOpened'].$valid ? '' : 'error' }}"
-								dg-required="true"
+								dg-required="false"
 								ng-model="entity.DaysOpened"
-								is-readonly="action === 'select'"
+								is-readonly="true"
 								placeholder="Enter DaysOpened"
 								>
 							</fd-step-input>

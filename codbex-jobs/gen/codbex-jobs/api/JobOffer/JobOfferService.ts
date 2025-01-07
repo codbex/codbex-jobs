@@ -119,9 +119,6 @@ class JobOfferService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.DaysOpened === null || entity.DaysOpened === undefined) {
-            throw new ValidationError(`The 'DaysOpened' property is required, provide a valid value`);
-        }
         if (entity.DateOpened === null || entity.DateOpened === undefined) {
             throw new ValidationError(`The 'DateOpened' property is required, provide a valid value`);
         }

@@ -15,7 +15,6 @@ export interface JobOfferEntity {
 
 export interface JobOfferCreateEntity {
     readonly JobPosition?: number;
-    readonly DaysOpened?: number;
     readonly DateOpened?: Date;
     readonly DateClosed?: Date;
     readonly Status?: number;
@@ -170,6 +169,9 @@ export class JobOfferRepository {
     public create(entity: JobOfferCreateEntity): number {
         EntityUtils.setLocalDate(entity, "DateOpened");
         EntityUtils.setLocalDate(entity, "DateClosed");
+        if (entity.DaysOpened === undefined || entity.DaysOpened === null) {
+            (entity as JobOfferEntity).DaysOpened = 0;
+        }
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

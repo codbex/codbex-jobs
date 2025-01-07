@@ -1014,11 +1014,12 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "dataDefaultValue": "0",
                         "dataName": "JOBOFFER_DAYSOPENED",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
                         "description": "",
-                        "isRequiredProperty": "true",
+                        "isCalculatedProperty": "true",
                         "name": "DaysOpened",
                         "tooltip": "",
                         "widgetDependsOnEntity": "",
