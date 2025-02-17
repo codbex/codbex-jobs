@@ -71,6 +71,35 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.serviceDepartment = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts";
 		$scope.serviceJobPosition = "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionService.ts";
 
+		$scope.$watch('entity.Organization', function (newValue, oldValue) {
+			if (newValue !== undefined && newValue !== null) {
+				entityApi.$http.get($scope.serviceOrganization + '/' + newValue).then(function (response) {
+					let valueFrom = response.data.Id;
+					entityApi.$http.post("/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts/search", {
+						$filter: {
+							equals: {
+								Organization: valueFrom
+							}
+						}
+					}).then(function (response) {
+						$scope.optionsDepartment = response.data.map(e => {
+							return {
+								value: e.Id,
+								text: e.Name
+							}
+						});
+						if ($scope.action !== 'select' && newValue !== oldValue) {
+							if ($scope.optionsDepartment.length == 1) {
+								$scope.entity.Department = $scope.optionsDepartment[0].value;
+							} else {
+								$scope.entity.Department = undefined;
+							}
+						}
+					});
+				});
+			}
+		});
+
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
