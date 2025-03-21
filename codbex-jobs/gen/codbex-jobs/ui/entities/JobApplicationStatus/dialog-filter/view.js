@@ -7,7 +7,7 @@ const viewData = {
     id: "JobApplicationStatus-filter",
     label: "JobApplicationStatus Filter",
     link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/entities/JobApplicationStatus/dialog-filter/index.html",
-    perspectiveName: "entities",
+    perspectiveName: "entities"
 };
 
 if (typeof exports !== 'undefined') {

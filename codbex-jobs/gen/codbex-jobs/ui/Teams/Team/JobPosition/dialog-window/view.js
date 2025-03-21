@@ -7,7 +7,7 @@ const viewData = {
     id: "JobPosition-details",
     label: "JobPosition",
     link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/Teams/Team/JobPosition/dialog-window/index.html",
-    perspectiveName: "Teams",
+    perspectiveName: "Teams"
 };
 
 if (typeof exports !== 'undefined') {

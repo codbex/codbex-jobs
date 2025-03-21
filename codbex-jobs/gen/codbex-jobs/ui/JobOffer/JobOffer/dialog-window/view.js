@@ -4,10 +4,13 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "JobApplication-filter",
-    label: "JobApplication Filter",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobOffer/JobOffer/JobApplication/dialog-filter/index.html",
-    perspectiveName: "JobOffer"
+    id: "JobOffer-details",
+    label: "JobOffer",
+    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobOffer/JobOffer/dialog-window/index.html",
+    perspectiveName: "JobOffer",
+    roles: [
+        "codbex-jobs.JobOffer.JobOfferReadOnly",
+    ]
 };
 
 if (typeof exports !== 'undefined') {

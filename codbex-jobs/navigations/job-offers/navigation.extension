@@ -1,5 +1,6 @@
 {
     "extensionPoint": "dashboard-navigations",
     "module": "codbex-jobs/navigations/job-offers/service.js",
-    "description": "JobOffers Navigation"
+    "description": "JobOffers Navigation",
+    "role": "codbex-jobs.JobOffer.JobOfferReadOnly,codbex-jobs.JobOffer.JobOfferFullAccess"
 }

@@ -1,5 +1,6 @@
 {
     "extensionPoint": "dashboard-widgets",
     "module": "codbex-jobs/widgets/open-job-positions/service.js",
-    "description": "Open Job Positions"
+    "description": "Open Job Positions",
+    "role": "codbex-jobs.Teams.JobPositionFullAccess,codbex-jobs.Teams.JobPositionReadOnly"
 }
