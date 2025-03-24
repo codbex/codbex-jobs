@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "left",
     link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobOffer/JobOffer/index.html",
-    perspectiveName: "JobOffer",
+    perspectiveName: "JobOffer"
 };
 
 if (typeof exports !== 'undefined') {

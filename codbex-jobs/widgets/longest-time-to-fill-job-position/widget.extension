@@ -1,5 +1,6 @@
 {
     "extensionPoint": "dashboard-widgets",
     "module": "codbex-jobs/widgets/longest-time-to-fill-job-position/service.js",
-    "description": "Longest time to fill job position"
+    "description": "Longest time to fill job position",
+    "role": "codbex-jobs.Teams.JobPositionFullAccess,codbex-jobs.Teams.JobPositionReadOnly"
 }

@@ -1,0 +1,66 @@
+[
+    {
+        "name": "codbex-jobs.Employees.JobAssignmentReadOnly",
+        "description": "A role that grants read only permission for JobAssignment."
+    },
+    {
+        "name": "codbex-jobs.Employees.JobAssignmentFullAccess",
+        "description": "A role that grants full access for JobAssignment."
+    },
+    {
+        "name": "codbex-jobs.entities.JobStatusReadOnly",
+        "description": "A role that grants read only permission for JobStatus."
+    },
+    {
+        "name": "codbex-jobs.entities.JobStatusFullAccess",
+        "description": "A role that grants full access for JobStatus."
+    },
+    {
+        "name": "codbex-jobs.Teams.JobPositionReadOnly",
+        "description": "A role that grants read only permission for JobPosition."
+    },
+    {
+        "name": "codbex-jobs.Teams.JobPositionFullAccess",
+        "description": "A role that grants full access for JobPosition."
+    },
+    {
+        "name": "codbex-jobs.entities.JobTypeReadOnly",
+        "description": "A role that grants read only permission for JobType."
+    },
+    {
+        "name": "codbex-jobs.entities.JobTypeFullAccess",
+        "description": "A role that grants full access for JobType."
+    },
+    {
+        "name": "codbex-jobs.JobOffer.JobOfferReadOnly",
+        "description": "A role that grants read only permission for JobOffer."
+    },
+    {
+        "name": "codbex-jobs.JobOffer.JobOfferFullAccess",
+        "description": "A role that grants full access for JobOffer."
+    },
+    {
+        "name": "codbex-jobs.JobOffer.JobApplicationReadOnly",
+        "description": "A role that grants read only permission for JobApplication."
+    },
+    {
+        "name": "codbex-jobs.JobOffer.JobApplicationFullAccess",
+        "description": "A role that grants full access for JobApplication."
+    },
+    {
+        "name": "codbex-jobs.entities.JobOfferStatusReadOnly",
+        "description": "A role that grants read only permission for JobOfferStatus."
+    },
+    {
+        "name": "codbex-jobs.entities.JobOfferStatusFullAccess",
+        "description": "A role that grants full access for JobOfferStatus."
+    },
+    {
+        "name": "codbex-jobs.entities.JobApplicationStatusReadOnly",
+        "description": "A role that grants read only permission for JobApplicationStatus."
+    },
+    {
+        "name": "codbex-jobs.entities.JobApplicationStatusFullAccess",
+        "description": "A role that grants full access for JobApplicationStatus."
+    }
+]

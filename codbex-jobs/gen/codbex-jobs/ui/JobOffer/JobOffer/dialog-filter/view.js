@@ -7,7 +7,7 @@ const viewData = {
     id: "JobOffer-filter",
     label: "JobOffer Filter",
     link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobOffer/JobOffer/dialog-filter/index.html",
-    perspectiveName: "JobOffer",
+    perspectiveName: "JobOffer"
 };
 
 if (typeof exports !== 'undefined') {

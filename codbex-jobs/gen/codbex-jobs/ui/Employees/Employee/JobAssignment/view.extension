@@ -1,5 +1,6 @@
 {
     "module": "codbex-jobs/gen/codbex-jobs/ui/Employees/Employee/JobAssignment/view.js",
     "extensionPoint": "codbex-employees-view",
-    "description": "codbex-jobs - Application View - Details"
+    "description": "codbex-jobs - Application View - Details",
+    "role": "codbex-jobs.Employees.JobAssignmentReadOnly,codbex-jobs.Employees.JobAssignmentFullAccess"
 }

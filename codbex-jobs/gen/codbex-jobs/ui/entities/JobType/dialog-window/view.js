@@ -7,7 +7,7 @@ const viewData = {
     id: "JobType-details",
     label: "JobType",
     link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/entities/JobType/dialog-window/index.html",
-    perspectiveName: "entities",
+    perspectiveName: "entities"
 };
 
 if (typeof exports !== 'undefined') {
