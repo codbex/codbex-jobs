@@ -62,5 +62,13 @@
     {
         "name": "codbex-jobs.entities.JobApplicationStatusFullAccess",
         "description": "A role that grants full access for JobApplicationStatus."
+    },
+    {
+        "name": "codbex-companies.Companies.JobRoleReadOnly",
+        "description": "A role that grants read only permission for JobRole."
+    },
+    {
+        "name": "codbex-companies.Companies.JobRoleFullAccess",
+        "description": "A role that grants full access for JobRole."
     }
 ]

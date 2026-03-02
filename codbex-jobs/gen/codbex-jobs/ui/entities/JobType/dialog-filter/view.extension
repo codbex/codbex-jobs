@@ -1,6 +1,6 @@
 {
     "module": "codbex-jobs/gen/codbex-jobs/ui/entities/JobType/dialog-filter/view.js",
-    "extensionPoint": "dialog-window",
+    "extensionPoint": "application-windows",
     "description": "codbex-jobs - Application Dialog Window",
     "role": "codbex-jobs.entities.JobTypeReadOnly,codbex-jobs.entities.JobTypeFullAccess"
 }

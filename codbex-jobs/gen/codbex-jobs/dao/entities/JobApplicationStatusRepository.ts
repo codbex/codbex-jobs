@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface JobApplicationStatusEntity {
     readonly Id: number;
@@ -49,12 +49,13 @@ export interface JobApplicationStatusEntityOptions {
     },
     $select?: (keyof JobApplicationStatusEntity)[],
     $sort?: string | (keyof JobApplicationStatusEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface JobApplicationStatusEntityEvent {
+export interface JobApplicationStatusEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<JobApplicationStatusEntity>;
@@ -65,7 +66,7 @@ interface JobApplicationStatusEntityEvent {
     }
 }
 
-interface JobApplicationStatusUpdateEntityEvent extends JobApplicationStatusEntityEvent {
+export interface JobApplicationStatusUpdateEntityEvent extends JobApplicationStatusEntityEvent {
     readonly previousEntity: JobApplicationStatusEntity;
 }
 
@@ -92,14 +93,15 @@ export class JobApplicationStatusRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(JobApplicationStatusRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(JobApplicationStatusRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: JobApplicationStatusEntityOptions): JobApplicationStatusEntity[] {
-        return this.dao.list(options);
+    public findAll(options: JobApplicationStatusEntityOptions = {}): JobApplicationStatusEntity[] {
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): JobApplicationStatusEntity | undefined {
+    public findById(id: number, options: JobApplicationStatusEntityOptions = {}): JobApplicationStatusEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

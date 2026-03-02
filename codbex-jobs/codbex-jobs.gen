@@ -47,8 +47,14 @@
       "entityName": "JobApplicationStatus",
       "roleRead": "codbex-jobs.entities.JobApplicationStatusReadOnly",
       "roleWrite": "codbex-jobs.entities.JobApplicationStatusFullAccess"
+    },
+    {
+      "entityName": "JobRole",
+      "roleRead": "codbex-companies.Companies.JobRoleReadOnly",
+      "roleWrite": "codbex-companies.Companies.JobRoleFullAccess"
     }
   ],
+  "tprefix": "codbex-jobs-model",
   "projectName": "codbex-jobs",
   "workspaceName": "workspace",
   "filePath": "codbex-jobs.model",
@@ -61,7 +67,9 @@
       ],
       "name": "Employees",
       "label": "Employees",
+      "header": "",
       "order": "100",
+      "navId": "",
       "icon": "/services/web/resources/unicons/user.svg",
       "role": ""
     },
@@ -74,7 +82,9 @@
       ],
       "name": "entities",
       "label": "entities",
+      "header": "",
       "order": "100",
+      "navId": "",
       "icon": "/services/web/resources/unicons/copy.svg",
       "role": ""
     },
@@ -85,17 +95,9 @@
       ],
       "name": "Teams",
       "label": "Teams",
+      "header": "",
       "order": "106",
-      "icon": "/services/web/resources/unicons/user.svg",
-      "role": ""
-    },
-    "Companies": {
-      "views": [
-        "JobRole"
-      ],
-      "name": "Companies",
-      "label": "Companies",
-      "order": "113",
+      "navId": "",
       "icon": "/services/web/resources/unicons/user.svg",
       "role": ""
     },
@@ -106,7 +108,9 @@
       ],
       "name": "Organizations",
       "label": "Organizations",
+      "header": "",
       "order": "100",
+      "navId": "",
       "icon": "/services/web/resources/unicons/copy.svg",
       "role": ""
     },
@@ -132,16 +136,26 @@
         "JobOffer-details",
         "JobOffer-details",
         "JobOffer-details",
-        "JobOffer-details",
-        "JobOffer-details",
-        "JobOffer-details",
-        "JobOffer-details",
         "JobOffer-details"
       ],
       "name": "JobOffer",
       "label": "JobOffer",
+      "header": "",
       "order": "119",
+      "navId": "",
       "icon": "/services/web/resources/unicons/file-upload.svg",
+      "role": ""
+    },
+    "Companies": {
+      "views": [
+        "JobRole"
+      ],
+      "name": "Companies",
+      "label": "Companies",
+      "header": "",
+      "order": "100",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/copy.svg",
       "role": ""
     }
   },
@@ -149,6 +163,7 @@
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "JOBASSIGNMENT_ID",
           "dataNullable": true,
@@ -167,11 +182,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(27)",
           "dataLength": "20",
           "dataName": "JOBASSIGNMENT_NUMBER",
@@ -192,6 +209,7 @@
           "isRequiredProperty": false,
           "widgetLabel": "Number",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -199,6 +217,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBASSIGNMENT_STARTDATE",
           "dataNullable": true,
           "dataType": "DATE",
@@ -217,12 +236,14 @@
           "isCalculatedProperty": false,
           "widgetLabel": "StartDate",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "date",
           "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBASSIGNMENT_ENDDATE",
           "dataNullable": true,
           "dataType": "DATE",
@@ -241,12 +262,14 @@
           "isCalculatedProperty": false,
           "widgetLabel": "EndDate",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "date",
           "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBASSIGNMENT_EMPLOYEE",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -273,11 +296,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Employee",
           "widgetDropdownUrl": "/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBASSIGNMENT_ORGANIZATION",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -302,11 +327,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Organization",
           "widgetDropdownUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBASSIGNMENT_DEPARTMENT",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -335,11 +362,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Department",
           "widgetDropdownUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBASSIGNMENT_JOBPOSITION",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -364,6 +393,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "JobPosition",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -382,11 +412,13 @@
       "menuIndex": "100",
       "menuKey": "jobassignment",
       "menuLabel": "JobAssignment",
+      "multilingual": "false",
       "name": "JobAssignment",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/user.svg",
       "perspectiveLabel": "Employees",
       "perspectiveName": "Employees",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "roleRead": "codbex-jobs.Employees.JobAssignmentReadOnly",
@@ -427,6 +459,7 @@
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "JOBSTATUS_ID",
           "dataNullable": true,
@@ -445,11 +478,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "20",
           "dataName": "JOBSTATUS_NAME",
           "dataNullable": true,
@@ -469,6 +504,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Name",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -484,15 +520,15 @@
       "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE",
       "menuIndex": "100",
       "menuKey": "jobstatus",
       "menuLabel": "JobStatus",
+      "multilingual": "false",
       "name": "JobStatus",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "entities",
+      "perspectiveName": "Settings",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "roleRead": "codbex-jobs.entities.JobStatusReadOnly",
@@ -510,6 +546,7 @@
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "JOBPOSITION_ID",
           "dataNullable": true,
@@ -528,11 +565,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(26)",
           "dataLength": "20",
           "dataName": "JOBPOSITION_NUMBER",
@@ -553,6 +592,7 @@
           "isRequiredProperty": false,
           "widgetLabel": "Number",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -560,35 +600,36 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBPOSITION_ROLE",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataType": "INTEGER",
           "description": "",
           "isRequiredProperty": true,
           "name": "Role",
           "tooltip": "",
-          "widgetDropDownKey": "Id",
-          "widgetDropDownValue": "Name",
           "widgetIsMajor": true,
           "widgetLength": "20",
           "widgetSize": "",
-          "widgetType": "DROPDOWN",
+          "widgetType": "TEXTBOX",
           "relationshipName": "JobPosition_JobRole",
           "relationshipEntityName": "JobRole",
           "relationshipEntityPerspectiveName": "Companies",
-          "relationshipEntityPerspectiveLabel": "Companies",
-          "dataNotNull": false,
+          "relationshipEntityPerspectiveLabel": "Entities",
+          "dataNotNull": true,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
           "dataUnique": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Role",
-          "widgetDropdownUrl": "/services/ts/codbex-companies/gen/codbex-companies/api/Companies/JobRoleService.ts",
+          "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBPOSITION_STATUS",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -613,11 +654,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Status",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobStatusController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBPOSITION_TYPE",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -642,11 +685,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Type",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobTypeService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobTypeController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBPOSITION_DATEOPENED",
           "dataNullable": true,
           "dataType": "DATE",
@@ -665,12 +710,14 @@
           "isCalculatedProperty": false,
           "widgetLabel": "DateOpened",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "date",
           "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBPOSITION_DATECLOSED",
           "dataNullable": true,
           "dataType": "DATE",
@@ -690,12 +737,14 @@
           "isCalculatedProperty": false,
           "widgetLabel": "DateClosed",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "date",
           "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "calculatedPropertyExpressionCreate": "",
           "dataDefaultValue": "0",
           "dataName": "JOBPOSITION_DAYSOPENED",
@@ -716,11 +765,13 @@
           "isRequiredProperty": false,
           "widgetLabel": "DaysOpened",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBPOSITION_TEAM",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -747,6 +798,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Team",
           "widgetDropdownUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/Teams/TeamService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/Teams/TeamController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -765,11 +817,13 @@
       "menuIndex": "100",
       "menuKey": "jobposition",
       "menuLabel": "JobPosition",
+      "multilingual": "false",
       "name": "JobPosition",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/user.svg",
       "perspectiveLabel": "Teams",
       "perspectiveName": "Teams",
+      "perspectiveNavId": "",
       "perspectiveOrder": "106",
       "perspectiveRole": "",
       "roleRead": "codbex-jobs.Teams.JobPositionReadOnly",
@@ -782,11 +836,6 @@
       "referencedProjectionProjectName": "codbex-organizations",
       "referencedProjectionPerspectiveName": "Teams",
       "referencedProjections": [
-        {
-          "name": "JobRole",
-          "project": "codbex-companies",
-          "genFolderName": "codbex-companies"
-        },
         {
           "name": "Team",
           "project": "codbex-organizations",
@@ -805,6 +854,7 @@
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "JOBTYPE_ID",
           "dataNullable": true,
@@ -823,11 +873,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "20",
           "dataName": "JOBTYPE_NAME",
           "dataNullable": true,
@@ -847,6 +899,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Name",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -866,11 +919,13 @@
       "menuIndex": "100",
       "menuKey": "jobtype",
       "menuLabel": "JobType",
+      "multilingual": "false",
       "name": "JobType",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "entities",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "roleRead": "codbex-jobs.entities.JobTypeReadOnly",
@@ -888,118 +943,7 @@
     {
       "properties": [
         {
-          "dataAutoIncrement": true,
-          "dataName": "COMPANYROLE_ID",
-          "dataNullable": true,
-          "dataPrimaryKey": true,
-          "dataType": "INTEGER",
-          "description": "",
-          "name": "Id",
-          "tooltip": "",
-          "widgetIsMajor": true,
-          "widgetLength": "20",
-          "widgetSize": "",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "widgetLabel": "Id",
-          "widgetDropdownUrl": "",
-          "dataTypeJava": "int",
-          "dataTypeTypescript": "number",
-          "inputRule": ""
-        },
-        {
-          "dataLength": "20",
-          "dataName": "COMPANYROLE_NAME",
-          "dataNullable": true,
-          "dataType": "VARCHAR",
-          "description": "",
-          "name": "Name",
-          "tooltip": "",
-          "widgetIsMajor": true,
-          "widgetLength": "20",
-          "widgetSize": "",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": false,
-          "dataAutoIncrement": false,
-          "dataPrimaryKey": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "widgetLabel": "Name",
-          "widgetDropdownUrl": "",
-          "dataTypeJava": "string",
-          "dataTypeTypescript": "string",
-          "minLength": 0,
-          "maxLength": 20,
-          "inputRule": ""
-        },
-        {
-          "dataName": "COMPANYROLE_COMPANY",
-          "dataNullable": true,
-          "dataType": "INTEGER",
-          "description": "",
-          "name": "Company",
-          "relationshipCardinality": "1_n",
-          "relationshipEntityPerspectiveLabel": "Entities",
-          "relationshipEntityPerspectiveName": "Companies",
-          "relationshipName": "JobRole_Company",
-          "relationshipType": "COMPOSITION",
-          "tooltip": "",
-          "widgetIsMajor": false,
-          "widgetLength": "20",
-          "widgetSize": "",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": false,
-          "dataAutoIncrement": false,
-          "dataPrimaryKey": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "widgetLabel": "Company",
-          "widgetDropdownUrl": "",
-          "dataTypeJava": "int",
-          "dataTypeTypescript": "number",
-          "inputRule": ""
-        }
-      ],
-      "caption": "Manage entity JobRole",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_JOBROLE\"",
-      "dataName": "JOBROLE",
-      "dataQuery": "",
-      "description": "Manage entity JobRole",
-      "generateDefaultRoles": "false",
-      "generateReport": "false",
-      "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE",
-      "menuIndex": "100",
-      "menuKey": "jobrole",
-      "menuLabel": "JobRole",
-      "name": "JobRole",
-      "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/user.svg",
-      "perspectiveLabel": "Companies",
-      "perspectiveName": "Companies",
-      "perspectiveOrder": "113",
-      "perspectiveRole": "",
-      "projectionReferencedEntity": "JobRole",
-      "projectionReferencedModel": "/workspace/codbex-companies/codbex-companies.model",
-      "title": "JobRole",
-      "tooltip": "JobRole",
-      "type": "PROJECTION",
-      "dataSource": "DefaultDB",
-      "referencedProjections": [],
-      "primaryKeys": [
-        "Id"
-      ],
-      "primaryKeysString": "Id",
-      "masterEntityId": "Company"
-    },
-    {
-      "properties": [
-        {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "ORGANIZATION_ID",
           "dataNullable": true,
@@ -1018,11 +962,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "100",
           "dataName": "ORGANIZATION_NAME",
           "dataNullable": true,
@@ -1042,6 +988,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Name",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1049,6 +996,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "10",
           "dataName": "ORGANIZATION_COSTCENTER",
           "dataNullable": true,
@@ -1068,6 +1016,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "CostCenter",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1075,6 +1024,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "ORGANIZATION_COMPANY",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -1098,6 +1048,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Company",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Companies/undefinedService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Companies/undefinedController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1115,11 +1066,13 @@
       "menuIndex": "100",
       "menuKey": "organization",
       "menuLabel": "Organization",
+      "multilingual": "false",
       "name": "Organization",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "Organizations",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Organization",
@@ -1138,6 +1091,7 @@
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "DEPARTMENT_ID",
           "dataNullable": true,
@@ -1156,11 +1110,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "100",
           "dataName": "DEPARTMENT_NAME",
           "dataNullable": true,
@@ -1180,6 +1136,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Name",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1187,6 +1144,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "DEPARTMENT_ORGANIZATION",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -1212,6 +1170,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Organization",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Organizations/undefinedService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Organizations/undefinedController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1229,11 +1188,13 @@
       "menuIndex": "100",
       "menuKey": "department",
       "menuLabel": "Department",
+      "multilingual": "false",
       "name": "Department",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "Organizations",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Department",
@@ -1253,6 +1214,7 @@
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "TEAM_ID",
           "dataNullable": true,
@@ -1271,11 +1233,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "50",
           "dataName": "TEAM_NAME",
           "dataNullable": true,
@@ -1295,6 +1259,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Name",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1302,6 +1267,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "TEAM_MANAGER",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -1325,11 +1291,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Manager",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Employees/undefinedService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Employees/undefinedController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "TEAM_ORGANIZATION",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -1353,11 +1321,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Organization",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Organizations/undefinedService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Organizations/undefinedController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "TEAM_DEPARTMENT",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -1385,6 +1355,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Department",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Organizations/undefinedService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Organizations/undefinedController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1402,11 +1373,13 @@
       "menuIndex": "100",
       "menuKey": "team",
       "menuLabel": "Team",
+      "multilingual": "false",
       "name": "Team",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/user.svg",
       "perspectiveLabel": "Teams",
       "perspectiveName": "Teams",
+      "perspectiveNavId": "",
       "perspectiveOrder": "106",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Team",
@@ -1425,6 +1398,7 @@
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "EMPLOYEE_ID",
           "dataNullable": true,
@@ -1443,11 +1417,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "50",
           "dataName": "EMPLOYEE_FIRSTNAME",
           "dataNullable": true,
@@ -1468,6 +1444,7 @@
           "dataUnique": false,
           "isCalculatedProperty": false,
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1475,6 +1452,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "50",
           "dataName": "EMPLOYEE_MIDDLENAME",
           "dataNullable": true,
@@ -1495,6 +1473,7 @@
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1502,6 +1481,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "50",
           "dataName": "EMPLOYEE_LASTNAME",
           "dataNullable": true,
@@ -1522,6 +1502,7 @@
           "dataUnique": false,
           "isCalculatedProperty": false,
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1529,6 +1510,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "calculatedPropertyExpressionCreate": "entity[\"FirstName\"] + \" \" + entity[\"LastName\"]",
           "dataLength": "70",
           "dataName": "EMPLOYEE_NAME",
@@ -1549,6 +1531,7 @@
           "isRequiredProperty": false,
           "widgetLabel": "Name",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1556,6 +1539,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "EMPLOYEE_BIRTHDATE",
           "dataNullable": true,
           "dataType": "DATE",
@@ -1574,12 +1558,14 @@
           "isCalculatedProperty": false,
           "widgetLabel": "BirthDate",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "date",
           "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "10",
           "dataName": "EMPLOYEE_PERSONALNUMBER",
           "dataNullable": true,
@@ -1599,6 +1585,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "PersonalNumber",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1606,6 +1593,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "EMPLOYEE_GENDER",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -1629,11 +1617,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Gender",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/EmployeesSettings/undefinedService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/EmployeesSettings/undefinedController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "EMPLOYEE_NATIONALITY",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -1657,11 +1647,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Nationality",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Countries/undefinedService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Countries/undefinedController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "EMPLOYEE_MARTIALSTATUS",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -1685,11 +1677,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "MartialStatus",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/EmployeesSettings/undefinedService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/EmployeesSettings/undefinedController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "50",
           "dataName": "EMPLOYEE_IBAN",
           "dataNullable": true,
@@ -1709,6 +1703,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "IBAN",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1728,11 +1723,13 @@
       "menuIndex": "100",
       "menuKey": "employee",
       "menuLabel": "Employee",
+      "multilingual": "false",
       "name": "Employee",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/user.svg",
       "perspectiveLabel": "Employees",
       "perspectiveName": "Employees",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Employee",
@@ -1748,6 +1745,7 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
+          "auditType": "NONE",
           "dataLength": "50",
           "dataName": "EMPLOYEE_FIRSTNAME",
           "dataNullable": true,
@@ -1768,6 +1766,7 @@
           "dataUnique": false,
           "isCalculatedProperty": false,
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -1776,6 +1775,7 @@
         },
         "properties": [
           {
+            "auditType": "NONE",
             "dataLength": "50",
             "dataName": "EMPLOYEE_MIDDLENAME",
             "dataNullable": true,
@@ -1796,6 +1796,7 @@
             "isRequiredProperty": false,
             "isCalculatedProperty": false,
             "widgetDropdownUrl": "",
+            "widgetDropdownControllerUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -1803,6 +1804,7 @@
             "inputRule": ""
           },
           {
+            "auditType": "NONE",
             "dataLength": "50",
             "dataName": "EMPLOYEE_LASTNAME",
             "dataNullable": true,
@@ -1823,6 +1825,7 @@
             "dataUnique": false,
             "isCalculatedProperty": false,
             "widgetDropdownUrl": "",
+            "widgetDropdownControllerUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -1830,6 +1833,7 @@
             "inputRule": ""
           },
           {
+            "auditType": "NONE",
             "calculatedPropertyExpressionCreate": "entity[\"FirstName\"] + \" \" + entity[\"LastName\"]",
             "dataLength": "70",
             "dataName": "EMPLOYEE_NAME",
@@ -1850,6 +1854,7 @@
             "isRequiredProperty": false,
             "widgetLabel": "Name",
             "widgetDropdownUrl": "",
+            "widgetDropdownControllerUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -1857,6 +1862,7 @@
             "inputRule": ""
           },
           {
+            "auditType": "NONE",
             "dataName": "EMPLOYEE_BIRTHDATE",
             "dataNullable": true,
             "dataType": "DATE",
@@ -1875,12 +1881,14 @@
             "isCalculatedProperty": false,
             "widgetLabel": "BirthDate",
             "widgetDropdownUrl": "",
+            "widgetDropdownControllerUrl": "",
             "dataTypeJava": "date",
             "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           },
           {
+            "auditType": "NONE",
             "dataLength": "10",
             "dataName": "EMPLOYEE_PERSONALNUMBER",
             "dataNullable": true,
@@ -1900,6 +1908,7 @@
             "isCalculatedProperty": false,
             "widgetLabel": "PersonalNumber",
             "widgetDropdownUrl": "",
+            "widgetDropdownControllerUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -1907,6 +1916,7 @@
             "inputRule": ""
           },
           {
+            "auditType": "NONE",
             "dataName": "EMPLOYEE_GENDER",
             "dataNullable": true,
             "dataType": "INTEGER",
@@ -1930,11 +1940,13 @@
             "isCalculatedProperty": false,
             "widgetLabel": "Gender",
             "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/EmployeesSettings/undefinedService.ts",
+            "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/EmployeesSettings/undefinedController.ts",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
+            "auditType": "NONE",
             "dataName": "EMPLOYEE_NATIONALITY",
             "dataNullable": true,
             "dataType": "INTEGER",
@@ -1958,11 +1970,13 @@
             "isCalculatedProperty": false,
             "widgetLabel": "Nationality",
             "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Countries/undefinedService.ts",
+            "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Countries/undefinedController.ts",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
+            "auditType": "NONE",
             "dataName": "EMPLOYEE_MARTIALSTATUS",
             "dataNullable": true,
             "dataType": "INTEGER",
@@ -1986,11 +2000,13 @@
             "isCalculatedProperty": false,
             "widgetLabel": "MartialStatus",
             "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/EmployeesSettings/undefinedService.ts",
+            "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/EmployeesSettings/undefinedController.ts",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
+            "auditType": "NONE",
             "dataLength": "50",
             "dataName": "EMPLOYEE_IBAN",
             "dataNullable": true,
@@ -2010,6 +2026,7 @@
             "isCalculatedProperty": false,
             "widgetLabel": "IBAN",
             "widgetDropdownUrl": "",
+            "widgetDropdownControllerUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
             "minLength": 0,
@@ -2024,6 +2041,7 @@
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "JOBOFFER_ID",
           "dataNullable": true,
@@ -2042,11 +2060,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBOFFER_JOBPOSITION",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -2071,11 +2091,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "JobPosition",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataDefaultValue": "0",
           "dataName": "JOBOFFER_DAYSOPENED",
           "dataNullable": true,
@@ -2099,11 +2121,13 @@
           "isRequiredProperty": false,
           "widgetLabel": "DaysOpened",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBOFFER_DATEOPENED",
           "dataNullable": true,
           "dataType": "DATE",
@@ -2122,12 +2146,14 @@
           "isCalculatedProperty": false,
           "widgetLabel": "DateOpened",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "date",
           "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBOFFER_DATECLOSED",
           "dataNullable": true,
           "dataType": "DATE",
@@ -2146,12 +2172,14 @@
           "isCalculatedProperty": false,
           "widgetLabel": "DateClosed",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "date",
           "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBOFFER_STATUS",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -2176,6 +2204,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Status",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobOfferStatusService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobOfferStatusController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2193,11 +2222,13 @@
       "menuIndex": "100",
       "menuKey": "joboffer",
       "menuLabel": "JobOffer",
+      "multilingual": "false",
       "name": "JobOffer",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/file-upload.svg",
       "perspectiveLabel": "JobOffer",
       "perspectiveName": "JobOffer",
+      "perspectiveNavId": "",
       "perspectiveOrder": "119",
       "perspectiveRole": "",
       "roleRead": "codbex-jobs.JobOffer.JobOfferReadOnly",
@@ -2213,6 +2244,7 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
+          "auditType": "NONE",
           "dataName": "JOBOFFER_JOBPOSITION",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -2237,12 +2269,14 @@
           "isCalculatedProperty": false,
           "widgetLabel": "JobPosition",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         "properties": [
           {
+            "auditType": "NONE",
             "dataDefaultValue": "0",
             "dataName": "JOBOFFER_DAYSOPENED",
             "dataNullable": true,
@@ -2266,11 +2300,13 @@
             "isRequiredProperty": false,
             "widgetLabel": "DaysOpened",
             "widgetDropdownUrl": "",
+            "widgetDropdownControllerUrl": "",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
           },
           {
+            "auditType": "NONE",
             "dataName": "JOBOFFER_DATEOPENED",
             "dataNullable": true,
             "dataType": "DATE",
@@ -2289,12 +2325,14 @@
             "isCalculatedProperty": false,
             "widgetLabel": "DateOpened",
             "widgetDropdownUrl": "",
+            "widgetDropdownControllerUrl": "",
             "dataTypeJava": "date",
             "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           },
           {
+            "auditType": "NONE",
             "dataName": "JOBOFFER_DATECLOSED",
             "dataNullable": true,
             "dataType": "DATE",
@@ -2313,12 +2351,14 @@
             "isCalculatedProperty": false,
             "widgetLabel": "DateClosed",
             "widgetDropdownUrl": "",
+            "widgetDropdownControllerUrl": "",
             "dataTypeJava": "date",
             "dataTypeTypescript": "Date",
             "isDateType": true,
             "inputRule": ""
           },
           {
+            "auditType": "NONE",
             "dataName": "JOBOFFER_STATUS",
             "dataNullable": true,
             "dataType": "INTEGER",
@@ -2343,6 +2383,7 @@
             "isCalculatedProperty": false,
             "widgetLabel": "Status",
             "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobOfferStatusService.ts",
+            "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobOfferStatusController.ts",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -2355,6 +2396,7 @@
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "JOBAPPLICATION_ID",
           "dataNullable": true,
@@ -2373,11 +2415,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBAPPLICATION_JOBOFFER",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -2402,11 +2446,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Offer",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "JOBAPPLICATION_STATUS",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -2431,11 +2477,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Status",
           "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobApplicationStatusService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/entities/JobApplicationStatusController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "50",
           "dataName": "JOBAPPLICATION_NAMES",
           "dataNullable": true,
@@ -2455,6 +2503,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Names",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2462,6 +2511,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "50",
           "dataName": "JOBAPPLICATION_EMAIL",
           "dataNullable": true,
@@ -2481,6 +2531,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Email",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2488,6 +2539,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "20",
           "dataName": "JOBAPPLICATION_PHONENUMBER",
           "dataNullable": true,
@@ -2507,6 +2559,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "PhoneNumber",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2514,6 +2567,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "500",
           "dataName": "JOBAPPLICATION_CV",
           "dataNullable": true,
@@ -2533,6 +2587,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "CV",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2540,6 +2595,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "2000",
           "dataName": "JOBAPPLICATION_COMMENT",
           "dataNullable": true,
@@ -2559,6 +2615,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Comment",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2578,11 +2635,13 @@
       "menuIndex": "100",
       "menuKey": "jobapplication",
       "menuLabel": "JobApplication",
+      "multilingual": "false",
       "name": "JobApplication",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/file-upload.svg",
       "perspectiveLabel": "JobOffer",
       "perspectiveName": "JobOffer",
+      "perspectiveNavId": "",
       "perspectiveOrder": "119",
       "perspectiveRole": "",
       "roleRead": "codbex-jobs.JobOffer.JobApplicationReadOnly",
@@ -2603,6 +2662,7 @@
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "JOBOFFERSTATUS_ID",
           "dataNullable": true,
@@ -2621,11 +2681,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "20",
           "dataName": "JOBOFFERSTATUS_NAME",
           "dataNullable": true,
@@ -2645,6 +2707,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Name",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2664,11 +2727,13 @@
       "menuIndex": "100",
       "menuKey": "jobofferstatus",
       "menuLabel": "JobOfferStatus",
+      "multilingual": "false",
       "name": "JobOfferStatus",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "entities",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "roleRead": "codbex-jobs.entities.JobOfferStatusReadOnly",
@@ -2686,6 +2751,7 @@
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "JOBAPPLICATIONSTATUS_ID",
           "dataNullable": true,
@@ -2704,11 +2770,13 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "20",
           "dataName": "JOBAPPLICATIONSTATUS_NAME",
           "dataNullable": true,
@@ -2728,6 +2796,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Name",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -2747,11 +2816,13 @@
       "menuIndex": "100",
       "menuKey": "jobapplicationstatus",
       "menuLabel": "JobApplicationStatus",
+      "multilingual": "false",
       "name": "JobApplicationStatus",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "entities",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "roleRead": "codbex-jobs.entities.JobApplicationStatusReadOnly",
@@ -2765,6 +2836,126 @@
         "Id"
       ],
       "primaryKeysString": "Id"
+    },
+    {
+      "properties": [
+        {
+          "auditType": "NONE",
+          "dataAutoIncrement": true,
+          "dataName": "JOBROLE_ID",
+          "dataNullable": true,
+          "dataPrimaryKey": true,
+          "dataType": "INTEGER",
+          "description": "",
+          "name": "Id",
+          "tooltip": "",
+          "widgetIsMajor": true,
+          "widgetLength": "20",
+          "widgetSize": "",
+          "widgetType": "TEXTBOX",
+          "dataNotNull": false,
+          "dataUnique": false,
+          "isRequiredProperty": false,
+          "isCalculatedProperty": false,
+          "widgetLabel": "Id",
+          "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
+          "inputRule": ""
+        },
+        {
+          "auditType": "NONE",
+          "dataLength": "50",
+          "dataName": "JOBROLE_NAME",
+          "dataNullable": false,
+          "dataType": "VARCHAR",
+          "description": "",
+          "isRequiredProperty": true,
+          "name": "Name",
+          "tooltip": "",
+          "widgetIsMajor": true,
+          "widgetLength": "50",
+          "widgetSize": "",
+          "widgetType": "TEXTBOX",
+          "dataNotNull": true,
+          "dataAutoIncrement": false,
+          "dataPrimaryKey": false,
+          "dataUnique": false,
+          "isCalculatedProperty": false,
+          "widgetLabel": "Name",
+          "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
+          "minLength": 0,
+          "maxLength": 50,
+          "inputRule": ""
+        },
+        {
+          "auditType": "NONE",
+          "dataName": "JOBROLE_COMPANY",
+          "dataNullable": true,
+          "dataType": "INTEGER",
+          "description": "",
+          "name": "Company",
+          "relationshipCardinality": "1_n",
+          "relationshipName": "JobRole",
+          "relationshipType": "COMPOSITION",
+          "tooltip": "",
+          "widgetIsMajor": false,
+          "widgetLength": "20",
+          "widgetSize": "",
+          "widgetType": "TEXTBOX",
+          "dataNotNull": false,
+          "dataAutoIncrement": false,
+          "dataPrimaryKey": false,
+          "dataUnique": false,
+          "isRequiredProperty": false,
+          "isCalculatedProperty": false,
+          "widgetLabel": "Company",
+          "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
+          "inputRule": ""
+        }
+      ],
+      "caption": "Manage entity JobRole",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_JOBROLE\"",
+      "dataName": "JOBROLE",
+      "dataQuery": "",
+      "description": "Manage entity JobRole",
+      "feedPassword": "YWRtaW4=",
+      "feedUsername": "YWRtaW4=",
+      "generateDefaultRoles": "true",
+      "generateReport": "false",
+      "icon": "/services/web/resources/unicons/file.svg",
+      "layoutType": "MANAGE_DETAILS",
+      "menuIndex": "100",
+      "menuKey": "jobrole",
+      "menuLabel": "JobRole",
+      "multilingual": "false",
+      "name": "JobRole",
+      "perspectiveHeader": "",
+      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+      "perspectiveLabel": "Entities",
+      "perspectiveName": "Companies",
+      "perspectiveNavId": "",
+      "perspectiveOrder": "100",
+      "perspectiveRole": "",
+      "roleRead": "codbex-companies.Companies.JobRoleReadOnly",
+      "roleWrite": "codbex-companies.Companies.JobRoleFullAccess",
+      "title": "JobRole",
+      "tooltip": "JobRole",
+      "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
+      "referencedProjections": [],
+      "primaryKeys": [
+        "Id"
+      ],
+      "primaryKeysString": "Id",
+      "masterEntityId": "Company"
     }
   ]
 }

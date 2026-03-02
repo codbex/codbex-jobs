@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 // custom imports
 import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
@@ -9,7 +9,7 @@ import { NumberGeneratorService } from "/codbex-number-generator/service/generat
 export interface JobPositionEntity {
     readonly Id: number;
     Number?: string;
-    Role?: number;
+    Role: number;
     Status?: number;
     Type?: number;
     DateOpened?: Date;
@@ -19,7 +19,7 @@ export interface JobPositionEntity {
 }
 
 export interface JobPositionCreateEntity {
-    readonly Role?: number;
+    readonly Role: number;
     readonly Status?: number;
     readonly Type?: number;
     readonly DateOpened?: Date;
@@ -113,12 +113,13 @@ export interface JobPositionEntityOptions {
     },
     $select?: (keyof JobPositionEntity)[],
     $sort?: string | (keyof JobPositionEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface JobPositionEntityEvent {
+export interface JobPositionEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<JobPositionEntity>;
@@ -129,7 +130,7 @@ interface JobPositionEntityEvent {
     }
 }
 
-interface JobPositionUpdateEntityEvent extends JobPositionEntityEvent {
+export interface JobPositionUpdateEntityEvent extends JobPositionEntityEvent {
     readonly previousEntity: JobPositionEntity;
 }
 
@@ -154,6 +155,7 @@ export class JobPositionRepository {
                 name: "Role",
                 column: "JOBPOSITION_ROLE",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Status",
@@ -191,18 +193,19 @@ export class JobPositionRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(JobPositionRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(JobPositionRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: JobPositionEntityOptions): JobPositionEntity[] {
-        return this.dao.list(options).map((e: JobPositionEntity) => {
+    public findAll(options: JobPositionEntityOptions = {}): JobPositionEntity[] {
+        let list = this.dao.list(options).map((e: JobPositionEntity) => {
             EntityUtils.setDate(e, "DateOpened");
             EntityUtils.setDate(e, "DateClosed");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): JobPositionEntity | undefined {
+    public findById(id: number, options: JobPositionEntityOptions = {}): JobPositionEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "DateOpened");
         EntityUtils.setDate(entity, "DateClosed");

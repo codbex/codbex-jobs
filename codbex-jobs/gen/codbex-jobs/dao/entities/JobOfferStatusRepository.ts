@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface JobOfferStatusEntity {
     readonly Id: number;
@@ -49,12 +49,13 @@ export interface JobOfferStatusEntityOptions {
     },
     $select?: (keyof JobOfferStatusEntity)[],
     $sort?: string | (keyof JobOfferStatusEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface JobOfferStatusEntityEvent {
+export interface JobOfferStatusEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<JobOfferStatusEntity>;
@@ -65,7 +66,7 @@ interface JobOfferStatusEntityEvent {
     }
 }
 
-interface JobOfferStatusUpdateEntityEvent extends JobOfferStatusEntityEvent {
+export interface JobOfferStatusUpdateEntityEvent extends JobOfferStatusEntityEvent {
     readonly previousEntity: JobOfferStatusEntity;
 }
 
@@ -92,14 +93,15 @@ export class JobOfferStatusRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(JobOfferStatusRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(JobOfferStatusRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: JobOfferStatusEntityOptions): JobOfferStatusEntity[] {
-        return this.dao.list(options);
+    public findAll(options: JobOfferStatusEntityOptions = {}): JobOfferStatusEntity[] {
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): JobOfferStatusEntity | undefined {
+    public findById(id: number, options: JobOfferStatusEntityOptions = {}): JobOfferStatusEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

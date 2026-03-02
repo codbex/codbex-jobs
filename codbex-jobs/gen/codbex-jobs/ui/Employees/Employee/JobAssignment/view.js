@@ -4,16 +4,17 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "JobAssignment",
-    label: "JobAssignment",
-    factory: "frame",
-    region: "bottom",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/Employees/Employee/JobAssignment/index.html",
-    perspectiveName: "Employees"
+    id: 'JobAssignment',
+    label: 'JobAssignment',
+    translation: {
+        key: 'codbex-jobs:codbex-jobs-model.t.JOBASSIGNMENT',
+    },
+    region: 'bottom',
+    lazyLoad: false,
+	autoFocusTab: true,
+    path: '/services/web/codbex-jobs/gen/codbex-jobs/ui/Employees/Employee/JobAssignment/index.html',
+    perspectiveName: 'Employees'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

@@ -4,14 +4,17 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "JobOfferStatus-filter",
-    label: "JobOfferStatus Filter",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/entities/JobOfferStatus/dialog-filter/index.html",
-    perspectiveName: "entities"
+    id: 'JobOfferStatus-filter',
+    label: 'JobOfferStatus Filter',
+    translation: {
+        key: 'codbex-jobs:codbex-jobs-model.extName',
+        options: {
+            content: '$t(codbex-jobs:codbex-jobs-model.t.JOBOFFERSTATUS) $t(codbex-jobs:codbex-jobs-model.defaults.filter)',
+        }
+    },
+    path: '/services/web/codbex-jobs/gen/codbex-jobs/ui/entities/JobOfferStatus/dialog-filter/index.html',
+    perspectiveName: 'entities'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

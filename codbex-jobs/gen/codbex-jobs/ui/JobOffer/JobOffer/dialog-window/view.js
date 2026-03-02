@@ -6,15 +6,15 @@
 const viewData = {
     id: "JobOffer-details",
     label: "JobOffer",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobOffer/JobOffer/dialog-window/index.html",
+    translation: {
+        key: 'codbex-jobs:codbex-jobs-model.t.JOBOFFER',
+    },
+    path: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobOffer/JobOffer/dialog-window/index.html",
     perspectiveName: "JobOffer",
     roles: [
         "codbex-jobs.JobOffer.JobOfferReadOnly",
     ]
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

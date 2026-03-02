@@ -4,14 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "JobType-details",
-    label: "JobType",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/entities/JobType/dialog-window/index.html",
-    perspectiveName: "entities"
+    id: 'JobType-details',
+    label: 'JobType',
+    translation: {
+        key: 'codbex-jobs:codbex-jobs-model.t.JOBTYPE',
+    },
+    path: '/services/web/codbex-jobs/gen/codbex-jobs/ui/entities/JobType/dialog-window/index.html',
+    perspectiveName: 'entities'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

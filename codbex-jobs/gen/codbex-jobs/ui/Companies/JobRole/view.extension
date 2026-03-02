@@ -1,0 +1,6 @@
+{
+    "module": "codbex-jobs/gen/codbex-jobs/ui/Companies/${masterEntity}/JobRole/view.js",
+    "extensionPoint": "application-views",
+    "description": "codbex-jobs - Application View - Details",
+    "role": "codbex-companies.Companies.JobRoleReadOnly,codbex-companies.Companies.JobRoleFullAccess"
+}

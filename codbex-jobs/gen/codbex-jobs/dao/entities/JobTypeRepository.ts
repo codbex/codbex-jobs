@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface JobTypeEntity {
     readonly Id: number;
@@ -49,12 +49,13 @@ export interface JobTypeEntityOptions {
     },
     $select?: (keyof JobTypeEntity)[],
     $sort?: string | (keyof JobTypeEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface JobTypeEntityEvent {
+export interface JobTypeEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<JobTypeEntity>;
@@ -65,7 +66,7 @@ interface JobTypeEntityEvent {
     }
 }
 
-interface JobTypeUpdateEntityEvent extends JobTypeEntityEvent {
+export interface JobTypeUpdateEntityEvent extends JobTypeEntityEvent {
     readonly previousEntity: JobTypeEntity;
 }
 
@@ -92,14 +93,15 @@ export class JobTypeRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(JobTypeRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(JobTypeRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: JobTypeEntityOptions): JobTypeEntity[] {
-        return this.dao.list(options);
+    public findAll(options: JobTypeEntityOptions = {}): JobTypeEntity[] {
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): JobTypeEntity | undefined {
+    public findById(id: number, options: JobTypeEntityOptions = {}): JobTypeEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

@@ -1,0 +1,6 @@
+{
+    "module": "codbex-jobs/gen/codbex-jobs/ui/Companies/${masterEntity}/JobRole/dialog-window/view.js",
+    "extensionPoint": "application-windows",
+    "description": "codbex-jobs - Application Dialog Window",
+    "role": "codbex-companies.Companies.JobRoleReadOnly,codbex-companies.Companies.JobRoleFullAccess"
+}

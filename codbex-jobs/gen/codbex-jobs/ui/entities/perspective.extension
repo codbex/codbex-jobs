@@ -1,5 +1,6 @@
 {
     "module": "codbex-jobs/gen/codbex-jobs/ui/entities/perspective.js",
-    "extensionPoint": "codbex-jobs",
-    "description": "codbex-jobs - Perspective - entities"
+    "extensionPoint": "application-perspectives",
+    "description": "codbex-jobs - Perspective - entities",
+    "role": "codbex-jobs.entities.JobApplicationStatusReadOnly,codbex-jobs.entities.JobApplicationStatusFullAccess"
 }

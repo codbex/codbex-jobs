@@ -1,6 +1,6 @@
 {
     "module": "codbex-jobs/gen/codbex-jobs/ui/JobOffer/JobOffer/view.js",
-    "extensionPoint": "codbex-jobs-view",
+    "extensionPoint": "application-views",
     "description": "codbex-jobs - Application View",
     "role": "codbex-jobs.JobOffer.JobOfferReadOnly,codbex-jobs.JobOffer.JobOfferFullAccess"
 }
