@@ -287,11 +287,6 @@
                         "type": "VARCHAR",
                         "length": 50,
                         "name": "JOBROLE_NAME"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "JOBROLE_COMPANY"
                     }
                 ]
             },

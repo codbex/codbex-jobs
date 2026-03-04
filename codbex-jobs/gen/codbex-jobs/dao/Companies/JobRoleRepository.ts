@@ -6,12 +6,10 @@ import { dao as daoApi } from "@aerokit/sdk/db";
 export interface JobRoleEntity {
     readonly Id: number;
     Name: string;
-    Company?: number;
 }
 
 export interface JobRoleCreateEntity {
     readonly Name: string;
-    readonly Company?: number;
 }
 
 export interface JobRoleUpdateEntity extends JobRoleCreateEntity {
@@ -23,37 +21,30 @@ export interface JobRoleEntityOptions {
         equals?: {
             Id?: number | number[];
             Name?: string | string[];
-            Company?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Name?: string | string[];
-            Company?: number | number[];
         };
         contains?: {
             Id?: number;
             Name?: string;
-            Company?: number;
         };
         greaterThan?: {
             Id?: number;
             Name?: string;
-            Company?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Name?: string;
-            Company?: number;
         };
         lessThan?: {
             Id?: number;
             Name?: string;
-            Company?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Name?: string;
-            Company?: number;
         };
     },
     $select?: (keyof JobRoleEntity)[],
@@ -96,11 +87,6 @@ export class JobRoleRepository {
                 column: "JOBROLE_NAME",
                 type: "VARCHAR",
                 required: true
-            },
-            {
-                name: "Company",
-                column: "JOBROLE_COMPANY",
-                type: "INTEGER",
             }
         ]
     };

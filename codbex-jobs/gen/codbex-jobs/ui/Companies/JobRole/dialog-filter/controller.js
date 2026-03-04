@@ -38,9 +38,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.Name) {
 			filter.$filter.contains.Name = entity.Name;
 		}
-		if (entity.Company !== undefined) {
-			filter.$filter.equals.Company = entity.Company;
-		}
 		Dialogs.postMessage({ topic: 'codbex-jobs.Companies.JobRole.entitySearch', data: {
 			entity: entity,
 			filter: filter

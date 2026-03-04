@@ -29,7 +29,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
         		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				params: {
-					selectedMainEntityKey: 'Company',
+					selectedMainEntityKey: '${masterEntityId}',
 					selectedMainEntityId: $scope.selectedMainEntityId,
 				},
 				maxWidth: action.maxWidth,
@@ -45,7 +45,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				path: action.path,
 				params: {
 					id: $scope.entity.Id,
-					selectedMainEntityKey: 'Company',
+					selectedMainEntityKey: '${masterEntityId}',
 					selectedMainEntityId: $scope.selectedMainEntityId,
 				},
 				closeButton: true
@@ -94,7 +94,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		//-----------------Events-------------------//
 
 		$scope.loadPage = (pageNumber, filter) => {
-			let Company = $scope.selectedMainEntityId;
+			let ${masterEntityId} = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
 			if (!filter && $scope.filter) {
 				filter = $scope.filter;
@@ -108,7 +108,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			if (!filter.$filter.equals) {
 				filter.$filter.equals = {};
 			}
-			filter.$filter.equals.Company = Company;
+			filter.$filter.equals.${masterEntityId} = ${masterEntityId};
 			EntityService.count(filter).then((resp) => {
 				if (resp.data) {
 					$scope.dataCount = resp.data.count;
@@ -168,9 +168,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				params: {
 					action: 'create',
 					entity: {
-						'Company': $scope.selectedMainEntityId
+						'${masterEntityId}': $scope.selectedMainEntityId
 					},
-					selectedMainEntityKey: 'Company',
+					selectedMainEntityKey: '${masterEntityId}',
 					selectedMainEntityId: $scope.selectedMainEntityId,
 				},
 				closeButton: false
@@ -183,7 +183,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				params: {
 					action: 'update',
 					entity: entity,
-					selectedMainEntityKey: 'Company',
+					selectedMainEntityKey: '${masterEntityId}',
 					selectedMainEntityId: $scope.selectedMainEntityId,
 			},
 				closeButton: false

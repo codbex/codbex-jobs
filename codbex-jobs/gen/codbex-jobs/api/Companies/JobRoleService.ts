@@ -23,13 +23,13 @@ class JobRoleService {
                 $language: request.getLocale().slice(0, 2)
             };
 
-            let Company = parseInt(ctx.queryParameters.Company);
-            Company = isNaN(Company) ? ctx.queryParameters.Company : Company;
+            let ${masterEntityId} = parseInt(ctx.queryParameters.${masterEntityId});
+            ${masterEntityId} = isNaN(${masterEntityId}) ? ctx.queryParameters.${masterEntityId} : ${masterEntityId};
 
-            if (Company !== undefined) {
+            if (${masterEntityId} !== undefined) {
                 options.$filter = {
                     equals: {
-                        Company: Company
+                        ${masterEntityId}: ${masterEntityId}
                     }
                 };
             }

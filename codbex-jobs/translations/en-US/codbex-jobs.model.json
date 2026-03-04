@@ -140,7 +140,6 @@
       "JOBROLE": "JobRole",
       "JOBROLE_ID": "Id",
       "JOBROLE_NAME": "Name",
-      "JOBROLE_COMPANY": "Company",
       "Teams": "Teams",
       "Employees": "Employees",
       "JobOffer": "JobOffer"

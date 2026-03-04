@@ -5319,9 +5319,6 @@ components:
           type: string
           minLength: 0
           maxLength: 50
-        Company:
-          type: integer
-          format: int32
     JobRoleFilterOptions:
       type: object
       properties:
@@ -5350,14 +5347,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 50
-                Company:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
             notEquals:
               type: object
               properties:
@@ -5380,14 +5369,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 50
-                Company:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
             contains:
               type: object
               properties:
@@ -5396,7 +5377,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 50
-                Company:
             greaterThan:
               type: object
               properties:
@@ -5407,9 +5387,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 50
-                Company:
-                  type: integer
-                  format: int32
             greaterThanOrEqual:
               type: object
               properties:
@@ -5420,9 +5397,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 50
-                Company:
-                  type: integer
-                  format: int32
             lessThan:
               type: object
               properties:
@@ -5433,9 +5407,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 50
-                Company:
-                  type: integer
-                  format: int32
             lessThanOrEqual:
               type: object
               properties:
@@ -5446,17 +5417,14 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 50
-                Company:
-                  type: integer
-                  format: int32
         $select:
           type: array
-          example: ["Id", "Name", "Company"]
+          example: ["Id", "Name"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name,Company"
+            example: "Id,Name"
         $order:
           type: string
           enum: ["asc", "desc"]
