@@ -4,16 +4,17 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "JobOffer",
-    label: "JobOffer",
-    factory: "frame",
-    region: "left",
-    link: "/services/web/codbex-jobs/gen/codbex-jobs/ui/JobOffer/JobOffer/index.html",
-    perspectiveName: "JobOffer"
+    id: 'JobOffer',
+    label: 'JobOffer',
+    translation: {
+        key: 'codbex-jobs:codbex-jobs-model.t.JOBOFFER',
+    },
+    region: 'left',
+    lazyLoad: false,
+	autoFocusTab: false,
+    path: '/services/web/codbex-jobs/gen/codbex-jobs/ui/JobOffer/JobOffer/index.html',
+    perspectiveName: 'JobOffer'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

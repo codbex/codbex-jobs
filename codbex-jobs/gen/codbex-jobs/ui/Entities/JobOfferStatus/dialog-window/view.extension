@@ -1,0 +1,6 @@
+{
+    "module": "codbex-jobs/gen/codbex-jobs/ui/Entities/JobOfferStatus/dialog-window/view.js",
+    "extensionPoint": "application-windows",
+    "description": "codbex-jobs - Application Dialog Window",
+    "role": "codbex-jobs.entities.JobOfferStatusReadOnly,codbex-jobs.entities.JobOfferStatusFullAccess"
+}

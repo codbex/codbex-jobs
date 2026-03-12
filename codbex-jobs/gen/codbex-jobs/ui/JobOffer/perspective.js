@@ -5,14 +5,14 @@
  */
 const perspectiveData = {
 	id: 'JobOffer',
-	name: 'JobOffer',
-	link: '/services/web/codbex-jobs/gen/codbex-jobs/ui/JobOffer/index.html',
-	order: '119',
+	label: 'JobOffer',
+	translation: {
+        key: 'codbex-jobs:codbex-jobs-model.t.JOBOFFER',
+    },
+	path: '/services/web/codbex-jobs/gen/codbex-jobs/ui/JobOffer/index.html',
+	order: 119,
 	icon: '/services/web/resources/unicons/file-upload.svg'
 };
-
 if (typeof exports !== 'undefined') {
-	exports.getPerspective = function () {
-		return perspectiveData;
-	}
+	exports.getPerspective = () => perspectiveData;
 }

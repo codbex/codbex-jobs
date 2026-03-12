@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 // custom imports
 import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
@@ -105,12 +105,13 @@ export interface JobAssignmentEntityOptions {
     },
     $select?: (keyof JobAssignmentEntity)[],
     $sort?: string | (keyof JobAssignmentEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface JobAssignmentEntityEvent {
+export interface JobAssignmentEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<JobAssignmentEntity>;
@@ -121,7 +122,7 @@ interface JobAssignmentEntityEvent {
     }
 }
 
-interface JobAssignmentUpdateEntityEvent extends JobAssignmentEntityEvent {
+export interface JobAssignmentUpdateEntityEvent extends JobAssignmentEntityEvent {
     readonly previousEntity: JobAssignmentEntity;
 }
 
@@ -178,18 +179,19 @@ export class JobAssignmentRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(JobAssignmentRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(JobAssignmentRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: JobAssignmentEntityOptions): JobAssignmentEntity[] {
-        return this.dao.list(options).map((e: JobAssignmentEntity) => {
+    public findAll(options: JobAssignmentEntityOptions = {}): JobAssignmentEntity[] {
+        let list = this.dao.list(options).map((e: JobAssignmentEntity) => {
             EntityUtils.setDate(e, "StartDate");
             EntityUtils.setDate(e, "EndDate");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): JobAssignmentEntity | undefined {
+    public findById(id: number, options: JobAssignmentEntityOptions = {}): JobAssignmentEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "StartDate");
         EntityUtils.setDate(entity, "EndDate");
@@ -200,7 +202,7 @@ export class JobAssignmentRepository {
         EntityUtils.setLocalDate(entity, "StartDate");
         EntityUtils.setLocalDate(entity, "EndDate");
         // @ts-ignore
-        (entity as JobAssignmentEntity).Number = new NumberGeneratorService().generate(27);
+        (entity as JobAssignmentEntity).Number = new NumberGeneratorService().generateByType('Job Assignment');
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

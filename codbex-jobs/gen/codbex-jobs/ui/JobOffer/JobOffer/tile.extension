@@ -1,6 +1,0 @@
-{
-    "module": "codbex-jobs/gen/codbex-jobs/ui/JobOffer/JobOffer/tile.js",
-    "extensionPoint": "codbex-jobs-tile",
-    "description": "codbex-jobs - Application Tile",
-    "role": "codbex-jobs.JobOffer.JobOfferReadOnly,codbex-jobs.JobOffer.JobOfferFullAccess"
-}

@@ -10,13 +10,13 @@ servers:
   - url: /services/ts
 tags:
   - name: Employees
-  - name: entities
+  - name: Settings
   - name: Teams
-  - name: entities
+  - name: Entities
   - name: JobOffer
   - name: JobOffer
-  - name: entities
-  - name: entities
+  - name: Entities
+  - name: Entities
 paths:
   /codbex-jobs/gen/codbex-jobs/api/Employees/JobAssignmentService.ts:
     get:
@@ -418,7 +418,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts:
+  /codbex-jobs/gen/codbex-jobs/api/Settings/JobStatusService.ts:
     get:
       summary: List JobStatus
       parameters:
@@ -439,7 +439,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -470,7 +470,7 @@ paths:
     post:
       summary: Create JobStatus
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -502,7 +502,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts/{id}:
+  /codbex-jobs/gen/codbex-jobs/api/Settings/JobStatusService.ts/{id}:
     get:
       summary: Get JobStatus by Id
       parameters:
@@ -513,7 +513,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -551,7 +551,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -599,7 +599,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       responses:
         204:
           description: Successful Request
@@ -621,11 +621,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts/count:
+  /codbex-jobs/gen/codbex-jobs/api/Settings/JobStatusService.ts/count:
     get:
       summary: Count the number of JobStatus
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -649,7 +649,7 @@ paths:
     post:
       summary: Count the number of JobStatus by JobStatusFilterOptions
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -731,11 +731,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobStatusService.ts/search:
+  /codbex-jobs/gen/codbex-jobs/api/Settings/JobStatusService.ts/search:
     post:
       summary: Search JobStatus by JobStatusFilterOptions
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -1218,7 +1218,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobTypeService.ts:
+  /codbex-jobs/gen/codbex-jobs/api/Entities/JobTypeService.ts:
     get:
       summary: List JobType
       parameters:
@@ -1239,7 +1239,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -1270,7 +1270,7 @@ paths:
     post:
       summary: Create JobType
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -1302,7 +1302,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobTypeService.ts/{id}:
+  /codbex-jobs/gen/codbex-jobs/api/Entities/JobTypeService.ts/{id}:
     get:
       summary: Get JobType by Id
       parameters:
@@ -1313,7 +1313,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -1351,7 +1351,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -1399,7 +1399,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         204:
           description: Successful Request
@@ -1421,11 +1421,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobTypeService.ts/count:
+  /codbex-jobs/gen/codbex-jobs/api/Entities/JobTypeService.ts/count:
     get:
       summary: Count the number of JobType
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -1449,7 +1449,7 @@ paths:
     post:
       summary: Count the number of JobType by JobTypeFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -1531,11 +1531,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobTypeService.ts/search:
+  /codbex-jobs/gen/codbex-jobs/api/Entities/JobTypeService.ts/search:
     post:
       summary: Search JobType by JobTypeFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -2418,7 +2418,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobOfferStatusService.ts:
+  /codbex-jobs/gen/codbex-jobs/api/Entities/JobOfferStatusService.ts:
     get:
       summary: List JobOfferStatus
       parameters:
@@ -2439,7 +2439,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -2470,7 +2470,7 @@ paths:
     post:
       summary: Create JobOfferStatus
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -2502,7 +2502,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobOfferStatusService.ts/{id}:
+  /codbex-jobs/gen/codbex-jobs/api/Entities/JobOfferStatusService.ts/{id}:
     get:
       summary: Get JobOfferStatus by Id
       parameters:
@@ -2513,7 +2513,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -2551,7 +2551,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -2599,7 +2599,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         204:
           description: Successful Request
@@ -2621,11 +2621,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobOfferStatusService.ts/count:
+  /codbex-jobs/gen/codbex-jobs/api/Entities/JobOfferStatusService.ts/count:
     get:
       summary: Count the number of JobOfferStatus
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -2649,7 +2649,7 @@ paths:
     post:
       summary: Count the number of JobOfferStatus by JobOfferStatusFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -2731,11 +2731,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobOfferStatusService.ts/search:
+  /codbex-jobs/gen/codbex-jobs/api/Entities/JobOfferStatusService.ts/search:
     post:
       summary: Search JobOfferStatus by JobOfferStatusFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -2818,7 +2818,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobApplicationStatusService.ts:
+  /codbex-jobs/gen/codbex-jobs/api/Entities/JobApplicationStatusService.ts:
     get:
       summary: List JobApplicationStatus
       parameters:
@@ -2839,7 +2839,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -2870,7 +2870,7 @@ paths:
     post:
       summary: Create JobApplicationStatus
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -2902,7 +2902,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobApplicationStatusService.ts/{id}:
+  /codbex-jobs/gen/codbex-jobs/api/Entities/JobApplicationStatusService.ts/{id}:
     get:
       summary: Get JobApplicationStatus by Id
       parameters:
@@ -2913,7 +2913,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -2951,7 +2951,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -2999,7 +2999,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         204:
           description: Successful Request
@@ -3021,11 +3021,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobApplicationStatusService.ts/count:
+  /codbex-jobs/gen/codbex-jobs/api/Entities/JobApplicationStatusService.ts/count:
     get:
       summary: Count the number of JobApplicationStatus
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -3049,7 +3049,7 @@ paths:
     post:
       summary: Count the number of JobApplicationStatus by JobApplicationStatusFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -3131,11 +3131,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-jobs/gen/codbex-jobs/api/entities/JobApplicationStatusService.ts/search:
+  /codbex-jobs/gen/codbex-jobs/api/Entities/JobApplicationStatusService.ts/search:
     post:
       summary: Search JobApplicationStatus by JobApplicationStatusFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
