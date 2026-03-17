@@ -1,6 +1,0 @@
-{
-    "module": "codbex-jobs/gen/codbex-jobs/ui/entities/JobApplicationStatus/tile.js",
-    "extensionPoint": "portal-tile",
-    "description": "codbex-jobs - Application Tile",
-    "role": "codbex-jobs.entities.JobApplicationStatusReadOnly,codbex-jobs.entities.JobApplicationStatusFullAccess"
-}

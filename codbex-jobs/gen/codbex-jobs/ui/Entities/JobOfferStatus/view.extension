@@ -1,0 +1,6 @@
+{
+    "module": "codbex-jobs/gen/codbex-jobs/ui/Entities/JobOfferStatus/view.js",
+    "extensionPoint": "application-views",
+    "description": "codbex-jobs - Application View",
+    "role": "codbex-jobs.entities.JobOfferStatusReadOnly,codbex-jobs.entities.JobOfferStatusFullAccess"
+}

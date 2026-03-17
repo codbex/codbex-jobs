@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
-import { Extensions } from "sdk/extensions"
+import { Controller, Get, Post, Put, Delete, request, response } from "@aerokit/sdk/http"
+import { Extensions } from "@aerokit/sdk/extensions"
 import { JobPositionRepository, JobPositionEntityOptions } from "../../dao/Teams/JobPositionRepository";
-import { user } from "sdk/security"
+import { user } from "@aerokit/sdk/security"
 import { ForbiddenError } from "../utils/ForbiddenError";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
@@ -21,7 +21,8 @@ class JobPositionService {
             this.checkPermissions("read");
             const options: JobPositionEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
-                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
+                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined,
+                $language: request.getLocale().split("_")[0]
             };
 
             let Team = parseInt(ctx.queryParameters.Team);
@@ -59,7 +60,7 @@ class JobPositionService {
     public count() {
         try {
             this.checkPermissions("read");
-            return this.repository.count();
+            return { count: this.repository.count() };
         } catch (error: any) {
             this.handleError(error);
         }
@@ -69,7 +70,7 @@ class JobPositionService {
     public countWithFilter(filter: any) {
         try {
             this.checkPermissions("read");
-            return this.repository.count(filter);
+            return { count: this.repository.count(filter) };
         } catch (error: any) {
             this.handleError(error);
         }
@@ -90,7 +91,10 @@ class JobPositionService {
         try {
             this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
-            const entity = this.repository.findById(id);
+            const options: JobPositionEntityOptions = {
+                $language: request.getLocale().split("_")[0]
+            };
+            const entity = this.repository.findById(id, options);
             if (entity) {
                 return entity;
             } else {
@@ -153,9 +157,6 @@ class JobPositionService {
     private validateEntity(entity: any): void {
         if (entity.Number?.length > 20) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
-        }
-        if (entity.Role === null || entity.Role === undefined) {
-            throw new ValidationError(`The 'Role' property is required, provide a valid value`);
         }
         if (entity.Status === null || entity.Status === undefined) {
             throw new ValidationError(`The 'Status' property is required, provide a valid value`);
