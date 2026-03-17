@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface JobApplicationEntity {
     readonly Id: number;
@@ -103,12 +103,13 @@ export interface JobApplicationEntityOptions {
     },
     $select?: (keyof JobApplicationEntity)[],
     $sort?: string | (keyof JobApplicationEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface JobApplicationEntityEvent {
+export interface JobApplicationEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<JobApplicationEntity>;
@@ -119,7 +120,7 @@ interface JobApplicationEntityEvent {
     }
 }
 
-interface JobApplicationUpdateEntityEvent extends JobApplicationEntityEvent {
+export interface JobApplicationUpdateEntityEvent extends JobApplicationEntityEvent {
     readonly previousEntity: JobApplicationEntity;
 }
 
@@ -176,14 +177,15 @@ export class JobApplicationRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(JobApplicationRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(JobApplicationRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: JobApplicationEntityOptions): JobApplicationEntity[] {
-        return this.dao.list(options);
+    public findAll(options: JobApplicationEntityOptions = {}): JobApplicationEntity[] {
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): JobApplicationEntity | undefined {
+    public findById(id: number, options: JobApplicationEntityOptions = {}): JobApplicationEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

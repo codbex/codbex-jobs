@@ -1,0 +1,6 @@
+{
+    "module": "codbex-jobs/gen/codbex-jobs/ui/Entities/JobType/view.js",
+    "extensionPoint": "application-views",
+    "description": "codbex-jobs - Application View",
+    "role": "codbex-jobs.entities.JobTypeReadOnly,codbex-jobs.entities.JobTypeFullAccess"
+}

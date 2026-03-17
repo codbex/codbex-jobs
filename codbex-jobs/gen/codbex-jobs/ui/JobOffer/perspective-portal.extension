@@ -1,5 +1,0 @@
-{
-    "module": "codbex-jobs/gen/codbex-jobs/ui/JobOffer/perspective.js",
-    "extensionPoint": "portal",
-    "description": "codbex-jobs - Perspective - JobOffer"
-}

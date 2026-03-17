@@ -1,0 +1,6 @@
+{
+    "module": "codbex-jobs/gen/codbex-jobs/ui/Settings/JobStatus/view.js",
+    "extensionPoint": "application-settings",
+    "description": "codbex-jobs - Application View",
+    "role": "codbex-jobs.entities.JobStatusReadOnly,codbex-jobs.entities.JobStatusFullAccess"
+}

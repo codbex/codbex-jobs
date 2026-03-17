@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 
 export interface JobOfferEntity {
@@ -85,12 +85,13 @@ export interface JobOfferEntityOptions {
     },
     $select?: (keyof JobOfferEntity)[],
     $sort?: string | (keyof JobOfferEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface JobOfferEntityEvent {
+export interface JobOfferEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<JobOfferEntity>;
@@ -101,7 +102,7 @@ interface JobOfferEntityEvent {
     }
 }
 
-interface JobOfferUpdateEntityEvent extends JobOfferEntityEvent {
+export interface JobOfferUpdateEntityEvent extends JobOfferEntityEvent {
     readonly previousEntity: JobOfferEntity;
 }
 
@@ -148,18 +149,19 @@ export class JobOfferRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(JobOfferRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(JobOfferRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: JobOfferEntityOptions): JobOfferEntity[] {
-        return this.dao.list(options).map((e: JobOfferEntity) => {
+    public findAll(options: JobOfferEntityOptions = {}): JobOfferEntity[] {
+        let list = this.dao.list(options).map((e: JobOfferEntity) => {
             EntityUtils.setDate(e, "DateOpened");
             EntityUtils.setDate(e, "DateClosed");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): JobOfferEntity | undefined {
+    public findById(id: number, options: JobOfferEntityOptions = {}): JobOfferEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "DateOpened");
         EntityUtils.setDate(entity, "DateClosed");

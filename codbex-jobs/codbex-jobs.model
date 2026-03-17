@@ -4,6 +4,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "JOBASSIGNMENT_ID",
                         "dataNullable": "true",
@@ -18,6 +19,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(27)",
                         "dataLength": "20",
                         "dataName": "JOBASSIGNMENT_NUMBER",
@@ -33,6 +35,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBASSIGNMENT_STARTDATE",
                         "dataNullable": "true",
                         "dataType": "DATE",
@@ -46,6 +49,7 @@
                         "widgetType": "DATE"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBASSIGNMENT_ENDDATE",
                         "dataNullable": "true",
                         "dataType": "DATE",
@@ -58,6 +62,7 @@
                         "widgetType": "DATE"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBASSIGNMENT_EMPLOYEE",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -79,6 +84,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBASSIGNMENT_ORGANIZATION",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -98,6 +104,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBASSIGNMENT_DEPARTMENT",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -121,6 +128,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBASSIGNMENT_JOBPOSITION",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -153,11 +161,13 @@
                 "menuIndex": "100",
                 "menuKey": "jobassignment",
                 "menuLabel": "JobAssignment",
+                "multilingual": "false",
                 "name": "JobAssignment",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/user.svg",
                 "perspectiveLabel": "Employees",
                 "perspectiveName": "Employees",
+                "perspectiveNavId": "",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "roleRead": "codbex-jobs.Employees.JobAssignmentReadOnly",
@@ -169,6 +179,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "JOBSTATUS_ID",
                         "dataNullable": "true",
@@ -183,6 +194,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "JOBSTATUS_NAME",
                         "dataNullable": "true",
@@ -209,11 +221,13 @@
                 "menuIndex": "100",
                 "menuKey": "jobstatus",
                 "menuLabel": "JobStatus",
+                "multilingual": "false",
                 "name": "JobStatus",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
                 "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveName": "Entities",
+                "perspectiveNavId": "",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "roleRead": "codbex-jobs.entities.JobStatusReadOnly",
@@ -225,6 +239,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "JOBPOSITION_ID",
                         "dataNullable": "true",
@@ -239,6 +254,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(26)",
                         "dataLength": "20",
                         "dataName": "JOBPOSITION_NUMBER",
@@ -254,25 +270,26 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBPOSITION_ROLE",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
                         "description": "",
-                        "isRequiredProperty": "true",
                         "name": "Role",
+                        "relationshipCardinality": "n_1",
+                        "relationshipName": "JobPosition_JobRole",
+                        "relationshipType": "COMPOSITION",
                         "tooltip": "",
-                        "widgetDropDownKey": "Id",
-                        "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "DROPDOWN",
-                        "relationshipName": "JobPosition_JobRole",
+                        "widgetType": "TEXTBOX",
                         "relationshipEntityName": "JobRole",
-                        "relationshipEntityPerspectiveName": "Companies",
-                        "relationshipEntityPerspectiveLabel": "Companies"
+                        "relationshipEntityPerspectiveName": "Settings",
+                        "relationshipEntityPerspectiveLabel": ""
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBPOSITION_STATUS",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -288,10 +305,11 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "JobPosition_JobStatus",
                         "relationshipEntityName": "JobStatus",
-                        "relationshipEntityPerspectiveName": "entities",
+                        "relationshipEntityPerspectiveName": "Entities",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBPOSITION_TYPE",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -307,10 +325,11 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "JobPosition_JobType",
                         "relationshipEntityName": "JobType",
-                        "relationshipEntityPerspectiveName": "entities",
+                        "relationshipEntityPerspectiveName": "Entities",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBPOSITION_DATEOPENED",
                         "dataNullable": "true",
                         "dataType": "DATE",
@@ -324,6 +343,7 @@
                         "widgetType": "DATE"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBPOSITION_DATECLOSED",
                         "dataNullable": "true",
                         "dataType": "DATE",
@@ -337,6 +357,7 @@
                         "widgetType": "DATE"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "",
                         "dataDefaultValue": "0",
                         "dataName": "JOBPOSITION_DAYSOPENED",
@@ -352,6 +373,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBPOSITION_TEAM",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -385,11 +407,13 @@
                 "menuIndex": "100",
                 "menuKey": "jobposition",
                 "menuLabel": "JobPosition",
+                "multilingual": "false",
                 "name": "JobPosition",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/user.svg",
                 "perspectiveLabel": "Teams",
                 "perspectiveName": "Teams",
+                "perspectiveNavId": "",
                 "perspectiveOrder": "106",
                 "perspectiveRole": "",
                 "roleRead": "codbex-jobs.Teams.JobPositionReadOnly",
@@ -401,6 +425,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "JOBTYPE_ID",
                         "dataNullable": "true",
@@ -415,6 +440,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "JOBTYPE_NAME",
                         "dataNullable": "true",
@@ -441,11 +467,13 @@
                 "menuIndex": "100",
                 "menuKey": "jobtype",
                 "menuLabel": "JobType",
+                "multilingual": "false",
                 "name": "JobType",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
                 "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveName": "Entities",
+                "perspectiveNavId": "",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "roleRead": "codbex-jobs.entities.JobTypeReadOnly",
@@ -457,78 +485,7 @@
             {
                 "properties": [
                     {
-                        "dataAutoIncrement": "true",
-                        "dataName": "COMPANYROLE_ID",
-                        "dataNullable": "true",
-                        "dataPrimaryKey": "true",
-                        "dataType": "INTEGER",
-                        "description": "",
-                        "name": "Id",
-                        "tooltip": "",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
-                    },
-                    {
-                        "dataLength": "20",
-                        "dataName": "COMPANYROLE_NAME",
-                        "dataNullable": "true",
-                        "dataType": "VARCHAR",
-                        "description": "",
-                        "name": "Name",
-                        "tooltip": "",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
-                    },
-                    {
-                        "dataName": "COMPANYROLE_COMPANY",
-                        "dataNullable": "true",
-                        "dataType": "INTEGER",
-                        "description": "",
-                        "name": "Company",
-                        "relationshipCardinality": "1_n",
-                        "relationshipEntityPerspectiveLabel": "Entities",
-                        "relationshipEntityPerspectiveName": "Companies",
-                        "relationshipName": "JobRole_Company",
-                        "relationshipType": "COMPOSITION",
-                        "tooltip": "",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
-                    }
-                ],
-                "caption": "Manage entity JobRole",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}JOBROLE\"",
-                "dataName": "JOBROLE",
-                "dataQuery": "",
-                "description": "Manage entity JobRole",
-                "generateDefaultRoles": "false",
-                "generateReport": "false",
-                "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
-                "menuIndex": "100",
-                "menuKey": "jobrole",
-                "menuLabel": "JobRole",
-                "name": "JobRole",
-                "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/user.svg",
-                "perspectiveLabel": "Companies",
-                "perspectiveName": "Companies",
-                "perspectiveOrder": "113",
-                "perspectiveRole": "",
-                "projectionReferencedEntity": "JobRole",
-                "projectionReferencedModel": "/workspace/codbex-companies/codbex-companies.model",
-                "title": "JobRole",
-                "tooltip": "JobRole",
-                "type": "PROJECTION"
-            },
-            {
-                "properties": [
-                    {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "ORGANIZATION_ID",
                         "dataNullable": "true",
@@ -543,6 +500,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "100",
                         "dataName": "ORGANIZATION_NAME",
                         "dataNullable": "true",
@@ -557,6 +515,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "10",
                         "dataName": "ORGANIZATION_COSTCENTER",
                         "dataNullable": "true",
@@ -570,6 +529,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "ORGANIZATION_COMPANY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -600,11 +560,13 @@
                 "menuIndex": "100",
                 "menuKey": "organization",
                 "menuLabel": "Organization",
+                "multilingual": "false",
                 "name": "Organization",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
                 "perspectiveLabel": "Entities",
                 "perspectiveName": "Organizations",
+                "perspectiveNavId": "",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "projectionReferencedEntity": "Organization",
@@ -616,6 +578,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "DEPARTMENT_ID",
                         "dataNullable": "true",
@@ -630,6 +593,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "100",
                         "dataName": "DEPARTMENT_NAME",
                         "dataNullable": "true",
@@ -644,6 +608,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "DEPARTMENT_ORGANIZATION",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -676,11 +641,13 @@
                 "menuIndex": "100",
                 "menuKey": "department",
                 "menuLabel": "Department",
+                "multilingual": "false",
                 "name": "Department",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
                 "perspectiveLabel": "Entities",
                 "perspectiveName": "Organizations",
+                "perspectiveNavId": "",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "projectionReferencedEntity": "Department",
@@ -692,6 +659,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "TEAM_ID",
                         "dataNullable": "true",
@@ -706,6 +674,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "50",
                         "dataName": "TEAM_NAME",
                         "dataNullable": "true",
@@ -720,6 +689,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "TEAM_MANAGER",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -738,6 +708,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "TEAM_ORGANIZATION",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -755,6 +726,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "TEAM_DEPARTMENT",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -788,11 +760,13 @@
                 "menuIndex": "100",
                 "menuKey": "team",
                 "menuLabel": "Team",
+                "multilingual": "false",
                 "name": "Team",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/user.svg",
                 "perspectiveLabel": "Teams",
                 "perspectiveName": "Teams",
+                "perspectiveNavId": "",
                 "perspectiveOrder": "106",
                 "perspectiveRole": "",
                 "projectionReferencedEntity": "Team",
@@ -804,6 +778,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "EMPLOYEE_ID",
                         "dataNullable": "true",
@@ -818,6 +793,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "50",
                         "dataName": "EMPLOYEE_FIRSTNAME",
                         "dataNullable": "true",
@@ -834,6 +810,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "50",
                         "dataName": "EMPLOYEE_MIDDLENAME",
                         "dataNullable": "true",
@@ -849,6 +826,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "50",
                         "dataName": "EMPLOYEE_LASTNAME",
                         "dataNullable": "true",
@@ -865,6 +843,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "entity[\"FirstName\"] + \" \" + entity[\"LastName\"]",
                         "dataLength": "70",
                         "dataName": "EMPLOYEE_NAME",
@@ -880,6 +859,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "EMPLOYEE_BIRTHDATE",
                         "dataNullable": "true",
                         "dataType": "DATE",
@@ -893,6 +873,7 @@
                         "widgetType": "DATE"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "10",
                         "dataName": "EMPLOYEE_PERSONALNUMBER",
                         "dataNullable": "true",
@@ -907,6 +888,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "EMPLOYEE_GENDER",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -925,6 +907,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "EMPLOYEE_NATIONALITY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -943,6 +926,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "EMPLOYEE_MARTIALSTATUS",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -961,6 +945,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "50",
                         "dataName": "EMPLOYEE_IBAN",
                         "dataNullable": "true",
@@ -987,11 +972,13 @@
                 "menuIndex": "100",
                 "menuKey": "employee",
                 "menuLabel": "Employee",
+                "multilingual": "false",
                 "name": "Employee",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/user.svg",
                 "perspectiveLabel": "Employees",
                 "perspectiveName": "Employees",
+                "perspectiveNavId": "",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "projectionReferencedEntity": "Employee",
@@ -1003,6 +990,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "JOBOFFER_ID",
                         "dataNullable": "true",
@@ -1017,6 +1005,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBOFFER_JOBPOSITION",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1035,6 +1024,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataDefaultValue": "0",
                         "dataName": "JOBOFFER_DAYSOPENED",
                         "dataNullable": "true",
@@ -1053,6 +1043,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBOFFER_DATEOPENED",
                         "dataNullable": "true",
                         "dataType": "DATE",
@@ -1066,6 +1057,7 @@
                         "widgetType": "DATE"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBOFFER_DATECLOSED",
                         "dataNullable": "true",
                         "dataType": "DATE",
@@ -1078,6 +1070,7 @@
                         "widgetType": "DATE"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBOFFER_STATUS",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1093,7 +1086,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "JobOffer_JobOfferStatus",
                         "relationshipEntityName": "JobOfferStatus",
-                        "relationshipEntityPerspectiveName": "entities",
+                        "relationshipEntityPerspectiveName": "Entities",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
@@ -1109,11 +1102,13 @@
                 "menuIndex": "100",
                 "menuKey": "joboffer",
                 "menuLabel": "JobOffer",
+                "multilingual": "false",
                 "name": "JobOffer",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/file-upload.svg",
                 "perspectiveLabel": "JobOffer",
                 "perspectiveName": "JobOffer",
+                "perspectiveNavId": "",
                 "perspectiveOrder": "119",
                 "perspectiveRole": "",
                 "roleRead": "codbex-jobs.JobOffer.JobOfferReadOnly",
@@ -1125,6 +1120,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "JOBAPPLICATION_ID",
                         "dataNullable": "true",
@@ -1139,6 +1135,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBAPPLICATION_JOBOFFER",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1158,6 +1155,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOBAPPLICATION_STATUS",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1173,10 +1171,11 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "JobApplication_JobApplicationStatus",
                         "relationshipEntityName": "JobApplicationStatus",
-                        "relationshipEntityPerspectiveName": "entities",
+                        "relationshipEntityPerspectiveName": "Entities",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "50",
                         "dataName": "JOBAPPLICATION_NAMES",
                         "dataNullable": "true",
@@ -1191,6 +1190,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "50",
                         "dataName": "JOBAPPLICATION_EMAIL",
                         "dataNullable": "true",
@@ -1205,6 +1205,7 @@
                         "widgetType": "EMAIL"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "JOBAPPLICATION_PHONENUMBER",
                         "dataNullable": "true",
@@ -1219,6 +1220,7 @@
                         "widgetType": "TEL"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "500",
                         "dataName": "JOBAPPLICATION_CV",
                         "dataNullable": "true",
@@ -1233,6 +1235,7 @@
                         "widgetType": "URL"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "2000",
                         "dataName": "JOBAPPLICATION_COMMENT",
                         "dataNullable": "true",
@@ -1258,11 +1261,13 @@
                 "menuIndex": "100",
                 "menuKey": "jobapplication",
                 "menuLabel": "JobApplication",
+                "multilingual": "false",
                 "name": "JobApplication",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/file-upload.svg",
                 "perspectiveLabel": "JobOffer",
                 "perspectiveName": "JobOffer",
+                "perspectiveNavId": "",
                 "perspectiveOrder": "119",
                 "perspectiveRole": "",
                 "roleRead": "codbex-jobs.JobOffer.JobApplicationReadOnly",
@@ -1274,6 +1279,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "JOBOFFERSTATUS_ID",
                         "dataNullable": "true",
@@ -1288,6 +1294,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "JOBOFFERSTATUS_NAME",
                         "dataNullable": "true",
@@ -1314,11 +1321,13 @@
                 "menuIndex": "100",
                 "menuKey": "jobofferstatus",
                 "menuLabel": "JobOfferStatus",
+                "multilingual": "false",
                 "name": "JobOfferStatus",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
                 "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveName": "Entities",
+                "perspectiveNavId": "",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "roleRead": "codbex-jobs.entities.JobOfferStatusReadOnly",
@@ -1330,6 +1339,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "JOBAPPLICATIONSTATUS_ID",
                         "dataNullable": "true",
@@ -1344,6 +1354,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "JOBAPPLICATIONSTATUS_NAME",
                         "dataNullable": "true",
@@ -1369,11 +1380,13 @@
                 "menuIndex": "100",
                 "menuKey": "jobapplicationstatus",
                 "menuLabel": "JobApplicationStatus",
+                "multilingual": "false",
                 "name": "JobApplicationStatus",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
                 "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveName": "Entities",
+                "perspectiveNavId": "",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "roleRead": "codbex-jobs.entities.JobApplicationStatusReadOnly",
@@ -1381,6 +1394,64 @@
                 "title": "JobApplicationStatus",
                 "tooltip": "JobApplicationStatus",
                 "type": "PRIMARY"
+            },
+            {
+                "properties": [
+                    {
+                        "auditType": "NONE",
+                        "dataAutoIncrement": "true",
+                        "dataName": "JOBROLE_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "description": "",
+                        "name": "Id",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "NONE",
+                        "dataLength": "50",
+                        "dataName": "JOBROLE_NAME",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "isRequiredProperty": "true",
+                        "name": "Name",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    }
+                ],
+                "caption": "Manage entity JobRole",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}JOBROLE\"",
+                "dataName": "JOBROLE",
+                "dataQuery": "",
+                "description": "Manage entity JobRole",
+                "generateDefaultRoles": "false",
+                "generateReport": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "",
+                "menuIndex": "100",
+                "menuKey": "jobrole",
+                "menuLabel": "JobRole",
+                "multilingual": "false",
+                "name": "JobRole",
+                "perspectiveHeader": "",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveLabel": "",
+                "perspectiveName": "Settings",
+                "perspectiveNavId": "",
+                "perspectiveOrder": "100",
+                "perspectiveRole": "",
+                "title": "JobRole",
+                "tooltip": "JobRole",
+                "type": "SETTING"
             }
         ],
         "perspectives": [
@@ -1388,22 +1459,19 @@
                 "name": "Teams",
                 "label": "Teams",
                 "icon": "/services/web/resources/unicons/user.svg",
-                "order": "106",
-                "role": {}
+                "order": "106"
             },
             {
                 "name": "Employees",
                 "label": "Employees",
                 "icon": "/services/web/resources/unicons/user.svg",
-                "order": "100",
-                "role": {}
+                "order": "100"
             },
             {
                 "name": "JobOffer",
                 "label": "JobOffer",
                 "icon": "/services/web/resources/unicons/file-upload.svg",
-                "order": "119",
-                "role": {}
+                "order": "119"
             }
         ],
         "navigations": []
