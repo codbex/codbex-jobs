@@ -12,6 +12,6 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@codbex/codbex-number-generator": "0.3.0"
+        "@codbex/codbex-number-generator": "1.1.0"
     }
 }
