@@ -44,13 +44,7 @@
 					</tr>
 					<tr bk-table-row hoverable="true" ng-repeat="next in data track by $index" selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Number}}</td>
-<<<<<<< 48-refactor-number-gen-method
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsRoleValue(next.Role)}}
-						</td>
-=======
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Role}}</td>
->>>>>>> main
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsStatusValue(next.Status)}}
 						</td>

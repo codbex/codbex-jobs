@@ -17,10 +17,7 @@ tags:
   - name: JobOffer
   - name: Entities
   - name: Entities
-<<<<<<< 48-refactor-number-gen-method
-=======
   - name: Settings
->>>>>>> main
 paths:
   /codbex-jobs/gen/codbex-jobs/api/Employees/JobAssignmentService.ts:
     get:

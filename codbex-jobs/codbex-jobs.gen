@@ -49,6 +49,7 @@
       "roleWrite": "codbex-jobs.entities.JobApplicationStatusFullAccess"
     }
   ],
+  "tprefix": "codbex-jobs-model",
   "projectName": "codbex-jobs",
   "workspaceName": "workspace",
   "filePath": "codbex-jobs.model",
@@ -67,15 +68,13 @@
       "icon": "/services/web/resources/unicons/user.svg",
       "role": ""
     },
-    "Entities": {
+    "Settings": {
       "views": [
         "JobStatus",
-        "JobType",
-        "JobOfferStatus",
-        "JobApplicationStatus"
+        "JobRole"
       ],
-      "name": "Entities",
-      "label": "Entities",
+      "name": "Settings",
+      "label": "Settings",
       "header": "",
       "order": "100",
       "navId": "",
@@ -92,22 +91,21 @@
       "header": "",
       "order": "106",
       "navId": "",
-<<<<<<< 48-refactor-number-gen-method
       "icon": "/services/web/resources/unicons/user.svg",
       "role": ""
     },
-    "Companies": {
+    "Entities": {
       "views": [
-        "JobRole"
+        "JobType",
+        "JobOfferStatus",
+        "JobApplicationStatus"
       ],
-      "name": "Companies",
-      "label": "Companies",
+      "name": "Entities",
+      "label": "Entities",
       "header": "",
-      "order": "113",
+      "order": "100",
       "navId": "",
-=======
->>>>>>> main
-      "icon": "/services/web/resources/unicons/user.svg",
+      "icon": "/services/web/resources/unicons/copy.svg",
       "role": ""
     },
     "Organizations": {
@@ -154,21 +152,8 @@
       "navId": "",
       "icon": "/services/web/resources/unicons/file-upload.svg",
       "role": ""
-    },
-    "Settings": {
-      "views": [
-        "JobRole"
-      ],
-      "name": "Settings",
-      "label": "Settings",
-      "header": "",
-      "order": "100",
-      "navId": "",
-      "icon": "/services/web/resources/unicons/copy.svg",
-      "role": ""
     }
   },
-  "tprefix": "codbex-jobs-model",
   "models": [
     {
       "properties": [
@@ -200,11 +185,7 @@
         },
         {
           "auditType": "NONE",
-<<<<<<< 48-refactor-number-gen-method
           "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generateByType('Job Assignment')",
-=======
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(27)",
->>>>>>> main
           "dataLength": "20",
           "dataName": "JOBASSIGNMENT_NUMBER",
           "dataNullable": true,
@@ -597,11 +578,7 @@
         },
         {
           "auditType": "NONE",
-<<<<<<< 48-refactor-number-gen-method
           "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generateByType('Job Position')",
-=======
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(26)",
->>>>>>> main
           "dataLength": "20",
           "dataName": "JOBPOSITION_NUMBER",
           "dataNullable": true,
@@ -646,7 +623,7 @@
           "widgetType": "TEXTBOX",
           "relationshipEntityName": "JobRole",
           "relationshipEntityPerspectiveName": "Settings",
-          "relationshipEntityPerspectiveLabel": "",
+          "relationshipEntityPerspectiveLabel": "Settings",
           "dataNotNull": false,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
@@ -655,13 +632,8 @@
           "isCalculatedProperty": false,
           "isReadOnlyProperty": false,
           "widgetLabel": "Role",
-<<<<<<< 48-refactor-number-gen-method
-          "widgetDropdownUrl": "/services/ts/codbex-companies/gen/codbex-companies/api/Companies/JobRoleService.ts",
-          "widgetDropdownControllerUrl": "/services/ts/codbex-companies/gen/codbex-companies/api/Companies/JobRoleController.ts",
-=======
           "widgetDropdownUrl": "",
           "widgetDropdownControllerUrl": "",
->>>>>>> main
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -683,8 +655,8 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "JobPosition_JobStatus",
           "relationshipEntityName": "JobStatus",
-          "relationshipEntityPerspectiveName": "Entities",
-          "relationshipEntityPerspectiveLabel": "Entities",
+          "relationshipEntityPerspectiveName": "Settings",
+          "relationshipEntityPerspectiveLabel": "Settings",
           "dataNotNull": false,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
@@ -692,8 +664,8 @@
           "isCalculatedProperty": false,
           "isReadOnlyProperty": false,
           "widgetLabel": "Status",
-          "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Entities/JobStatusService.ts",
-          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Entities/JobStatusController.ts",
+          "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Settings/JobStatusService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Settings/JobStatusController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -990,132 +962,6 @@
       "properties": [
         {
           "auditType": "NONE",
-<<<<<<< 48-refactor-number-gen-method
-          "dataAutoIncrement": true,
-          "dataName": "COMPANYROLE_ID",
-          "dataNullable": true,
-          "dataPrimaryKey": true,
-          "dataType": "INTEGER",
-          "description": "",
-          "name": "Id",
-          "tooltip": "",
-          "widgetIsMajor": true,
-          "widgetLength": "20",
-          "widgetSize": "",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "isReadOnlyProperty": false,
-          "widgetLabel": "Id",
-          "widgetDropdownUrl": "",
-          "widgetDropdownControllerUrl": "",
-          "dataTypeJava": "int",
-          "dataTypeTypescript": "number",
-          "inputRule": ""
-        },
-        {
-          "auditType": "NONE",
-          "dataLength": "20",
-          "dataName": "COMPANYROLE_NAME",
-          "dataNullable": true,
-          "dataType": "VARCHAR",
-          "description": "",
-          "name": "Name",
-          "tooltip": "",
-          "widgetIsMajor": true,
-          "widgetLength": "20",
-          "widgetSize": "",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": false,
-          "dataAutoIncrement": false,
-          "dataPrimaryKey": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "isReadOnlyProperty": false,
-          "widgetLabel": "Name",
-          "widgetDropdownUrl": "",
-          "widgetDropdownControllerUrl": "",
-          "dataTypeJava": "string",
-          "dataTypeTypescript": "string",
-          "minLength": 0,
-          "maxLength": 20,
-          "inputRule": ""
-        },
-        {
-          "auditType": "NONE",
-          "dataName": "COMPANYROLE_COMPANY",
-          "dataNullable": true,
-          "dataType": "INTEGER",
-          "description": "",
-          "name": "Company",
-          "relationshipCardinality": "1_n",
-          "relationshipEntityPerspectiveLabel": "Entities",
-          "relationshipEntityPerspectiveName": "Companies",
-          "relationshipName": "JobRole_Company",
-          "relationshipType": "COMPOSITION",
-          "tooltip": "",
-          "widgetIsMajor": false,
-          "widgetLength": "20",
-          "widgetSize": "",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": false,
-          "dataAutoIncrement": false,
-          "dataPrimaryKey": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "isReadOnlyProperty": false,
-          "widgetLabel": "Company",
-          "widgetDropdownUrl": "",
-          "widgetDropdownControllerUrl": "",
-          "dataTypeJava": "int",
-          "dataTypeTypescript": "number",
-          "inputRule": ""
-        }
-      ],
-      "caption": "Manage entity JobRole",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_JOBROLE\"",
-      "dataName": "JOBROLE",
-      "dataQuery": "",
-      "description": "Manage entity JobRole",
-      "generateDefaultRoles": "false",
-      "generateReport": "false",
-      "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE",
-      "menuIndex": "100",
-      "menuKey": "jobrole",
-      "menuLabel": "JobRole",
-      "multilingual": "false",
-      "name": "JobRole",
-      "perspectiveHeader": "",
-      "perspectiveIcon": "/services/web/resources/unicons/user.svg",
-      "perspectiveLabel": "Companies",
-      "perspectiveName": "Companies",
-      "perspectiveNavId": "",
-      "perspectiveOrder": "113",
-      "perspectiveRole": "",
-      "projectionReferencedEntity": "JobRole",
-      "projectionReferencedModel": "/workspace/codbex-companies/codbex-companies.model",
-      "title": "JobRole",
-      "tooltip": "JobRole",
-      "type": "PROJECTION",
-      "dataSource": "DefaultDB",
-      "referencedProjections": [],
-      "primaryKeys": [
-        "Id"
-      ],
-      "primaryKeysString": "Id",
-      "masterEntityId": "Company"
-    },
-    {
-      "properties": [
-        {
-          "auditType": "NONE",
-=======
->>>>>>> main
           "dataAutoIncrement": true,
           "dataName": "ORGANIZATION_ID",
           "dataNullable": true,

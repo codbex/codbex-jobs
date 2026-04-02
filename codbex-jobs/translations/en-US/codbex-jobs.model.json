@@ -91,13 +91,6 @@
       "JOBTYPE": "JobType",
       "JOBTYPE_ID": "Id",
       "JOBTYPE_NAME": "Name",
-<<<<<<< 48-refactor-number-gen-method
-      "JOBROLE": "JobRole",
-      "COMPANYROLE_ID": "Id",
-      "COMPANYROLE_NAME": "Name",
-      "COMPANYROLE_COMPANY": "Company",
-=======
->>>>>>> main
       "ORGANIZATION": "Organization",
       "ORGANIZATION_ID": "Id",
       "ORGANIZATION_NAME": "Name",
@@ -147,12 +140,9 @@
       "JOBAPPLICATIONSTATUS": "JobApplicationStatus",
       "JOBAPPLICATIONSTATUS_ID": "Id",
       "JOBAPPLICATIONSTATUS_NAME": "Name",
-<<<<<<< 48-refactor-number-gen-method
-=======
       "JOBROLE": "JobRole",
       "JOBROLE_ID": "Id",
       "JOBROLE_NAME": "Name",
->>>>>>> main
       "Teams": "Teams",
       "Employees": "Employees",
       "JobOffer": "JobOffer"

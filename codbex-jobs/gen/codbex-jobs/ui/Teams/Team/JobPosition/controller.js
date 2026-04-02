@@ -249,7 +249,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.optionsTeam = [];
 
 
-		$http.get('/services/ts/codbex-jobs/gen/codbex-jobs/api/Entities/JobStatusService.ts').then((response) => {
+		$http.get('/services/ts/codbex-jobs/gen/codbex-jobs/api/Settings/JobStatusService.ts').then((response) => {
 			$scope.optionsStatus = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
