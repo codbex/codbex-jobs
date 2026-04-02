@@ -49,6 +49,7 @@
       "roleWrite": "codbex-jobs.entities.JobApplicationStatusFullAccess"
     }
   ],
+  "tprefix": "codbex-jobs-model",
   "projectName": "codbex-jobs",
   "workspaceName": "workspace",
   "filePath": "codbex-jobs.model",
@@ -67,15 +68,13 @@
       "icon": "/services/web/resources/unicons/user.svg",
       "role": ""
     },
-    "Entities": {
+    "Settings": {
       "views": [
         "JobStatus",
-        "JobType",
-        "JobOfferStatus",
-        "JobApplicationStatus"
+        "JobRole"
       ],
-      "name": "Entities",
-      "label": "Entities",
+      "name": "Settings",
+      "label": "Settings",
       "header": "",
       "order": "100",
       "navId": "",
@@ -93,6 +92,20 @@
       "order": "106",
       "navId": "",
       "icon": "/services/web/resources/unicons/user.svg",
+      "role": ""
+    },
+    "Entities": {
+      "views": [
+        "JobType",
+        "JobOfferStatus",
+        "JobApplicationStatus"
+      ],
+      "name": "Entities",
+      "label": "Entities",
+      "header": "",
+      "order": "100",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/copy.svg",
       "role": ""
     },
     "Organizations": {
@@ -139,21 +152,8 @@
       "navId": "",
       "icon": "/services/web/resources/unicons/file-upload.svg",
       "role": ""
-    },
-    "Settings": {
-      "views": [
-        "JobRole"
-      ],
-      "name": "Settings",
-      "label": "Settings",
-      "header": "",
-      "order": "100",
-      "navId": "",
-      "icon": "/services/web/resources/unicons/copy.svg",
-      "role": ""
     }
   },
-  "tprefix": "codbex-jobs-model",
   "models": [
     {
       "properties": [
@@ -185,7 +185,7 @@
         },
         {
           "auditType": "NONE",
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(27)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generateByType('Job Assignment')",
           "dataLength": "20",
           "dataName": "JOBASSIGNMENT_NUMBER",
           "dataNullable": true,
@@ -578,7 +578,7 @@
         },
         {
           "auditType": "NONE",
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(26)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generateByType('Job Position')",
           "dataLength": "20",
           "dataName": "JOBPOSITION_NUMBER",
           "dataNullable": true,
@@ -623,7 +623,7 @@
           "widgetType": "TEXTBOX",
           "relationshipEntityName": "JobRole",
           "relationshipEntityPerspectiveName": "Settings",
-          "relationshipEntityPerspectiveLabel": "",
+          "relationshipEntityPerspectiveLabel": "Settings",
           "dataNotNull": false,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
@@ -655,8 +655,8 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "JobPosition_JobStatus",
           "relationshipEntityName": "JobStatus",
-          "relationshipEntityPerspectiveName": "Entities",
-          "relationshipEntityPerspectiveLabel": "Entities",
+          "relationshipEntityPerspectiveName": "Settings",
+          "relationshipEntityPerspectiveLabel": "Settings",
           "dataNotNull": false,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
@@ -664,8 +664,8 @@
           "isCalculatedProperty": false,
           "isReadOnlyProperty": false,
           "widgetLabel": "Status",
-          "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Entities/JobStatusService.ts",
-          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Entities/JobStatusController.ts",
+          "widgetDropdownUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Settings/JobStatusService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-jobs/gen/codbex-jobs/api/Settings/JobStatusController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""

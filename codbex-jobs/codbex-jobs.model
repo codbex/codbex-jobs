@@ -20,7 +20,7 @@
                     },
                     {
                         "auditType": "NONE",
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(27)",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generateByType('Job Assignment')",
                         "dataLength": "20",
                         "dataName": "JOBASSIGNMENT_NUMBER",
                         "dataNullable": "true",
@@ -225,8 +225,8 @@
                 "name": "JobStatus",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "Entities",
+                "perspectiveLabel": "Settings",
+                "perspectiveName": "Settings",
                 "perspectiveNavId": "",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
@@ -255,7 +255,7 @@
                     },
                     {
                         "auditType": "NONE",
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(26)",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generateByType('Job Position')",
                         "dataLength": "20",
                         "dataName": "JOBPOSITION_NUMBER",
                         "dataNullable": "true",
@@ -286,7 +286,7 @@
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "JobRole",
                         "relationshipEntityPerspectiveName": "Settings",
-                        "relationshipEntityPerspectiveLabel": ""
+                        "relationshipEntityPerspectiveLabel": "Settings"
                     },
                     {
                         "auditType": "NONE",
@@ -305,8 +305,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "JobPosition_JobStatus",
                         "relationshipEntityName": "JobStatus",
-                        "relationshipEntityPerspectiveName": "Entities",
-                        "relationshipEntityPerspectiveLabel": "Entities"
+                        "relationshipEntityPerspectiveName": "Settings",
+                        "relationshipEntityPerspectiveLabel": "Settings"
                     },
                     {
                         "auditType": "NONE",
@@ -1436,7 +1436,7 @@
                 "generateDefaultRoles": "false",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "",
+                "layoutType": "MANAGE",
                 "menuIndex": "100",
                 "menuKey": "jobrole",
                 "menuLabel": "JobRole",
@@ -1444,7 +1444,7 @@
                 "name": "JobRole",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "",
+                "perspectiveLabel": "Settings",
                 "perspectiveName": "Settings",
                 "perspectiveNavId": "",
                 "perspectiveOrder": "100",

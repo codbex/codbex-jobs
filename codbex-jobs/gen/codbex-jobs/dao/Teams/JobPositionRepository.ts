@@ -215,7 +215,7 @@ export class JobPositionRepository {
         EntityUtils.setLocalDate(entity, "DateOpened");
         EntityUtils.setLocalDate(entity, "DateClosed");
         // @ts-ignore
-        (entity as JobPositionEntity).Number = new NumberGeneratorService().generate(26);
+        (entity as JobPositionEntity).Number = new NumberGeneratorService().generateByType('Job Position');
         if (entity.DaysOpened === undefined || entity.DaysOpened === null) {
             (entity as JobPositionEntity).DaysOpened = 0;
         }

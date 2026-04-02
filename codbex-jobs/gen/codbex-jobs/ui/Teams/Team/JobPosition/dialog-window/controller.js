@@ -91,7 +91,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			});
 		};
 
-		$scope.serviceStatus = '/services/ts/codbex-jobs/gen/codbex-jobs/api/Entities/JobStatusService.ts';
+		$scope.serviceStatus = '/services/ts/codbex-jobs/gen/codbex-jobs/api/Settings/JobStatusService.ts';
 		$scope.serviceType = '/services/ts/codbex-jobs/gen/codbex-jobs/api/Entities/JobTypeService.ts';
 		$scope.serviceTeam = '/services/ts/codbex-organizations/gen/codbex-organizations/api/Teams/TeamService.ts';
 
