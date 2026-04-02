@@ -13,28 +13,19 @@
 	</head>
 
 	<body class="bk-vbox">
-		<bk-message-page glyph="sap-icon--hint" ng-show="data == null">
-			<bk-message-page-title>{{'codbex-jobs:codbex-jobs-model.messages.detailSelectRecord' | t}}</bk-message-page-title>
-		</bk-message-page>
-
-		<bk-toolbar has-title="true" ng-hide="data == null">
+		<bk-toolbar has-title="true">
 			<bk-toolbar-title>{{'codbex-jobs:codbex-jobs-model.defaults.items' | t}} <span bk-object-status text="{{dataCount}}" inverted="true"></bk-toolbar-title>
 			<bk-button compact="true" state="transparent" label="{{ 'codbex-jobs:codbex-jobs-model.defaults.filter' | t }}" ng-click="openFilter()"></bk-button>
 			<bk-button ng-repeat="action in pageActions track by $index" compact="true" state="transparent" label="{{action.translation.key | t:action.translation.options:action.label}}" ng-click="triggerPageAction(action)"></bk-button>
 			<bk-toolbar-spacer></bk-toolbar-spacer>
-			<bk-button compact="true" state="emphasized" label="{{'codbex-jobs:codbex-jobs-model.defaults.create' | t}}" ng-click="createEntity()" ng-disabled="selectedMainEntityId == null"></bk-button>
+			<bk-button compact="true" state="emphasized" label="{{'codbex-jobs:codbex-jobs-model.defaults.create' | t}}" ng-click="createEntity()"></bk-button>
 		</bk-toolbar>
+
 		<bk-scrollbar class="bk-full-height" ng-hide="data == null">
 			<table bk-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead bk-table-header sticky="true">
 					<tr bk-table-row>
-						<th bk-table-header-cell>{{ 'codbex-jobs:codbex-jobs-model.t.JOBPOSITION_NUMBER' | t:'Number' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-jobs:codbex-jobs-model.t.JOBPOSITION_ROLE' | t:'Role' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-jobs:codbex-jobs-model.t.JOBPOSITION_STATUS' | t:'Status' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-jobs:codbex-jobs-model.t.JOBPOSITION_TYPE' | t:'Type' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-jobs:codbex-jobs-model.t.JOBPOSITION_DATEOPENED' | t:'DateOpened' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-jobs:codbex-jobs-model.t.JOBPOSITION_DATECLOSED' | t:'DateClosed' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-jobs:codbex-jobs-model.t.JOBPOSITION_DAYSOPENED' | t:'DaysOpened' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-jobs:codbex-jobs-model.t.JOBROLE_NAME' | t:'Name' }}</th>
 						<th bk-table-header-cell></th>
 					</tr>
 				</thead>
@@ -42,28 +33,9 @@
 					<tr bk-table-row hoverable="true" ng-show="data.length == 0">
 						<td bk-table-cell no-data="true">{{'codbex-jobs:codbex-jobs-model.messages.noData' | t}}</td>
 					</tr>
-					<tr bk-table-row hoverable="true" ng-repeat="next in data track by $index" selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Number}}</td>
-<<<<<<< 48-refactor-number-gen-method
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsRoleValue(next.Role)}}
-						</td>
-=======
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Role}}</td>
->>>>>>> main
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsStatusValue(next.Status)}}
-						</td>
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsTypeValue(next.Type)}}
-						</td>
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<bk-input type="date" ng-model="next.DateOpened" ng-readonly="true"></bk-input>
-						</td>
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							<bk-input type="date" ng-model="next.DateClosed" ng-readonly="true"></bk-input>
-						</td>
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.DaysOpened}}</td>
+					<tr bk-table-row hoverable="true" ng-repeat="next in data track by $index"
+						selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Name}}</td>
 						<td bk-table-cell fit-content="true">
 							<bk-popover>
 								<bk-popover-control>
@@ -71,7 +43,7 @@
 								</bk-popover-control>
 								<bk-popover-body align="bottom-right">
 									<bk-menu aria-label="{{'codbex-jobs:codbex-jobs-model.aria.tableRowMenu' | t}}" no-backdrop="true" no-shadow="true">
-										<bk-menu-item ng-repeat="action in entityActions" title="{{action.translation.key | t:action.translation.options:action.label}}" ng-click="triggerEntityAction(action)"></bk-menu-item>
+										<bk-menu-item ng-repeat="action in entityActions track by $index" title="{{action.translation.key | t:action.translation.options:action.label}}" ng-click="triggerEntityAction(action)"></bk-menu-item>
 										<bk-menu-item title="{{ 'codbex-jobs:codbex-jobs-model.defaults.viewDetails' | t }}" ng-click="openDetails(next)"></bk-menu-item>
 										<bk-menu-item title="{{ 'codbex-jobs:codbex-jobs-model.defaults.edit' | t }}" ng-click="updateEntity(next)"></bk-menu-item>
 										<bk-menu-item title="{{ 'codbex-jobs:codbex-jobs-model.defaults.delete' | t }}" ng-click="deleteEntity(next)"></bk-menu-item>

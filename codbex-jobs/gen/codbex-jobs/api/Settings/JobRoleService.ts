@@ -1,40 +1,24 @@
 import { Controller, Get, Post, Put, Delete, request, response } from "@aerokit/sdk/http"
 import { Extensions } from "@aerokit/sdk/extensions"
-import { JobPositionRepository, JobPositionEntityOptions } from "../../dao/Teams/JobPositionRepository";
-import { user } from "@aerokit/sdk/security"
-import { ForbiddenError } from "../utils/ForbiddenError";
+import { JobRoleRepository, JobRoleEntityOptions } from "../../dao/Settings/JobRoleRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
-// custom imports
-import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-jobs-Teams-JobPosition", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-jobs-Settings-JobRole", ["validate"]);
 
 @Controller
-class JobPositionService {
+class JobRoleService {
 
-    private readonly repository = new JobPositionRepository();
+    private readonly repository = new JobRoleRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            this.checkPermissions("read");
-            const options: JobPositionEntityOptions = {
+            const options: JobRoleEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined,
                 $language: request.getLocale().split("_")[0]
             };
-
-            let Team = parseInt(ctx.queryParameters.Team);
-            Team = isNaN(Team) ? ctx.queryParameters.Team : Team;
-
-            if (Team !== undefined) {
-                options.$filter = {
-                    equals: {
-                        Team: Team
-                    }
-                };
-            }
 
             return this.repository.findAll(options);
         } catch (error: any) {
@@ -45,10 +29,9 @@ class JobPositionService {
     @Post("/")
     public create(entity: any) {
         try {
-            this.checkPermissions("write");
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-jobs/gen/codbex-jobs/api/Teams/JobPositionService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-jobs/gen/codbex-jobs/api/Settings/JobRoleService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -59,7 +42,6 @@ class JobPositionService {
     @Get("/count")
     public count() {
         try {
-            this.checkPermissions("read");
             return { count: this.repository.count() };
         } catch (error: any) {
             this.handleError(error);
@@ -69,7 +51,6 @@ class JobPositionService {
     @Post("/count")
     public countWithFilter(filter: any) {
         try {
-            this.checkPermissions("read");
             return { count: this.repository.count(filter) };
         } catch (error: any) {
             this.handleError(error);
@@ -79,7 +60,6 @@ class JobPositionService {
     @Post("/search")
     public search(filter: any) {
         try {
-            this.checkPermissions("read");
             return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
@@ -89,16 +69,15 @@ class JobPositionService {
     @Get("/:id")
     public getById(_: any, ctx: any) {
         try {
-            this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
-            const options: JobPositionEntityOptions = {
+            const options: JobRoleEntityOptions = {
                 $language: request.getLocale().split("_")[0]
             };
             const entity = this.repository.findById(id, options);
             if (entity) {
                 return entity;
             } else {
-                HttpUtils.sendResponseNotFound("JobPosition not found");
+                HttpUtils.sendResponseNotFound("JobRole not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -108,7 +87,6 @@ class JobPositionService {
     @Put("/:id")
     public update(entity: any, ctx: any) {
         try {
-            this.checkPermissions("write");
             entity.Id = ctx.pathParameters.id;
             this.validateEntity(entity);
             this.repository.update(entity);
@@ -121,14 +99,13 @@ class JobPositionService {
     @Delete("/:id")
     public deleteById(_: any, ctx: any) {
         try {
-            this.checkPermissions("write");
             const id = ctx.pathParameters.id;
             const entity = this.repository.findById(id);
             if (entity) {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("JobPosition not found");
+                HttpUtils.sendResponseNotFound("JobRole not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -145,27 +122,12 @@ class JobPositionService {
         }
     }
 
-    private checkPermissions(operationType: string) {
-        if (operationType === "read" && !(user.isInRole("codbex-jobs.Teams.JobPositionReadOnly") || user.isInRole("codbex-jobs.Teams.JobPositionFullAccess"))) {
-            throw new ForbiddenError();
-        }
-        if (operationType === "write" && !user.isInRole("codbex-jobs.Teams.JobPositionFullAccess")) {
-            throw new ForbiddenError();
-        }
-    }
-
     private validateEntity(entity: any): void {
-        if (entity.Number?.length > 20) {
-            throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
+        if (entity.Name === null || entity.Name === undefined) {
+            throw new ValidationError(`The 'Name' property is required, provide a valid value`);
         }
-        if (entity.Status === null || entity.Status === undefined) {
-            throw new ValidationError(`The 'Status' property is required, provide a valid value`);
-        }
-        if (entity.Type === null || entity.Type === undefined) {
-            throw new ValidationError(`The 'Type' property is required, provide a valid value`);
-        }
-        if (entity.DateOpened === null || entity.DateOpened === undefined) {
-            throw new ValidationError(`The 'DateOpened' property is required, provide a valid value`);
+        if (entity.Name?.length > 50) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [50] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

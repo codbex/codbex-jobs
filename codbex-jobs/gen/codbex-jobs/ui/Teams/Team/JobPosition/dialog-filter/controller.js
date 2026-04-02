@@ -22,7 +22,10 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		$scope.entity = params.entity ?? {};
 		$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
+<<<<<<< 48-refactor-number-gen-method
 		$scope.optionsRole = params.optionsRole;
+=======
+>>>>>>> main
 		$scope.optionsStatus = params.optionsStatus;
 		$scope.optionsType = params.optionsType;
 		$scope.optionsTeam = params.optionsTeam;

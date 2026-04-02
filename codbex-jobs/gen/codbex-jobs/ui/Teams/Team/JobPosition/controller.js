@@ -157,7 +157,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				params: {
 					action: 'select',
 					entity: entity,
-					optionsRole: $scope.optionsRole,
 					optionsStatus: $scope.optionsStatus,
 					optionsType: $scope.optionsType,
 					optionsTeam: $scope.optionsTeam,
@@ -170,7 +169,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				id: 'JobPosition-filter',
 				params: {
 					entity: $scope.filterEntity,
-					optionsRole: $scope.optionsRole,
 					optionsStatus: $scope.optionsStatus,
 					optionsType: $scope.optionsType,
 					optionsTeam: $scope.optionsTeam,
@@ -189,7 +187,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					},
 					selectedMainEntityKey: 'Team',
 					selectedMainEntityId: $scope.selectedMainEntityId,
-					optionsRole: $scope.optionsRole,
 					optionsStatus: $scope.optionsStatus,
 					optionsType: $scope.optionsType,
 					optionsTeam: $scope.optionsTeam,
@@ -206,7 +203,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					entity: entity,
 					selectedMainEntityKey: 'Team',
 					selectedMainEntityId: $scope.selectedMainEntityId,
-					optionsRole: $scope.optionsRole,
 					optionsStatus: $scope.optionsStatus,
 					optionsType: $scope.optionsType,
 					optionsTeam: $scope.optionsTeam,
@@ -248,26 +244,10 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsRole = [];
 		$scope.optionsStatus = [];
 		$scope.optionsType = [];
 		$scope.optionsTeam = [];
 
-
-		$http.get('/services/ts/codbex-companies/gen/codbex-companies/api/Companies/JobRoleService.ts').then((response) => {
-			$scope.optionsRole = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'Role',
-				message: LocaleService.t('codbex-jobs:codbex-jobs-model.messages.error.unableToLoad', { message: message }),
-				type: AlertTypes.Error
-			});
-		});
 
 		$http.get('/services/ts/codbex-jobs/gen/codbex-jobs/api/Entities/JobStatusService.ts').then((response) => {
 			$scope.optionsStatus = response.data.map(e => ({
@@ -314,14 +294,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			});
 		});
 
-		$scope.optionsRoleValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsRole.length; i++) {
-				if ($scope.optionsRole[i].value === optionKey) {
-					return $scope.optionsRole[i].text;
-				}
-			}
-			return null;
-		};
 		$scope.optionsStatusValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsStatus.length; i++) {
 				if ($scope.optionsStatus[i].value === optionKey) {

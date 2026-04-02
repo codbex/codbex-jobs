@@ -274,6 +274,25 @@
                 ]
             },
             {
+                "name": "CODBEX_JOBROLE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "JOBROLE_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "JOBROLE_NAME"
+                    }
+                ]
+            },
+            {
                 "name": "JobAssignment_Employee",
                 "type": "foreignKey",
                 "table": "CODBEX_JOBASSIGNMENT",
@@ -316,7 +335,7 @@
                 "constraintName": "JobPosition_JobRole",
                 "columns": "JOBPOSITION_ROLE",
                 "referencedTable": "CODBEX_JOBROLE",
-                "referencedColumns": "COMPANYROLE_ID"
+                "referencedColumns": "JOBROLE_ID"
             },
             {
                 "name": "JobPosition_JobStatus",

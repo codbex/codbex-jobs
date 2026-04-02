@@ -1,0 +1,5 @@
+{
+    "module": "codbex-jobs/gen/codbex-jobs/ui/Settings/JobRole/view.js",
+    "extensionPoint": "application-settings",
+    "description": "codbex-jobs - Application View"
+}
